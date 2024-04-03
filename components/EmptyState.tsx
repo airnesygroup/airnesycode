@@ -26,7 +26,7 @@ const EmptyState: React.FC<EmptyProps> = ({
             href="../"
             className="bg-white border-[1px] border-gray-500 text-[#4e4e4e] p-4 rounded hover:opacity-80 transition "
           >
-            Go back hom
+            Go back home
           </Link>
       
       </div>
