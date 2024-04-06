@@ -13,12 +13,12 @@ import { FaInstagram, FaTwitter, FaTiktok, FaFacebookF, FaYoutube, FaReddit, FaD
                             <p className="textlg2 font-bold pb-3 ">join our community</p>
 
                             <div className="flex items-center justify-center  pl-5 pr-5  space-x-2">
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaInstagram /></a></div>
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaTwitter /></a></div>
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaTiktok /></a></div>
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaFacebookF /></a></div>
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaYoutube /></a></div>
-    <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaReddit /></a></div>
+    <div className="icon-circle"><a href=" https://www.instagram.com/airnesy/ " className="hover:text-gray-400"><FaInstagram /></a></div>
+    <div className="icon-circle"><a href="https://x.com/,m" className="hover:text-gray-400"><FaTwitter /></a></div>
+    <div className="icon-circle"><a href="https:/tiktok.com/" className="hover:text-gray-400"><FaTiktok /></a></div>
+    <div className="icon-circle"><a href="https://facebook.com/" className="hover:text-gray-400"><FaFacebookF /></a></div>
+    <div className="icon-circle"><a href=" https://youtube.com/@Airnesy?si=Xpa2bHvJzqI2R43f  " className="hover:text-gray-400"><FaYoutube /></a></div>
+    <div className="icon-circle"><a href=" https://www.reddit.com/user/airnesy/  " className="hover:text-gray-400"><FaReddit /></a></div>
     <div className="icon-circle"><a href="#" className="hover:text-gray-400"><FaDiscord /></a></div>
 </div>
 
@@ -75,7 +75,7 @@ import { FaInstagram, FaTwitter, FaTiktok, FaFacebookF, FaYoutube, FaReddit, FaD
 
                                <div className="mb-4 md:mb-0">
                                  <h1 className="text-lg font-bold">Contact </h1>
-                                 <p className="mt-2">123 Main Street, NRB, Kenya</p>
+                                 <p className="mt-2">Waiyaki way, NRB, Kenya</p>
                                  <p>Email: airnesy.info@gmail.com</p>
                                  <p> 
                                  Support

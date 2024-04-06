@@ -91,7 +91,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
           <div className="flex flex-row items-baseline gap-1 pl-4">
             <span className="font-bold text-[#444] text-[14px]">
-              $ {formatPrice(price)}
+              KES {formatPrice(price)}
             </span>
             {!reservation && <span className="font-light">/month</span>}
           </div>

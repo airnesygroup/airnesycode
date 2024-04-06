@@ -7,7 +7,7 @@ const Logo = () => {
     <Link href="/" className="h-[35px] w-[150px] relative pr-10 hidden sm:block  pl-10 pl-1 ">
       <Image
         src="/images/logo.png"
-        alt="airnesy.com logo"
+        alt="airnesy logo"
         
         fill
         sizes="150px"
