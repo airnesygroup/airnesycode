@@ -95,12 +95,12 @@
   }
 
   .title {
-    padding-top: 0;
+    margin-top: 0;
     font-size: 17px;
   }
 
   .desc {
-    padding-top: 0;
+    margin-top: 0;
     font-size: 12px;
   }
 
@@ -109,7 +109,7 @@
   }
   .link {
     font-size: 12px;
-     padding-top: 0;
+    margin-top: 0;
   }
 
   .date {

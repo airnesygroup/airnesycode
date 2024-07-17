@@ -52,3 +52,10 @@ padding-top: 35px;
   color: white;
   font-size: 24px;
 }
+
+@media (max-width: 640px) {
+  .carouselItem {
+    width: 230px;
+  
+  }
+ }

@@ -109,7 +109,7 @@
   }
 
   .desc {
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 5px;
   }
 
@@ -122,8 +122,8 @@
   }
 
   .chevron {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
   }
 }
