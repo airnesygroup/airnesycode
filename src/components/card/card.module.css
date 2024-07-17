@@ -1,3 +1,4 @@
+/* Old styles for large screens */
 .container {
   margin-bottom: 15px;
   display: flex;
@@ -22,6 +23,27 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.profileImage2 {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 640px) {
+.profileImage2 {
+ 
+  display: none;
+
+}
+}
+
+@media screen and (min-width: 640px) {
+  .profileImage {
+   
+    display: none;
+  
+  }
+  }
+
 
 .userInfo {
   display: flex;
@@ -33,7 +55,6 @@
   font-weight: bold;
   margin: 0;
   color: gray;
-
 }
 
 .userRole {
@@ -84,8 +105,57 @@
   border-radius: 8px;
 }
 
+/* 
 /* Media query for screens below 640px */
 @media (max-width: 640px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .profileContainer {
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .profileImage {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .verticalLine {
+    width: 1px;
+    background-color: gray;
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1; /* Allow the info container to take up remaining space */
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between; /* Adjusts the header layout for small screens */
+    width: 100%;
+  }
+
+  .userProfile {
+    display: flex; /* Ensure the userProfile still aligns items horizontally */
+    flex-direction: row; /* Keep it row direction on small screens */
+    align-items: center; /* Align items to the center vertically */
+    margin-top: 0; /* Adjust margin if necessary */
+    flex: 1;
+  }
+
   .username {
     font-size: 12px;
   }
@@ -95,41 +165,24 @@
   }
 
   .title {
-    margin-top: -4;
     font-size: 17px;
-    padding-left: 30px;
-
   }
 
   .desc {
-    margin-top: -4;
     font-size: 13px;
-    padding-left: 30px;
-
   }
 
   .imageContainer {
-    min-height: 260px;
-    padding-left: 30px;
-  }
-
-  .image {
-    object-fit: contain;
-    padding-left: 30px;
+    min-height: 250px;
+    width: 100%; /* Make sure the image container takes the full width */
   }
 
   .link {
     font-size: 12px;
-    margin-top: -4;
-    margin-left: 30px;
-
   }
-
-
 
   .date {
     font-size: 12px;
-
   }
 
   .category {
@@ -137,4 +190,3 @@
     padding: 1px 4px;
   }
 }
-
