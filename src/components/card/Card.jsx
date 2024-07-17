@@ -30,7 +30,6 @@ const Card = ({ key, item }) => {
 
           </div>
             </div>
-            <span className={styles.date}>{item.createdAt.substring(0, 10)}</span>
           </div>
           <span className={styles.category}>{item.catSlug}</span>
         </div>
