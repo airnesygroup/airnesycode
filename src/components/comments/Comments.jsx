@@ -24,7 +24,7 @@ const Comments = ({ postSlug }) => {
   const { status } = useSession();
 
   const { data, mutate, isLoading } = useSWR(
-    `https://huberman-azure.vercel.app/api/comments?postSlug=${postSlug}`,
+    `https://www.airnesy.com/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 

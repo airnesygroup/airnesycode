@@ -8,7 +8,7 @@ import Image from "next/image";
 // Define the getData function at the top
 const getData = async () => {
   try {
-    const res = await fetch("https://huberman-azure.vercel.app/api/categories", {
+    const res = await fetch("https://www.airnesy.com/api/categories", {
       cache: "no-store",
     });
 
