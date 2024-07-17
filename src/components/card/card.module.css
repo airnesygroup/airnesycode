@@ -113,6 +113,11 @@
     padding-left: 30px;
   }
 
+  .image {
+    object-fit: contain;
+    padding-left: 30px;
+  }
+
   .link {
     font-size: 12px;
     margin-top: -4;
