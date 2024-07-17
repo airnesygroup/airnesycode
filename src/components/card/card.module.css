@@ -97,19 +97,26 @@
   .title {
     margin-top: -4;
     font-size: 17px;
+    padding-left: 30px;
+
   }
 
   .desc {
     margin-top: -4;
     font-size: 13px;
+    padding-left: 30px;
+
   }
 
   .imageContainer {
     min-height: 260px;
+    padding-left: 30px;
   }
   .link {
     font-size: 12px;
     margin-top: -4;
+    padding-left: 30px;
+
   }
 
   .date {
