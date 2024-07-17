@@ -68,7 +68,7 @@ a {
 }
 @media screen and (max-width: 768px) {
   .wrapper {
-    padding: 0; 
+    padding: 20; 
   }
 }
 @media screen and (max-width: 640px) {
