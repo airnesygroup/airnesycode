@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 5px;
 }
 
 .header {
@@ -15,8 +16,6 @@
 .userProfile {
   display: flex;
   align-items: center;
-  padding-left: 4px;
-
   margin-top: 10px;
 }
 
@@ -59,34 +58,28 @@
 .title {
   font-size: 24px;
   font-weight: bold;
-  padding-left: 4px;
 }
 
 .desc {
   font-size: 18px;
   font-weight: 300;
   color: var(--softTextColor);
-  padding-left: 4px;
-
 }
 
 .link {
   border-bottom: 1px solid #ffbc00;
   width: max-content;
   padding: 2px 0;
-  padding-left: 4px;
-
 }
 
 .imageContainer {
   height: 400px;
   width: 100%;
-
   position: relative;
 }
 
 .image {
   object-fit: cover;
-  padding: 0;
+  border-radius: 8px;
 }
 
