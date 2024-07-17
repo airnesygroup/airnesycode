@@ -3,19 +3,16 @@
   overflow: hidden;
   width: 100%;
   border-radius: 10px;
-
 }
 
 .imageContainer {
   position: relative;
   width: 100%;
   height: 210px; /* Adjust the height as needed */
-
 }
 
 .image {
   object-fit: cover;
-
 }
 
 .textOverlay {
@@ -37,12 +34,11 @@
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
 .desc {
   font-size: 16px;
   color: #fff;
@@ -51,7 +47,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 .userProfile {
   display: flex;
@@ -100,4 +95,35 @@
 
 .chevron.right {
   right: 10px;
+}
+
+/* Media query for screens below 640px */
+@media (max-width: 640px) {
+  .imageContainer {
+    height: 150px; /* Adjust height for small screens */
+  }
+
+  .title {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .desc {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .username {
+    font-size: 9px;
+  }
+
+  .userRole {
+    font-size: 10px;
+  }
+
+  .chevron {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
 }

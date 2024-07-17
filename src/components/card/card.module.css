@@ -32,6 +32,8 @@
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+  color: gray;
+
 }
 
 .userRole {
@@ -93,15 +95,26 @@
   }
 
   .title {
-    font-size: 20px;
+    padding-top: 0;
+    font-size: 17px;
   }
 
   .desc {
-    font-size: 16px;
+    padding-top: 0;
+    font-size: 12px;
   }
 
   .imageContainer {
-    min-height: 200px;
+    min-height: 250px;
+  }
+  .link {
+    font-size: 12px;
+     padding-top: 0;
+  }
+
+  .date {
+    font-size: 12px;
+
   }
 
   .category {
