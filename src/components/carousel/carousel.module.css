@@ -126,4 +126,8 @@
     height: 20px;
     font-size: 15px;
   }
+  .container {
+  
+    border-radius: 5px;
+  }
 }

@@ -110,7 +110,7 @@
 
   .imageContainer {
     min-height: 260px;
-    padding-left: 30px;
+    margin-left: 30px;
   }
 
   .link {
@@ -120,10 +120,7 @@
 
   }
 
-  .image {
-    padding-left: 30px;
 
-  }
 
   .date {
     font-size: 12px;
