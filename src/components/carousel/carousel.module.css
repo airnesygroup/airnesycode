@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-  color: #fff;
+  color: #fcfcfc;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
@@ -34,7 +34,7 @@
 .title {
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: 10px;
+  padding-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -42,8 +42,8 @@
 
 .desc {
   font-size: 16px;
-  color: #fff;
-  margin-bottom: 10px;
+  color: #fcfcfc;
+  padding-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -52,7 +52,7 @@
 .userProfile {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .profileImage {
@@ -69,6 +69,8 @@
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+  color: #fcfcfc;
+
 }
 
 .userRole {
@@ -101,25 +103,32 @@
 /* Media query for screens below 640px */
 @media (max-width: 640px) {
   .imageContainer {
-    height: 150px; /* Adjust height for small screens */
+    height: 145px; /* Adjust height for small screens */
   }
 
   .title {
-    font-size: 17px;
-    margin-bottom: 4px;
+    font-size: 15px;
+    margin-bottom: 0;
   }
 
   .desc {
     font-size: 12px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+
   }
 
   .username {
     font-size: 9px;
+    margin-bottom: 0;
+
   }
 
   .userRole {
     font-size: 10px;
+  }
+  .userProfile {
+   
+    margin-top: 2px;
   }
 
   .chevron {
