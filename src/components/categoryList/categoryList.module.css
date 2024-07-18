@@ -72,6 +72,11 @@
   
   }
 
+  .category  {
+   font-size: 12px;
+  }
+  
+
   .categories {
     margin: 0px 0px;
     /* Adjust margin for smaller screens */
