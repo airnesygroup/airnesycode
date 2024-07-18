@@ -68,6 +68,7 @@
 @media (max-width: 640px) {
   .container {
     flex-direction: column;
+    padding-top: 38px;
   
   }
 
