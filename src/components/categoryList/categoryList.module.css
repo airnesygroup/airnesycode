@@ -18,7 +18,7 @@
   display: inline-block; /* Ensure each category is on a single line */
   white-space: nowrap; /* Prevent text from wrapping */
   padding: 6px 10px; /* Add padding for spacing */
-  background-color: gray;
+  background-color: rgb(43, 42, 42);
   border-radius: 10px;
   
   margin-right: 10px; /* Add margin between categories */
