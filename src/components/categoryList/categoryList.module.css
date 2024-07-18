@@ -1,16 +1,20 @@
+
 .container {
   width: 100%;
   margin-top: 55px;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  padding-bottom: 20px; /* Add bottom padding to prevent content cut-off */
+  overflow: hidden; /* Hide any overflowing content */
+  position: relative; /* Position relative for absolute positioning */
+  padding-bottom: 30px; /* Add bottom padding to prevent content cut-off */
 }
 
 .categories {
   display: inline-flex; /* Display items in a row */
   flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
   padding: 0 6px; /* Add padding for spacing */
-  margin-bottom: -20px; /* Offset padding-bottom of .container */
+  transform: translateX(0); /* Ensure no horizontal scrolling visible */
+  position: absolute; /* Position absolute for full width */
+  width: 100%; /* Occupy full width */
+  white-space: nowrap;  
 }
 
 
@@ -58,7 +62,7 @@
   }
 
   .categories {
-    margin: 0px 5px;
+    margin: 0px 0px;
     /* Adjust margin for smaller screens */
   }
 
