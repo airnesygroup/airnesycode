@@ -72,4 +72,17 @@
   .link {
     display: none;
   }
+
+  .wrapper {
+
+    padding: 0 6px; /* Optional: Add some padding */
+  
+  }
+
+  .container {
+  
+    height: 45px;
+ 
+  }
+  
 }

@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  margin-top: 55px;
+  padding-top: 55px;
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbar */
   padding-bottom: 6px; /* Add bottom padding to prevent content cut-off */
@@ -65,7 +65,7 @@
   margin: 0 auto 5px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .container {
     flex-direction: column;
   
