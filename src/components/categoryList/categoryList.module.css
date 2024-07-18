@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 55px;
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbar */
   padding-bottom: 20px; /* Add bottom padding to prevent content cut-off */
@@ -9,7 +9,7 @@
 .categories {
   display: inline-flex; /* Display items in a row */
   flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
-  padding: 10px 0; /* Add padding for spacing */
+  padding: 0 6px; /* Add padding for spacing */
   margin-bottom: -20px; /* Offset padding-bottom of .container */
 }
 
@@ -58,8 +58,7 @@
   }
 
   .categories {
-    margin: 0 20px;
-    margin-left: 2px;
+    margin: 0px 5px;
     /* Adjust margin for smaller screens */
   }
 
