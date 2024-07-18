@@ -1,98 +1,75 @@
 .container {
-  margin-top: 30px;
-
-}
-
-.title {
-  margin: 50px 0px;
+  width: 100%;
+  margin-top: 50px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  padding-bottom: 20px; /* Add bottom padding to prevent content cut-off */
 }
 
 .categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  display: inline-flex; /* Display items in a row */
+  flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+  padding: 10px 0; /* Add padding for spacing */
+  margin-bottom: -20px; /* Offset padding-bottom of .container */
 }
+
 
 .category {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: capitalize;
-  width: 15%;
-  height: 80px;
-  justify-content: center;
+  display: inline-block; /* Ensure each category is on a single line */
+  white-space: nowrap; /* Prevent text from wrapping */
+  padding: 6px 10px; /* Add padding for spacing */
+  background-color: gray;
   border-radius: 10px;
+  
+  margin-right: 10px; /* Add margin between categories */
 }
 
-.category.well-being {
-  background-color: #57c4ff31;
+/* Add specific styles for each category based on its slug */
+
+
+.scrollButton {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
 }
 
-.category.nutrition {
-  background-color: #da85c731;
+.scrollButton:first-of-type {
+  left: 0;
 }
 
-.category.fitness {
-  background-color: #7fb88133;
+.scrollButton:last-of-type {
+  right: 0;
 }
 
-.category.mental {
-  background-color: #ff795736;
+
+
+.category img {
+  display: block;
+  margin: 0 auto 5px;
 }
 
-.category.sleep {
-  background-color: #ffb04f45;
-}
-
-.category.neurobiology {
-  background-color: #5e4fff31;
-}
-.category.supplements {
-  background-color: #57c4ff31;
-}
-
-.category.addiction {
-  background-color: #da85c731;
-}
-
-.category.fertility {
-  background-color: #7fb88133;
-}
-
-.category.productivity {
-  background-color: #ff795736;
-}
-
-.category.hormones {
-  background-color: #ffb04f45;
-}
-
-.category.memory {
-  background-color: #5e4fff31;
-}
-
-.image {
-  border-radius: 50%;
-}
-
-@media screen and (max-width: 1280px) {
-  .category {
-    width: 20%;
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
   }
-}
-@media screen and (max-width: 1024px) {
-  .category {
-    width: 25%;
+
+  .categories {
+    margin: 0 20px; /* Adjust margin for smaller screens */
   }
-}
-@media screen and (max-width: 768px) {
-  .category {
-    width: 45%;
+
+  .scrollButton {
+    top: 50%;
+    transform: translateY(-50%);
   }
-}
-@media screen and (max-width: 640px) {
-  .category {
-    width: 100%;
+
+  .scrollButton:first-of-type {
+    left: 5px;
+  }
+
+  .scrollButton:last-of-type {
+    right: 5px;
   }
 }

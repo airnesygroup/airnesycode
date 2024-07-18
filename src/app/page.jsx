@@ -11,6 +11,8 @@ export default function Home({ searchParams }) {
 
   return (
     <div className={styles.container}>
+              <CategoryList/>
+
         <CarouselList page={page}/>
       <div className={styles.content}>
         <CardList page={page}/>

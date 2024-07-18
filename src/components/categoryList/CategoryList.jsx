@@ -62,16 +62,8 @@ const CategoryList = () => {
             className={`${styles.category} ${styles[item.slug]}`}
             key={item._id}
           >
-            {item.img && (
-           <Image
-           src={item.img}
-           alt={item.title}
-           width={32}
-           height={32}
-           className={styles.image}
-         />
+      
          
-            )}
             {item.title}
           </Link>
         ))}
