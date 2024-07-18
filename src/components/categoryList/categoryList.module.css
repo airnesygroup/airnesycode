@@ -54,10 +54,13 @@
 @media (max-width: 600px) {
   .container {
     flex-direction: column;
+  
   }
 
   .categories {
-    margin: 0 20px; /* Adjust margin for smaller screens */
+    margin: 0 20px;
+    margin-left: 2px;
+    /* Adjust margin for smaller screens */
   }
 
   .scrollButton {
