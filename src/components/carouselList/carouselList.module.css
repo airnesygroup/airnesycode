@@ -1,13 +1,9 @@
 /* carouselList.module.css */
 .container {
   position: relative;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Hide vertical scrollbar */
 max-width: 1400px;
-margin-top: 13px;
+margin-top: 35px;
 padding-left: 4px;
-
-
 }
 
 .title {
@@ -20,6 +16,21 @@ padding-left: 4px;
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbar */
     scroll-behavior: smooth;
+}
+
+
+.posts::-webkit-scrollbar {
+  width: 1px; /* Width of the scrollbar */
+  background-color: #000; /* Black background */
+  border-radius: 10px; /* Rounded corners */
+  height: 1px;
+}
+
+.posts::-webkit-scrollbar-thumb {
+  background-color: #414040; /* Gray scrollbar handle */
+  border-radius: 10px; /* Rounded corners */
+  width: 1px; /* Width of the scrollbar */
+
 }
 
 .carouselItem {
