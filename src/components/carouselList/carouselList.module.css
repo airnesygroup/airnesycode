@@ -17,8 +17,9 @@ padding-left: 4px;
 
 .posts {
   display: flex;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+    scroll-behavior: smooth;
 }
 
 .carouselItem {
