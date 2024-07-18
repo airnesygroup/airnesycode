@@ -2,9 +2,9 @@
 .container {
   position: relative;
 max-width: 1400px;
-margin-top: 35px;
+margin-top: 20px;
 padding-left: 4px;
-margin-bottom: 20px;
+margin-bottom: 5px;
 }
 
 .title {
@@ -75,7 +75,7 @@ margin-bottom: 20px;
   
   }
   .container {
-  margin-top: 5px;
+  margin-top: 6px;
   margin-bottom: 10px;
   }
   
