@@ -2,6 +2,8 @@
 .container {
   position: relative;
   overflow: hidden;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; 
 max-width: 1400px;
 padding-top: 5px;
 padding-left: 4px;
