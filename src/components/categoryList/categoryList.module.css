@@ -5,7 +5,7 @@
 
 .container {
   width: 100%;
-  padding-top: 55px;
+  padding-top: 60px;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 6px;
@@ -71,7 +71,7 @@
 }
 
 .scrollButton.right {
-  right: 20px;
+  right: 10px;
 }
 
 .category img {

@@ -40,49 +40,126 @@
 }
 
   
-.well-ness {
-  background-color: #ffb14f;
+.news {
+  background-color: #f4a261; /* Light orange */
 }
 
-.hormones {
-  background-color: #7fb881;
+.politics {
+  background-color: #2a9d8f; /* Teal */
 }
 
-.fertility {
-  background-color: #ff7887;
-}
-  
-.neurobiology {
-  background-color: #ff7857;
+.business {
+  background-color: #e76f51; /* Coral */
 }
 
-.addiction {
-  background-color: #ffb14f;
+.technology {
+  background-color: #264653; /* Dark blue */
 }
 
-.nutrition{
-  background-color: #7fb881;
-}
-
-.memory {
-  background-color: #ff7887;
-}
-  
-.mental {
-  background-color: #ff7857;
+.health {
+  background-color: #6a994e; /* Green */
 }
 
 .fitness {
-  background-color: #ffb14f;
+  background-color: #7b9acc; /* Light blue */
 }
 
-.supplements {
-  background-color: #7fb881;
+.science {
+  background-color: #f9c74f; /* Yellow */
 }
 
-.productivity {
-  background-color: #ff7887;
+.entertainment {
+  background-color: #f94144; /* Red */
 }
+
+.music {
+  background-color: #f3722c; /* Orange */
+}
+
+.movies {
+  background-color: #f9844a; /* Light orange */
+}
+
+.gaming {
+  background-color: #90be6d; /* Light green */
+}
+
+.sports {
+  background-color: #43aa8b; /* Green */
+}
+
+.lifestyle {
+  background-color: #577590; /* Blue */
+}
+
+.fashion {
+  background-color: #8d99ae; /* Grey */
+}
+
+.education {
+  background-color: #6c757d; /* Grey */
+}
+
+.environment {
+  background-color: #2d6a4f; /* Dark green */
+}
+
+.climate {
+  background-color: #8ecae6; /* Light blue */
+}
+
+.art {
+  background-color: #b9b9b9; /* Grey */
+}
+
+.design {
+  background-color: #d4a5a5; /* Light pink */
+}
+
+.books {
+  background-color: #f6c1c1; /* Light pink */
+}
+
+.diy {
+  background-color: #f0a500; /* Yellow-orange */
+}
+
+.crafts {
+  background-color: #fce3e3; /* Light pink */
+}
+
+.relationships {
+  background-color: #b4a7d6; /* Light purple */
+}
+
+.ama {
+  background-color: #f4a261; /* Light orange */
+}
+
+.humor {
+  background-color: #6d597a; /* Dark grey */
+}
+
+.food {
+  background-color: #f9b5d4; /* Light pink */
+}
+
+.travel {
+  background-color: #c6d9f1; /* Light blue */
+}
+
+.adventure {
+  background-color: #ffafcc; /* Light pink */
+}
+
+.opinion {
+  background-color: #ffddc1; /* Light peach */
+}
+
+
+
+
+
 
 .postTitle {
   font-size: 18px;
