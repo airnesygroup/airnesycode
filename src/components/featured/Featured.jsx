@@ -8,18 +8,15 @@ const Featured = () => {
     <div className={styles.container}>
       <div className={styles.post}>
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}><b>Welcome to</b> Huberman Lab.</h1>
-          <h5 className={styles.postTitle}> Let's make you Healthy</h5>
+          <h1 className={styles.postTitle}><b>Welcome to</b> Trello.</h1>
+          <h5 className={styles.postTitle}> Tell your story</h5>
           <p className={styles.postDesc}>
-            The Huberman Lab blog is published by Dr. Andrew Huberman, a neuroscientist and tenured professor 
-            of neurobiology and ophthalmology at Stanford School of Medicine. The blog discusses neuroscience
-            and science-based tools, including how our brain and its connections with the organs of our body
-            control our perceptions, our behaviors, and our health, 
-            as well as existing and emerging tools for measuring and changing how our nervous system works.
+           We are a stream-blog community based social platform,
+       where users can create posts, publish communities and interact weith others on a live preview. 
           </p>
           <div className={styles.buttonContainer}>
-            <Link href="/blog">
-              <button className={styles.button}>Read More</button>
+            <Link href="/login">
+              <button className={styles.button}>Sign up</button>
             </Link>
           </div>
         </div>

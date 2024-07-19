@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #00aeef;
+  background: #ffbc00;
   color: #fff;
   border-radius: 10px;
   width: max-content;
@@ -92,13 +92,13 @@
 
 @media screen and (max-width: 1280px) {
   .title {
-    font-size: 72px;
+    font-size: 42px;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .title {
-    font-size: 64px;
+    font-size: 34px;
   }
 
   .imgContainer {
@@ -108,12 +108,17 @@
 
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 640px) {
-  .title {
-    font-size: 36px;
+  .postTitle {
+    font-size: 20px;
+    padding-top: 40px;
+  }
+  .postDesc {
+    font-size: 15px;
+ 
   }
 }
