@@ -15,7 +15,7 @@ const Footer = () => {
         </Link>
         <p className={styles.desc}>
       Tell your story! Welcome to Airnesy, we are a stream-blog community based social platform,
-       where users can create posts, publish communities and interact weith others on a live preview. 
+       where users can create posts, publish communities and interact with others on a live preview. 
         </p>
     
       </div>

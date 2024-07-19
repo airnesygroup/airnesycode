@@ -8,8 +8,9 @@ import ThemeToggle from "../themeToggle/ThemeToggle";
 import { ThemeContext } from "@/context/ThemeContext";
 import Image from "next/image";
 
+
 const Navbar = () => {
-  const { theme } = useContext(ThemeContext);
+  const { toggle, theme } = useContext(ThemeContext);
 
   const containerStyle = theme === "dark" ? { backgroundColor: "#020203" } : { backgroundColor: "#fcfeff" };
 
@@ -21,9 +22,15 @@ const Navbar = () => {
             <Image src="/logo1.png" alt="lama blog" layout="fill" className={styles.logoImage} />
             <h1 className={styles.logoText}>Airnesy</h1>
           </div>
+         
         </Link>
         <div className={styles.links}>
-          <ThemeToggle />
+          <div className={styles.logo}    
+            onClick={toggle}
+        
+    >
+            <Image src="/moon.png" alt="theme toogle" layout="fill" className={styles.logoImage} />
+          </div>
           <Link href="/" className={styles.link}>Homepage</Link>
           <Link href="/" className={styles.link}>Communities</Link>
           <AuthLinks />

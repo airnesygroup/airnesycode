@@ -12,7 +12,7 @@ const Featured = () => {
           <h5 className={styles.postTitle}> Tell your story</h5>
           <p className={styles.postDesc}>
            We are a stream-blog community based social platform,
-       where users can create posts, publish communities and interact weith others on a live preview. 
+       where users can create posts, publish communities and interact with others on a live preview. 
           </p>
           <div className={styles.buttonContainer}>
             <Link href="/login">

@@ -10,8 +10,8 @@ import AuthProvider from "@/providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Huberman Lab",
-  description: "The Huberman Lab blog is published by Dr. Andrew Huberman, a neuroscientist and tenured professor of neurobiology and ophthalmology at Stanford School of Medicine. The blog discusses neuroscience and science-based tools, including how our brain and its connections with the organs of our body control our perceptions, our behaviors, and our health, as well as existing and emerging tools for measuring and changing how our nervous system works.",
+  title: "Airnesy",
+  description: "Tell your story! Welcome to Airnesy, we are a stream-blog community based social platform, where users can create posts, publish communities and interact with others on a live preview.",
 };
 
 export default function RootLayout({ children }) {
