@@ -8,7 +8,7 @@ const Featured = () => {
     <div className={styles.container}>
       <div className={styles.post}>
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}><b>Welcome to</b> Trello.</h1>
+          <h1 className={styles.postTitle}><b>Welcome to</b> Airnesy.</h1>
           <h5 className={styles.postTitle}> Tell your story</h5>
           <p className={styles.postDesc}>
            We are a stream-blog community based social platform,

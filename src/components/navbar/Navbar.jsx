@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link href="/">
           <div className={styles.logo}>
             <Image src="/logo1.png" alt="lama blog" layout="fill" className={styles.logoImage} />
-            <h1 className={styles.logoText}>Tello</h1>
+            <h1 className={styles.logoText}>Airnesy</h1>
           </div>
         </Link>
         <div className={styles.links}>

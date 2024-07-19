@@ -10,18 +10,18 @@ const Footer = () => {
       <Link href="/">
           <div className={styles.logo}>
             <Image src="/logo1.png" alt="lama blog" layout="fill" className={styles.logoImage} />
-            <h1 className={styles.logoText}>Tello</h1>
+            <h1 className={styles.logoText}>Airnesy</h1>
           </div>
         </Link>
         <p className={styles.desc}>
-      Tell your story! Welcome to tello, we are a stream-blog community based social platform,
+      Tell your story! Welcome to Airnesy, we are a stream-blog community based social platform,
        where users can create posts, publish communities and interact weith others on a live preview. 
         </p>
     
       </div>
       <div className={styles.links}>
         <div className={styles.list}>
-          <span className={styles.listTitle}>Tags</span>
+          <span className={styles.listTitle}>Top </span>
           <Link href="/blog?cat=politics">politics</Link>
           <Link href="/blog?cat=news">news</Link>
           <Link href="/blog?cat=technology">technology</Link>
@@ -29,15 +29,14 @@ const Footer = () => {
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Tags</span>
-          <Link href="/blog?cat=well-health">health</Link>
-          <Link href="/blog?cat=entertainment">entertainment</Link>
-          <Link href="/blog?cat=movies">movies</Link>
-          <Link href="/blog?cat=music">music</Link>
+          <Link href="/blog?cat=well-health">About</Link>
+          <Link href="/blog?cat=entertainment">Privacy Policy</Link>
+          <Link href="/blog?cat=movies">User Agreement</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>
-          <Link href="https://www.tiktok.com/@trello">Tiktok </Link>
-          <Link href="https://www.youtube.com/@trello">Youtube </Link>
+          <Link href="https://www.tiktok.com/@Airnesy">Tiktok </Link>
+          <Link href="https://www.youtube.com/@Airnesy">Youtube </Link>
 
         </div>
       </div>

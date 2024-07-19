@@ -86,6 +86,7 @@
   .container {
     flex-direction: column;
     gap: 50px;
+    padding: 6px;
   }
 
   .links {
@@ -116,5 +117,9 @@
     font-size: 16px;
     padding-left: 30px;
 
+  }
+  .container {
+  
+    padding: 6px;
   }
 }
