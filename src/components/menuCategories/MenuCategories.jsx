@@ -6,26 +6,25 @@ const MenuCategories = () => {
   return (
     <div className={styles.categoryList}>
       <Link
-        href="/blog?cat=well-being"
-        className={`${styles.categoryItem} ${styles.style}`}
+        href="/blog?cat=news"
+        className={`${styles.categoryItem} ${styles.news}`}
       >
-       Well-being
+       News
       </Link>
-      <Link href="/blog?cat=mental" className={`${styles.categoryItem} ${styles.fashion}`}>
-        Mental
+      <Link href="/blog?cat=business" className={`${styles.categoryItem} ${styles.business}`}>
+        Business
       </Link>
-      <Link href="/blog?cat=sleep" className={`${styles.categoryItem} ${styles.food}`}>
-        Sleep
+      <Link href="/blog?cat=technology" className={`${styles.categoryItem} ${styles.technology}`}>
+        Technology
       </Link>
-      <Link href="/blog?cat=nutrition" className={`${styles.categoryItem} ${styles.travel}`}>
-        Nutrition
+      <Link href="/blog?cat=sports" className={`${styles.categoryItem} ${styles.sports}`}>
+        Sports      </Link>
+        <Link href="/blog?cat=gaming" className={`${styles.categoryItem} ${styles.gaming}`}>
+        Gaming
       </Link>
-      <Link href="/blog?cat=fitness" className={`${styles.categoryItem} ${styles.culture}`}>
-        Fitness
-      </Link>
-      <Link href="/blog?cat=memory" className={`${styles.categoryItem} ${styles.coding}`}>
-       Memory
-      </Link>
+      <Link href="/blog?cat=entertainment" className={`${styles.categoryItem} ${styles.entertainment}`}>
+        Entertainment      </Link>
+   
     </div>
   );
 };
