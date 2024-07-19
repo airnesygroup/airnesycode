@@ -25,11 +25,11 @@ const Navbar = () => {
          
         </Link>
         <div className={styles.links}>
-          <div className={styles.logo}    
+          <div className={styles.theme}    
             onClick={toggle}
         
     >
-            <Image src="/moon.png" alt="theme toogle" layout="fill" className={styles.logoImage} />
+            <Image src="/moon.png" alt="theme toogle" layout="fill" className={styles.themeImage} />
           </div>
           <Link href="/" className={styles.link}>Homepage</Link>
           <Link href="/" className={styles.link}>Communities</Link>
