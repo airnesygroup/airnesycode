@@ -24,14 +24,15 @@ a {
 .dark {
   --bg: #020203;
   --textColor: #dfecf5;
-  --softBg: #1f273a;
+  --softBg: rgb(43, 42, 42);
+
   --softTextColor: #a6a6a6;
 }
 
 .light {
   --bg:#fcfeff ;
   --textColor: #0F1419;
-  --softBg: #f0f0f0;
+  --softBg: #F6F7F8;
   --softTextColor: #626262;
 }
 
@@ -49,6 +50,11 @@ a {
   padding-right: 8px;
 }
 
+
+body {
+  background-color: var(--bg);
+  color: var(--textColor);
+}
 @media screen and (max-width: 1400px) {
   .wrapper {
     max-width: 1366px;

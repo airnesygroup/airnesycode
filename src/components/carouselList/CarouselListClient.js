@@ -1,4 +1,3 @@
-// CarouselListClient.js
 "use client"; // Add this line at the top
 
 import React, { useRef } from "react";
@@ -17,6 +16,12 @@ const CarouselListClient = ({ posts }) => {
 
   return (
     <div className={styles.container}>
+      <button
+        className={`${styles.chevron} ${styles.left}`}
+        onClick={() => handleScroll("left")}
+      >
+        <span className={styles.chevronIcon}>{"<"}</span>
+      </button>
       <div className={styles.posts} ref={carouselRef}>
         {posts.map((item) => (
           item.img && (

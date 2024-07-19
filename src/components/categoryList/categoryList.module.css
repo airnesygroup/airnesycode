@@ -1,64 +1,78 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .container {
   width: 100%;
   padding-top: 55px;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  padding-bottom: 6px; /* Add bottom padding to prevent content cut-off */
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 6px;
+  position: relative; /* Added to position buttons within the container */
 }
 
 .categories {
-  display: inline-flex; /* Display items in a row */
-  flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
-  padding: 1px 6px; /* Add padding for spacing */
-  margin-bottom: -20px; /* Offset padding-bottom of .container */
+  display: inline-flex;
+  flex-wrap: nowrap;
+  padding: 1px 6px;
+  margin-bottom: -20px;
 }
 
 .container::-webkit-scrollbar {
-  width: 1px; /* Width of the scrollbar */
-  background-color: #000; /* Black background */
-  border-radius: 9px; /* Rounded corners */
+  width: 1px;
+  background-color: var(--bg);
+  border-radius: 10px;
   height: 1px;
 }
 
 .container::-webkit-scrollbar-thumb {
-  background-color: #414040; /* Gray scrollbar handle */
-  border-radius: 10px; /* Rounded corners */
-  width: 1px; /* Width of the scrollbar */
-
+  background-color: var(--softBg);
+  border-radius: 10px;
+  width: 1px;
 }
-
 
 .category {
-  display: inline-block; /* Ensure each category is on a single line */
-  white-space: nowrap; /* Prevent text from wrapping */
-  padding: 6px 10px; /* Add padding for spacing */
-  background-color: rgb(43, 42, 42);
+  display: inline-block;
+  white-space: nowrap;
+  padding: 6px 10px;
+  background-color: var(--softBg);
   border-radius: 10px;
-  
-  margin-right: 10px; /* Add margin between categories */
+  margin-right: 10px;
 }
 
-/* Add specific styles for each category based on its slug */
-
-
 .scrollButton {
-  background-color: #fff;
-  border: 1px solid #ccc;
   padding: 5px;
   cursor: pointer;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
+  top: 80%;
+  transform: translateY(-50%);
+  background: rgba(66, 62, 47, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  opacity: 0; /* Hide buttons by default */
+  transition: opacity 0.3s; /* Smooth transition */
 }
 
-.scrollButton:first-of-type {
-  left: 0;
+.wrapper:hover .scrollButton {
+  opacity: 1; /* Show buttons on hover */
 }
 
-.scrollButton:last-of-type {
-  right: 0;
+.scrollButton.left {
+  left: 10px;
 }
 
-
+.scrollButton.right {
+  right: 20px;
+}
 
 .category img {
   display: block;
@@ -69,29 +83,29 @@
   .container {
     flex-direction: column;
     padding-top: 38px;
-  
   }
 
-  .category  {
-   font-size: 13px;
+  .category {
+    font-size: 13px;
   }
-  
 
   .categories {
     margin: 0px 0px;
-    /* Adjust margin for smaller screens */
   }
 
   .scrollButton {
-    top: 50%;
+    top: 70%;
     transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
   }
 
-  .scrollButton:first-of-type {
+  .scrollButton.left {
     left: 5px;
   }
 
-  .scrollButton:last-of-type {
+  .scrollButton.right {
     right: 5px;
   }
 }

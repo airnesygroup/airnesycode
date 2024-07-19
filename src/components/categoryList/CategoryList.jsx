@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./categoryList.module.css";
 import Link from "next/link";
-import Image from "next/image";
 
-// Define the getData function at the top
 const getData = async () => {
   try {
     const res = await fetch("https://www.airnesy.com/api/categories", {
@@ -17,7 +15,7 @@ const getData = async () => {
     }
 
     const data = await res.json();
-    console.log("Fetched categories:", data); // Log fetched data
+    console.log("Fetched categories:", data);
     return data;
   } catch (err) {
     console.error("Error fetching data:", err);
@@ -25,16 +23,16 @@ const getData = async () => {
   }
 };
 
-// CategoryList component
 const CategoryList = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const categories = await getData();
-        console.log("Categories in component:", categories); // Log categories in component
+        console.log("Categories in component:", categories);
         setData(categories);
       } catch (err) {
         setError(err.message);
@@ -43,6 +41,13 @@ const CategoryList = () => {
 
     fetchData();
   }, []);
+
+  const handleScroll = (direction) => {
+    if (containerRef.current) {
+      const scrollAmount = direction === "left" ? -200 : 200;
+      containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -53,21 +58,32 @@ const CategoryList = () => {
   }
 
   return (
-    <div className={styles.container}>
-   
-      <div className={styles.categories}>
-        {data.map((item) => (
-          <Link
-            href={`/blog?cat=${item.slug}`}
-            className={`${styles.category} ${styles[item.slug]}`}
-            key={item._id}
-          >
-      
-         
-            {item.title}
-          </Link>
-        ))}
+    <div className={styles.wrapper}>
+      <button
+        className={`${styles.scrollButton} ${styles.left}`}
+        onClick={() => handleScroll("left")}
+      >
+        &lt;
+      </button>
+      <div className={styles.container} ref={containerRef}>
+        <div className={styles.categories}>
+          {data.map((item) => (
+            <Link
+              href={`/blog?cat=${item.slug}`}
+              className={`${styles.category} ${styles[item.slug]}`}
+              key={item._id}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
       </div>
+      <button
+        className={`${styles.scrollButton} ${styles.right}`}
+        onClick={() => handleScroll("right")}
+      >
+        &gt;
+      </button>
     </div>
   );
 };
