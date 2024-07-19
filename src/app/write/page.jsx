@@ -117,12 +117,29 @@ const WritePage = () => {
         value={catSlug}
         onChange={(e) => setCatSlug(e.target.value)}
       >
-        <option value="style">style</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
+       <option value="news">News</option>
+<option value="politics">Politics</option>
+<option value="business">Business & Finance</option>
+<option value="technology">Technology</option>
+<option value="health">Health & Wellness</option>
+<option value="science">Science</option>
+<option value="entertainment">Movies & Music</option>
+<option value="gaming">Gaming</option>
+<option value="sports">Sports & Athletics</option>
+<option value="lifestyle">Lifestyle & Fashion</option>
+<option value="education">Education & Learning</option>
+<option value="environment">Environment & Climate</option>
+<option value="art">Art & Design</option>
+<option value="books">Books & Literature</option>
+<option value="crafts">DIY & Crafts</option>
+<option value="relationships">Relationships</option>
+<option value="ama">Ask Me Anything</option>
+<option value="humor">Humor & Memes</option>
+<option value="food">Food & Drink</option>
+<option value="travel">Travel & Adventure</option>
+<option value="opinion">Opinion & Editorials</option>
+
+
       </select>
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
