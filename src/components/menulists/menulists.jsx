@@ -1,8 +1,10 @@
+// Import necessary hooks and components from React and Next.js
 import React from "react";
-import styles from "./menulists.module.css";
 import MenuPosts from "../menuPosts/MenuPosts";
+import styles from "./menulists.module.css";
 
-const getData = async (page, cat) => {
+// Define a server component to fetch data and pass it to the client component
+const MenuListsServer = async ({ page, cat }) => {
   const res = await fetch(
     `https://www.airnesy.com/api/post2?page=${page}&cat=${cat || ""}`,
     {
@@ -11,24 +13,18 @@ const getData = async (page, cat) => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch data");
   }
 
-  return res.json();
-};
-
-const Menulists = async ({ page, cat }) => {
-  const { posts, count } = await getData(page, cat);
-
+  const { posts, count } = await res.json();
   const POST_PER_PAGE = 4;
-
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
     <div className={styles.container}>
       <div className={styles.posts}>
-        {posts?.map((item) => (
+        {posts.map((item) => (
           <MenuPosts item={item} withImage={true} key={item._id} />
         ))}
       </div>
@@ -36,4 +32,4 @@ const Menulists = async ({ page, cat }) => {
   );
 };
 
-export default Menulists;
+export default MenuListsServer;
