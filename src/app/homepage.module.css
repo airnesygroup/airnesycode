@@ -1,3 +1,7 @@
+.content1{
+  display: flex;
+  gap: 50px;
+}
 /* homepage.module.css */
 
 .container {
@@ -5,16 +9,20 @@
   flex-wrap: nowrap;
 }
 
+/* Hide scrollbar by default */
 .menu {
   position: fixed;
-  top: 55px;
   width: 250px;
   max-height: 100vh; /* Full height */
-  overflow-y: auto; /* Scrollable menu */
   z-index: 1000;
-  background-color: #fff; /* Ensure the background is set */
+  margin-top: 55px;
+  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
 
+/* Show scrollbar only when hovering over the menu */
+
+
+/* Keep existing styles for the mainContent and media queries */
 .mainContent {
   margin-left: 300px; /* Account for fixed menu */
   flex: 1;
@@ -25,7 +33,6 @@
   padding-left: 5%;
 }
 
-/* Media query to adjust layout based on screen size */
 @media screen and (max-width: 1024px) {
   .menu {
     width: 250px; /* Adjust this width as needed */

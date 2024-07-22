@@ -5,8 +5,20 @@
   padding: 12px;
   width: 100%;
   height: calc(100vh - 40px); /* Adjust height considering margin-top */
-  overflow-y: auto;
+  overflow-y: hidden;
+  flex: 1.5;
 }
+
+
+.container:hover {
+  overflow-y: scroll; /* Show scrollbar on hover */
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
 
 .subtitle {
   color: gray;

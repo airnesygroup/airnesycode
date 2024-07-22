@@ -89,7 +89,7 @@
 .searchBar {
   width: 100%;
   max-width: 500px; /* Adjust the max-width as needed */
-  height: 35px; /* Adjust height */
+  height: 38px; /* Adjust height */
   padding: 0 10px; /* Add padding inside the search bar */
   border: 1px solid; /* Add border */
   background-color: var(--softBg);
