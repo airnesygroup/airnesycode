@@ -54,7 +54,7 @@ const SidebarCategoryList = () => {
     }));
   };
 
-  const displayedCategories = showAllCategories ? data : data.slice(0, 5);
+  const displayedCategories = showAllCategories ? data : data.slice(0, 10);
 
   if (error) {
     return <div>Error: {error}</div>;
