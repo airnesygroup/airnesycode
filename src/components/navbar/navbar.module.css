@@ -75,6 +75,59 @@
   font-size: 20px;
 }
 
+
+/* Existing CSS... */
+
+.searchContainer {
+  flex: 1;
+  display: flex;
+  justify-content: right; /* Center the search bar */
+  align-items: center;
+  padding: 0 20px; /* Add some padding if needed */
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 500px; /* Adjust the max-width as needed */
+  height: 35px; /* Adjust height */
+  padding: 0 10px; /* Add padding inside the search bar */
+  border: 1px solid; /* Add border */
+  background-color: var(--softBg);
+  border-color: var(--softBg);
+  border-radius: 50px; /* Add border radius */
+  font-size: 16px; /* Adjust font size */
+  outline: none; /* Remove default focus outline */
+}
+
+@media screen and (max-width: 1280px) {
+  .searchBar {
+    max-width: 250px; /* Adjust for smaller screens */
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .searchBar {
+    max-width: 200px; /* Adjust for smaller screens */
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .searchBar {
+    max-width: 150px; /* Adjust for smaller screens */
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .searchBar {
+    max-width: 120px; /* Adjust for very small screens */
+    height: 24px;
+  }
+}
+
+
 @media screen and (max-width: 1280px) {
 
   .theme {

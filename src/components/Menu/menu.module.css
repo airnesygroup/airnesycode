@@ -1,10 +1,11 @@
-.container {
-  flex: 1.5;
-  margin-top: 20px;
-  background-color: rgb(246, 249, 252);
-  border-radius: 10PX;
-  padding: 12px;
+/* menu.module.css */
 
+.container {
+  background-color: var(--bg);
+  padding: 12px;
+  width: 100%;
+  height: calc(100vh - 40px); /* Adjust height considering margin-top */
+  overflow-y: auto;
 }
 
 .subtitle {
@@ -12,6 +13,7 @@
   font-size: 16px;
   font-weight: 400;
 }
+
 .title {
   font-size: 22px;
 }
@@ -19,11 +21,17 @@
 .subtitle2 {
   color: gray;
   font-size: 16px;
-  font-weight: 400; 
-   margin-top: 80px;
+  font-weight: 400;
+  margin-top: 80px;
 }
 
 @media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
   .container {
     display: none;
   }

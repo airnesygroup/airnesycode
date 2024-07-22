@@ -11,12 +11,16 @@ export default function Home({ searchParams }) {
 
   return (
     <div className={styles.container}>
-              <CategoryList/>
-
-        <CarouselList page={page}/>
-      <div className={styles.content}>
-        <CardList page={page}/>
+      <div className={styles.menu}>
         <Menu />
+      </div>
+      <div className={styles.mainContent}>
+        <CategoryList />
+        <CarouselList page={page} />
+        <div className={styles.content}>
+          <CardList page={page} />
+
+        </div>
       </div>
     </div>
   );

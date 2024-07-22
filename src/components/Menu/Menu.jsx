@@ -10,7 +10,6 @@ const Menu = () => {
     <div className={styles.container}>
       <h2 className={styles.subtitle}>{"What's hot"}</h2>
       <h1 className={styles.title}>Most Popular</h1>
-      {/* Pass a mock item for demonstration purposes */}
       <Menulists2 page={3} cat={""} />
       <h2 className={styles.subtitle2}>Chosen by the editor</h2>
       <h1 className={styles.title}>Editors Pick</h1>
