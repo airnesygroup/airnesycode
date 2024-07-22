@@ -109,3 +109,9 @@
     right: 5px;
   }
 }
+
+@media (min-width: 720px) {
+  .container {
+  
+    display: none;
+  }}

@@ -36,6 +36,7 @@ const Navbar = () => {
           >
             <Image src="/moon.png" alt="theme toggle" layout="fill" className={styles.themeImage} />
           </div>
+          <Link href="/" className={styles.link}>Communities</Link>
           <AuthLinks />
         </div>
       </div>

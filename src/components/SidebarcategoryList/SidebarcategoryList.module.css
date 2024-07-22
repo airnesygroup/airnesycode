@@ -1,0 +1,123 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sidebarButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg);
+  color: var(--textColor);
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebarButton:hover {
+  background-color: var(--softBg);
+}
+
+.active {
+  background-color: blue;
+  color: white;
+}
+
+.categoryWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.categoryButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg);
+  color: var(--textColor);
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.categoryButton:hover {
+  background-color: var(--softBg);
+}
+
+.chevron {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.subcategories {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory {
+  padding: 5px 10px;
+  background-color: var(--lighterBg);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+.subcategory:hover {
+  background-color: var(--hoverBg);
+}
+
+.showMoreButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg);
+  color: var(--textColor);
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.showMoreButton:hover {
+  background-color: var(--softBg);
+}
+
+.sidebarLink {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--textColor);
+  cursor: pointer;
+}
+
+.sidebarLink:hover {
+  background-color: var(--softBg);
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  margin: 10px 0;
+}
+
+.sectionTitle {
+  width: 100%;
+  padding: 10px 0;
+  font-weight: bold;
+}

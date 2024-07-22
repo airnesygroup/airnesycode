@@ -15,12 +15,20 @@
   width: 250px;
   max-height: 100vh; /* Full height */
   z-index: 1000;
+  overflow-y: hidden; /* Scrollable content */
+
   margin-top: 55px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
 
-/* Show scrollbar only when hovering over the menu */
+.menu:hover {
+  overflow-y: scroll; /* Show scrollbar on hover */
+}
 
+/* Custom scrollbar styles for WebKit browsers */
+.menu::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
 
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
