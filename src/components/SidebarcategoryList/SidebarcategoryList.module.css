@@ -8,7 +8,7 @@
 .sidebarButton {
   width: 100%;
   padding: 10px;
-  background-color: var(--bg);
+  background-color: var(--softerBg);
   color: var(--textColor);
   border: none;
   border-radius: 5px;
@@ -36,7 +36,7 @@
 .categoryButton {
   width: 100%;
   padding: 10px;
-  background-color: var(--bg);
+  background-color: var(--softerBg);
   color: var(--textColor);
   border: none;
   border-radius: 5px;
@@ -96,8 +96,11 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  border-radius: 5px;
   text-decoration: none;
   color: var(--textColor);
+  background-color: var(--softerBg);
+
   cursor: pointer;
 }
 

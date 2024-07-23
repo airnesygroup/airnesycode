@@ -40,6 +40,7 @@ a {
   --bg: #020203;
   --textColor: #dfecf5;
   --softBg: rgb(43, 42, 42);
+  --softerBg: rgb(27, 27, 27);
 
   --softTextColor: #a6a6a6;
 }
@@ -48,6 +49,8 @@ a {
   --bg:#fcfeff ;
   --textColor: #0F1419;
   --softBg: #EBECEE;
+  --softerBg: #f5f6f8;
+
   --softTextColor: #626262;
 }
 

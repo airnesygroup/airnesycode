@@ -39,8 +39,11 @@ const Navbar = () => {
           <Link href="/" className={styles.link}>Communities</Link>
           <AuthLinks />
         </div>
+        
       </div>
+
     </div>
+    
   );
 };
 

@@ -7,6 +7,7 @@
 .container {
   display: flex;
   flex-wrap: nowrap;
+  
 }
 
 /* Hide scrollbar by default */
@@ -16,19 +17,25 @@
   max-height: 100vh; /* Full height */
   z-index: 1000;
   overflow-y: hidden; /* Scrollable content */
+  padding-right: 20px;
 
-  margin-top: 55px;
+  margin-top: 65px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
 
 .menu:hover {
+
   overflow-y: scroll; /* Show scrollbar on hover */
+
 }
 
 /* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
+  padding-left: 20px;
   width: 8px; /* Width of the scrollbar */
 }
+
+
 
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
@@ -38,7 +45,7 @@
   flex-direction: column;
   min-height: 100vh; /* Ensure full height */
   overflow-y: auto; /* Scrollable content */
-  padding-left: 5%;
+  padding-left: 1%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -60,6 +67,14 @@
     margin-left: 0;
   }
 }
+
+
+@media screen and (max-width: 720px) {
+ 
+.mainContent {
+
+  padding-left: 0;
+}}
 
 .content {
   display: flex;

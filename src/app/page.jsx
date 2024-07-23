@@ -14,7 +14,9 @@ export default function Home({ searchParams }) {
     <div className={styles.container}>
       <div className={styles.menu}>
         <SidebarCategoryList />
+        
       </div>
+
       <div className={styles.mainContent}>
       <CategoryList />
 

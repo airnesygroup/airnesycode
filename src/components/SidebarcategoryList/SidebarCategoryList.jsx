@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as faStarRegular, faCompass as faCompassRegular, faHome as faHomeRegular } from "@fortawesome/free-regular-svg-icons";
+import { faStar as faStarRegular, faCompass as faCompassRegular,  faHospital as faHospitalRegular } from "@fortawesome/free-regular-svg-icons";
 import { faInfoCircle, faBriefcase, faUserShield, faFileContract } from "@fortawesome/free-solid-svg-icons";
 
 const getData = async () => {
@@ -70,7 +70,7 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
         onClick={() => router.push("/")}
       >
-        <FontAwesomeIcon icon={faHomeRegular} className={styles.icon} />
+        <FontAwesomeIcon icon={faHospitalRegular} className={styles.icon} />
         Home
       </button>
       <button
