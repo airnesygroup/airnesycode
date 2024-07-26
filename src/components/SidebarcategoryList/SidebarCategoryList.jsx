@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./SidebarcategoryList.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarRegular, faCompass as faCompassRegular,  faHospital as faHospitalRegular } from "@fortawesome/free-regular-svg-icons";
@@ -70,21 +71,21 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
         onClick={() => router.push("/")}
       >
-        <FontAwesomeIcon icon={faHospitalRegular} className={styles.icon} />
+            <Image src="/home2.png" alt="home"  className={styles.icon} height={25} width={25} />
         Home
       </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
         onClick={() => router.push("/popular")}
       >
-        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} />
+            <Image src="/popular.png" alt="popular"   className={styles.icon}  height={25} width={25} />
         Popular
       </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/explore" ? styles.active : ""}`}
         onClick={() => router.push("/explore")}
       >
-        <FontAwesomeIcon icon={faCompassRegular} className={styles.icon} />
+            <Image src="/explore.png" alt="explore"    className={styles.icon} height={25} width={25} />
         Explore
       </button>
       <div className={styles.separator}></div>
@@ -132,21 +133,18 @@ const SidebarCategoryList = () => {
       <div className={styles.separator}></div>
       <div className={styles.sectionTitle}>Resources</div>
       <Link href="/about" className={styles.sidebarLink}>
-        <FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
+      <Image src="/about.png" alt="about"    className={styles.icon} height={25} width={25} />
         About Us
       </Link>
       <Link href="/careers" className={styles.sidebarLink}>
-        <FontAwesomeIcon icon={faBriefcase} className={styles.icon} />
+      <Image src="/careers.png" alt="careers"    className={styles.icon} height={25} width={25} />
         Careers
       </Link>
       <Link href="/privacy-policy" className={styles.sidebarLink}>
-        <FontAwesomeIcon icon={faUserShield} className={styles.icon} />
+      <Image src="/privacy.png" alt="privacy"    className={styles.icon} height={25} width={25} />
         Privacy Policy
       </Link>
-      <Link href="/user-agreement" className={styles.sidebarLink}>
-        <FontAwesomeIcon icon={faFileContract} className={styles.icon} />
-        User Agreement
-      </Link>
+     
     </div>
   );
 };

@@ -18,7 +18,7 @@
   z-index: 1000;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
-
+padding-bottom: 100px;
   margin-top: 65px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
