@@ -144,7 +144,7 @@ const SidebarCategoryList = () => {
       <Image src="/privacy.png" alt="privacy"    className={styles.icon} height={25} width={25} />
         Privacy Policy
       </Link>
-     
+                             
     </div>
   );
 };
