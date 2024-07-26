@@ -11,9 +11,9 @@
   background-color: #ffbc00;
   border-radius: 50%;
   padding: 10px;
-  font-size: 20px;
-  width: 30px; /* Ensure width and height are equal */
-  height: 30px; /* Ensure width and height are equal */
+  font-size: 17px;
+  width: 28px; /* Ensure width and height are equal */
+  height: 28px; /* Ensure width and height are equal */
   display: flex;
   align-items: center;
   justify-content: center;
