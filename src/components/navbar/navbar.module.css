@@ -133,8 +133,7 @@
 
 @media screen and (max-width: 640px) {
   .searchBar {
-    max-width: 120px; /* Adjust for very small screens */
-    height: 24px;
+   display:none;
   }
 }
 
