@@ -22,6 +22,28 @@ const Navbar = () => {
             <h1 className={styles.logoText}>Airnesy</h1>
           </div>
         </Link>
+        <Link href="/">
+          <div className={styles.logo}>
+            <h1 className={styles.logoText}></h1>
+          </div>
+        </Link>
+        <Link href="/">
+          <div className={styles.logo}>
+            <h1 className={styles.logoText}></h1>
+          </div>
+        </Link>     <Link href="/">
+          <div className={styles.logo}>
+            <h1 className={styles.logoText}></h1>
+          </div>
+        </Link>     <Link href="/">
+          <div className={styles.logo}>
+            <h1 className={styles.logoText}></h1>
+          </div>
+        </Link>     <Link href="/">
+          <div className={styles.logo}>
+            <h1 className={styles.logoText}></h1>
+          </div>
+        </Link>
         <div className={styles.searchContainer}>
           <input 
             type="text" 
@@ -36,7 +58,6 @@ const Navbar = () => {
           >
             <Image src="/moon.png" alt="theme toggle" layout="fill" className={styles.themeImage} />
           </div>
-          <Link href="/" className={styles.link}>Communities</Link>
           <AuthLinks />
         </div>
         
