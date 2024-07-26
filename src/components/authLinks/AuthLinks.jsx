@@ -4,12 +4,10 @@ import styles from "./authLinks.module.css";
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faStar as faStarRegular, faCompass as faCompassRegular,  faHospital as faHospitalRegular } from "@fortawesome/free-regular-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Correct import
 
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
-
   const { status } = useSession();
 
   const handleMenuClick = () => {
@@ -25,12 +23,9 @@ const AuthLinks = () => {
       ) : (
         <>
           <Link href="/write" className={styles.addIcon}>
-            <faStar />
+            <FontAwesomeIcon icon={faPlus} /> {/* Correct usage */}
           </Link>
-          <span
-            className={`${styles.link} ${styles.logout}`}
-            onClick={signOut}
-          >
+          <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
             Logout
           </span>
         </>

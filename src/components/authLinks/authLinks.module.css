@@ -34,12 +34,13 @@
   top: 0;
   left: 0;
   background-color: var(--bg);
-  height: 100vh;
+  height: 100%;
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
+  align-items: left;
+  padding-top: 50px;
   gap: 20px;
   font-size: 24px;
   z-index: 999;
@@ -57,7 +58,7 @@
 }
 
 .logout {
-  display: none;
+  display: inline; /* Change this to inline to ensure it displays on large screens */
 }
 
 @media screen and (max-width: 640px) {
@@ -83,6 +84,6 @@
   }
 
   .logout {
-    display: none;
+    display: none; /* Hide logout button on small screens */
   }
 }
