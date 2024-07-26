@@ -34,11 +34,11 @@ const Card = ({ key, item }) => {
           <span className={styles.category}>{item.catSlug}</span>
         </div>
         <Link href={`/posts/${item.slug}`}>
-          <h1 className={styles.title}>{item.title.substring(0, 120)}</h1>
+          <h1 className={styles.title}>{item.title.substring(0, 140)}</h1>
         </Link>
         <div
           className={styles.desc}
-          dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 200) }}
+          dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 240) }}
         />
         <Link href={`/posts/${item.slug}`} className={styles.link}>
           Read More

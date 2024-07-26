@@ -3,11 +3,18 @@ import Link from "next/link";
 import styles from "./authLinks.module.css";
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faStar as faStarRegular, faCompass as faCompassRegular,  faHospital as faHospitalRegular } from "@fortawesome/free-regular-svg-icons";
 
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
 
   const { status } = useSession();
+
+  const handleMenuClick = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -17,10 +24,13 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <>
-          <Link href="/write" className={styles.link}>
-            Write
+          <Link href="/write" className={styles.addIcon}>
+            <faStar />
           </Link>
-          <span className={styles.link} onClick={signOut}>
+          <span
+            className={`${styles.link} ${styles.logout}`}
+            onClick={signOut}
+          >
             Logout
           </span>
         </>
@@ -31,19 +41,24 @@ const AuthLinks = () => {
         <div className={styles.line}></div>
       </div>
       {open && (
-        <div className={styles.responsiveMenu}>
-          <Link href="/">Homepage</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
-          {status === "notauthenticated" ? (
-            <Link href="/login">Login</Link>
-          ) : (
-            <>
-              <Link href="/write">Write</Link>
-              <span className={styles.link}>Logout</span>
-            </>
-          )}
-        </div>
+        <>
+          <div className={styles.responsiveMenu}>
+            <Link href="/" onClick={handleMenuClick}>Homepage</Link>
+            <Link href="/" onClick={handleMenuClick}>About</Link>
+            <Link href="/" onClick={handleMenuClick}>Contact</Link>
+            {status === "unauthenticated" ? (
+              <Link href="/login" onClick={handleMenuClick}>Login</Link>
+            ) : (
+              <>
+                <Link href="/write" onClick={handleMenuClick}>Write</Link>
+                <span className={styles.link} onClick={signOut}>
+                  Logout
+                </span>
+              </>
+            )}
+          </div>
+          <div className={styles.overlay} onClick={handleMenuClick}></div>
+        </>
       )}
     </>
   );

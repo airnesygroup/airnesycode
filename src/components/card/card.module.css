@@ -77,20 +77,21 @@
   border-radius: 10px;
   background-color: rgb(12, 34, 158);
   font-weight: 500;
+  font-size: 12px;
   padding: 2px;
   padding-left: 6px;
   padding-right: 6px;
 }
 
 .title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   padding-top: 6px;
 
 }
 
 .desc {
-  font-size: 17px;
+  font-size: 16px;
   padding-top: 4px;
   font-weight: 300;
   color: var(--softTextColor);
