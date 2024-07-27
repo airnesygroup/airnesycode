@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./SidebarcategoryList.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as faStarRegular, faCompass as faCompassRegular,  faHospital as faHospitalRegular } from "@fortawesome/free-regular-svg-icons";
-import { faInfoCircle, faBriefcase, faUserShield, faFileContract } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
+import { InfoOutlined, WorkOffOutlined, ShieldOutlined } from "@mui/icons-material";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const getData = async () => {
   try {
@@ -29,6 +29,7 @@ const getData = async () => {
 };
 
 const SidebarCategoryList = () => {
+  const { theme } = useContext(ThemeContext);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [openDropdowns, setOpenDropdowns] = useState({});
@@ -71,22 +72,31 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
         onClick={() => router.push("/")}
       >
-            <Image src="/home2.png" alt="home"  className={styles.icon} height={25} width={25} />
+        <Image
+          src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
+          alt="home"
+          className={styles.icon}
+          height={25}
+          width={25}
+        />
         Home
       </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
         onClick={() => router.push("/popular")}
       >
-            <Image src="/popular.png" alt="popular"   className={styles.icon}  height={25} width={25} />
+        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
+        <span className={styles.chevron2}>▼</span>
       </button>
+
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/explore" ? styles.active : ""}`}
         onClick={() => router.push("/explore")}
       >
-            <Image src="/explore.png" alt="explore"    className={styles.icon} height={25} width={25} />
+        <FontAwesomeIcon icon={faCompassRegular} className={styles.icon} size="lg" />
         Explore
+        <span className={styles.chevron2}>▼</span>
       </button>
       <div className={styles.separator}></div>
       <div className={styles.sectionTitle}>Categories</div>
@@ -97,15 +107,7 @@ const SidebarCategoryList = () => {
             onClick={() => router.push(`/blog?cat=${item.slug}`)}
           >
             {item.title}
-            <span
-              className={styles.chevron}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleDropdown(item.slug);
-              }}
-            >
-              ▼
-            </span>
+            <span>▼</span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>
@@ -132,19 +134,29 @@ const SidebarCategoryList = () => {
       )}
       <div className={styles.separator}></div>
       <div className={styles.sectionTitle}>Resources</div>
-      <Link href="/about" className={styles.sidebarLink}>
-      <Image src="/about.png" alt="about"    className={styles.icon} height={25} width={25} />
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
+        onClick={() => router.push("/about")}
+      >
+        <InfoOutlined className={styles.icon} size="lg" />
         About Us
-      </Link>
-      <Link href="/careers" className={styles.sidebarLink}>
-      <Image src="/careers.png" alt="careers"    className={styles.icon} height={25} width={25} />
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/careers" ? styles.active : ""}`}
+        onClick={() => router.push("/careers")}
+      >
+        <WorkOffOutlined className={styles.icon} size="lg" />
         Careers
-      </Link>
-      <Link href="/privacy-policy" className={styles.sidebarLink}>
-      <Image src="/privacy.png" alt="privacy"    className={styles.icon} height={25} width={25} />
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/Privacy" ? styles.active : ""}`}
+        onClick={() => router.push("/Privacy")}
+      >
+        <ShieldOutlined className={styles.icon} size="lg" />
         Privacy Policy
-      </Link>
-                             
+      </button>
     </div>
   );
 };

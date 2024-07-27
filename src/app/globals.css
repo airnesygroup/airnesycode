@@ -16,17 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--softTextColor); /* Use the variable */
-  border-radius: 10px;
-}
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--softBg); /* Use the variable */
-  border-radius: 10px;
-  width: 5px;
-}
 
 
 

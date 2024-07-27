@@ -14,7 +14,7 @@
 .menu {
   position: fixed;
   width: 250px;
-  max-height: 100vh; /* Full height */
+  max-height: 89vh; /* Full height */
   z-index: 1000;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
@@ -32,10 +32,24 @@ padding-bottom: 100px;
 /* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
   padding-left: 20px;
-  width: 8px; /* Width of the scrollbar */
+  width: 15px; /* Width of the scrollbar */
 }
 
 
+.menu::-webkit-scrollbar-track {
+  background:  var(--bg); /* Background of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color:  var(--softBg);/* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background:var(--softBg); /* Color of the scrollbar thumb on hover */
+}
 
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
