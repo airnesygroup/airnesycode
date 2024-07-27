@@ -97,6 +97,10 @@
   color: var(--softTextColor);
 }
 
+.desc a {
+  color: #0079d3;
+}
+
 .link {
   border-bottom: 1px solid #ffbc00;
   width: max-content;
