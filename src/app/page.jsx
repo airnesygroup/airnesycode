@@ -6,6 +6,7 @@ import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/Menu/Menu";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 import CarouselList from "@/components/carouselList/CarouselList";
+import Footer from "@/components/footer/Footer";
 
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
@@ -26,6 +27,8 @@ export default function Home({ searchParams }) {
           <Menu />
 
         </div>
+        <Footer />
+
       </div>
     </div>
   );
