@@ -17,6 +17,15 @@
   margin-top: 10px;
   color: #666;
 }
+.previewImage {
+  max-width: 150px; /* Set the maximum width to 150px */
+  max-height: 100px; /* Set the maximum height to 100px */
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
 
 .error {
   color: red;
