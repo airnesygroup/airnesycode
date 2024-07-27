@@ -139,7 +139,35 @@ const WritePage = () => {
         value={catSlug}
         onChange={(e) => setCatSlug(e.target.value)}
       >
-        {/* Options */}
+        <option value="news">News</option>
+        <option value="politics">Politics</option>
+        <option value="business">Business</option>
+        <option value="technology">Technology</option>
+        <option value="health">Health</option>
+        <option value="fitness">Fitness</option>
+        <option value="science">Science</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="music">Music</option>
+        <option value="movies">Movies</option>
+        <option value="gaming">Gaming</option>
+        <option value="sports">Sports</option>
+        <option value="lifestyle">Lifestyle</option>
+        <option value="fashion">Fashion</option>
+        <option value="education">Education</option>
+        <option value="environment">Environment</option>
+        <option value="climate">Climate</option>
+        <option value="art">Art</option>
+        <option value="design">Design</option>
+        <option value="books">Books</option>
+        <option value="diy">DIY</option>
+        <option value="crafts">Crafts</option>
+        <option value="relationships">Relationships</option>
+        <option value="ama">Ask Me Anything</option>
+        <option value="humor">Humor</option>
+        <option value="food">Food</option>
+        <option value="travel">Travel</option>
+        <option value="adventure">Adventure</option>
+        <option value="opinion">Opinion</option>
       </select>
       {preview && <img src={preview} alt="Preview" className={styles.previewImage} />}
       <div className={styles.editor}>
