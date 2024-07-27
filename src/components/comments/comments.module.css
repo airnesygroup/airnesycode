@@ -1,28 +1,32 @@
 .container {
   margin-top: 50px;
+  
 }
 
 .title {
   color: var(--softTextColor);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .write {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color:  var(--bg); /* Background of the scrollbar track */
+border-radius: 15px;
   gap: 30px;
 }
 
 .input {
   padding: 20px;
   width: 100%;
+  
 }
 
 .button {
   padding: 16px 20px;
 
-  background-color: teal;
+  background-color: #0079d3;
   color: white;
   font-weight: bold;
   border: none;
