@@ -1,44 +1,16 @@
 "use client";
-import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+
+import Image from "next/image";
+import styles from "./writePage.module.css";
+import { useEffect, useState } from "react";
+import "react-quill/dist/quill.bubble.css";
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import Image from "next/image";
-import styles from "./writePage.module.css";
-import "react-quill/dist/quill.bubble.css";
+import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-const modules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ list: "ordered" }, { list: "bullet" }],
-    ["bold", "italic", "underline", "strike"],
-    ["link", "blockquote", "code-block"],
-    [{ color: [] }, { background: [] }],
-    [{ align: [] }],
-    ["clean"],
-  ],
-};
-
-const formats = [
-  "header",
-  "font",
-  "list",
-  "bullet",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "link",
-  "blockquote",
-  "code-block",
-  "color",
-  "background",
-  "align",
-];
 
 const WritePage = () => {
   const { status } = useSession();
@@ -246,8 +218,6 @@ const WritePage = () => {
           value={value}
           onChange={handleContentChange}
           placeholder="Tell your story..."
-          modules={modules}
-          formats={formats}
         />
       </div>
       <div className={styles.characterCount}>
