@@ -10,7 +10,7 @@ const getData = async (id) => {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch post");
+    throw new Error("Failed");
   }
 
   return res.json();
@@ -41,20 +41,27 @@ const SinglePage = async ({ params }) => {
             <div className={styles.user}>
               {data?.user?.image && (
                 <div className={styles.userImageContainer}>
-                  <Image src={data.user.image} alt="" fill className={styles.avatar} />
+                  <Image
+                    src={data.user.image}
+                    alt=""
+                    fill
+                    className={styles.avatar}
+                  />
                 </div>
               )}
               <div className={styles.userTextContainer}>
-                <span className={styles.username}>{data?.user?.name || 'Anonymous'}</span>
-                <span className={styles.date}>{data?.date || '01.01.2024'}</span>
+                <span className={styles.username}>{data?.user.name}</span>
+                <span className={styles.date}>
+                  {data?.date || "01.01.2024"}
+                </span>
               </div>
             </div>
             <div
               className={styles.description}
-              dangerouslySetInnerHTML={{ __html: data?.desc || '' }}
+              dangerouslySetInnerHTML={{ __html: data?.desc }}
             />
             <div className={styles.comment}>
-              <Comments postId={id} />
+              <Comments postSlug={id} />
             </div>
           </div>
           <Menu />
