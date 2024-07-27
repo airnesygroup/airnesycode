@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
@@ -125,6 +123,12 @@ const WritePage = () => {
     }
   };
 
+  const handleDeleteImage = () => {
+    setFile(null);
+    setPreview("");
+    setMedia("");
+  };
+
   return (
     <div className={styles.container}>
       <input
@@ -173,7 +177,14 @@ const WritePage = () => {
         <option value="adventure">Adventure</option>
         <option value="opinion">Opinion</option>
       </select>
-      {preview && <img src={preview} alt="Preview" className={styles.previewImage} />}
+      {preview && (
+        <div className={styles.previewContainer}>
+          <img src={preview} alt="Preview" className={styles.previewImage} />
+          <button className={styles.deleteButton} onClick={handleDeleteImage}>
+            <Image src="/delete.png" alt="Delete" width={16} height={16} />
+          </button>
+        </div>
+      )}
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
           <Image src="/plus.png" alt="" width={16} height={16} />
