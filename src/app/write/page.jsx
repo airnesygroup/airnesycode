@@ -225,7 +225,7 @@ const WritePage = () => {
         {value.length > 40000 && <span className={styles.error}>Description limit reached!</span>}
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
-        Publish
+        Publish.
       </button>
     </div>
   );
