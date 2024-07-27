@@ -45,53 +45,35 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   overflow-y: auto;
-  padding-left: 5%;
-  
-}
-
-
-
-@media screen and (max-width: 900px) {
-  .menu {
-    display: none;
-  }
-
-  .mainContent {
-    margin-left: 0;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .mainContent {
-    padding-left: 0;
-  }
+  padding-left: 5%; /* Default padding when sidebar is visible */
 }
 
 /* Text container styles */
 .textContainer {
   flex: 1;
-  padding-left: 250px;
+  padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
+
+
 .title {
-  font-size: 20px;
-  padding-bottom: 25px;
+  font-size: 18px; /* Reduced size */
+  padding-bottom: 20px;
+  padding-top: 0;
 }
 
 .user {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-bottom: 25px;
+  gap: 10px; /* Reduced gap */
+  padding-bottom: 10px;
 }
 
 .userImageContainer {
-  width: 50px;
-  height: 50px;
+  width: 30px; /* Reduced size */
+  height: 30px; /* Reduced size */
   position: relative;
-  
 }
 
 .avatar {
@@ -102,17 +84,17 @@
 .userTextContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px; /* Reduced gap */
   color: var(--softTextColor);
 }
 
 .username {
-  font-size: 20px;
+  font-size: 16px; /* Reduced size */
   font-weight: 500;
 }
 
 .date {
-  font-size: 16px;
+  font-size: 12px; /* Reduced size */
 }
 
 /* Image container styles */
@@ -120,13 +102,11 @@
   flex: 1;
   height: 350px;
   position: relative;
-  
 }
 
 .image {
   padding-top: 0.5%;
   border-radius: 15px;
-
   object-fit: cover;
 }
 
@@ -134,19 +114,18 @@
 .content {
   display: flex;
   gap: 50px;
-  padding-left: 250px;
-  
+  padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
 .post {
   flex: 5;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .description p {
-  font-size: 16px;
+  font-size: 16px; /* Reduced size */
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .description a {
@@ -156,7 +135,7 @@
 /* Responsive text sizes */
 @media screen and (max-width: 1536px) {
   .title {
-    font-size: 24px;
+    font-size: 22px;
   }
   .description p {
     font-size: 17px;
@@ -165,7 +144,7 @@
 
 @media screen and (max-width: 1280px) {
   .title {
-    font-size: 22px;
+    font-size: 20px;
   }
   .description p {
     font-size: 16px;
@@ -174,18 +153,73 @@
 
 @media screen and (max-width: 1024px) {
   .title {
-    font-size: 20px;
+    font-size: 18px;
   }
   .description p {
     font-size: 15px;
   }
+  
 }
 
-@media screen and (max-width: 640px) {
+
+
+
+@media screen and (max-width: 720px) {
   .title {
-    font-size: 18px;
+    font-size: 17px;
   }
   .description p {
     font-size: 14px;
+  }
+
+  .textContainer, .content {
+    padding-left: 0; /* Remove padding */
+  }
+
+  .menu {
+    display: none; /* Hide menu on small screens */
+  }
+
+  .mainContent {
+    padding-left: 0; /* Remove padding when menu is hidden */
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .post {
+    margin-top: 20px;
+  }
+  .title {
+    font-size: 14px; /* Further reduced size */
+  }
+  .description p {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .user {
+    padding-bottom: 5px; /* Reduced padding */
+  }
+
+  .userImageContainer {
+    width: 20px; /* Further reduced size */
+    height: 20px; /* Further reduced size */
+  }
+
+  .username {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .date {
+    font-size: 10px; /* Further reduced size */
+  }
+
+  .textContainer, .content {
+    padding-left: 0; /* Remove padding */
+  }
+
+  /* Remove space between image and title on small screens */
+  .user {
+    gap: 0; /* Remove gap */
   }
 }

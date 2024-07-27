@@ -5,6 +5,12 @@
 .title {
   color: var(--softTextColor);
   margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.title2 {
+ 
+  font-size: 15px;
 }
 
 .write {
@@ -79,6 +85,16 @@
 
 /* Media query for small mobile screens */
 @media (max-width: 640px) {
+
+
+.title {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.title2 {
+  font-size: 12px;
+}
   .input {
     padding: 8px;
   }
