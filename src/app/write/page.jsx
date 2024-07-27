@@ -133,7 +133,7 @@ const WritePage = () => {
 
   return (
     <div className={styles.container}>
-      <input
+      <textarea
         type="text"
         placeholder="Title"
         className={styles.input}
@@ -232,4 +232,3 @@ const WritePage = () => {
 };
 
 export default WritePage;
-

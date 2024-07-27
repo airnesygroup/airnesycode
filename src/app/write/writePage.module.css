@@ -3,13 +3,15 @@
   display: flex;
   padding-top: 80px;
   flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .select {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   padding: 10px 20px;
-  margin-left: 50px;
   width: max-content;
+  border-radius: 10px;
 }
 
 .characterCount {
@@ -17,13 +19,15 @@
   margin-top: 10px;
   color: #666;
 }
+
 .previewImage {
-  max-width: 300px; /* Set the maximum width to 150px */
-  max-height: 200px; /* Set the maximum height to 100px */
+  max-width: 300px;
+  max-height: 200px;
   width: auto;
   height: auto;
   margin-top: 10px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .previewContainer {
@@ -45,17 +49,17 @@
   height: 16px;
 }
 
-
 .error {
   color: red;
   font-weight: bold;
 }
 
-
 .editor {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  height: 700px;
+  width: 100%;
+  max-width: 800px;
   position: relative;
 }
 
@@ -84,15 +88,22 @@
   z-index: 999;
   width: 100%;
   left: 50px;
+  top: 50px;
 }
 
 .input {
-  padding: 50px;
-  font-size: 64px;
-  border: none;
+  padding: 20px;
+  font-size: 24px;
+  border: 1px solid var(--textColor);
+  border-radius: 10px;
   outline: none;
   background-color: transparent;
   color: var(--textColor);
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  resize: none;
+  overflow: hidden;
 }
 
 .input::placeholder {
@@ -101,17 +112,23 @@
 
 .textArea {
   width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border: 1px solid var(--textColor);
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .publish {
-  position: fixed; /* Changed from absolute to fixed */
-  bottom: 20px; /* Positioning it a bit above the bottom of the viewport */
-  right: 20px; /* Positioning it a bit inside from the right edge of the viewport */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   padding: 10px 20px;
   border: none;
-  background-color: #1ae913;
+  background-color: #139be9;
   color: white;
   cursor: pointer;
   border-radius: 20px;
-  z-index: 1000; /* Ensuring it is above other elements */
+  z-index: 1000;
 }
