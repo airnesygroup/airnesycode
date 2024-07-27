@@ -134,6 +134,10 @@ const WritePage = () => {
         value={title}
         onChange={handleTitleChange}
       />
+      <div className={styles.characterCount}>
+        {300 - title.length} characters remaining
+        {title.length > 300 && <span className={styles.error}>Title limit reached!</span>}
+      </div>
       <select
         className={styles.select}
         value={catSlug}
@@ -202,6 +206,10 @@ const WritePage = () => {
           onChange={handleContentChange}
           placeholder="Tell your story..."
         />
+      </div>
+      <div className={styles.characterCount}>
+        {40000 - value.length} characters remaining
+        {value.length > 40000 && <span className={styles.error}>Description limit reached!</span>}
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
         Publish

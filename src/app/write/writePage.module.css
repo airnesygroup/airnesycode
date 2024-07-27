@@ -12,6 +12,18 @@
   width: max-content;
 }
 
+.characterCount {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #666;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+
 .editor {
   display: flex;
   gap: 20px;
