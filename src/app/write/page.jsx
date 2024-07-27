@@ -6,24 +6,18 @@ import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 
-// Dynamically import ReactQuill with ssr: false
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WritePage = () => {
   const { status } = useSession();
   const router = useRouter();
-
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState("");
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
@@ -31,18 +25,24 @@ const WritePage = () => {
 
   useEffect(() => {
     if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setPreview(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+  }, [file]);
+
+  useEffect(() => {
+    if (file) {
       const storage = getStorage(app);
       const upload = () => {
         const name = new Date().getTime() + file.name;
         const storageRef = ref(storage, name);
-
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on(
           "state_changed",
           (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log("Upload is " + progress + "% done");
             switch (snapshot.state) {
               case "paused":
@@ -85,7 +85,29 @@ const WritePage = () => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const handleTitleChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 300) {
+      setTitle(value);
+    }
+  };
+
+  const handleContentChange = (content) => {
+    if (content.length <= 40000) {
+      setValue(content);
+    }
+  };
+
   const handleSubmit = async () => {
+    if (title.length > 300) {
+      alert("Title cannot exceed 300 characters.");
+      return;
+    }
+    if (value.length > 40000) {
+      alert("Description cannot exceed 40,000 characters.");
+      return;
+    }
+
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -93,7 +115,7 @@ const WritePage = () => {
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
+        catSlug: catSlug || "style",
       }),
     });
 
@@ -110,45 +132,16 @@ const WritePage = () => {
         placeholder="Title"
         className={styles.input}
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={handleTitleChange}
       />
       <select
         className={styles.select}
         value={catSlug}
         onChange={(e) => setCatSlug(e.target.value)}
       >
-       <option value="news">News</option>
-<option value="politics">Politics</option>
-<option value="business">Business</option>
-<option value="technology">Technology</option>
-<option value="health">Health</option>
-<option value="fitness">Fitness</option>
-<option value="science">Science</option>
-<option value="entertainment">Entertainment</option>
-<option value="music">Music</option>
-<option value="movies">Movies</option>
-<option value="gaming">Gaming</option>
-<option value="sports">Sports</option>
-<option value="lifestyle">Lifestyle</option>
-<option value="fashion">Fashion</option>
-<option value="education">Education</option>
-<option value="environment">Environment</option>
-<option value="climate">Climate</option>
-<option value="art">Art</option>
-<option value="design">Design</option>
-<option value="books">Books</option>
-<option value="diy">DIY</option>
-<option value="crafts">Crafts</option>
-<option value="relationships">Relationships</option>
-<option value="ama">Ask Me Anything</option>
-<option value="humor">Humor</option>
-<option value="food">Food</option>
-<option value="travel">Travel</option>
-<option value="adventure">Adventure</option>
-<option value="opinion">Opinion</option>
-
-        
+        {/* Options */}
       </select>
+      {preview && <img src={preview} alt="Preview" className={styles.previewImage} />}
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
           <Image src="/plus.png" alt="" width={16} height={16} />
@@ -178,7 +171,7 @@ const WritePage = () => {
           className={styles.textArea}
           theme="bubble"
           value={value}
-          onChange={setValue}
+          onChange={handleContentChange}
           placeholder="Tell your story..."
         />
       </div>
