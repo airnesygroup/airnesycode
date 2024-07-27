@@ -22,7 +22,7 @@
   .category {
     padding: 3px 8px;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 10px;
     color: white;
     width: max-content;
   }
@@ -149,7 +149,7 @@
 
 
   .postTitle {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--softTextColor);
   }

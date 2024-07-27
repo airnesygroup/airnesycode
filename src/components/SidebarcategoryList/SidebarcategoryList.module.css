@@ -55,11 +55,11 @@
 
 .chevron {
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 4px;
 
 }
 .chevron2 {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: auto; /* Pushes the chevron to the right */
   display: flex;
   align-items: center; /* Centers the chevron vertically */

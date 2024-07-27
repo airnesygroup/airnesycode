@@ -4,22 +4,22 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 
-const getData = async (slug) => {
-  const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
+const getData = async (id) => {
+  const res = await fetch(`https://www.airnesy.com/api/posts/${id}`, {
     cache: "no-store",
   });
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch post");
   }
 
   return res.json();
 };
 
 const SinglePage = async ({ params }) => {
-  const { slug } = params;
+  const { id } = params;
 
-  const data = await getData(slug);
+  const data = await getData(id);
 
   return (
     <div className={styles.container}>
@@ -29,7 +29,6 @@ const SinglePage = async ({ params }) => {
 
       <div className={styles.mainContent}>
         <div className={styles.textContainer}>
-     
           {data?.img && (
             <div className={styles.imageContainer}>
               <Image src={data.img} alt="" fill className={styles.image} />
@@ -38,29 +37,27 @@ const SinglePage = async ({ params }) => {
         </div>
         <div className={styles.content}>
           <div className={styles.post}>
-          <h1 className={styles.title}>{data?.title}</h1>
-          <div className={styles.user}>
-            {data?.user?.image && (
-              <div className={styles.userImageContainer}>
-                <Image src={data.user.image} alt="" fill className={styles.avatar} />
+            <h1 className={styles.title}>{data?.title}</h1>
+            <div className={styles.user}>
+              {data?.user?.image && (
+                <div className={styles.userImageContainer}>
+                  <Image src={data.user.image} alt="" fill className={styles.avatar} />
+                </div>
+              )}
+              <div className={styles.userTextContainer}>
+                <span className={styles.username}>{data?.user?.name || 'Anonymous'}</span>
+                <span className={styles.date}>{data?.date || '01.01.2024'}</span>
               </div>
-            )}
-            <div className={styles.userTextContainer}>
-              <span className={styles.username}>{data?.user.name}</span>
-              <span className={styles.date}>{data?.date || '01.01.2024'}</span>
             </div>
-          </div>
-
-            <div 
-             className={styles.description}
-              dangerouslySetInnerHTML={{ __html: data?.desc }}
+            <div
+              className={styles.description}
+              dangerouslySetInnerHTML={{ __html: data?.desc || '' }}
             />
             <div className={styles.comment}>
-              <Comments postSlug={slug} />
+              <Comments postId={id} />
             </div>
           </div>
           <Menu />
-
         </div>
       </div>
     </div>

@@ -12,8 +12,6 @@ const MenuPosts2 = ({ item, withImage }) => {
             <span className={`${styles.category} ${styles[item.catSlug]}`}>{item.catSlug}</span>
             <h3 className={styles.postTitle}>{item.title.substring(0, 60)}</h3>
             <div className={styles.detail}>
-              <span className={styles.username}>huberman</span>
-              <span className={styles.date}>{item.createdAt.substring(0, 10)}</span>
             </div>
           </div>
         </Link>

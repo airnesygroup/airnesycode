@@ -3,6 +3,7 @@
 .container {
   background-color: var(--bg);
   padding: 12px;
+  padding-top: 30px;
   width: 100%;
   height: calc(100vh - 40px); /* Adjust height considering margin-top */
   overflow-y: hidden;
@@ -22,17 +23,17 @@
 
 .subtitle {
   color: gray;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 .title {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .subtitle2 {
   color: gray;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   margin-top: 80px;
 }

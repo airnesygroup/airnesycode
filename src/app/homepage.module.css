@@ -1,6 +1,7 @@
 .content1{
   display: flex;
   gap: 50px;
+  padding-left: 1.5%;
 }
 /* homepage.module.css */
 
@@ -18,7 +19,7 @@
   z-index: 1000;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
-padding-bottom: 100px;
+padding-bottom: 30px;
   margin-top: 65px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
@@ -32,7 +33,7 @@ padding-bottom: 100px;
 /* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
   padding-left: 20px;
-  width: 15px; /* Width of the scrollbar */
+  width: 10px; /* Width of the scrollbar */
 }
 
 
@@ -72,7 +73,9 @@ padding-bottom: 100px;
   }
 }
 
-@media screen and (max-width: 900px) {
+
+
+@media screen and (max-width: 720px) {
   .menu {
     display: none;
   }
@@ -80,10 +83,11 @@ padding-bottom: 100px;
   .mainContent {
     margin-left: 0;
   }
-}
 
-
-@media screen and (max-width: 720px) {
+  .content1{
+   
+    padding-left: 0%;
+  }
  
 .mainContent {
 
