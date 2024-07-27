@@ -134,8 +134,7 @@
   z-index: 1000;
 }
 
-.quill .ql-editor a {
-  color: blue !important;
-  text-decoration: underline; /* Optional: to underline links */
+.quill .ql-editor {
+  color: blue !important; /* Make all text blue */
 }
 
