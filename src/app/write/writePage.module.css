@@ -135,5 +135,6 @@
 }
 
 .quill .ql-editor a {
-  color: blue;
+  color: blue !important;
+  text-decoration: underline;
 }
