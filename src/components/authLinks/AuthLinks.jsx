@@ -68,9 +68,11 @@ const AuthLinks = () => {
           <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
       )}
-      <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
-        <WritePage />
-      </Modal>
+      {isModalOpen && (
+        <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
+          <WritePage closeModal={() => setModalOpen(false)} />
+        </Modal>
+      )}
     </>
   );
 };

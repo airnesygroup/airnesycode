@@ -1,18 +1,20 @@
 import { useState } from "react";
-import WritePage from "./write/page";// Adjust the import path as needed
+import WritePage from "./WritePage"; // Adjust the import path as needed
+import styles from "./parentComponent.module.css"; // Import the CSS module for the parent component
 
-const ParentComponent = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+const Modal = ({ open, onClose, children }) => {
+  if (!open) return null;
 
   return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
-      {isModalOpen && <WritePage closeModal={closeModal} />}
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={onClose}>
+          &times;
+        </button>
+        {children}
+      </div>
     </div>
   );
 };
 
-export default ParentComponent;
+export default Modal;
