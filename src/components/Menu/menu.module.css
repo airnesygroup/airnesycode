@@ -3,7 +3,7 @@
 .container {
   background-color: var(--bg);
   padding: 12px;
-  padding-top: 30px;
+  padding-top: 25px;
   width: 100%;
   height: calc(100vh - 40px); /* Adjust height considering margin-top */
   overflow-y: hidden;
@@ -35,7 +35,7 @@
   color: gray;
   font-size: 14px;
   font-weight: 400;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 @media screen and (max-width: 1024px) {

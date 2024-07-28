@@ -94,8 +94,8 @@
 .link {
   border-bottom: 1px solid #ffbc00;
   width: max-content;
-  padding: 2px 0;
-  font-size: 15px;
+  padding: 2px 02;
+  font-size: 12px;
 }
 
 .imageContainer {
@@ -107,6 +107,7 @@
 .image {
   object-fit: cover;
   border-radius: 8px;
+margin-top: 0.8%;
 }
 
 @media (max-width: 640px) {
