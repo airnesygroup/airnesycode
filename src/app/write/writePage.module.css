@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  background-color: var(--softBg); /* Set the background color */
 }
 
 .select {
@@ -12,6 +13,8 @@
   padding: 10px 20px;
   width: max-content;
   border-radius: 10px;
+  background-color: var(--softBg); /* Set the background color */
+  border: 1px solid var(--textColor);
 }
 
 .characterCount {
@@ -28,6 +31,7 @@
   margin-top: 10px;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .previewContainer {
@@ -68,22 +72,27 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: transparent;
+  background-color: var(--softBg); /* Set the background color */
   border: 1px solid var(--textColor);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.3s; /* Add transition */
 }
 
 .addButton {
   border-color: #1a8917;
 }
 
+.addButton:hover {
+  background-color: #e0e0e0; /* Light grey background on hover */
+}
+
 .add {
   display: flex;
   gap: 20px;
-  background-color: var(--bg);
+  background-color: var(--softBg); /* Set the background color */
   position: absolute;
   z-index: 999;
   width: 100%;
@@ -97,13 +106,14 @@
   border: 1px solid var(--textColor);
   border-radius: 10px;
   outline: none;
-  background-color: transparent;
+  background-color: var(--softBg); /* Set the background color */
   color: var(--textColor);
   width: 100%;
   max-width: 800px;
   box-sizing: border-box;
   resize: none;
   overflow: hidden;
+  transition: background-color 0.3s; /* Add transition */
 }
 
 .input::placeholder {
@@ -118,6 +128,8 @@
   border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
+  background-color: var(--softBg); /* Set the background color */
+  transition: background-color 0.3s; /* Add transition */
 }
 
 .publish {
@@ -132,11 +144,14 @@
   cursor: pointer;
   border-radius: 20px;
   z-index: 1000;
+  transition: background-color 0.3s; /* Add transition */
+}
+
+.publish:hover {
+  background-color: #005bb5; /* Darker blue on hover */
 }
 
 .quill .ql-editor a {
   color: #0079d3 !important;
   text-decoration: underline; /* Optional: to underline links */
 }
-
-
