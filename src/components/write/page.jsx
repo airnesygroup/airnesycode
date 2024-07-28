@@ -119,6 +119,7 @@ const WritePage = () => {
     return uniqueSlug;
   };
 
+
   const handleSubmit = async () => {
     if (title.length > 300) {
       alert("Title cannot exceed 300 characters.");
@@ -128,12 +129,12 @@ const WritePage = () => {
       alert("Description cannot exceed 40,000 characters.");
       return;
     }
-
+  
     const baseSlug = slugify(title);
     const uniqueSlug = await generateUniqueSlug(baseSlug);
-
+  
     setUploading(true);
-
+  
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -144,22 +145,23 @@ const WritePage = () => {
         catSlug: catSlug || "style",
       }),
     });
-
+  
     if (res.status === 200) {
       setUploading(false);
       const data = await res.json();
       alert("Uploaded successfully");
-      
-      // Wait for 1 second before closing the modal
-      setTimeout(() => {
-        setOpen(false);
-        router.push(`/posts/${data.slug}`);
-      }, 1000);
+  
+      // Close the modal immediately after publishing
+      setOpen(false);
+  
+      // Navigate to the new post
+      router.push(`/posts/${data.slug}`);
     } else {
       setUploading(false);
       alert("Failed to upload");
     }
   };
+  
 
   const handleDeleteImage = () => {
     setFile(null);
@@ -222,14 +224,83 @@ const WritePage = () => {
       {preview && (
         <div className={styles.previewContainer}>
           <Image src={preview} alt="Preview" className={styles.preview} width={200} height={200} />
-          <button className={styles.deleteButton} onClick={handleDeleteImage}>Delete Image</button>
+          <button className={styles.deleteButton} onClick={handleDeleteImage}>
+            &times;
+          </button>
         </div>
       )}
-      <button className={styles.publishButton} onClick={handleSubmit}>
-        {uploading ? "Publishing..." : "Publish"}
-      </button>
+      <div className={styles.buttons}>
+        <button className={styles.publishButton} onClick={handleSubmit} disabled={uploading}>
+          {uploading ? "Uploading..." : "Publish"}
+        </button>
+      </div>
+
+      <button className={styles.addButton} onClick={() => setOpen(true)}>+</button>
+
       <Modal open={open} onClose={() => setOpen(false)}>
-        <div>Modal content here...</div>
+        <textarea
+          type="text"
+          placeholder="Title"
+          className={styles.input}
+          value={title}
+          onChange={handleTitleChange}
+        />
+        <div className={styles.characterCount}>
+          {300 - title.length} characters remaining
+          {title.length > 300 && <span className={styles.error}>Title limit reached!</span>}
+        </div>
+        <select
+          className={styles.select}
+          value={catSlug}
+          onChange={(e) => setCatSlug(e.target.value)}
+        >
+          <option value="news">News</option>
+          <option value="politics">Politics</option>
+          <option value="business">Business</option>
+          <option value="technology">Technology</option>
+          <option value="health">Health</option>
+          <option value="fitness">Fitness</option>
+          <option value="science">Science</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="style">Style</option>
+          <option value="food">Food</option>
+          <option value="travel">Travel</option>
+          <option value="sports">Sports</option>
+        </select>
+        <ReactQuill
+          className={styles.editor}
+          theme="bubble"
+          value={value}
+          onChange={handleContentChange}
+          placeholder="Share your thoughts..."
+        />
+        <div className={styles.characterCount}>
+          {40000 - value.length} characters remaining
+          {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
+        </div>
+        <input
+          style={{ display: "none" }}
+          type="file"
+          id="fileModal"
+          accept="image/*"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
+        <label htmlFor="fileModal" className={styles.fileLabel}>
+          {uploading ? "Uploading..." : "Upload Image"}
+        </label>
+        {preview && (
+          <div className={styles.previewContainer}>
+            <Image src={preview} alt="Preview" className={styles.preview} width={200} height={200} />
+            <button className={styles.deleteButton} onClick={handleDeleteImage}>
+              &times;
+            </button>
+          </div>
+        )}
+        <div className={styles.buttons}>
+          <button className={styles.publishButton} onClick={handleSubmit} disabled={uploading}>
+            {uploading ? "Uploading..." : "Publish"}
+          </button>
+        </div>
       </Modal>
     </div>
   );
