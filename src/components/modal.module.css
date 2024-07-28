@@ -8,13 +8,12 @@
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
-    z-index: 999;
     align-items: center;
     z-index: 1000;
   }
   
   .modalContent {
-    background:  var(--bg);
+    background: var(--bg);
     padding: 20px;
     border-radius: 10px;
     max-width: 90%;

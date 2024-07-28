@@ -1,4 +1,3 @@
-
 import styles from "./modal.module.css";
 
 const Modal = ({ children, open, onClose }) => {
