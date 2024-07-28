@@ -156,7 +156,7 @@ const WritePage = () => {
       // Delay navigation to allow modal to close properly
       setTimeout(() => {
         router.push(`/posts/${data.slug}`);
-      }, 1000); // Adjust the delay as needed
+      }, 10); // Adjust the delay as needed
     } else {
       setUploading(false);
       alert("Failed to upload");
