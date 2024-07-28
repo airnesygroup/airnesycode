@@ -17,7 +17,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--bg); /* Background of the scrollbar track */
+  padding-left: 1%;
+  color: var(--softTextColor);
+
   border-radius: 15px;
   gap: 30px;
 }
