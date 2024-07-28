@@ -231,15 +231,13 @@ const WritePage = () => {
       <button className={styles.button} onClick={() => setOpen(true)}>
         Publish
       </button>
+      <button className={styles.button} onClick={() => setOpen(false)}>
+        Close Modal
+      </button> {/* Add this button to close the modal */}
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className={styles.modalContent}>
-          <h2>Confirm Publish</h2>
-          <button className={styles.button} onClick={handleSubmit}>
-            Publish Post
-          </button>
-          <button className={styles.button} onClick={() => setOpen(false)}>
-            Close Modal
-          </button>
+          <h2>Write your post here</h2>
+          {/* Write page content goes here */}
         </div>
       </Modal>
     </div>
