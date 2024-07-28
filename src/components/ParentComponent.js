@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WritePage from "./WritePage"; // Adjust the import path as needed
+import WritePage from "./write/page";// Adjust the import path as needed
 
 const ParentComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
