@@ -214,7 +214,7 @@ const WritePage = ({ closeModal }) => {
             </div>
           )}
           <div className={styles.buttons}>
-            <button className={styles.button} type="submit" disabled={uploading || !media || publishing}>
+            <button className={styles.button} type="submit" disabled={uploading || publishing}>
               {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
