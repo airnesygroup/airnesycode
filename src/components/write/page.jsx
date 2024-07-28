@@ -1,4 +1,3 @@
-// components/WritePage.js
 "use client";
 
 import Image from "next/image";
@@ -23,6 +22,7 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (file) {
@@ -36,6 +36,7 @@ const WritePage = () => {
     if (file) {
       const storage = getStorage(app);
       const upload = () => {
+        setUploading(true);
         const name = new Date().getTime() + file.name;
         const storageRef = ref(storage, name);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -56,10 +57,12 @@ const WritePage = () => {
           },
           (error) => {
             console.error("Error uploading file:", error);
+            setUploading(false);
           },
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               setMedia(downloadURL);
+              setUploading(false);
             });
           }
         );
@@ -99,6 +102,22 @@ const WritePage = () => {
     }
   };
 
+  const generateUniqueSlug = async (baseSlug) => {
+    let uniqueSlug = baseSlug;
+    let counter = 1;
+    const res = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
+    let slugExists = await res.json();
+
+    while (slugExists.exists) {
+      uniqueSlug = `${baseSlug}-${counter}`;
+      counter++;
+      const res = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
+      slugExists = await res.json();
+    }
+
+    return uniqueSlug;
+  };
+
   const handleSubmit = async () => {
     if (title.length > 300) {
       alert("Title cannot exceed 300 characters.");
@@ -109,20 +128,30 @@ const WritePage = () => {
       return;
     }
 
+    const baseSlug = slugify(title);
+    const uniqueSlug = await generateUniqueSlug(baseSlug);
+
+    setUploading(true);
+
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
         desc: value,
         img: media,
-        slug: slugify(title),
+        slug: uniqueSlug,
         catSlug: catSlug || "style",
       }),
     });
 
     if (res.status === 200) {
+      setUploading(false);
       const data = await res.json();
+      alert("Uploaded successfully");
       router.push(`/posts/${data.slug}`);
+    } else {
+      setUploading(false);
+      alert("Failed to upload");
     }
   };
 
@@ -182,7 +211,7 @@ const WritePage = () => {
         onChange={(e) => setFile(e.target.files[0])}
       />
       <label htmlFor="file" className={styles.fileLabel}>
-        Upload Image
+        {uploading ? "Uploading..." : "Upload Image"}
       </label>
       {preview && (
         <div className={styles.previewContainer}>
@@ -193,8 +222,8 @@ const WritePage = () => {
         </div>
       )}
       <div className={styles.buttons}>
-        <button className={styles.button} onClick={handleSubmit}>
-          Publish
+        <button className={styles.publishButton} onClick={handleSubmit} disabled={uploading}>
+          {uploading ? "Publishing..." : "Publish"}
         </button>
       </div>
     </div>
@@ -202,4 +231,5 @@ const WritePage = () => {
 };
 
 export default WritePage;
+
 
