@@ -9,14 +9,12 @@ import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
-import Modal from "../Modal"; // Import the Modal component
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const WritePage = () => {
+const WritePageModal = () => {
   const { status } = useSession();
   const router = useRouter();
-  const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
   const [media, setMedia] = useState("");
@@ -68,180 +66,79 @@ const WritePage = () => {
           }
         );
       };
-
       upload();
     }
   }, [file]);
 
-  if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Your logic for publishing the post
+    // After publishing the post, navigate to the new post
+    router.push("/path-to-new-post");
+  };
+
+  if (status !== "authenticated") {
+    return <p>Loading...</p>;
   }
-
-  if (status === "unauthenticated") {
-    router.push("/");
-    return null;
-  }
-
-  const slugify = (str) =>
-    str
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/[\s_-]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-
-  const handleTitleChange = (e) => {
-    const value = e.target.value;
-    if (value.length <= 300) {
-      setTitle(value);
-    }
-  };
-
-  const handleContentChange = (content) => {
-    if (content.length <= 40000) {
-      setValue(content);
-    }
-  };
-
-  const generateUniqueSlug = async (baseSlug) => {
-    let uniqueSlug = baseSlug;
-    let counter = 1;
-    const res = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
-    let slugExists = await res.json();
-
-    while (slugExists.exists) {
-      uniqueSlug = `${baseSlug}-${counter}`;
-      counter++;
-      const res = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
-      slugExists = await res.json();
-    }
-
-    return uniqueSlug;
-  };
-
-  const handleSubmit = async () => {
-    if (title.length > 300) {
-      alert("Title cannot exceed 300 characters.");
-      return;
-    }
-    if (value.length > 40000) {
-      alert("Description cannot exceed 40,000 characters.");
-      return;
-    }
-
-    const baseSlug = slugify(title);
-    const uniqueSlug = await generateUniqueSlug(baseSlug);
-
-    setUploading(true);
-
-    const res = await fetch("/api/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-        desc: value,
-        img: media,
-        slug: uniqueSlug,
-        catSlug: catSlug || "style",
-      }),
-    });
-
-    if (res.status === 200) {
-      setUploading(false);
-      const data = await res.json();
-      alert("Uploaded successfully");
-
-      // Close the modal immediately after publishing
-      setOpen(false);
-
-      // Delay navigation to allow modal to close properly
-      setTimeout(() => {
-        router.push(`/posts/${data.slug}`);
-      }, 100); // Adjust the delay as needed
-    } else {
-      setUploading(false);
-      alert("Failed to upload");
-    }
-  };
-
-  const handleDeleteImage = () => {
-    setFile(null);
-    setPreview("");
-    setMedia("");
-  };
 
   return (
-    <div className={styles.container}>
-      <textarea
-        type="text"
-        placeholder="Title"
-        className={styles.input}
-        value={title}
-        onChange={handleTitleChange}
-      />
-      <div className={styles.characterCount}>
-        {300 - title.length} characters remaining
-        {title.length > 300 && <span className={styles.error}>Title limit reached!</span>}
-      </div>
-      <select
-        className={styles.select}
-        value={catSlug}
-        onChange={(e) => setCatSlug(e.target.value)}
-      >
-        <option value="news">News</option>
-        <option value="politics">Politics</option>
-        <option value="business">Business</option>
-        <option value="technology">Technology</option>
-        <option value="health">Health</option>
-        <option value="fitness">Fitness</option>
-        <option value="science">Science</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="style">Style</option>
-        <option value="food">Food</option>
-        <option value="travel">Travel</option>
-        <option value="sports">Sports</option>
-      </select>
-      <ReactQuill
-        className={styles.editor}
-        theme="bubble"
-        value={value}
-        onChange={handleContentChange}
-        placeholder="Share your thoughts..."
-      />
-      <div className={styles.characterCount}>
-        {40000 - value.length} characters remaining
-        {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
-      </div>
-      <input
-        style={{ display: "none" }}
-        type="file"
-        id="file"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
-      <label htmlFor="file" className={styles.label}>
-        Upload Image
-      </label>
-      {preview && (
-        <div className={styles.preview}>
-          <Image src={preview} alt="Preview" width={200} height={200} />
-          <button className={styles.deleteButton} onClick={handleDeleteImage}>
-            Delete
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <button className={styles.closeButton} onClick={() => router.back()}>
+          &times;
+        </button>
+        <form className={styles.container} onSubmit={handleSubmit}>
+          <select
+            className={styles.select}
+            value={catSlug}
+            onChange={(e) => setCatSlug(e.target.value)}
+          >
+            <option value="">Select Category</option>
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+          </select>
+          <input
+            type="text"
+            className={styles.input}
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            maxLength={100}
+          />
+          <div className={styles.characterCount}>{title.length}/100</div>
+          <ReactQuill
+            value={value}
+            onChange={setValue}
+            className={styles.editor}
+            theme="bubble"
+            placeholder="Write your story..."
+          />
+          <div className={styles.previewContainer}>
+            {preview && (
+              <>
+                <Image src={preview} alt="Preview" className={styles.previewImage} />
+                <button className={styles.deleteButton} onClick={() => setFile(null)}>
+                  <img src="/delete-icon.png" alt="Delete" />
+                </button>
+              </>
+            )}
+          </div>
+          <label className={styles.fileLabel}>
+            Upload Image
+            <input
+              type="file"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+            />
+          </label>
+          <button type="submit" className={styles.publishButton} disabled={uploading}>
+            {uploading ? "Uploading..." : "Publish"}
           </button>
-        </div>
-      )}
-      <button className={styles.button} onClick={() => setOpen(true)}>
-        Publish
-      </button>
-      <button className={styles.button} onClick={() => setOpen(false)}>
-        Close Modal
-      </button> {/* Add this button to close the modal */}
-      <Modal open={open} onClose={() => setOpen(false)}>
-        <div className={styles.modalContent}>
-          <h2>Write your post here</h2>
-          {/* Write page content goes here */}
-        </div>
-      </Modal>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default WritePage;
+export default WritePageModal;
