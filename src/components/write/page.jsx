@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
+import Modal from "../Modal"; // Import the Modal component
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -155,7 +156,7 @@ const WritePage = () => {
       // Delay navigation to allow modal to close properly
       setTimeout(() => {
         router.push(`/posts/${data.slug}`);
-      }, 100); // Adjust the delay as needed
+      }, 1000); // Adjust the delay as needed
     } else {
       setUploading(false);
       alert("Failed to upload");
@@ -230,19 +231,14 @@ const WritePage = () => {
       <button className={styles.button} onClick={() => setOpen(true)}>
         Publish
       </button>
-      {open && (
-        <div className={styles.modalOverlay} onClick={() => setOpen(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} onClick={() => setOpen(false)}>
-              &times;
-            </button>
-            <h2>Confirm Publish</h2>
-            <button className={styles.button} onClick={handleSubmit}>
-              Publish
-            </button>
-          </div>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className={styles.modalContent}>
+          <h2>Confirm Publish</h2>
+          <button className={styles.button} onClick={handleSubmit}>
+            Publish
+          </button>
         </div>
-      )}
+      </Modal>
     </div>
   );
 };
