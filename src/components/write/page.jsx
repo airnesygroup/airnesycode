@@ -148,6 +148,7 @@ const WritePage = () => {
       setUploading(false);
       const data = await res.json();
       alert("Uploaded successfully");
+      setOpen(false);  // Close the modal after upload
       router.push(`/posts/${data.slug}`);
     } else {
       setUploading(false);
@@ -231,5 +232,3 @@ const WritePage = () => {
 };
 
 export default WritePage;
-
-
