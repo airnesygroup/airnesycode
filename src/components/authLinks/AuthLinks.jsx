@@ -5,9 +5,8 @@ import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Modal from "@/components/Modal"; // Import the modal component
-import WritePage from "@/components/WritePage"; // Import the write page component
-
+import Modal from "../Modal";
+import WritePage from "../write/page";
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
   const { status } = useSession();
