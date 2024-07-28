@@ -7,12 +7,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
 import WritePage from "../write/page";
+
 const AuthLinks = () => {
-  const [open, setOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const { status } = useSession();
 
   const handleMenuClick = () => {
-    setOpen(false);
+    setMenuOpen(false);
+  };
+
+  const handleAddIconClick = () => {
+    setModalOpen(true);
+    setMenuOpen(false); // Close the menu if open
+  };
+
+  const handleBurgerClick = () => {
+    setMenuOpen(!isMenuOpen);
+    setModalOpen(false); // Close the modal if open
   };
 
   return (
@@ -23,7 +35,7 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <>
-          <button className={styles.addIcon} onClick={() => setOpen(true)}>
+          <button className={styles.addIcon} onClick={handleAddIconClick}>
             <FontAwesomeIcon icon={faPlus} />
           </button>
           <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
@@ -31,12 +43,12 @@ const AuthLinks = () => {
           </span>
         </>
       )}
-      <div className={styles.burger} onClick={() => setOpen(!open)}>
+      <div className={styles.burger} onClick={handleBurgerClick}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>
         <div className={styles.line}></div>
       </div>
-      {open && (
+      {isMenuOpen && (
         <>
           <div className={styles.responsiveMenu}>
             <Link href="/" onClick={handleMenuClick}>Homepage</Link>
@@ -56,7 +68,7 @@ const AuthLinks = () => {
           <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
       )}
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
         <WritePage />
       </Modal>
     </>
@@ -64,4 +76,3 @@ const AuthLinks = () => {
 };
 
 export default AuthLinks;
-
