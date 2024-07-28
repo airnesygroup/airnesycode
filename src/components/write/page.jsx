@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./writePageModal.module.css";
+import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const WritePageModal = ({ closeModal }) => {
+const WritePage = ({ closeModal }) => {
   const { status } = useSession();
   const router = useRouter();
   const [file, setFile] = useState(null);
@@ -216,4 +216,4 @@ const WritePageModal = ({ closeModal }) => {
   );
 };
 
-export default WritePageModal;
+export default WritePage;
