@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 1%;
-  color: var(--softTextColor);
+  color: var(--textColor);
 
   border-radius: 15px;
   gap: 30px;
@@ -29,6 +29,8 @@
   width: 100%;
   padding-left: 1%;
   background-color: var(--softBg); /* Match app background color */
+  color: var(--textColor);
+
   border: 1px solid var(--softBg); /* Add a border */
   border-radius: 10px; /* Rounded edges */
 }
