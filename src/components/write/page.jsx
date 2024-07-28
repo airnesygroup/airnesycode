@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
-import Modal from "./Modal"; // Import the Modal component
+import Modal from "../Modal"; // Import the Modal component
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
