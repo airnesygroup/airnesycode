@@ -62,29 +62,18 @@
 
 .previewImage {
   max-width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  height: auto;
+}
+
+.editor {
+  width: 100%;
+  height: 300px;
+  max-width: 600px;
+  font-size: 16px;
+  border: 1px solid var(--softBg);
   border-radius: 10px;
-  margin-top: 10px;
-}
-
-.previewContainer {
-  position: relative;
-  display: inline-block;
-}
-
-.deleteButton {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.deleteButton img {
-  width: 16px;
-  height: 16px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .input {
@@ -148,7 +137,7 @@
   background-color: #ddd;
 }
 
-.publishButton {
+.button {
   padding: 10px 20px;
   border: none;
   background-color: var(--primary);
@@ -158,11 +147,11 @@
   transition: background-color 0.3s ease;
 }
 
-.publishButton:hover {
+.button:hover {
   background-color: var(--primaryDark);
 }
 
-.publishButton:disabled {
+.button:disabled {
   background-color: #6c757d;
   cursor: not-allowed;
 }
@@ -194,7 +183,7 @@
     font-size: 14px;
   }
 
-  .publishButton {
+  .button {
     padding: 8px 16px;
     font-size: 14px;
   }

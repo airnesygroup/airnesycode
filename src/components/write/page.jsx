@@ -88,6 +88,12 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const generateUniqueSlug = (title) => {
+    const baseSlug = slugify(title);
+    const uniqueIdentifier = Date.now();
+    return `${baseSlug}-${uniqueIdentifier}`;
+  };
+
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
@@ -114,13 +120,15 @@ const WritePage = ({ closeModal }) => {
 
     setPublishing(true);
 
+    const uniqueSlug = generateUniqueSlug(title);
+
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
         desc: value,
         img: media,
-        slug: slugify(title),
+        slug: uniqueSlug,
         catSlug: catSlug || "style",
       }),
     });
@@ -206,7 +214,7 @@ const WritePage = ({ closeModal }) => {
             </div>
           )}
           <div className={styles.buttons}>
-            <button className={styles.button} type="submit" disabled={publishing}>
+            <button className={styles.button} type="submit" disabled={uploading || !media || publishing}>
               {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
