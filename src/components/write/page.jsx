@@ -225,4 +225,3 @@ const WritePage = ({ closeModal }) => {
 };
 
 export default WritePage;
-
