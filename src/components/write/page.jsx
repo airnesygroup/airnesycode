@@ -120,6 +120,7 @@ const WritePage = () => {
   };
 
 
+
   const handleSubmit = async () => {
     if (title.length > 300) {
       alert("Title cannot exceed 300 characters.");
@@ -154,8 +155,10 @@ const WritePage = () => {
       // Close the modal immediately after publishing
       setOpen(false);
   
-      // Navigate to the new post
-      router.push(`/posts/${data.slug}`);
+      // Delay navigation to allow modal to close properly
+      setTimeout(() => {
+        router.push(`/posts/${data.slug}`);
+      }, 100); // Adjust the delay as needed
     } else {
       setUploading(false);
       alert("Failed to upload");
