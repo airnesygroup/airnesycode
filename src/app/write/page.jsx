@@ -215,13 +215,13 @@ const WritePage = () => {
             </button>
           </div>
         )}
-       <ReactQuill
-        className={`${styles.textArea} quill`}
-        theme="bubble"
-        value={value}
-        onChange={handleContentChange}
-        placeholder="Tell your story..."
-      />
+        <ReactQuill
+          className={`${styles.textArea} quill`}
+          theme="bubble"
+          value={value}
+          onChange={handleContentChange}
+          placeholder="Tell your story..."
+        />
       </div>
       <div className={styles.characterCount}>
         {40000 - value.length} characters remaining
@@ -235,4 +235,3 @@ const WritePage = () => {
 };
 
 export default WritePage;
-
