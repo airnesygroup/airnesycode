@@ -1,3 +1,4 @@
+// components/WritePage.js
 "use client";
 
 import Image from "next/image";
@@ -157,83 +158,48 @@ const WritePage = () => {
         <option value="fitness">Fitness</option>
         <option value="science">Science</option>
         <option value="entertainment">Entertainment</option>
-        <option value="music">Music</option>
-        <option value="movies">Movies</option>
-        <option value="gaming">Gaming</option>
-        <option value="sports">Sports</option>
-        <option value="lifestyle">Lifestyle</option>
-        <option value="fashion">Fashion</option>
-        <option value="education">Education</option>
-        <option value="environment">Environment</option>
-        <option value="climate">Climate</option>
-        <option value="art">Art</option>
-        <option value="design">Design</option>
-        <option value="books">Books</option>
-        <option value="diy">DIY</option>
-        <option value="crafts">Crafts</option>
-        <option value="relationships">Relationships</option>
-        <option value="ama">Ask Me Anything</option>
-        <option value="humor">Humor</option>
+        <option value="style">Style</option>
         <option value="food">Food</option>
         <option value="travel">Travel</option>
-        <option value="adventure">Adventure</option>
-        <option value="opinion">Opinion</option>
+        <option value="sports">Sports</option>
       </select>
-      {preview && (
-        <div className={styles.previewContainer}>
-          <img src={preview} alt="Preview" className={styles.previewImage} />
-          <button className={styles.deleteButton} onClick={handleDeleteImage}>
-            <Image src="/delete.png" alt="Delete" width={16} height={16} />
-          </button>
-        </div>
-      )}
-      <div className={styles.editor}>
-        <button className={styles.button} onClick={() => setOpen(!open)}>
-          <Image src="/plus.png" alt="" width={16} height={16} />
-        </button>
-        {open && (
-          <div className={styles.add}>
-            <input
-              type="file"
-              id="image"
-              onChange={(e) => setFile(e.target.files[0])}
-              style={{ display: "none" }}
-            />
-            <button className={styles.addButton}>
-              <label htmlFor="image">
-                <Image src="/image.png" alt="" width={16} height={16} />
-              </label>
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/external.png" alt="" width={16} height={16} />
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/video.png" alt="" width={16} height={16} />
-            </button>
-          </div>
-        )}
-       <ReactQuill
-        className={`${styles.textArea} quill`}
+      <ReactQuill
+        className={styles.editor}
         theme="bubble"
         value={value}
         onChange={handleContentChange}
-        placeholder="Tell your story..."
+        placeholder="Share your thoughts..."
       />
-      </div>
       <div className={styles.characterCount}>
         {40000 - value.length} characters remaining
-        {value.length > 40000 && <span className={styles.error}>Description limit reached!</span>}
+        {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
       </div>
-      <button className={styles.publish} onClick={handleSubmit}>
-        Publish
-      </button>
+      <input
+        style={{ display: "none" }}
+        type="file"
+        id="file"
+        accept="image/*"
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+      <label htmlFor="file" className={styles.fileLabel}>
+        Upload Image
+      </label>
+      {preview && (
+        <div className={styles.previewContainer}>
+          <Image src={preview} alt="Preview" className={styles.preview} width={200} height={200} />
+          <button className={styles.deleteButton} onClick={handleDeleteImage}>
+            &times;
+          </button>
+        </div>
+      )}
+      <div className={styles.buttons}>
+        <button className={styles.button} onClick={handleSubmit}>
+          Publish
+        </button>
+      </div>
     </div>
   );
 };
 
 export default WritePage;
-
-
-
-
 
