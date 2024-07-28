@@ -128,12 +128,12 @@ const WritePage = () => {
       alert("Description cannot exceed 40,000 characters.");
       return;
     }
-
+  
     const baseSlug = slugify(title);
     const uniqueSlug = await generateUniqueSlug(baseSlug);
-
+  
     setUploading(true);
-
+  
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -144,18 +144,24 @@ const WritePage = () => {
         catSlug: catSlug || "style",
       }),
     });
-
+  
     if (res.status === 200) {
       setUploading(false);
       const data = await res.json();
       alert("Uploaded successfully");
-      setOpen(false);  // Close the modal after upload
-      router.push(`/posts/${data.slug}`);
+      
+      // Wait for 1 second before closing the modal
+      setTimeout(() => {
+        setOpen(false);
+        router.push(`/posts/${data.slug}`);
+      }, 1000);
     } else {
       setUploading(false);
       alert("Failed to upload");
     }
   };
+  
+
 
   const handleDeleteImage = () => {
     setFile(null);
