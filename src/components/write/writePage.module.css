@@ -87,118 +87,79 @@
   height: 16px;
 }
 
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: var(--softBg);
+  background-color: var(--softBg);
+  color: var(--textColor);
+  font-size: 18px;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
 .error {
   color: red;
-  font-weight: bold;
-}
-
-.editor {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 800px;
-  position: relative;
-  background-color: var(--softBg);
-  font-size: 16px;
-}
-
-.button,
-.addButton {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 1px solid var(--textColor);
-  color: var(--textColor);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover,
-.addButton:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.addButton {
-  border-color: var(--textColor);
-  color: var(--textColor);
-}
-
-.add {
-  display: flex;
-  gap: 10px;
-  background-color: var(--bg);
-  color: var(--textColor);
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  left: 50px;
-  top: 50px;
-}
-
-.input {
-  padding: 15px;
-  padding-top: 100px;
-  font-size: 18px;
-  border: 1px solid var(--softBg);
-  border-radius: 10px;
-  outline: none;
-  background-color: var(--softBg);
-  color: var(--textColor);
-  width: 100%;
-  max-width: 800px;
-  box-sizing: border-box;
-  resize: none;
-}
-
-.input::placeholder {
-  color: var(--softTextColor);
 }
 
 .textArea {
   width: 100%;
-  max-width: 800px;
-  height: 400px;
-  border: 1px solid;
-  border-color: var(--softBg);
-  border-radius: 10px;
   padding: 10px;
-  box-sizing: border-box;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--softBg);
   background-color: var(--softBg);
+  color: var(--textColor);
+  font-size: 18px;
+  font-family: inherit;
+}
+
+.textArea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .fileLabel {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #0079d3;
-  color: white;
-  border-radius: 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: var(--softBg);
+  background-color: var(--softBg);
+  color: var(--textColor);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
 }
 
 .fileLabel:hover {
-  background-color: #005bb5;
+  background-color: #ddd;
 }
 
 .publishButton {
   padding: 10px 20px;
   border: none;
-  background-color: #28a745;
+  background-color: var(--primary);
   color: white;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
 }
 
 .publishButton:hover {
-  background-color: #218838;
+  background-color: var(--primaryDark);
 }
 
 .publishButton:disabled {
@@ -207,7 +168,7 @@
 }
 
 .quill .ql-editor a {
-  color: #0079d3 !important;
+  color: var(--primary) !important;
   text-decoration: underline;
 }
 
@@ -233,8 +194,7 @@
     font-size: 14px;
   }
 
-  .publish {
-    padding-top: 10px;
+  .publishButton {
     padding: 8px 16px;
     font-size: 14px;
   }
