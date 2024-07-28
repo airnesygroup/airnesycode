@@ -1,6 +1,6 @@
 import { useState } from "react";
-import WritePage from "./WritePage"; // Adjust the import path as needed
-import styles from "./parentComponent.module.css"; // Import the CSS module for the parent component
+import WritePage from "./write/page";
+import styles from "./ParentComponent.module.css"; // Import the CSS module for the parent component
 
 const Modal = ({ open, onClose, children }) => {
   if (!open) return null;
