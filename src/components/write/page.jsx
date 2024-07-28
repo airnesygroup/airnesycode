@@ -223,7 +223,7 @@ const WritePage = () => {
       )}
       <div className={styles.buttons}>
         <button className={styles.publishButton} onClick={handleSubmit} disabled={uploading}>
-          {uploading ? "Publishing..." : "Publish"}
+          {uploading ? "Uploading..." : "Publish"}
         </button>
       </div>
     </div>
