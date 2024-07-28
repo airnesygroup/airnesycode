@@ -17,15 +17,13 @@ export const GET = async (req) => {
       ...(cat && { catSlug: cat }),
     },
   };
-
+ 
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
       prisma.post.count({ where: query.where }),
     ]);
-    return new NextResponse(
-      JSON.stringify({ posts, count }, { status: 200 })
-    );
+    return new NextResponse(JSON.stringify({ posts, count }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
@@ -33,6 +31,15 @@ export const GET = async (req) => {
     );
   }
 };
+
+
+
+
+
+
+
+
+
 
 // CREATE A POST
 export const POST = async (req) => {

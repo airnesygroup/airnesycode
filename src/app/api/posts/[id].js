@@ -1,31 +1,43 @@
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
+import { NextResponse } from "next/server";
 
-export default async function handler(req, res) {
-  const { id } = req.query;
+// Assuming you have a route to update a post
+export const PUT = async (req) => {
+  const session = await getAuthSession();
 
-  if (!id) {
-    return res.status(400).json({ message: "Post ID is required" });
+  if (!session) {
+    return new NextResponse(
+      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+    );
   }
 
-  if (req.method === 'GET') {
-    try {
-      const post = await prisma.post.findUnique({
-        where: { id },
-        include: { user: true },
-      });
+  try {
+    const body = await req.json();
+    const postId = body.id;
 
-      if (!post) {
-        return res.status(404).json({ message: "Post not found" });
-      }
+    // Check if the post exists
+    const existingPost = await prisma.post.findUnique({
+      where: { id: postId },
+    });
 
-      return res.status(200).json(post);
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json({ message: "Something went wrong!" });
+    if (!existingPost) {
+      return new NextResponse(
+        JSON.stringify({ message: "Post not found!" }, { status: 404 })
+      );
     }
-  } else {
-    res.setHeader("Allow", ["GET"]);
-    return res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
-}
 
+    // Update the post if it exists
+    const updatedPost = await prisma.post.update({
+      where: { id: postId },
+      data: { ...body, userEmail: session.user.email },
+    });
+
+    return new NextResponse(JSON.stringify(updatedPost, { status: 200 }));
+  } catch (err) {
+    console.log(err);
+    return new NextResponse(
+      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+    );
+  }
+};

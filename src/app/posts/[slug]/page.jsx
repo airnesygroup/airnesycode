@@ -4,8 +4,8 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 
-const getData = async (id) => {
-  const res = await fetch(`https://www.airnesy.com/api/posts/${id}`, {
+const getData = async (slug) => {
+  const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
     cache: "no-store",
   });
 
@@ -17,9 +17,9 @@ const getData = async (id) => {
 };
 
 const SinglePage = async ({ params }) => {
-  const { id } = params;
+  const { slug } = params;
 
-  const data = await getData(id);
+  const data = await getData(slug);
 
   return (
     <div className={styles.container}>
@@ -29,6 +29,7 @@ const SinglePage = async ({ params }) => {
 
       <div className={styles.mainContent}>
         <div className={styles.textContainer}>
+     
           {data?.img && (
             <div className={styles.imageContainer}>
               <Image src={data.img} alt="" fill className={styles.image} />
@@ -37,34 +38,29 @@ const SinglePage = async ({ params }) => {
         </div>
         <div className={styles.content}>
           <div className={styles.post}>
-            <h1 className={styles.title}>{data?.title}</h1>
-            <div className={styles.user}>
-              {data?.user?.image && (
-                <div className={styles.userImageContainer}>
-                  <Image
-                    src={data.user.image}
-                    alt=""
-                    fill
-                    className={styles.avatar}
-                  />
-                </div>
-              )}
-              <div className={styles.userTextContainer}>
-                <span className={styles.username}>{data?.user.name}</span>
-                <span className={styles.date}>
-                  {data?.date || "01.01.2024"}
-                </span>
+          <h1 className={styles.title}>{data?.title}</h1>
+          <div className={styles.user}>
+            {data?.user?.image && (
+              <div className={styles.userImageContainer}>
+                <Image src={data.user.image} alt="" fill className={styles.avatar} />
               </div>
+            )}
+            <div className={styles.userTextContainer}>
+              <span className={styles.username}>{data?.user.name}</span>
+              <span className={styles.date}>{data?.date || '01.01.2024'}</span>
             </div>
-            <div
-              className={styles.description}
+          </div>
+
+            <div 
+             className={styles.description}
               dangerouslySetInnerHTML={{ __html: data?.desc }}
             />
             <div className={styles.comment}>
-              <Comments postSlug={id} />
+              <Comments postSlug={slug} />
             </div>
           </div>
           <Menu />
+
         </div>
       </div>
     </div>

@@ -85,6 +85,25 @@ const WritePage = () => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const generateUniqueSlug = async (title) => {
+    let slug = slugify(title);
+    let uniqueSlug = slug;
+    let count = 1;
+
+    // Check if the slug exists in the database
+    const response = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
+    let exists = await response.json();
+
+    while (exists) {
+      uniqueSlug = `${slug}-${count}`;
+      count++;
+      const newResponse = await fetch(`/api/posts/check-slug?slug=${uniqueSlug}`);
+      exists = await newResponse.json();
+    }
+
+    return uniqueSlug;
+  };
+
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
@@ -108,13 +127,18 @@ const WritePage = () => {
       return;
     }
 
+    const uniqueSlug = await generateUniqueSlug(title);
+
     const res = await fetch("/api/posts", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         title,
         desc: value,
         img: media,
-        slug: slugify(title),
+        slug: uniqueSlug,
         catSlug: catSlug || "style",
       }),
     });
@@ -212,13 +236,13 @@ const WritePage = () => {
             </button>
           </div>
         )}
-       <ReactQuill
-        className={`${styles.textArea} quill`}
-        theme="bubble"
-        value={value}
-        onChange={handleContentChange}
-        placeholder="Tell your story..."
-      />
+        <ReactQuill
+          className={`${styles.textArea} quill`}
+          theme="bubble"
+          value={value}
+          onChange={handleContentChange}
+          placeholder="Tell your story..."
+        />
       </div>
       <div className={styles.characterCount}>
         {40000 - value.length} characters remaining
@@ -232,8 +256,3 @@ const WritePage = () => {
 };
 
 export default WritePage;
-
-
-
-
-
