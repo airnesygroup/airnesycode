@@ -29,6 +29,8 @@ a {
 .dark {
   --bg: #020203;
   --textColor: #dfecf5;
+  --bg2: #000000;
+
   --softBg: rgb(43, 42, 42);
   --softerBg: rgb(27, 27, 27);
 
@@ -38,6 +40,8 @@ a {
 .light {
   --bg:#fcfeff ;
   --textColor: #0F1419;
+  --bg2:#ffffff ;
+
   --softBg: #EBECEE;
   --softerBg: #f5f6f8;
 
