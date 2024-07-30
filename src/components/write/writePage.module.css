@@ -16,7 +16,7 @@
   background: var(--bg2);
   border-color: var(--bd);
   border-style: solid; /* This makes the border visible */
-  border-width: 2px;  /* Use 'border-width' instead of just 'border' */
+  border-width: 4px;  /* Use 'border-width' instead of just 'border' */
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
