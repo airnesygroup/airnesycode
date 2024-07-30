@@ -87,7 +87,7 @@ const SidebarCategoryList = () => {
       >
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
-        <span className={styles.chevron2}>▼</span>
+        <span className={styles.chevron2}>⌄</span>
       </button>
 
       <button
@@ -96,7 +96,7 @@ const SidebarCategoryList = () => {
       >
         <FontAwesomeIcon icon={faCompassRegular} className={styles.icon} size="lg" />
         Explore
-        <span className={styles.chevron2}>▼</span>
+        <span className={styles.chevron2}>⌄</span>
       </button>
       <div className={styles.separator}></div>
       <div className={styles.sectionTitle}>Categories</div>

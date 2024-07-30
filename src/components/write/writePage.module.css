@@ -47,7 +47,7 @@
   margin-bottom: 20px;
   padding: 10px 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   border-radius: 10px;
   border: 1px solid;
   background-color: var(--softBg);
@@ -81,7 +81,7 @@
 
 .input {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 10px;
