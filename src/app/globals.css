@@ -30,7 +30,7 @@ a {
   --bg: #020203;
   --textColor: #dfecf5;
   --bg2: #000000;
-  --border: rgb(27, 27, 27);
+  --bd: rgb(27, 27, 27);
 
 
   --softBg: rgb(43, 42, 42);
@@ -43,7 +43,7 @@ a {
   --bg:#fcfeff ;
   --textColor: #0F1419;
   --bg2:#ffffff ;
-  --border:#fcfeff ;
+  --bd:#fcfeff ;
 
   --softBg: #EBECEE;
   --softerBg: #f5f6f8;
