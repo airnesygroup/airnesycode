@@ -13,7 +13,7 @@
 }
 
 .modalContent {
-  background: var(--Bg2);
+  background: var(--bg2);
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
@@ -28,6 +28,7 @@
   top: 10px;
   right: 10px;
   background: none;
+  color: var(--textColor);
   border: none;
   font-size: 24px;
   cursor: pointer;
