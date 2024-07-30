@@ -107,7 +107,7 @@ const SidebarCategoryList = () => {
             onClick={() => router.push(`/blog?cat=${item.slug}`)}
           >
             {item.title}
-            <span>▼</span>
+            <span>⌄</span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>

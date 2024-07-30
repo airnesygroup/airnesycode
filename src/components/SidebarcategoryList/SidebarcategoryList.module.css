@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 0;
+
 }
 
 .sidebarButton {
@@ -15,7 +17,6 @@
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  z-index: 900;
   cursor: pointer;
   font-size: medium;
 }
@@ -47,7 +48,6 @@
   align-items: center;
   cursor: pointer;
   font-size: medium;
-  z-index: 900;
 
 
 }
@@ -101,7 +101,6 @@
   color: var(--textColor);
   border: none;
   border-radius: 5px;
-  z-index: 900;
   text-align: left;
   margin-bottom: 10px;
   cursor: pointer;
@@ -121,7 +120,6 @@
   color: var(--textColor);
   background-color: var(--bg);
   font-size: medium;
-  z-index: 900;
   cursor: pointer;
 }
 
@@ -140,7 +138,6 @@
   padding-left: 20px;
   background-color:var(--softBg);
   margin: 10px 0;
-  z-index: 900;
 
 }
 
