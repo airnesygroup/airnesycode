@@ -133,8 +133,6 @@
   border-color: var(--softBg);
   background-color: blue;
   color: white;
-
-  color: var(--textColor);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
