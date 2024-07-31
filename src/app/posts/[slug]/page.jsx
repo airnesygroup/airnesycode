@@ -23,9 +23,7 @@ const SinglePage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.menu}>
-        <SidebarCategoryList />
-      </div>
+  
 
       <div className={styles.mainContent}>
         <div className={styles.textContainer}>

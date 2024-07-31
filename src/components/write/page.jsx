@@ -20,7 +20,7 @@ const WritePage = ({ closeModal }) => {
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  const [catSlug, setCatSlug] = useState("");
+  const [catSlug, setCatSlug] = useState("general");
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
 
@@ -109,6 +109,12 @@ const WritePage = ({ closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!title && !value && !media) {
+      alert("Please add at least a title, description, or image.");
+      return;
+    }
+    
     if (title.length > 300) {
       alert("Title cannot exceed 300 characters.");
       return;
@@ -129,7 +135,7 @@ const WritePage = ({ closeModal }) => {
         desc: value,
         img: media,
         slug: uniqueSlug,
-        catSlug: catSlug || "style",
+        catSlug: catSlug || "general",
       }),
     });
 
@@ -171,6 +177,7 @@ const WritePage = ({ closeModal }) => {
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
           >
+            <option value="general">General</option>
             <option value="news">News</option>
             <option value="politics">Politics</option>
             <option value="business">Business</option>
