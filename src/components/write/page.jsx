@@ -204,7 +204,9 @@ const WritePage = ({ closeModal }) => {
             value={value}
             onChange={handleContentChange}
             placeholder="Share your thoughts..."
-          />
+          />          
+             {!value && <div className={styles.placeholder}>Share your thoughts...</div>}
+
           <div className={styles.characterCount}>
             {40000 - value.length} characters remaining
             {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
