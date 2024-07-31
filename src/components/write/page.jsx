@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./writePage.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -23,6 +23,7 @@ const WritePage = ({ closeModal }) => {
   const [catSlug, setCatSlug] = useState("general");
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const modalContentRef = useRef(null);
 
   useEffect(() => {
     if (file) {
@@ -154,9 +155,15 @@ const WritePage = ({ closeModal }) => {
     setMedia("");
   };
 
+  const handleClickOutside = (event) => {
+    if (modalContentRef.current && !modalContentRef.current.contains(event.target)) {
+      closeModal();
+    }
+  };
+
   return (
-    <div className={styles.modalOverlay}>
-      <div className={styles.modalContent}>
+    <div className={styles.modalOverlay} onClick={handleClickOutside}>
+      <div className={styles.modalContent} ref={modalContentRef}>
         <button className={styles.closeButton} onClick={closeModal}>
           &times;
         </button>

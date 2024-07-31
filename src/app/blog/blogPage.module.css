@@ -1,5 +1,5 @@
 .title{
-  background-color: #199dc9;
+  background-color: #ffbc00;
   color: white;
   padding: 5px 10px;
   text-align: center;
@@ -10,6 +10,7 @@
 
 .content{
   display: flex;
+  padding-top: 5px;
   gap: 50px;
 }
 
