@@ -184,7 +184,7 @@ const WritePage = ({ closeModal }) => {
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
           >
-            <option value="general">General</option>
+            <option value="general">choose a category</option>
             <option value="news">News</option>
             <option value="politics">Politics</option>
             <option value="business">Business</option>
