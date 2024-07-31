@@ -13,7 +13,7 @@
   overflow-y: hidden;
   padding-right: 20px;
   padding-bottom: 100px;
-  margin-top: 65px;
+  margin-top: 5px;
   transition: overflow 0.3s ease;
 }
 
@@ -41,7 +41,7 @@
 
 /* Main content styles */
 .mainContent {
-  margin-top: 65px;
+  margin-top: 5px;
   flex: 1;
   display: flex;
   flex-direction: column;
