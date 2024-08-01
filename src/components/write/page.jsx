@@ -184,7 +184,7 @@ const WritePage = ({ closeModal }) => {
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
           >
-    <option value="general">General</option>
+    <option value="general">Choose a category</option>
 <option value="news&politics">News & Politics</option>
 <option value="business&finance">Business & Finance</option>
 <option value="technology">Technology</option>
@@ -218,9 +218,8 @@ const WritePage = ({ closeModal }) => {
             theme="bubble"
             value={value}
             onChange={handleContentChange}
-            placeholder="Share your thoughts..."
+            placeholder="Tell your story..."
           />          
-             {!value && <div className={styles.placeholder}>Share your thoughts...</div>}
 
           <div className={styles.characterCount}>
             {40000 - value.length} characters remaining
