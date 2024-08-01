@@ -15,8 +15,8 @@
 
 /* Container for the image */
 .imageContainer {
-  flex: 0 0 80px; /* Fixed width for the image container */
-  height: 80px; /* Fixed height for the image container */
+  flex: 0 0 40px; /* Fixed width for the image container */
+  height: 40px; /* Fixed height for the image container */
   position: relative;
 }
 
