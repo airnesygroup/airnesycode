@@ -32,7 +32,7 @@
 /* Styling for the image */
 .image {
   border-radius: 50%;
-  border: 1px solid lightgray;
+  border: 1px solid var(--softTextColor);
   object-fit: cover;
   width: 100%; /* Make sure the image fits within the container */
   height: 100%; /* Make sure the image fits within the container */
