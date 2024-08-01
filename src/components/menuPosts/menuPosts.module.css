@@ -44,9 +44,8 @@
   color: gray;
 }
 
-/* Category styles with updated class names */
 .general {
-  background-color: #5e8b7e; /* Teal */
+  background-color: #f3722c; /* Orange */
 }
 
 .news-and-politics {
@@ -152,3 +151,6 @@
 .vehicles-and-machinery {
   background-color: #95a5a6; /* Gray */
 }
+
+/* Common styles for category span */
+
