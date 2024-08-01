@@ -10,11 +10,11 @@ const Menu = () => {
     <div className={styles.container}>
       <h2 className={styles.subtitle}>{"What's hot"}</h2>
       <h1 className={styles.title}>Most Popular</h1>
-      <Menulists2 page={1} cat={""} />
+      <Menulists page={1} cat={""} />
 
       <h2 className={styles.subtitle2}>Chosen by the editor</h2>
       <h1 className={styles.title}>Editors Pick</h1>
-      <Menulists page={1} cat={""} />
+      <Menulists2 page={1} cat={""} />
 
     </div>
   );

@@ -24,7 +24,7 @@
 
 /* Container for the image */
 .imageContainer {
-  flex: 0 0 40px; /* Fixed width for the image container */
+  flex: 0 0 20px; /* Fixed width for the image container */
   height: 20px; /* Fixed height for the image container */
   position: relative;
 }
@@ -32,6 +32,7 @@
 /* Styling for the image */
 .image {
   border-radius: 50%;
+  border: 1px solid lightgray;
   object-fit: cover;
   width: 100%; /* Make sure the image fits within the container */
   height: 100%; /* Make sure the image fits within the container */
