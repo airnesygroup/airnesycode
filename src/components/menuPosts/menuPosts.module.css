@@ -25,8 +25,8 @@
   border-radius: 50%;
   border: 3px solid lightgray;
   object-fit: cover;
-  width: 40%; /* Make sure the image fits within the container */
-  height: 40%;
+  width: 100%; /* Make sure the image fits within the container */
+  height: 100%; /* Make sure the image fits within the container */
 }
 
 /* Container for text content */
@@ -57,7 +57,7 @@
   padding: 2px 5px;
   border-radius: 5px;
   display: inline-block; /* Ensures the background color fits the text */
-  margin-bottom: 5px; /* Space between category and title */
+  margin-right: 10px; /* Space between category and image */
 }
 
 /* Specific category styles */
