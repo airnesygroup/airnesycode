@@ -41,13 +41,15 @@ const MenuPosts = ({ item, withImage }) => {
   return (
     <div className={styles.items}>
       <Link href={`/posts/${item.slug}`} className={styles.item} key={item.slug}>
+     
+
+        <div className={styles.textContainer}>
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/profile.png" alt={item.title} fill className={styles.image} />
           </div>
         )}
-
-        <div className={styles.textContainer}>
+        
           {categoryClass && (
             <span className={`${styles.category} ${styles[categoryClass]}`}>
               {item.catSlug}
