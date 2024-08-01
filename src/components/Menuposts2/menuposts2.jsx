@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import styles from "./menuPosts2.module.css";
 
-// Mapping of slugs to CSS class names
 const slugToClassMap = {
   "general": "general",
   "news&politics": "news-and-politics",
@@ -35,18 +34,22 @@ const slugToClassMap = {
 };
 
 const MenuPosts2 = ({ item, withImage }) => {
-  // Look up the CSS class name based on item.category
-  const className = slugToClassMap[item.category];
+  // Get the CSS class based on the category slug
+  const categoryClass = slugToClassMap[item.catSlug];
 
-  // Ensure className is defined; otherwise, no class is applied
   return (
     <div className={styles.items}>
       <Link href={`/posts/${item.slug}`} className={styles.item} key={item.slug}>
-    
         <div className={styles.textContainer}>
+          {/* Render the category span with the correct class */}
+          {categoryClass && (
+            <span className={`${styles.category} ${styles[categoryClass]}`}>
+              {item.catSlug}
+            </span>
+          )}
           <h3 className={styles.postTitle}>{item.title.substring(0, 60)}</h3>
           <div className={styles.detail}>
-            {className && <span className={styles[className]}>{item.category}</span>}
+            {/* Add additional details if needed */}
           </div>
         </div>
       </Link>

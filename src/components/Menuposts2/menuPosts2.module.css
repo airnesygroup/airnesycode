@@ -29,115 +29,117 @@
   
 
  
-/* Category styles with updated class names */
-.general {
-  background-color: #5e8b7e; /* Teal */
-}
+  .general {
+    background-color: #f3722c; /* Orange */
+  }
+  
+  .news-and-politics {
+    background-color: #ff9f43; /* Light Orange */
+  }
+  
+  .business-and-finance {
+    background-color: #ff5e57; /* Coral */
+  }
+  
+  .technology {
+    background-color: #5e8b7e; /* Teal */
+  }
+  
+  .science {
+    background-color: #9b59b6; /* Purple */
+  }
+  
+  .q-and-a {
+    background-color: #f39c12; /* Yellow */
+  }
+  
+  .health-and-fitness {
+    background-color: #2ecc71; /* Green */
+  }
+  
+  .sports {
+    background-color: #3498db; /* Blue */
+  }
+  
+  .gaming {
+    background-color: #e74c3c; /* Red */
+  }
+  
+  .funny {
+    background-color: #e67e22; /* Pumpkin */
+  }
+  
+  .music-and-entertainment {
+    background-color: #f1c40f; /* Gold */
+  }
+  
+  .movies-and-tv {
+    background-color: #1abc9c; /* Turquoise */
+  }
+  
+  .anime {
+    background-color: #8e44ad; /* Violet */
+  }
+  
+  .pop-and-culture {
+    background-color: #d35400; /* Orange Red */
+  }
+  
+  .fashion-and-beauty {
+    background-color: #c0392b; /* Brick Red */
+  }
+  
+  .lifestyle {
+    background-color: #27ae60; /* Emerald */
+  }
+  
+  .food-and-drinks {
+    background-color: #2ecc71; /* Green */
+  }
+  
+  .arts-and-crafts {
+    background-color: #16a085; /* Sea Green */
+  }
+  
+  .hobbies-and-collectibles {
+    background-color: #e74c3c; /* Red */
+  }
+  
+  .places-and-travel {
+    background-color: #8e44ad; /* Violet */
+  }
+  
+  .home-and-garden {
+    background-color: #f39c12; /* Yellow */
+  }
+  
+  .education-and-career {
+    background-color: #2980b9; /* Dark Blue */
+  }
+  
+  .humanities-and-law {
+    background-color: #d35400; /* Orange Red */
+  }
+  
+  .books {
+    background-color: #34495e; /* Dark Gray */
+  }
+  
+  .nature-and-outdoors {
+    background-color: #2ecc71; /* Green */
+  }
+  
+  .environment-and-climate {
+    background-color: #1abc9c; /* Turquoise */
+  }
+  
+  .vehicles-and-machinery {
+    background-color: #95a5a6; /* Gray */
+  }
+  
+  /* Common styles for category span */
 
-.news-and-politics {
-  background-color: #ff9f43; /* Light Orange */
-}
-
-.business-and-finance {
-  background-color: #ff5e57; /* Coral */
-}
-
-.technology {
-  background-color: #5e8b7e; /* Teal */
-}
-
-.science {
-  background-color: #9b59b6; /* Purple */
-}
-
-.q-and-a {
-  background-color: #f39c12; /* Yellow */
-}
-
-.health-and-fitness {
-  background-color: #2ecc71; /* Green */
-}
-
-.sports {
-  background-color: #3498db; /* Blue */
-}
-
-.gaming {
-  background-color: #e74c3c; /* Red */
-}
-
-.funny {
-  background-color: #e67e22; /* Pumpkin */
-}
-
-.music-and-entertainment {
-  background-color: #f1c40f; /* Gold */
-}
-
-.movies-and-tv {
-  background-color: #1abc9c; /* Turquoise */
-}
-
-.anime {
-  background-color: #8e44ad; /* Violet */
-}
-
-.pop-and-culture {
-  background-color: #d35400; /* Orange Red */
-}
-
-.fashion-and-beauty {
-  background-color: #c0392b; /* Brick Red */
-}
-
-.lifestyle {
-  background-color: #27ae60; /* Emerald */
-}
-
-.food-and-drinks {
-  background-color: #2ecc71; /* Green */
-}
-
-.arts-and-crafts {
-  background-color: #16a085; /* Sea Green */
-}
-
-.hobbies-and-collectibles {
-  background-color: #e74c3c; /* Red */
-}
-
-.places-and-travel {
-  background-color: #8e44ad; /* Violet */
-}
-
-.home-and-garden {
-  background-color: #f39c12; /* Yellow */
-}
-
-.education-and-career {
-  background-color: #2980b9; /* Dark Blue */
-}
-
-.humanities-and-law {
-  background-color: #d35400; /* Orange Red */
-}
-
-.books {
-  background-color: #34495e; /* Dark Gray */
-}
-
-.nature-and-outdoors {
-  background-color: #2ecc71; /* Green */
-}
-
-.environment-and-climate {
-  background-color: #1abc9c; /* Turquoise */
-}
-
-.vehicles-and-machinery {
-  background-color: #95a5a6; /* Gray */
-}
-
+  
 
   .postTitle {
     font-size: 14px;
