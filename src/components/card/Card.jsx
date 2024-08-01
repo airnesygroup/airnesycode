@@ -49,9 +49,7 @@ const Card = ({ key, item }) => {
               className={styles.desc}
               dangerouslySetInnerHTML={{ __html: truncatedDesc }}
             />
-            {showMore && (
-              <span className={styles.link}>Show More</span>
-            )}
+        
           </div>
           {item.img && (
             <div className={styles.imageContainer}>
