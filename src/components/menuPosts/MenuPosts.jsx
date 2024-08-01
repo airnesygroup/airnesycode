@@ -3,7 +3,8 @@ import Link from "next/link";
 import React from "react";
 import styles from "./menuPosts.module.css";
 
-const slugToClassMap = {
+// Define a mapping of categories to CSS classes
+const categoryToClassMap = {
   "general": "general",
   "news&politics": "news-and-politics",
   "business&finance": "business-and-finance",
@@ -34,8 +35,8 @@ const slugToClassMap = {
 };
 
 const MenuPosts = ({ item, withImage }) => {
-  // Get the CSS class name from the slug
-  const categoryClass = slugToClassMap[item.catSlug];
+  // Get the CSS class name from the category
+  const categoryClass = categoryToClassMap[item.catSlug] || '';
 
   return (
     <div className={styles.items}>
@@ -54,7 +55,7 @@ const MenuPosts = ({ item, withImage }) => {
           )}
           <h3 className={styles.postTitle}>{item.title.substring(0, 60)}</h3>
           <div className={styles.detail}>
-            <span className={styles[className]}>{item.category}</span>
+            <span>{item.category}</span>
           </div>
         </div>
       </Link>
