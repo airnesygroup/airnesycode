@@ -32,7 +32,7 @@
 }
 
 .title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   padding-bottom: 5px;
   overflow: hidden;
@@ -41,7 +41,7 @@
 }
 
 .desc {
-  font-size: 16px;
+  font-size: 15px;
   color: #fcfcfc;
   padding-bottom: 5px;
   overflow: hidden;
@@ -66,7 +66,7 @@
 }
 
 .username {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   margin: 0;
   color: #fcfcfc;

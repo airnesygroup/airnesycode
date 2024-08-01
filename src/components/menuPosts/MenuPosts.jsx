@@ -45,14 +45,13 @@ const MenuPosts = ({ item, withImage }) => {
           {withImage && (
             <div className={styles.imageContainer}>
               <Image src="/profile.png" alt={item.title} fill className={styles.image} />
-              {categoryClass && (
+            </div>
+          )}
+          {categoryClass && (
             <span className={`${styles.category} ${styles[categoryClass]}`}>
               {item.catSlug}
             </span>
           )}
-            </div>
-          )}
-       
         </div>
         <div className={styles.textContainer}>
           <h3 className={styles.postTitle}>{item.title.substring(0, 60)}</h3>
