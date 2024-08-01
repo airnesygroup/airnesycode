@@ -185,32 +185,32 @@ const WritePage = ({ closeModal }) => {
             onChange={(e) => setCatSlug(e.target.value)}
           >
     <option value="general">Choose a category</option>
-<option value="news&politics">News & Politics</option>
-<option value="business&finance">Business & Finance</option>
+<option value="news-politics">News & Politics</option>
+<option value="business-finance">Business & Finance</option>
 <option value="technology">Technology</option>
 <option value="science">Science</option>
-<option value="q&a">Q & A</option>
-<option value="health&fitness">Health & Fitness</option>
+<option value="q-a">Q & A</option>
+<option value="health-fitness">Health & Fitness</option>
 <option value="sports">Sports</option>
 <option value="gaming">Gaming</option>
 <option value="funny">Funny</option>
-<option value="music&entertainment">Music & Entertainment</option>
-<option value="movies&tv">Movies & TV</option>
+<option value="music-entertainment">Music & Entertainment</option>
+<option value="movies-tv">Movies & TV</option>
 <option value="anime">Anime</option>
-<option value="pop&culture">Pop & Culture</option>
-<option value="fashion&beauty">Fashion & Beauty</option>
+<option value="pop-culture">Pop & Culture</option>
+<option value="fashion-beauty">Fashion & Beauty</option>
 <option value="lifestyle">Lifestyle</option>
-<option value="food&drinks">Food & Drinks</option>
-<option value="arts&crafts">Arts & Crafts</option>
-<option value="hobbies&collectibles">Hobbies & Collectibles</option>
-<option value="places&travel">Places & Travel</option>
-<option value="home&garden">Home & Garden</option>
-<option value="education&career">Education & Career</option>
-<option value="humanities&law">Humanities & Law</option>
+<option value="food-drinks">Food & Drinks</option>
+<option value="arts-crafts">Arts & Crafts</option>
+<option value="hobbies-collectibles">Hobbies & Collectibles</option>
+<option value="places-travel">Places & Travel</option>
+<option value="home-garden">Home & Garden</option>
+<option value="education-career">Education & Career</option>
+<option value="humanities-law">Humanities & Law</option>
 <option value="books">Books</option>
-<option value="nature&outdoors">Nature & Outdoors</option>
-<option value="environment&climate">Environment & Climate</option>
-<option value="vehicles&machinery">Vehicles & Machinery</option>
+<option value="nature-outdoors">Nature & Outdoors</option>
+<option value="environment-climate">Environment & Climate</option>
+<option value="vehicles-machinery">Vehicles & Machinery</option>
 
           </select>
           <ReactQuill
