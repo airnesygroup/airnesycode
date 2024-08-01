@@ -1,3 +1,5 @@
+
+
 /* Container for multiple items */
 .items {
   margin-top: 20px;
@@ -9,12 +11,12 @@
 /* Styling for each item */
 .item {
   display: flex;
-  align-items: center;
-  gap: 15px; /* Adjust the gap between the image and text container */
+  flex-direction: column;
+  gap: 10px; /* Adjust the gap between the rows */
 }
 
-/* Container for the image and category */
-.imageAndCategory {
+/* Top row container for the image and category */
+.topRow {
   display: flex;
   align-items: center;
   gap: 10px; /* Adjust the gap between the image and the category */
@@ -34,12 +36,10 @@
   object-fit: cover;
   width: 100%; /* Make sure the image fits within the container */
   height: 100%; /* Make sure the image fits within the container */
-  vertical-align: middle; /* Align image vertically in the middle */
 }
 
 /* Container for text content */
 .textContainer {
-  flex: 1; /* Takes up remaining space */
   display: flex;
   flex-direction: column;
   gap: 5px; /* Space between title and details */
@@ -66,8 +66,6 @@
   color: white;
   width: max-content;
 }
-
-
 /* Specific category styles */
 .general {
   background-color: #f3722c; /* Orange */

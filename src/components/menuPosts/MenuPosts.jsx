@@ -41,7 +41,7 @@ const MenuPosts = ({ item, withImage }) => {
   return (
     <div className={styles.items}>
       <Link href={`/posts/${item.slug}`} className={styles.item} key={item.slug}>
-        <div className={styles.imageAndCategory}>
+        <div className={styles.topRow}>
           {withImage && (
             <div className={styles.imageContainer}>
               <Image src="/profile.png" alt={item.title} fill className={styles.image} />
