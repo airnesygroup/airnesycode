@@ -13,12 +13,18 @@
   gap: 15px; /* Adjust the gap between the image and text container */
 }
 
+/* Container for the image and category */
+.imageAndCategory {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between the image and the category */
+}
+
 /* Container for the image */
 .imageContainer {
   flex: 0 0 40px; /* Fixed width for the image container */
   height: 40px; /* Fixed height for the image container */
   position: relative;
-  margin-top: -40;
 }
 
 /* Styling for the image */
@@ -58,7 +64,6 @@
   font-size: 10px;
   color: white;
   width: max-content;
-  margin-bottom: 5px; /* Add margin below the category */
 }
 
 /* Specific category styles */
