@@ -35,25 +35,16 @@ const slugToClassMap = {
 
 const MenuPosts = ({ item, withImage }) => {
   // Get the CSS class name from the slug
-  const categoryClass = slugToClassMap[item.catSlug];
+  const className = slugToClassMap[item.slug] || "default-class";
 
   return (
     <div className={styles.items}>
       <Link href={`/posts/${item.slug}`} className={styles.item} key={item.slug}>
-     
- 
         {withImage && (
           <div className={styles.imageContainer}>
             <Image src="/profile.png" alt={item.title} fill className={styles.image} />
           </div>
         )}
-        
-         {categoryClass && (
-            <span className={`${styles.category} ${styles[categoryClass]}`}>
-              {item.catSlug}
-            </span>
-          )}
-
         <div className={styles.textContainer}>
           <h3 className={styles.postTitle}>{item.title.substring(0, 60)}</h3>
           <div className={styles.detail}>
