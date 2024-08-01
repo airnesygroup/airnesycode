@@ -68,7 +68,8 @@
 }
 /* Specific category styles */
 .general {
-  background-color: #265ffd; /* Orange */
+  background-color: rgb(12, 34, 158);
+
 }
 
 .news-and-politics {

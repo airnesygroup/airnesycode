@@ -12,9 +12,7 @@ const Menu = () => {
       <h1 className={styles.title}>Most Popular</h1>
       <Menulists page={1} cat={""} />
 
-      <h2 className={styles.subtitle2}>Chosen by the editor</h2>
-      <h1 className={styles.title}>Editors Pick</h1>
-
+     
     </div>
   );
 };
