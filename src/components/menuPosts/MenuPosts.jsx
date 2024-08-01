@@ -33,6 +33,7 @@ const slugToClassMap = {
   "vehicles&machinery": "vehicles-and-machinery"
 };
 
+
 const MenuPosts = ({ item, withImage }) => {
   // Get the CSS class name from the slug
   const className = slugToClassMap[item.slug] || "default-class";
