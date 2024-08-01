@@ -3,6 +3,8 @@ import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
+import Navbar from "@/components/navbar/Navbar";
+
 
 const getData = async (slug) => {
   const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
@@ -23,6 +25,8 @@ const SinglePage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
+              <Navbar />
+
       <div className={styles.menu}>
         <SidebarCategoryList />
       </div>

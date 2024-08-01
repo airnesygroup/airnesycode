@@ -30,24 +30,31 @@
   gap: 5px;
 }
 
-.category {
-  padding: 3px 8px;
-  border-radius: 10px;
-  font-size: 12px;
-  color: white;
-  width: max-content;
+.postTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--softTextColor);
 }
 
-  
+.detail {
+  font-size: 12px;
+}
+
+.date {
+  color: gray;
+}
+
+/* Category styles with updated class names */
+
 .general {
   background-color: #f3722c; /* Orange */
 }
 
-.news&politics {
+.news-and-politics {
   background-color: #ff9f43; /* Light Orange */
 }
 
-.business&finance {
+.business-and-finance {
   background-color: #ff5e57; /* Coral */
 }
 
@@ -59,11 +66,11 @@
   background-color: #9b59b6; /* Purple */
 }
 
-.q&a {
+.q-and-a {
   background-color: #f39c12; /* Yellow */
 }
 
-.health&fitness {
+.health-and-fitness {
   background-color: #2ecc71; /* Green */
 }
 
@@ -79,11 +86,11 @@
   background-color: #e67e22; /* Pumpkin */
 }
 
-.music&entertainment {
+.music-and-entertainment {
   background-color: #f1c40f; /* Gold */
 }
 
-.movies&tv {
+.movies-and-tv {
   background-color: #1abc9c; /* Turquoise */
 }
 
@@ -91,11 +98,11 @@
   background-color: #8e44ad; /* Violet */
 }
 
-.pop&culture {
+.pop-and-culture {
   background-color: #d35400; /* Orange Red */
 }
 
-.fashion&beauty {
+.fashion-and-beauty {
   background-color: #c0392b; /* Brick Red */
 }
 
@@ -103,31 +110,31 @@
   background-color: #27ae60; /* Emerald */
 }
 
-.food&drinks {
+.food-and-drinks {
   background-color: #2ecc71; /* Green */
 }
 
-.arts&crafts {
+.arts-and-crafts {
   background-color: #16a085; /* Sea Green */
 }
 
-.hobbies&collectibles {
+.hobbies-and-collectibles {
   background-color: #e74c3c; /* Red */
 }
 
-.places&travel {
+.places-and-travel {
   background-color: #8e44ad; /* Violet */
 }
 
-.home&garden {
+.home-and-garden {
   background-color: #f39c12; /* Yellow */
 }
 
-.education&career {
+.education-and-career {
   background-color: #2980b9; /* Dark Blue */
 }
 
-.humanities&law {
+.humanities-and-law {
   background-color: #d35400; /* Orange Red */
 }
 
@@ -135,39 +142,14 @@
   background-color: #34495e; /* Dark Gray */
 }
 
-.nature&outdoors {
+.nature-and-outdoors {
   background-color: #2ecc71; /* Green */
 }
 
-.environment&climate {
+.environment-and-climate {
   background-color: #1abc9c; /* Turquoise */
 }
 
-.vehicles&machinery {
+.vehicles-and-machinery {
   background-color: #95a5a6; /* Gray */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.postTitle {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--softTextColor);
-}
-
-.detail {
-  font-size: 12px;
-}
-
-.date {
-  color: gray;
 }
