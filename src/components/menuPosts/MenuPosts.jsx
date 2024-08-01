@@ -4,10 +4,11 @@ import React from "react";
 import styles from "./menuPosts.module.css";
 
 const slugToClassMap = {
-  "general": "general",
   "news&politics": "news-and-politics",
   "business&finance": "business-and-finance",
   "technology": "technology",
+  "general": "general",
+
   "science": "science",
   "q&a": "q-and-a",
   "health&fitness": "health-and-fitness",
