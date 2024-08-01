@@ -1,3 +1,4 @@
+/* Container for multiple items */
 .items {
   margin-top: 20px;
   display: flex;
@@ -5,45 +6,61 @@
   gap: 35px;
 }
 
+/* Styling for each item */
 .item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px; /* Adjust the gap between the image and text container */
 }
 
+/* Container for the image */
 .imageContainer {
-  flex: 0.7;
-  aspect-ratio: 1/1;
+  flex: 0 0 80px; /* Fixed width for the image container */
+  height: 80px; /* Fixed height for the image container */
   position: relative;
 }
 
+/* Styling for the image */
 .image {
   border-radius: 50%;
   border: 3px solid lightgray;
   object-fit: cover;
+  width: 100%; /* Make sure the image fits within the container */
+  height: 100%;
 }
 
+/* Container for text content */
 .textContainer {
-  flex: 4;
+  flex: 1; /* Takes up remaining space */
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 5px; /* Space between title and details */
 }
 
+/* Styling for post title */
 .postTitle {
   font-size: 14px;
   font-weight: 500;
   color: var(--softTextColor);
+  margin: 0; /* Remove default margin */
 }
 
+/* Container for additional details */
 .detail {
   font-size: 12px;
 }
 
-.date {
-  color: gray;
+/* Styling for the category name */
+.category {
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: inline-block; /* Ensures the background color fits the text */
+  margin-bottom: 5px; /* Space between category and title */
 }
 
+/* Specific category styles */
 .general {
   background-color: #f3722c; /* Orange */
 }
@@ -151,6 +168,3 @@
 .vehicles-and-machinery {
   background-color: #95a5a6; /* Gray */
 }
-
-/* Common styles for category span */
-
