@@ -45,9 +45,10 @@
 }
 
 /* Category styles with updated class names */
-.science {
-  background-color: #9b59b6; /* Purple */
+.general {
+  background-color: #5e8b7e; /* Teal */
 }
+
 .news-and-politics {
   background-color: #ff9f43; /* Light Orange */
 }
