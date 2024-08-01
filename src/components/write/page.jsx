@@ -184,19 +184,34 @@ const WritePage = ({ closeModal }) => {
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
           >
-            <option value="general">choose a category</option>
-            <option value="news">News</option>
-            <option value="politics">Politics</option>
-            <option value="business">Business</option>
-            <option value="technology">Technology</option>
-            <option value="health">Health</option>
-            <option value="fitness">Fitness</option>
-            <option value="science">Science</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="style">Style</option>
-            <option value="food">Food</option>
-            <option value="travel">Travel</option>
-            <option value="sports">Sports</option>
+    <option value="general">General</option>
+<option value="news&politics">News & Politics</option>
+<option value="business&finance">Business & Finance</option>
+<option value="technology">Technology</option>
+<option value="science">Science</option>
+<option value="q&a">Q & A</option>
+<option value="health&fitness">Health & Fitness</option>
+<option value="sports">Sports</option>
+<option value="gaming">Gaming</option>
+<option value="funny">Funny</option>
+<option value="music&entertainment">Music & Entertainment</option>
+<option value="movies&tv">Movies & TV</option>
+<option value="anime">Anime</option>
+<option value="pop&culture">Pop & Culture</option>
+<option value="fashion&beauty">Fashion & Beauty</option>
+<option value="lifestyle">Lifestyle</option>
+<option value="food&drinks">Food & Drinks</option>
+<option value="arts&crafts">Arts & Crafts</option>
+<option value="hobbies&collectibles">Hobbies & Collectibles</option>
+<option value="places&travel">Places & Travel</option>
+<option value="home&garden">Home & Garden</option>
+<option value="education&career">Education & Career</option>
+<option value="humanities&law">Humanities & Law</option>
+<option value="books">Books</option>
+<option value="nature&outdoors">Nature & Outdoors</option>
+<option value="environment&climate">Environment & Climate</option>
+<option value="vehicles&machinery">Vehicles & Machinery</option>
+
           </select>
           <ReactQuill
             className={styles.editor}
