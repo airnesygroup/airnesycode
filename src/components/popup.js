@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import styles from "./popup.module.css"; // Ensure the file name matches
+import styles from "./PopUp.module.css"; // Ensure the file name matches
 import Link from 'next/link';
 
 const Popup = ({ onClose }) => {
