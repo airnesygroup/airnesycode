@@ -1,19 +1,18 @@
-// src/app/page.jsx
-
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
 import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/Menu/Menu";
-import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
+import SidebarCategoryList from "@/components/SidebarCategoryList/SidebarCategoryList";
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import Popup from "@/components/popup";
+
 export default function Home({ searchParams }) {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
 
@@ -22,6 +21,11 @@ export default function Home({ searchParams }) {
   const handleClosePopup = () => {
     setIsPopupVisible(false);
   };
+
+  useEffect(() => {
+    // This effect runs when the component mounts
+    console.log("Component mounted");
+  }, []);
 
   return (
     <div className={styles.container}>

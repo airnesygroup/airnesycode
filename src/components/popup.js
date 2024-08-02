@@ -1,7 +1,6 @@
 // components/popup/Popup.js
 
-import Link from "next/link";
-import styles from "./PopUp.module.css";
+import styles from ".PopUp.module.css";
 
 const Popup = ({ onClose }) => {
   return (
