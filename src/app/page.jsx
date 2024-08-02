@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./homepage.module.css";
@@ -10,7 +12,6 @@ import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import PopUp from "@/components/PopUp/PopUp";
-
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 

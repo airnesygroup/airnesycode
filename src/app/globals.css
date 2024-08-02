@@ -36,7 +36,7 @@ a {
   --softBg: rgb(43, 42, 42);
   --softerBg: rgb(27, 27, 27);
 
-  --softTextColor: #a6a6a6;
+  --softTextColor: #c4c4c4;
 }
 
 .light {
@@ -48,7 +48,7 @@ a {
   --softBg: #EBECEE;
   --softerBg: #f5f6f8;
 
-  --softTextColor: #626262;
+  --softTextColor: #3d3d3d;
 }
 
 .container {
@@ -64,6 +64,19 @@ a {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+/* styles/globals.css */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-Regular.woff2') format('woff2'),
+       url('/fonts/inter/Inter-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Add other font weights and styles as needed */
+
+
 
 
 body {
