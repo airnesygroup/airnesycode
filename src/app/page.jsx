@@ -7,6 +7,7 @@ import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
 import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
+import Menu from "@/components/Menu/Menu";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
@@ -39,6 +40,7 @@ export default function Home({ searchParams }) {
         <CarouselList page={page} />
         <div className={styles.content1}>
           <CardList page={page} />
+          <Menu />
         </div>
         <Footer />
       </div>
