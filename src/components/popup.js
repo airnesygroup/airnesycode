@@ -11,7 +11,7 @@ const Popup = ({ onClose }) => {
   return (
     <div className={styles.popupOverlay}>
     <div className={styles.popupContent}>
-    <button className={styles.closeButton} onClick={onClose}>×</button>
+    <button className={styles.closeButton} onClick={onClose}>X</button>
 
       <h2 className={styles.title}>Tell your story!</h2>
       <p className={styles.description}> We are a community based blog-streaming social platform, 
