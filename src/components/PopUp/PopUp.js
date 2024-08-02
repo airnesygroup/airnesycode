@@ -1,4 +1,3 @@
-
 // components/popup/Popup.js
 
 import Link from "next/link";
@@ -10,10 +9,7 @@ const Popup = ({ onClose }) => {
       <div className={styles.popupContent}>
         <h2 className={styles.title}>Welcome</h2>
         <p className={styles.description}>This is a description of the popup.</p>
-        <Link href="/login">
-          <button className={styles.button}>Go to Login</button>
-        </Link>
-        <button className={styles.closeButton} onClick={onClose}>Close</button>
+        <button className={styles.button} onClick={onClose}>Close</button>
       </div>
     </div>
   );
