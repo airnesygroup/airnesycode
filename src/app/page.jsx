@@ -15,13 +15,10 @@ import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import Popup from "@/components/PopUp/PopUp";
 export default function Home({ searchParams }) {
-  const [isPopupVisible, setIsPopupVisible] = useState(true);
 
   const page = parseInt(searchParams.page) || 1;
 
-  const handleClosePopup = () => {
-    setIsPopupVisible(false);
-  };
+  
 
   return (
     <div className={styles.container}>
@@ -41,7 +38,6 @@ export default function Home({ searchParams }) {
         <Footer />
       </div>
 
-      {isPopupVisible && <Popup onClose={handleClosePopup} />}
     </div>
   );
 }
