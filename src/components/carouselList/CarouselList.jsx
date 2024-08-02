@@ -1,6 +1,5 @@
-// CarouselList.js
-
-import React from "react";
+// components/CarouselList.js
+import React, { useEffect, useState } from "react";
 import styles from "./carouselList.module.css";
 import CarouselListClient from "./CarouselListClient";
 
@@ -19,12 +18,32 @@ const getData = async (page, cat) => {
   return res.json();
 };
 
-const CarouselList = async ({ page, cat }) => {
-  const { posts, count } = await getData(page, cat);
+const CarouselList = ({ page, cat }) => {
+  const [data, setData] = useState({ posts: [], count: 0 });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getData(page, cat);
+        setData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [page, cat]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className={styles.container}>
-      <CarouselListClient posts={posts} />
+      <CarouselListClient posts={data.posts} />
     </div>
   );
 };
