@@ -1,4 +1,3 @@
-// src/app/page.jsx
 "use client";  // Add this line at the top
 
 import React, { useState, useEffect } from "react";
@@ -16,17 +15,21 @@ import Popup from "@/components/popup";
 import ErrorBoundary from "@/components/ErrorBoundary"; // Import ErrorBoundary
 
 export default function Home({ searchParams }) {
-  const [isPopupVisible, setIsPopupVisible] = useState(true);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const page = parseInt(searchParams.page) || 1;
 
   const handleClosePopup = () => {
     setIsPopupVisible(false);
+    localStorage.setItem('popupShown', 'true'); // Mark popup as shown
   };
 
   useEffect(() => {
-    // This effect runs when the component mounts
-    console.log("Component mounted");
+    // Check local storage to determine if popup should be shown
+    const popupShown = localStorage.getItem('popupShown');
+    if (!popupShown) {
+      setIsPopupVisible(true); // Show popup if it hasn't been shown before
+    }
   }, []);
 
   return (
