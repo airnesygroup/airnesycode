@@ -2,13 +2,15 @@
 "use client";
 
 import React from 'react';
+import styles from "./PopUp.module.css"; // Import the CSS module for the parent component
+
 
 const Popup = ({ onClose }) => {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{ background: '#fff', padding: '20px', borderRadius: '5px' }}>
-        <h2>Welcome</h2>
-        <p>This is a description of the popup.</p>
+    <div className={styles.popupOverlay} >
+      <div className={styles.popupContent }>
+        <h2 className={styles.title } >Welcome</h2>
+        <p className={styles.description } >This is a description of the popup.</p>
         <button onClick={onClose}>Close</button>
       </div>
     </div>
