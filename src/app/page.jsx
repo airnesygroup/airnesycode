@@ -7,7 +7,7 @@ import Featured from "@/components/featured/Featured";
 import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/Menu/Menu";
-import SidebarCategoryList from "@/components/SidebarCategoryList/SidebarCategoryList";
+import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
