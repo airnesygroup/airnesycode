@@ -13,8 +13,7 @@ import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategor
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
-import Popup from "@/components/PopUp/PopUp";
-
+import Popup from "@/components/popup";
 export default function Home({ searchParams }) {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
 
