@@ -1,66 +1,42 @@
 /* components/popup/popup.module.css */
 
 .popupOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.popupContent {
-  background: var(--softBg);
-  padding: 30px;
-  border-radius: 10px;
-  width: 400px; /* Increased width for larger popup */
-  text-align: center;
-}
-
-.title {
-  margin: 0;
-  font-size: 28px; /* Increased font size */
-  margin-bottom: 15px;
-  color: var(--textColor);
-}
-
-.description {
-  margin-bottom: 25px;
-  font-size: 18px; /* Increased font size */
-  color: var(--textColor);
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.button {
-  background-color: #ffbc00;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-@media (max-width: 600px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
   .popupContent {
-    width: 90%; /* Adjusted width for smaller screens */
+    background: var(--softBg);
     padding: 20px;
+    border-radius: 5px;
+    width: 700px;
+    text-align: center;
   }
-
+  
   .title {
-    font-size: 22px; /* Reduced font size for smaller screens */
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--textColor);
   }
-
+  
   .description {
-    font-size: 16px; /* Reduced font size for smaller screens */
+    margin-bottom: 20px;
+    color:  var(--textColor);
   }
-
+  
   .button {
-    padding: 8px 16px; /* Adjusted padding for smaller screens */
+    background-color:  #ffbc00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
   }
-}
+  
