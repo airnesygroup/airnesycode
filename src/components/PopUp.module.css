@@ -1,42 +1,79 @@
 /* components/popup/popup.module.css */
 
 .popupOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: var(--softBg);
+  padding: 20px;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 700px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--textColor);
+}
+
+.description {
+  margin-bottom: 20px;
+  color:  var(--textColor);
+}
+.description {
+  margin-bottom: 20px;
+  color:  blue;
+}
+
+
+.button {
+  background-color:  #ffbc00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+@media (max-width: 640px) {
   .popupContent {
-    background: var(--softBg);
-    padding: 20px;
-    border-radius: 5px;
-    width: 700px;
-    text-align: center;
+    width: 90%; /* Adjusted width for smaller screens */
+   
   }
-  
+
   .title {
-    margin: 0;
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: var(--textColor);
+    font-size: 22px; /* Reduced font size for smaller screens */
   }
-  
+
   .description {
-    margin-bottom: 20px;
-    color:  var(--textColor);
+    font-size: 16px; /* Reduced font size for smaller screens */
   }
-  
+
+
+  .description2 {
+    font-size: 16px; /* Reduced font size for smaller screens */
+  }
   .button {
-    background-color:  #ffbc00;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 8px 16px; /* Adjusted padding for smaller screens */
   }
-  
+}

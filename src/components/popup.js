@@ -14,9 +14,13 @@ const Popup = ({ onClose }) => {
       <p className={styles.description}> We are a community based blog-streaming social platform, 
       where users can create posts, publish communities and interact with others on a live preview.</p>
       <p className={styles.description}> Create an account and share your  strories now!</p>
+      <p className={styles.description}> Join us on our jopurney or reach us out through our email</p>
+      <p className={styles.description2}> airnesy.info@gmail.com</p>
       <div className={styles.buttonContainer}>
         <button className={styles.button} onClick={onClose}>Close</button>
-        <button className={styles.button} >Login</button>
+        <button className={styles.button} ><Link href="/login" >
+          Login
+        </Link></button>
       </div>
     </div>
   </div>
