@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Airnesy",
-  description: "Tell your story! Welcome to Airnesy, we are a community based blog-streaming social platform, where users can create posts, publish communities and interact with others on a live preview.",
+  description: "Tell your story! Welcome to Airnes, we are a community based blog-streaming social platform, where users can create posts, publish communities and interact with others on a live preview.",
 };
 
 export default function RootLayout({ children }) {
