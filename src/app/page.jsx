@@ -1,5 +1,3 @@
-// src/app/page.jsx
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -13,13 +11,9 @@ import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategor
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
-import Popup from "@/components/PopUp/PopUp";
+
 export default function Home({ searchParams }) {
-
   const page = parseInt(searchParams.page) || 1;
-
-  
-
   return (
     <div className={styles.container}>
       <Navbar />
@@ -40,5 +34,6 @@ export default function Home({ searchParams }) {
 
     </div>
   );
-}
+
+
 
