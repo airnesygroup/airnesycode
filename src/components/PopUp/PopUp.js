@@ -1,8 +1,7 @@
-
 // components/PopUp.js
-import React, { useEffect, useRef } from 'react';
-import styles from './PopUp.module.css';
-import { useRouter } from 'next/router';
+import React, { useEffect, useRef } from "react";
+import styles from "./PopUp.module.css";
+import { useRouter } from "next/router";
 
 const PopUp = ({ closePopUp }) => {
   const router = useRouter();
@@ -15,14 +14,14 @@ const PopUp = ({ closePopUp }) => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
   const handleLogin = () => {
-    router.push('/login');
+    router.push("/login");
   };
 
   return (
