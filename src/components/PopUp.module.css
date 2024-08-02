@@ -33,8 +33,6 @@
   margin-bottom: 20px;
   color:  var(--textColor);
 }
-
-
 .description2 {
   margin-bottom: 20px;
   color:  blue;
@@ -50,4 +48,8 @@
   cursor: pointer;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
 
