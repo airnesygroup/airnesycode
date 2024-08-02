@@ -1,9 +1,8 @@
-// Import necessary hooks and components from React and Next.js
+// src/components/menuLists/MenuListsServer.jsx
 import React from "react";
 import MenuPosts from "../menuPosts/MenuPosts";
 import styles from "./menulists.module.css";
 
-// Define a server component to fetch data and pass it to the client component
 const MenuListsServer = async ({ page, cat }) => {
   try {
     const res = await fetch(
@@ -14,8 +13,7 @@ const MenuListsServer = async ({ page, cat }) => {
     );
 
     if (!res.ok) {
-      const errorDetails = await res.text();
-      throw new Error(`Failed to fetch data: ${errorDetails}`);
+      throw new Error("Failed to fetch data");
     }
 
     const { posts, count } = await res.json();
@@ -33,11 +31,9 @@ const MenuListsServer = async ({ page, cat }) => {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return <div>Error loading posts.</div>;
+    console.error("Error fetching data:", error);
+    return <div className={styles.error}>Failed to load posts. Please try again later.</div>;
   }
 };
-
-
 
 export default MenuListsServer;
