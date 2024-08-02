@@ -53,27 +53,3 @@
   justify-content: space-around;
 }
 
-
-
-@media (max-width: 640px) {
-  .popupContent {
-    width: 90%; /* Adjusted width for smaller screens */
-   
-  }
-
-  .title {
-    font-size: 22px; /* Reduced font size for smaller screens */
-  }
-
-  .description {
-    font-size: 16px; /* Reduced font size for smaller screens */
-  }
-
-
-  .description2 {
-    font-size: 16px; /* Reduced font size for smaller screens */
-  }
-  .button {
-    padding: 8px 16px; /* Adjusted padding for smaller screens */
-  }
-}

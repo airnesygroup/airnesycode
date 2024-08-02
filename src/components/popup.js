@@ -5,6 +5,7 @@ import React from 'react';
 import styles from "./PopUp.module.css"; // Import the CSS module for the parent component
 import Router from 'next/router';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Popup = ({ onClose }) => {
   return (
