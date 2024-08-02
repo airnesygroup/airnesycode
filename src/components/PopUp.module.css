@@ -60,10 +60,10 @@
 }
 
 .closeButton {
-  position: relative; /* Added position absolute */
   top: 10px;
   right: 10px;
   background: none;
+  align-items: end;
   border: none;
   font-size: 20px;
   cursor: pointer;
