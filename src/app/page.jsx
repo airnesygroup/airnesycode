@@ -14,26 +14,31 @@ import Navbar from "@/components/navbar/Navbar";
 
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
+
   return (
     <div className={styles.container}>
-      <Navbar />
+        <Navbar />
 
       <div className={styles.menu}>
         <SidebarCategoryList />
+        
       </div>
 
       <div className={styles.mainContent}>
-        <CategoryList />
+      <CategoryList />
+
         <CarouselList page={page} />
         <div className={styles.content1}>
           <CardList page={page} />
           <Menu />
+
         </div>
         <Footer />
-      </div>
 
+      </div>
     </div>
   );
+}
 
 
 
