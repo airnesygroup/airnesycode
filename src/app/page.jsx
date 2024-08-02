@@ -1,3 +1,4 @@
+// src/app/page.jsx
 "use client";  // Add this line at the top
 
 import React, { useState, useEffect } from "react";
@@ -21,15 +22,17 @@ export default function Home({ searchParams }) {
 
   const handleClosePopup = () => {
     setIsPopupVisible(false);
-    localStorage.setItem('popupShown', 'true'); // Mark popup as shown
   };
 
   useEffect(() => {
-    // Check local storage to determine if popup should be shown
-    const popupShown = localStorage.getItem('popupShown');
-    if (!popupShown) {
-      setIsPopupVisible(true); // Show popup if it hasn't been shown before
+    // Check if the popup has already been shown in this session
+    if (!sessionStorage.getItem("popupShown")) {
+      setIsPopupVisible(true);
+      sessionStorage.setItem("popupShown", "true");
     }
+
+    // This effect runs when the component mounts
+    console.log("Component mounted");
   }, []);
 
   return (
