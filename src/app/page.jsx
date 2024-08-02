@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
@@ -11,6 +8,7 @@ import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategor
 import CarouselList from "@/components/carouselList/CarouselList";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
+
 
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
@@ -39,6 +37,3 @@ export default function Home({ searchParams }) {
     </div>
   );
 }
-
-
-
