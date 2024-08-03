@@ -9,8 +9,7 @@ const Footer = () => {
       <div className={styles.info}>
       <Link href="/">
           <div className={styles.logo}>
-            <Image src="/logo1.png" alt="lama blog" layout="fill" className={styles.logoImage} />
-            <h1 className={styles.logoText}>Airnesy</h1>
+            <Image src="/logo3.png" alt="airnesy logo" layout="fill" className={styles.logoImage} />
           </div>
         </Link>
         <p className={styles.desc}>

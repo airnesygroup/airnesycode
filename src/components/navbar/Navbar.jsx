@@ -7,7 +7,8 @@ import AuthLinks from "../authLinks/AuthLinks";
 import ThemeToggle from "../themeToggle/ThemeToggle";
 import { ThemeContext } from "@/context/ThemeContext";
 import Image from "next/image";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon as faMoonRegular, } from "@fortawesome/free-regular-svg-icons";
 const Navbar = () => {
   const { toggle, theme } = useContext(ThemeContext);
 
@@ -18,8 +19,7 @@ const Navbar = () => {
       <div className={styles.wrapper}>
         <Link href="/">
           <div className={styles.logo}>
-            <Image src="/logo1.png" alt="lama blog" layout="fill" className={styles.logoImage} />
-            <h1 className={styles.logoText}>Airnesy</h1>
+            <Image src="/logo3.png" alt="airnesy logo" layout="fill" className={styles.logoImage} />
           </div>
         </Link>
         <Link href="/">
@@ -56,8 +56,12 @@ const Navbar = () => {
             className={styles.theme}
             onClick={toggle}
           >
-            <Image src="/moon.png" alt="theme toggle" layout="fill" className={styles.themeImage} />
+                   <FontAwesomeIcon icon={faMoonRegular}  size="lg"  className={styles.themeImage} />
           </div>
+
+
+
+     
           <AuthLinks />
         </div>
         

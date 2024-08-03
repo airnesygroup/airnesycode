@@ -12,8 +12,7 @@ const Popup = ({ onClose }) => {
       <div className={styles.popupContent}>
         <button className={styles.closeButton} onClick={onClose}>X</button>
         <div className={styles.logo}>
-            <Image src=""  layout="fill" className={styles.logoImage} />
-            <h1 className={styles.logoText}>Airnesy</h1>
+            <Image src="/logo3.png"  layout="fill" className={styles.logoImage} />
           </div>
         <h2 className={styles.title}>Tell your story!</h2>
         <p className={styles.description}>We are a community based blog-streaming social platform, 
