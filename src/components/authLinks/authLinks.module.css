@@ -3,6 +3,7 @@
   background-color: #1568ed;
   border-radius: 15px;
   padding: 5px;
+  color: #fff;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -10,12 +11,14 @@
 .addIcon {
   background-color: #1568ed;
   border-radius: 50%;
+  color:#fff;
   padding: 10px;
   font-size: 17px;
   width: 28px; /* Ensure width and height are equal */
   height: 28px; /* Ensure width and height are equal */
   display: flex;
   align-items: center;
+  border: none;
   justify-content: center;
 }
 

@@ -58,7 +58,7 @@ const Navbar = () => {
             className={styles.theme}
             onClick={toggle}
           >
-                   <FontAwesomeIcon icon={faMoonRegular}  size="lg"  className={styles.themeImage} />
+                   <FontAwesomeIcon icon={faMoonRegular}  size="sm"  className={styles.themeImage} />
           </div>
 
 
