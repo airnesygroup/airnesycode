@@ -19,7 +19,9 @@ const Navbar = () => {
       <div className={styles.wrapper}>
         <Link href="/">
           <div className={styles.logo}>
-            <Image src="/logo3.png" alt="airnesy logo" layout="fill" className={styles.logoImage} />
+            <Image src="/logo1.png" alt="airnesy logo" layout="fill" className={styles.logoImage} />
+            <h1 className={styles.logoText}>airnesy</h1>
+
           </div>
         </Link>
         <Link href="/">

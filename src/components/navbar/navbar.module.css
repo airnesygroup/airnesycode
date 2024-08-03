@@ -59,8 +59,8 @@
   display: flex;
   align-items: center;
   gap: 10px; /* Adjust this value to add space between logo and text */
-  width: 155px; /* Default width for larger screens */
-  height: 65px; /* Default height for larger screens */
+  width: 45px; /* Default width for larger screens */
+  height: 45px; /* Default height for larger screens */
   position: relative; /* Required for layout="fill" */
 }
 

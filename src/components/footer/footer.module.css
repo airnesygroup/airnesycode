@@ -17,8 +17,8 @@
   display: flex;
   align-items: center;
   gap: 10px; /* Adjust this value to add space between logo and text */
-  width: 145px; /* Default width for larger screens */
-  height: 55px; /* Default height for larger screens */
+  width: 45px; /* Default width for larger screens */
+  height: 45px; /* Default height for larger screens */
   position: relative; /* Required for layout="fill" */
 }
 
@@ -30,7 +30,7 @@
 
 .logoText {
   font-size: 24px;
-  color: #1568ed;
+  color: #1556ed;
   padding-left: 49px;
 
   line-height: 1; /* Ensure text aligns properly with the logo image */
