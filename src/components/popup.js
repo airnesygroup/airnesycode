@@ -12,7 +12,7 @@ const Popup = ({ onClose }) => {
       <div className={styles.popupContent}>
         <button className={styles.closeButton} onClick={onClose}>X</button>
         <div className={styles.logo}>
-            <Image src="/ring.png"  layout="fill" className={styles.logoImage} />
+            <Image src=""  layout="fill" className={styles.logoImage} />
             <h1 className={styles.logoText}>Airnesy</h1>
           </div>
         <h2 className={styles.title}>Tell your story!</h2>
