@@ -20,6 +20,28 @@
   position: relative; /* Needed for the close button to position correctly */
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  gap: 20px; /* Adjust this value to add space between the logo image and text */
+  width: 100%; /* Full width to allow centering */
+  height: 120px;
+  position: relative;
+}
+
+.logoImage {
+  object-fit: contain;
+  width: 120px; /* Fixed width */
+  height: 120px; /* Fixed height */
+}
+
+.logoText {
+  font-size: 40px;
+  color: #0798f2;
+  line-height: 1;
+}
+
 .title {
   margin: 0;
   font-size: 24px;
@@ -43,7 +65,7 @@
 }
 
 .button {
-  background-color: #ffbc00;
+  background-color: #0798f2;
   color: white;
   border: none;
   border-radius: 10px;
