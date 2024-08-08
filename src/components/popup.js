@@ -19,7 +19,7 @@ const Popup = ({ onClose }) => {
           where users can create posts, publish communities and interact with others on a live preview.</p>
         <p className={styles.description3}>Create an account and share your stories now!</p>
         <p className={styles.description3}>Join us on our journey or GET IN TOUCH with us through our email</p>
-        <p className={styles.description2}>airnesy.info@gmail.com</p>
+        <p className={styles.description2}>esy.info@gmail.com</p>
         <div className={styles.buttonContainer}>
           <button className={styles.button}>
             <Link href="/login">
