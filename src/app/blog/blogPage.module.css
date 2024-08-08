@@ -27,7 +27,6 @@
   .content {
     flex-direction: column; /* Stack items vertically */
     gap: 20px; /* Reduce gap between items */
-    margin-top: 55px;
 
   }
 }
