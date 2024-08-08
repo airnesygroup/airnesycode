@@ -26,7 +26,6 @@
 
 .content1{
   display: flex;
-  gap: 50px;
   padding-left: 1.5%;
 }
 
@@ -104,7 +103,6 @@ padding-bottom: 30px;
   }
  
   .content1{
-    gap: 10px;
     padding-left: 0;
   }
 
