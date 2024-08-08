@@ -10,16 +10,17 @@ const BlogPage = ({ searchParams }) => {
 
   return (
     <div className={styles.container}>
-              <Navbar />
+      <Navbar />
       <div className={styles.menu}>
         <SidebarCategoryList />
       </div>
 
-      <div className={styles.content}>
-      <h1 className={styles.title}>{cat} </h1>
-
-        <CardList page={page} cat={cat}/>
-        <Menu />
+      <div className={styles.mainContent}>
+        <h1 className={styles.title}>{cat}</h1>
+        <div className={styles.content}>
+          <CardList page={page} cat={cat} />
+          <Menu />
+        </div>
       </div>
     </div>
   );
