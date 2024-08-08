@@ -1,102 +1,125 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 65px; /* Move content down for the fixed navbar */
-}
 
-/* Sidebar Menu Styles */
-.menu {
-  position: fixed;
-  width: 250px;
-  max-height: 89vh;
-  z-index: 0;
-  overflow-y: hidden;
-  padding-right: 20px;
-  padding-bottom: 30px;
-  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
-}
-
-.menu:hover {
-  overflow-y: scroll; /* Show scrollbar on hover */
-}
-
-.menu::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
-
-.menu::-webkit-scrollbar-track {
-  background: var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-.menu::-webkit-scrollbar-thumb {
-  background-color: var(--softBg); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-.menu::-webkit-scrollbar-thumb:hover {
-  background: var(--softBg); /* Color of the scrollbar thumb on hover */
-}
-
-/* Main Content Styles */
-.mainContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 300px; /* Account for fixed menu */
-  padding-left: 1%;
-}
-
+/* Default styles */
 .title {
   background-color: #1568ed;
   color: white;
   padding: 5px 10px;
-  margin-bottom: 20px;
+  margin-top: 65px;
   font-size: 18px; /* Reduce font size */
-  text-align: left;
+  text-align: center;
   text-transform: capitalize;
   border-radius: 15px;
-  align-self: flex-start; /* Align the title to the left */
 }
 
 .content {
   display: flex;
+  padding-top: 5px;
+  gap: 50px;
+  margin-left: 300px; /* Account for fixed menu */
+  flex: 1;
   flex-direction: column;
   min-height: 100vh; /* Ensure full height */
   overflow-y: auto; /* Scrollable content */
+  padding-left: 1%;
+
 }
 
-/* Responsive Adjustments */
+.content1{
+  display: flex;
+  gap: 50px;
+  padding-left: 1.5%;
+}
+
+
+
+.menu {
+  position: fixed;
+  width: 250px;
+  max-height: 89vh; /* Full height */
+  z-index: 0;
+  overflow-y: hidden; /* Scrollable content */
+  padding-right: 20px;
+padding-bottom: 30px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
+}
+.menu:hover {
+
+  overflow-y: scroll; /* Show scrollbar on hover */
+
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.menu::-webkit-scrollbar {
+  padding-left: 20px;
+  width: 10px; /* Width of the scrollbar */
+}
+
+
+.menu::-webkit-scrollbar-track {
+  background:  var(--bg); /* Background of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color:  var(--softBg);/* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background:var(--softBg); /* Color of the scrollbar thumb on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1024px) {
   .menu {
     width: 250px; /* Adjust this width as needed */
   }
 
-  .mainContent {
+  .content {
     margin-left: 250px; /* Adjust to match menu width */
   }
 }
+
+
 
 @media screen and (max-width: 720px) {
   .menu {
     display: none;
   }
 
-  .mainContent {
+  .content {
     margin-left: 0;
   }
+ 
 
-  .title {
-    font-size: 15px; /* Reduce font size */
-    padding: 3px 8px; /* Adjust padding */
-    margin-bottom: 10px; /* Adjust bottom margin */
-  }
+
+.title {
+  font-size: 15px; /* Reduce font size */
+  padding: 3px 8px; /* Adjust padding */
+  margin-top: 55px; /* Reduce top margin */
+}
+
 }
 
 @media screen and (max-width: 640px) {
-  .title {
-    font-size: 15px; /* Reduce font size */
-    padding: 3px 8px; /* Adjust padding */
-    margin-bottom: 10px; /* Adjust bottom margin */
-  }
+
+
+
+.title {
+  font-size: 15px; /* Reduce font size */
+  padding: 3px 8px; /* Adjust padding */
+  margin-top: 40px; /* Reduce top margin */
+}
+
 }
