@@ -100,8 +100,13 @@ padding-bottom: 30px;
 
   .content {
     margin-left: 0;
+    gap: 20px;
   }
  
+  content1{
+    gap: 10px;
+    padding-left: 0;
+  }
 
 
 .title {
