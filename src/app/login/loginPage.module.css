@@ -17,7 +17,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 30px;
-  border-radius: 10px;
+  border-top-left-radius: 15px;
 }
 
 .left {
@@ -33,10 +33,11 @@
   width: 50%;
   padding: 50px;
   min-width: 150px;
+  
 }
 
 .leftText {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .rightText {
@@ -80,18 +81,28 @@
   }
 
   .leftText {
-    font-size: 1.25rem;
+    font-size: 1.0rem;
   }
 
   .rightText {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 640px) {
+  .leftText {
+    font-size: 0.75rem;
+  }
+
+  .left,
+.right {
+  height: 50%;
+ 
+}
   .container {
     padding: 15px;
     margin: 0 10px; /* Ensures no touching on small screens */
+    
   }
 
   .right {
