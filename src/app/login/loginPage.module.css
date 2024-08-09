@@ -2,53 +2,67 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
+  height: 100vh;
 }
 
-.wrapper {
-  background-color: var(--softBg);
-  padding: 150px 200px;
+.left,
+.right {
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 50px;
-  border-radius: 10px;
+}
+
+.left {
+  background-color: #087bea;
+  color: white;
+  width: 25%;
+  text-align: center;
+}
+
+.right {
+  background-color: var(--softBg);
+  width: 75%;
+  padding: 50px 100px;
 }
 
 .socialButton {
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
   border-radius: 5px;
   border: none;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.socialButton:first-child {
+  margin-top: 20px;
   background-color: #ff5555;
 }
 
-.socialButton:nth-child(2) {
-  background-color: #111;
+.socialButton img {
+  margin-right: 10px;
 }
 
-.socialButton:nth-child(3) {
-  background-color: #087bea;
+.toggleText {
+  margin-top: 20px;
+  color: #087bea;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-  .wrapper {
-    padding: 50px 100px;
+  .right {
+    padding: 30px 50px;
   }
 }
+
 @media screen and (max-width: 640px) {
-  .wrapper {
-    padding: 30px;
+  .right {
+    padding: 20px;
   }
 
-  .socialButton{
+  .socialButton {
     font-weight: 400;
     font-size: 14px;
   }
