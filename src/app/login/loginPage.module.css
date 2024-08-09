@@ -2,29 +2,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
+  padding: 20px; /* Ensures container doesn't touch edges */
+  margin: 0 20px; /* Added margin to prevent touching the sides */
 }
+
+
 
 .left,
 .right {
-  height: 100%;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .left {
   background-color: #087bea;
   color: white;
-  width: 25%;
+  width: 30%;
+  min-width: 150px;
   text-align: center;
 }
 
 .right {
   background-color: var(--softBg);
-  width: 75%;
-  padding: 50px 100px;
+  width: 50%;
+  padding: 50px;
+  min-width: 150px;
+}
+
+.leftText {
+  font-size: 1.5rem;
+}
+
+.rightText {
+  font-size: 2.25rem;
+  padding-bottom: 10%;
 }
 
 .socialButton {
@@ -32,13 +49,13 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 15px;
   border: none;
   color: white;
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #ff5555;
+  background-color: #087bea;
 }
 
 .socialButton img {
@@ -49,21 +66,45 @@
   margin-top: 20px;
   color: #087bea;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 0 15px; /* Adjusted margin for medium screens */
+  }
+
   .right {
-    padding: 30px 50px;
+    padding: 20px;
+  }
+
+  .leftText {
+    font-size: 1.25rem;
+  }
+
+  .rightText {
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 640px) {
+  .container {
+    padding: 15px;
+    margin: 0 10px; /* Ensures no touching on small screens */
+  }
+
   .right {
-    padding: 20px;
+    padding: 15px;
   }
 
   .socialButton {
     font-weight: 400;
     font-size: 14px;
+    padding: 10px;
+  }
+
+  .toggleText {
+    font-size: 0.8rem;
   }
 }

@@ -18,18 +18,21 @@ const LoginPage = () => {
   }
 
   return (
+    <div className={styles.container2}>
+
     <div className={styles.container}>
+
       <div className={styles.left}>
-        <h1>Welcome to Airnesy</h1>
+        <h1 className={styles.leftText}>Welcome to Airnesy</h1>
       </div>
       <div className={styles.right}>
-        <h2>{isSignUp ? "Sign Up" : "Sign In"}</h2>
+        <h2 className={styles.rightText}>{isSignUp ? "Sign Up" : "Sign In"}</h2>
         <div
           className={styles.socialButton}
           onClick={() => signIn("google")}
         >
           <img
-            src="/google-logo.png"
+            src="/google.png"
             alt="Google Logo"
             style={{ width: "20px", height: "20px" }}
           />
@@ -44,8 +47,13 @@ const LoginPage = () => {
             : "Don't have an account? Sign up instead."}
         </div>
       </div>
+      </div>
+
     </div>
   );
 };
 
 export default LoginPage;
+  
+
+  
