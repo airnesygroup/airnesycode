@@ -9,9 +9,10 @@ export const GET = async (req) => {
   try {
     let allPosts = [];
     let twentyFourHoursAgo = new Date();
+    let postsFound = true;
 
-    // Loop to fetch posts in 24-hour chunks
-    for (let i = 0; i < 70; i++) {
+    // Loop to fetch posts in 24-hour chunks until no more posts are found
+    while (postsFound) {
       const endTime = twentyFourHoursAgo;
       twentyFourHoursAgo = new Date(twentyFourHoursAgo.getTime() - 24 * 60 * 60 * 1000); // Move 24 hours earlier
 
@@ -30,20 +31,25 @@ export const GET = async (req) => {
         },
       });
 
-      // Randomize the posts within the chunk
-      const randomizedChunk = postsChunk.sort(() => Math.random() - 0.5);
+      if (postsChunk.length > 0) {
+        // Randomize the posts within the chunk
+        const randomizedChunk = postsChunk.sort(() => Math.random() - 0.5);
 
-      // Add this chunk to the final list of posts
-      allPosts = [...allPosts, ...randomizedChunk];
+        // Add this chunk to the final list of posts
+        allPosts = [...allPosts, ...randomizedChunk];
+      } else {
+        // No more posts found in this chunk, stop the loop
+        postsFound = false;
+      }
     }
 
-    // Fetch the remaining posts older than 7 days
+    // If there are older posts beyond what has been fetched, fetch them
     const olderPosts = await prisma.post.findMany({
       take: POST_PER_PAGE,
       where: {
         ...(cat && { catSlug: cat }),
         createdAt: {
-          lt: twentyFourHoursAgo, // Posts older than 7 days
+          lt: twentyFourHoursAgo, // Posts older than the last fetched 24-hour chunk
         },
       },
       include: {
@@ -51,11 +57,11 @@ export const GET = async (req) => {
       },
     });
 
-    // Randomize and append older posts
+    // Randomize and append older posts if any
     const randomizedOlderPosts = olderPosts.sort(() => Math.random() - 0.5);
     allPosts = [...allPosts, ...randomizedOlderPosts];
 
-    // Return posts and the total count
+    // Return all posts and total count
     const totalCount = await prisma.post.count({
       where: {
         ...(cat && { catSlug: cat }),
