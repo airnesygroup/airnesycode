@@ -49,7 +49,7 @@ export const GET = async (req) => {
       const postDate = new Date(post.createdAt);
 
       // Check if the post is within the current 24-hour batch
-      if (postDate >= previousTime && postDate < currentTime) {
+      if (postDate < currentTime && postDate >= previousTime) {
         currentBatch.push(post);
       } else {
         // Log the current batch before shuffling
@@ -63,8 +63,8 @@ export const GET = async (req) => {
 
         // Reset batch and update time window
         currentBatch = [post];
-        currentTime = previousTime;
-        previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000);
+        currentTime = postDate; // Set current time to the new post's date
+        previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // Update previous time to 24 hours before current
       }
     }
 
@@ -95,3 +95,4 @@ export const GET = async (req) => {
     );
   }
 };
+
