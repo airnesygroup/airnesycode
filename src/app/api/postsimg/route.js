@@ -28,7 +28,13 @@ export const GET = async (req) => {
     }
 
     // Helper function to shuffle an array
-    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+    const shuffleArray = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+      }
+      return array;
+    };
 
     // Group posts into 24-hour batches
     let allBatches = [];
@@ -63,6 +69,9 @@ export const GET = async (req) => {
     // Flatten the shuffled batches into one array
     const shuffledPosts = allBatches.flat();
 
+    // Log the shuffled posts to verify randomization
+    console.log("Shuffled Posts:", shuffledPosts);
+
     // Return the final list of shuffled posts
     const totalCount = allPosts.length;
     return new NextResponse(
@@ -77,3 +86,4 @@ export const GET = async (req) => {
     );
   }
 };
+
