@@ -28,10 +28,10 @@ export const GET = async (req) => {
       // Fetch posts for this 24-hour period
       const posts = await prisma.post.findMany({
         where: {
-          ...(cat && { catSlug: cat }),
+          ...(cat && { catSlug: cat }), // Filter by category if provided
           createdAt: {
-            gte: startTime,
-            lt: endTime, // Ensure posts are from this exact 24-hour period
+            gte: startTime, // Start of the 24-hour period
+            lt: endTime,    // End of the 24-hour period
           },
         },
         include: {
