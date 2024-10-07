@@ -42,6 +42,8 @@ export const GET = async (req) => {
     let currentTime = new Date(allPosts[0].createdAt);
     let previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // 24 hours earlier
 
+    console.log("Total Posts:", allPosts.length); // Log total posts fetched
+
     // Iterate over posts and group them into batches
     for (const post of allPosts) {
       const postDate = new Date(post.createdAt);
@@ -50,9 +52,13 @@ export const GET = async (req) => {
       if (postDate >= previousTime && postDate < currentTime) {
         currentBatch.push(post);
       } else {
+        // Log the current batch before shuffling
+        console.log("Current Batch Before Shuffle:", currentBatch.map(p => p.id));
+
         // Shuffle the current batch and add it to allBatches
         if (currentBatch.length > 0) {
           allBatches.push(shuffleArray(currentBatch));
+          console.log("Current Batch After Shuffle:", allBatches[allBatches.length - 1].map(p => p.id)); // Log shuffled batch
         }
 
         // Reset batch and update time window
@@ -64,14 +70,16 @@ export const GET = async (req) => {
 
     // Shuffle and add the last batch after the loop
     if (currentBatch.length > 0) {
+      console.log("Last Batch Before Shuffle:", currentBatch.map(p => p.id));
       allBatches.push(shuffleArray(currentBatch));
+      console.log("Last Batch After Shuffle:", allBatches[allBatches.length - 1].map(p => p.id)); // Log shuffled last batch
     }
 
     // Flatten the shuffled batches into one array
     const shuffledPosts = allBatches.flat();
 
-    // Log the shuffled posts to verify randomization
-    console.log("Shuffled Posts:", shuffledPosts);
+    // Log the final shuffled posts to verify randomization
+    console.log("Final Shuffled Posts:", shuffledPosts.map(p => p.id));
 
     // Return the final list of shuffled posts
     const totalCount = allPosts.length;
