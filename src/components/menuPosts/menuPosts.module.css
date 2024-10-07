@@ -63,9 +63,8 @@
   padding: 4px 10px;
   border-radius: 15px;
   font-size: 10px;
-  color: #ffffff;
+  color: var(--softTextColor);
   width: max-content;
-  background-color: #1201ac;
 
 }
 
