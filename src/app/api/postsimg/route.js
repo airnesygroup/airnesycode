@@ -11,7 +11,7 @@ export const GET = async (req) => {
     let currentTime = new Date();
     let postsFound = true;
 
-    // Loop until all posts are fetched, in 24-hour chunks
+    // Loop until no older posts exist
     while (postsFound) {
       const endTime = currentTime;
       currentTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // Move 24 hours earlier
@@ -31,7 +31,7 @@ export const GET = async (req) => {
         },
       });
 
-      // Add this chunk to the final list of posts, even if empty
+      // Add this chunk to the final list of posts
       allPosts = [...allPosts, ...postsChunk];
 
       // Check if there are older posts left to fetch
@@ -69,4 +69,3 @@ export const GET = async (req) => {
     );
   }
 };
-
