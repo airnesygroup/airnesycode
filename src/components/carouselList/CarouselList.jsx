@@ -6,7 +6,7 @@ import CarouselListClient from "./CarouselListClient";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `https://hoolicon.vercel.app/api/postsimg?page=${page}&cat=${cat || ""}`,
+    `https://hoolicon.vercel.app/api/carouselimg?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
