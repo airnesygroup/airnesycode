@@ -31,30 +31,27 @@ export const GET = async (req) => {
         },
       });
 
-      // Check if we found posts in this 24-hour period
-      if (postsChunk.length > 0) {
-        // Randomize the posts within the chunk
-        const randomizedChunk = postsChunk.sort(() => Math.random() - 0.5);
+      // Add this chunk to the final list of posts, even if empty
+      allPosts = [...allPosts, ...postsChunk];
 
-        // Add this chunk to the final list of posts
-        allPosts = [...allPosts, ...randomizedChunk];
-      } else {
-        // No posts found in this chunk, check if we are completely done
-        const olderPostsCount = await prisma.post.count({
-          where: {
-            ...(cat && { catSlug: cat }),
-            createdAt: {
-              lt: currentTime, // Check if there are any posts older than current 24-hour period
-            },
+      // Check if there are older posts left to fetch
+      const olderPostsCount = await prisma.post.count({
+        where: {
+          ...(cat && { catSlug: cat }),
+          createdAt: {
+            lt: currentTime, // Check if there are posts older than current 24-hour period
           },
-        });
+        },
+      });
 
-        // If no older posts exist, stop the loop
-        if (olderPostsCount === 0) {
-          postsFound = false;
-        }
+      // If no older posts exist, stop the loop
+      if (olderPostsCount === 0) {
+        postsFound = false;
       }
     }
+
+    // Randomize the posts after all chunks have been collected
+    const randomizedPosts = allPosts.sort(() => Math.random() - 0.5);
 
     // Return all posts and total count
     const totalCount = await prisma.post.count({
@@ -63,7 +60,7 @@ export const GET = async (req) => {
       },
     });
 
-    return new NextResponse(JSON.stringify({ posts: allPosts, count: totalCount }), { status: 200 });
+    return new NextResponse(JSON.stringify({ posts: randomizedPosts, count: totalCount }), { status: 200 });
   } catch (err) {
     console.error("Error fetching posts:", err);
     return new NextResponse(
