@@ -12,14 +12,14 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Adjust the gap between the rows */
+  gap: 5px; /* Adjust the gap between the rows */
 }
 
 /* Top row container for the image and category */
 .topRow {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adjust the gap between the image and the category */
+  gap: 5px; /* Adjust the gap between the image and the category */
 }
 
 /* Container for the image */
