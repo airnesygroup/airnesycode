@@ -8,13 +8,13 @@ export const GET = async (req) => {
 
   try {
     let allPosts = [];
-    let twentyFourHoursAgo = new Date();
+    let currentTime = new Date();
     let postsFound = true;
 
-    // Loop to fetch posts in 24-hour chunks until no more posts are found
+    // Loop until all posts are fetched, in 24-hour chunks
     while (postsFound) {
-      const endTime = twentyFourHoursAgo;
-      twentyFourHoursAgo = new Date(twentyFourHoursAgo.getTime() - 24 * 60 * 60 * 1000); // Move 24 hours earlier
+      const endTime = currentTime;
+      currentTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // Move 24 hours earlier
 
       // Fetch posts for the current 24-hour chunk
       const postsChunk = await prisma.post.findMany({
@@ -22,8 +22,8 @@ export const GET = async (req) => {
         where: {
           ...(cat && { catSlug: cat }),
           createdAt: {
-            gte: twentyFourHoursAgo, // From this 24-hour period
-            lt: endTime,             // To the end of this 24-hour period
+            gte: currentTime, // From this 24-hour period
+            lt: endTime,      // To the end of this 24-hour period
           },
         },
         include: {
@@ -31,6 +31,7 @@ export const GET = async (req) => {
         },
       });
 
+      // Check if we found posts in this 24-hour period
       if (postsChunk.length > 0) {
         // Randomize the posts within the chunk
         const randomizedChunk = postsChunk.sort(() => Math.random() - 0.5);
@@ -38,28 +39,22 @@ export const GET = async (req) => {
         // Add this chunk to the final list of posts
         allPosts = [...allPosts, ...randomizedChunk];
       } else {
-        // No more posts found in this chunk, stop the loop
-        postsFound = false;
+        // No posts found in this chunk, check if we are completely done
+        const olderPostsCount = await prisma.post.count({
+          where: {
+            ...(cat && { catSlug: cat }),
+            createdAt: {
+              lt: currentTime, // Check if there are any posts older than current 24-hour period
+            },
+          },
+        });
+
+        // If no older posts exist, stop the loop
+        if (olderPostsCount === 0) {
+          postsFound = false;
+        }
       }
     }
-
-    // If there are older posts beyond what has been fetched, fetch them
-    const olderPosts = await prisma.post.findMany({
-      take: POST_PER_PAGE,
-      where: {
-        ...(cat && { catSlug: cat }),
-        createdAt: {
-          lt: twentyFourHoursAgo, // Posts older than the last fetched 24-hour chunk
-        },
-      },
-      include: {
-        user: true, // Include user details
-      },
-    });
-
-    // Randomize and append older posts if any
-    const randomizedOlderPosts = olderPosts.sort(() => Math.random() - 0.5);
-    allPosts = [...allPosts, ...randomizedOlderPosts];
 
     // Return all posts and total count
     const totalCount = await prisma.post.count({
