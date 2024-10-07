@@ -6,7 +6,7 @@ import Card from "../card/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `https://www.airnesy.com/api/popularposts?page=${page}&cat=${cat || ""}`,
+    `https://hoolicon.vercel.app/api/popularposts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }

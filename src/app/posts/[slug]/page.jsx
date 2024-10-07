@@ -7,7 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 
 
 const getData = async (slug) => {
-  const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
+  const res = await fetch(`https://hoolicon.vercel.app/api/posts/${slug}`, {
     cache: "no-store",
   });
 
