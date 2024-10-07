@@ -6,7 +6,7 @@ export const GET = async (req) => {
   const cat = searchParams.get("cat");
 
   try {
-    // Fetch all posts at once, ordered by creation date
+    // Fetch all posts ordered by creation date
     const allPosts = await prisma.post.findMany({
       where: {
         ...(cat && { catSlug: cat }),
@@ -27,9 +27,12 @@ export const GET = async (req) => {
       );
     }
 
+    // Helper function to shuffle an array
+    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+
     // Group posts into 24-hour batches
-    let currentBatch = [];
     let allBatches = [];
+    let currentBatch = [];
     let currentTime = new Date(allPosts[0].createdAt);
     let previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // 24 hours earlier
 
@@ -40,34 +43,30 @@ export const GET = async (req) => {
       if (postDate >= previousTime && postDate < currentTime) {
         currentBatch.push(post);
       } else {
-        // Add the current batch to allBatches and reset the time window
+        // Shuffle and push the batch to allBatches
         if (currentBatch.length > 0) {
-          allBatches.push([...currentBatch]); // Push the completed batch
+          allBatches.push(shuffleArray(currentBatch)); // Shuffle the batch
         }
 
-        // Reset the batch and update time window
+        // Reset batch and update time window
         currentBatch = [post];
         currentTime = previousTime;
         previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000);
       }
     }
 
-    // Add the last batch after the loop
+    // Add and shuffle the last batch after the loop
     if (currentBatch.length > 0) {
-      allBatches.push(currentBatch);
+      allBatches.push(shuffleArray(currentBatch));
     }
 
-    // Randomize each batch and then merge them
-    let randomizedPosts = [];
-    for (let batch of allBatches) {
-      batch.sort(() => Math.random() - 0.5); // Shuffle the batch
-      randomizedPosts = [...randomizedPosts, ...batch]; // Append the shuffled batch to the final array
-    }
+    // Flatten the shuffled batches into one array
+    const shuffledPosts = allBatches.flat();
 
-    // Return the final list of posts
+    // Return the final list of shuffled posts
     const totalCount = allPosts.length;
     return new NextResponse(
-      JSON.stringify({ posts: randomizedPosts, count: totalCount }),
+      JSON.stringify({ posts: shuffledPosts, count: totalCount }),
       { status: 200 }
     );
   } catch (err) {
