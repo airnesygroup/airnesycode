@@ -10,14 +10,15 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const cat = searchParams.get("cat");
 
+  const POST_PER_PAGE = 1000; // Limit of posts fetched per 24-hour set
+  const MAX_SETS = 700; // Number of 24-hour sets to fetch (e.g., 7 sets for 7 days)
   let allPosts = []; // To store all the posts from multiple 24-hour sets
 
   try {
     let bunchIndex = 0; // Start with the most recent 24-hour set
     let postsExist = true; // Flag to continue fetching while there are posts
 
-    // Loop to fetch posts until no more posts are found
-    while (postsExist) {
+    while (postsExist && bunchIndex < MAX_SETS) { // Stop when reaching the maximum sets
       // Calculate the time range for the current 24-hour period
       const now = new Date();
       const endTime = new Date(now.getTime() - bunchIndex * 24 * 60 * 60 * 1000);
@@ -27,11 +28,12 @@ export const GET = async (req) => {
 
       // Fetch posts for this 24-hour period
       const posts = await prisma.post.findMany({
+        take: POST_PER_PAGE,
         where: {
-          ...(cat && { catSlug: cat }), // Filter by category if provided
+          ...(cat && { catSlug: cat }),
           createdAt: {
-            gte: startTime, // Start of the 24-hour period
-            lt: endTime,    // End of the 24-hour period
+            gte: startTime,
+            lt: endTime, // Ensure posts are from this exact 24-hour period
           },
         },
         include: {
@@ -42,20 +44,17 @@ export const GET = async (req) => {
         },
       });
 
-      // If posts were found, append them to allPosts
-      if (posts.length > 0) {
-        allPosts = allPosts.concat(posts);
-        bunchIndex++; // Move to the previous 24-hour set
-      } else {
-        // No more posts found, stop fetching
+      // If no posts were found, stop fetching
+      if (posts.length === 0) {
         postsExist = false;
+      } else {
+        // Shuffle the posts within this 24-hour period and append to allPosts
+        allPosts = allPosts.concat(shuffleArray(posts));
+        bunchIndex++; // Move to the previous 24-hour set
       }
     }
 
-    // Shuffle all posts before returning
-    allPosts = shuffleArray(allPosts);
-
-    // Return the combined posts from all sets
+    // Return the combined shuffled posts from all sets
     return new NextResponse(JSON.stringify({ posts: allPosts, count: allPosts.length }), { status: 200 });
   } catch (err) {
     console.error("Error fetching posts:", err);
