@@ -43,6 +43,8 @@ a {
   --softBg1: rgb(85, 86, 87);
 
   --softBg: rgb(42, 43, 43);
+  --softBgmenu: rgb(25, 26, 26);
+
   --softerBg: rgb(27, 27, 27);
 
   --softTextColor: #c9caca;
@@ -63,6 +65,8 @@ a {
   --softBg1: #c1c2c4;
   --transparentBg: rgba(252, 254, 255, 0.7);
   --softBg: #EBECEE;
+  --softBgmenu: #f9fafd;
+
   --softerBg: #f5f6f8;
   --softTextColor2: #657786;
   --softTextColor3: #d2e0eb;
