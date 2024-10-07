@@ -4,63 +4,57 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const cat = searchParams.get("cat");
-  const POST_PER_PAGE = 1000;
 
   try {
-    let allPosts = [];
-    let currentTime = new Date();
-    let postsFound = true;
-
-    // Loop until no older posts exist
-    while (postsFound) {
-      const endTime = currentTime;
-      currentTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // Move 24 hours earlier
-
-      // Fetch posts for the current 24-hour chunk
-      const postsChunk = await prisma.post.findMany({
-        take: POST_PER_PAGE,
-        where: {
-          ...(cat && { catSlug: cat }),
-          createdAt: {
-            gte: currentTime, // From this 24-hour period
-            lt: endTime,      // To the end of this 24-hour period
-          },
-        },
-        include: {
-          user: true, // Include user details
-        },
-      });
-
-      // Add this chunk to the final list of posts
-      allPosts = [...allPosts, ...postsChunk];
-
-      // Check if there are older posts left to fetch
-      const olderPostsCount = await prisma.post.count({
-        where: {
-          ...(cat && { catSlug: cat }),
-          createdAt: {
-            lt: currentTime, // Check if there are posts older than current 24-hour period
-          },
-        },
-      });
-
-      // If no older posts exist, stop the loop
-      if (olderPostsCount === 0) {
-        postsFound = false;
-      }
-    }
-
-    // Randomize the posts after all chunks have been collected
-    const randomizedPosts = allPosts.sort(() => Math.random() - 0.5);
-
-    // Return all posts and total count
-    const totalCount = await prisma.post.count({
+    // Fetch all posts at once, ordered by creation date
+    const allPosts = await prisma.post.findMany({
       where: {
         ...(cat && { catSlug: cat }),
       },
+      include: {
+        user: true, // Include user details
+      },
+      orderBy: {
+        createdAt: 'desc', // Order by newest posts first
+      },
     });
 
-    return new NextResponse(JSON.stringify({ posts: randomizedPosts, count: totalCount }), { status: 200 });
+    // Group posts into 24-hour batches
+    let currentBatch = [];
+    let batchedPosts = [];
+    let currentTime = new Date(allPosts[0]?.createdAt || new Date());
+    let previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // Set the previous time to 24 hours earlier
+
+    for (const post of allPosts) {
+      const postDate = new Date(post.createdAt);
+
+      // If the post is within the current 24-hour batch, add it to the current batch
+      if (postDate >= previousTime && postDate < currentTime) {
+        currentBatch.push(post);
+      } else {
+        // If moving to a new batch, randomize the current batch and push to batchedPosts
+        if (currentBatch.length > 0) {
+          const randomizedBatch = currentBatch.sort(() => Math.random() - 0.5);
+          batchedPosts = [...batchedPosts, ...randomizedBatch];
+        }
+
+        // Reset the batch and set the new time frame
+        currentBatch = [post];
+        currentTime = previousTime;
+        previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000);
+      }
+    }
+
+    // Don't forget to add the last batch after the loop
+    if (currentBatch.length > 0) {
+      const randomizedBatch = currentBatch.sort(() => Math.random() - 0.5);
+      batchedPosts = [...batchedPosts, ...randomizedBatch];
+    }
+
+    // Return the final list of posts
+    const totalCount = allPosts.length;
+
+    return new NextResponse(JSON.stringify({ posts: batchedPosts, count: totalCount }), { status: 200 });
   } catch (err) {
     console.error("Error fetching posts:", err);
     return new NextResponse(
