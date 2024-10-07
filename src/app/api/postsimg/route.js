@@ -29,7 +29,7 @@ export const GET = async (req) => {
 
     // Group posts into 24-hour batches
     let currentBatch = [];
-    let batchedPosts = [];
+    let allBatches = [];
     let currentTime = new Date(allPosts[0].createdAt);
     let previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // 24 hours earlier
 
@@ -40,10 +40,9 @@ export const GET = async (req) => {
       if (postDate >= previousTime && postDate < currentTime) {
         currentBatch.push(post);
       } else {
-        // If moving to a new batch, randomize the current batch and push to batchedPosts
+        // Add the current batch to allBatches and reset the time window
         if (currentBatch.length > 0) {
-          const randomizedBatch = currentBatch.sort(() => Math.random() - 0.5);
-          batchedPosts = [...batchedPosts, ...randomizedBatch];
+          allBatches.push([...currentBatch]); // Push the completed batch
         }
 
         // Reset the batch and update time window
@@ -55,14 +54,20 @@ export const GET = async (req) => {
 
     // Add the last batch after the loop
     if (currentBatch.length > 0) {
-      const randomizedBatch = currentBatch.sort(() => Math.random() - 0.5);
-      batchedPosts = [...batchedPosts, ...randomizedBatch];
+      allBatches.push(currentBatch);
+    }
+
+    // Randomize each batch and then merge them
+    let randomizedPosts = [];
+    for (let batch of allBatches) {
+      batch.sort(() => Math.random() - 0.5); // Shuffle the batch
+      randomizedPosts = [...randomizedPosts, ...batch]; // Append the shuffled batch to the final array
     }
 
     // Return the final list of posts
     const totalCount = allPosts.length;
     return new NextResponse(
-      JSON.stringify({ posts: batchedPosts, count: totalCount }),
+      JSON.stringify({ posts: randomizedPosts, count: totalCount }),
       { status: 200 }
     );
   } catch (err) {
