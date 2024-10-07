@@ -42,6 +42,7 @@ export const GET = async (req) => {
     let currentTime = new Date(allPosts[0].createdAt);
     let previousTime = new Date(currentTime.getTime() - 24 * 60 * 60 * 1000); // 24 hours earlier
 
+    // Iterate over posts and group them into batches
     for (const post of allPosts) {
       const postDate = new Date(post.createdAt);
 
@@ -49,9 +50,9 @@ export const GET = async (req) => {
       if (postDate >= previousTime && postDate < currentTime) {
         currentBatch.push(post);
       } else {
-        // Shuffle and push the batch to allBatches
+        // Shuffle the current batch and add it to allBatches
         if (currentBatch.length > 0) {
-          allBatches.push(shuffleArray(currentBatch)); // Shuffle the batch
+          allBatches.push(shuffleArray(currentBatch));
         }
 
         // Reset batch and update time window
@@ -61,7 +62,7 @@ export const GET = async (req) => {
       }
     }
 
-    // Add and shuffle the last batch after the loop
+    // Shuffle and add the last batch after the loop
     if (currentBatch.length > 0) {
       allBatches.push(shuffleArray(currentBatch));
     }
@@ -86,4 +87,3 @@ export const GET = async (req) => {
     );
   }
 };
-
