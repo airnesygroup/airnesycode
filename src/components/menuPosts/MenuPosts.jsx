@@ -68,11 +68,10 @@ const MenuPosts = ({ item, withImage }) => {
              <span className={styles.category}>{item.catSlug}</span>
 
         
-        </div>
+       
         <div className={styles.textContainer}>
           <h3 className={styles.postTitle}>{item.title.substring(0, 25)}</h3>
-          <div className={styles.detail}>
-            <span>{item.category}</span>
+       
           </div>
         </div>
       </Link>

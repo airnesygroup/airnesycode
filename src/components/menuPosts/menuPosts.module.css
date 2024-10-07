@@ -46,7 +46,7 @@
 
 /* Styling for post title */
 .postTitle {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--softTextColor);
   margin: 0; /* Remove default margin */
@@ -60,11 +60,8 @@
 /* Styling for the category name */
 /* Styling for the category name */
 .category {
-  padding: 4px 10px;
-  border-radius: 15px;
   font-size: 10px;
   color: var(--softTextColor);
-  width: max-content;
 
 }
 
