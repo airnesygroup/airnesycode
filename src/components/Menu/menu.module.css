@@ -1,13 +1,14 @@
 /* menu.module.css */
 
 .container {
-  background-color: var(--bg);
+  background-color: var(--softBg);
   padding: 12px;
+  margin-top: 20px;
   padding-top: 25px;
   border-radius: 15px;
   width: 100%;
-  height: calc(100vh - 40px); /* Adjust height considering margin-top */
-  overflow-y: hidden;
+height: fit-content; 
+ overflow-y: hidden;
   flex: 1.5;
 }
 
