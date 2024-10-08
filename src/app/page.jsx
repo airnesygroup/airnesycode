@@ -38,7 +38,7 @@ export default function Home({ searchParams }) {
           <CarouselList page={page} />
   
           <div className={styles.content1}>
-            <CardList2 page={page} />
+            <CardList page={page} />
   
             <Menu />
           </div>
