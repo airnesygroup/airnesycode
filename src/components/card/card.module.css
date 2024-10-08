@@ -4,10 +4,8 @@
   flex-direction: column;
   gap: 5px;
   padding: 8px;
-  max-width: 100%; /* Ensures the card does not overflow the container */
-  width: 100%; /* Make the card responsive */
-  overflow: hidden;
 
+  flex: 2;
 
 }
 
