@@ -64,4 +64,23 @@
   color: var(--softTextColor);
 
 }
+.userProfile {
+  display: flex; /* Ensure the userProfile still aligns items horizontally */
+  flex-direction: row; /* Keep it row direction on small screens */
+  align-items: center; /* Align items to the center vertically */
+  margin-top: 0; /* Adjust margin if necessary */
+  flex: 1;
+}
 
+.username {
+  font-size: 12px;
+}
+
+.userRole {
+  font-size: 12px;
+}
+
+.title2 {
+  font-size: 14px;
+  padding-top: 0;
+}
