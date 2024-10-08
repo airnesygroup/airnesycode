@@ -5,9 +5,15 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const cat = searchParams.get("cat");
 
+  // Set pagination variables
+  const page = 1; // Fixed to always start at page 1
+  const POST_PER_PAGE = 100; // Reasonable limit to reduce load
+
   try {
-    // Fetch all posts ordered by creation date
+    // Fetch limited posts with pagination
     const allPosts = await prisma.post.findMany({
+      take: POST_PER_PAGE,
+      skip: POST_PER_PAGE * (page - 1),
       where: {
         ...(cat && { catSlug: cat }),
       },
@@ -52,13 +58,9 @@ export const GET = async (req) => {
       if (postDate < currentTime && postDate >= previousTime) {
         currentBatch.push(post);
       } else {
-        // Log the current batch before shuffling
-        console.log("Current Batch Before Shuffle:", currentBatch.map(p => p.id));
-
         // Shuffle the current batch and add it to allBatches
         if (currentBatch.length > 0) {
           allBatches.push(shuffleArray(currentBatch));
-          console.log("Current Batch After Shuffle:", allBatches[allBatches.length - 1].map(p => p.id)); // Log shuffled batch
         }
 
         // Reset batch and update time window
@@ -70,9 +72,7 @@ export const GET = async (req) => {
 
     // Shuffle and add the last batch after the loop
     if (currentBatch.length > 0) {
-      console.log("Last Batch Before Shuffle:", currentBatch.map(p => p.id));
       allBatches.push(shuffleArray(currentBatch));
-      console.log("Last Batch After Shuffle:", allBatches[allBatches.length - 1].map(p => p.id)); // Log shuffled last batch
     }
 
     // Flatten the shuffled batches into one array
@@ -95,4 +95,3 @@ export const GET = async (req) => {
     );
   }
 };
-
