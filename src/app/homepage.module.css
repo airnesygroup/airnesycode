@@ -1,4 +1,4 @@
-/* Adjust the flex behavior for the menu and main content */
+/* Container to align layout */
 .container {
   display: flex;
   flex-direction: row;
@@ -8,95 +8,82 @@
   overflow-x: hidden;
 }
 
+/* Menu section */
 .menu {
   position: fixed;
-  width: 20%; /* Make the menu take 20% of the screen width */
-  min-width: 200px; /* Ensure the menu doesn’t shrink too much */
-  max-width: 250px; /* Ensure the menu doesn’t grow too much */
+  width: 20%; /* Responsive width */
+  min-width: 200px; /* Minimum width for smaller screens */
+  max-width: 250px; /* Maximum width */
   border-right: 1px solid var(--softTextColor3);
-  max-height: 89vh;
+  max-height: 89vh; /* Full height */
   z-index: 0;
-  overflow-y: hidden;
+  overflow-y: hidden; /* Hide scrollbar by default */
   padding-right: 20px;
   padding-bottom: 30px;
   margin-top: 65px;
-  transition: overflow 0.3s ease, width 0.3s ease; /* Smooth width transition */
+  transition: overflow 0.3s ease, width 0.3s ease; /* Smooth transition */
 }
 
 .menu:hover {
   overflow-y: scroll; /* Show scrollbar on hover */
 }
 
+/* Custom scrollbar styles for WebKit browsers */
+.menu::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.menu::-webkit-scrollbar-track {
+  background: var(--bg); /* Background of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar track */
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--softBg); /* Scrollbar thumb color */
+  border-radius: 10px;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background: var(--softBg); /* Hover color for scrollbar thumb */
+}
+
+/* Main content section */
 .mainContent {
-  margin-left: 20%; /* Align with the menu width */
-  flex: 1; /* Take up the remaining space */
-  max-width: calc(100% - 250px); /* Prevent main content from going under the menu */
+  margin-left: 20%; /* Aligned with the menu width */
+  flex: 1; /* Take remaining space */
+  max-width: calc(100% - 250px); /* Prevent overflow under the menu */
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Allow scrolling for long content */
-  padding-left: 1.5%; /* Add some padding */
+  overflow-y: auto; /* Allow vertical scrolling */
+  padding-left: 1.5%; /* Padding for content */
   transition: margin-left 0.3s ease;
 }
 
+/* Content inside the main content */
 .content1 {
   display: flex;
   gap: 50px;
-  flex-wrap: wrap; /* Allow content to wrap when screen is narrow */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
   justify-content: space-between;
   padding-left: 1.5%;
-  overflow-x: hidden;
-  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100%; /* Take full width */
 }
 
 .cardList, .categoryList, .carouselList {
-  flex: 1 1 45%; /* Allow each component to take up 45% of the available space */
-  min-width: 300px; /* Set a minimum width */
-  max-width: 100%; /* Ensure the elements don’t overflow */
+  flex: 1 1 45%; /* Take 45% of available space */
+  min-width: 300px; /* Minimum width */
+  max-width: 100%; /* Prevent overflow */
 }
 
-@media screen and (max-width: 1024px) {
-  .menu {
-    width: 20%; /* Adjust the width for medium-sized screens */
-  }
-
-  .mainContent {
-    margin-left: 20%; /* Keep the content aligned with the menu */
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .menu {
-    display: none; /* Hide the menu on small screens */
-  }
-
-  .mainContent {
-    margin-left: 0; /* Remove the margin when the menu is hidden */
-    padding-left: 0;
-  }
-
-  .content1 {
-    padding-left: 0;
-    flex-direction: column; /* Stack the content vertically */
-  }
-
-  .cardList, .categoryList, .carouselList {
-    flex-basis: 100%; /* Allow the components to take full width on small screens */
-    min-width: 100%; /* Prevent them from being too small */
-  }
-}
-
-
-
-
-/* src/app/homepage.module.css */
+/* Trending component styling */
 .trendingWrapper {
   position: fixed; /* Or absolute, depending on the desired behavior */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1001; /* Ensure it is on top of other content */
+  z-index: 1001; /* On top of other content */
   transition: opacity 0.3s ease, transform 0.3s ease;
-
 }
 
 .visible {
@@ -110,51 +97,34 @@
   pointer-events: none;
 }
 
-
-
-
-/* Custom scrollbar styles for WebKit browsers */
-.menu::-webkit-scrollbar {
-  padding-left: 20px;
-  width: 10px; /* Width of the scrollbar */
-}
-
-
-.menu::-webkit-scrollbar-track {
-  background:  var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-
-}
-
-.menu::-webkit-scrollbar-thumb {
-  background-color:  var(--softBg);/* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-.menu::-webkit-scrollbar-thumb:hover {
-  background:var(--softBg); /* Color of the scrollbar thumb on hover */
-}
-
-
-
+/* Media queries for smaller screens */
 @media screen and (max-width: 1024px) {
   .menu {
-    width: 250px; /* Adjust this width as needed */
+    width: 20%; /* Adjust width for medium-sized screens */
   }
 
- 
+  .mainContent {
+    margin-left: 20%; /* Keep aligned with the menu */
+  }
 }
 
+@media screen and (max-width: 720px) {
+  .menu {
+    display: none; /* Hide the menu */
+  }
 
+  .mainContent {
+    margin-left: 0; /* Remove margin when menu is hidden */
+    padding-left: 0;
+  }
 
+  .content1 {
+    padding-left: 0; /* Remove padding for smaller screens */
+    flex-direction: column; /* Stack content vertically */
+  }
 
-
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  flex: 1;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  
+  .cardList, .categoryList, .carouselList {
+    flex-basis: 100%; /* Full width for small screens */
+    min-width: 100%; /* Ensure no shrinking */
+  }
 }
