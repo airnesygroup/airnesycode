@@ -4,6 +4,8 @@
   flex-direction: column;
   gap: 5px;
   padding: 8px;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+
 
 }
 
