@@ -1,5 +1,5 @@
 .container{
-  flex:2
+  flex-basis: 10%; /* Set to 10% as requested */
 
 }
 
