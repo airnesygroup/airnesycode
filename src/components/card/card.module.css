@@ -125,9 +125,9 @@
   border-radius: 15px;
   background-color: #1201ac;
   font-size: 10px;
+  margin-right:auto ;
   margin-bottom: -20px;
-  margin-right: -400px;
-  padding-right: -400px;
+  padding-right: 10px;
   padding: 4px 10px;
   word-wrap: break-word; /* Prevents long words or URLs from overflowing */
 
