@@ -1,19 +1,91 @@
-.content1{
-  display: flex;
-  gap: 50px;
-  padding-left: 1.5%;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-}
-/* homepage.module.css */
-
+/* Adjust the flex behavior for the menu and main content */
 .container {
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   margin-right: auto;
-  position: relative; /* Keeps the layout flexible */
-  overflow-x: hidden; /* Prevent horizontal overflow */
-
+  position: relative;
+  overflow-x: hidden;
 }
+
+.menu {
+  position: fixed;
+  width: 20%; /* Make the menu take 20% of the screen width */
+  min-width: 200px; /* Ensure the menu doesn’t shrink too much */
+  max-width: 250px; /* Ensure the menu doesn’t grow too much */
+  border-right: 1px solid var(--softTextColor3);
+  max-height: 89vh;
+  z-index: 0;
+  overflow-y: hidden;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease, width 0.3s ease; /* Smooth width transition */
+}
+
+.menu:hover {
+  overflow-y: scroll; /* Show scrollbar on hover */
+}
+
+.mainContent {
+  margin-left: 20%; /* Align with the menu width */
+  flex: 1; /* Take up the remaining space */
+  max-width: calc(100% - 250px); /* Prevent main content from going under the menu */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling for long content */
+  padding-left: 1.5%; /* Add some padding */
+  transition: margin-left 0.3s ease;
+}
+
+.content1 {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap; /* Allow content to wrap when screen is narrow */
+  justify-content: space-between;
+  padding-left: 1.5%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.cardList, .categoryList, .carouselList {
+  flex: 1 1 45%; /* Allow each component to take up 45% of the available space */
+  min-width: 300px; /* Set a minimum width */
+  max-width: 100%; /* Ensure the elements don’t overflow */
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    width: 20%; /* Adjust the width for medium-sized screens */
+  }
+
+  .mainContent {
+    margin-left: 20%; /* Keep the content aligned with the menu */
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .menu {
+    display: none; /* Hide the menu on small screens */
+  }
+
+  .mainContent {
+    margin-left: 0; /* Remove the margin when the menu is hidden */
+    padding-left: 0;
+  }
+
+  .content1 {
+    padding-left: 0;
+    flex-direction: column; /* Stack the content vertically */
+  }
+
+  .cardList, .categoryList, .carouselList {
+    flex-basis: 100%; /* Allow the components to take full width on small screens */
+    min-width: 100%; /* Prevent them from being too small */
+  }
+}
+
+
 
 
 /* src/app/homepage.module.css */
@@ -39,25 +111,7 @@
 }
 
 
-/* Hide scrollbar by default */
-.menu {
-  position: fixed;
-  width: 250px;
-  border-right:  1px solid var(--softTextColor3);
-  max-height: 89vh; /* Full height */
-  z-index: 0;
-  overflow-y: hidden; /* Scrollable content */
-  padding-right: 20px;
-  padding-bottom: 30px;
-  margin-top: 65px;
-  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
-}
 
-.menu:hover {
-
-  overflow-y: scroll; /* Show scrollbar on hover */
-
-}
 
 /* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
@@ -81,19 +135,7 @@
   background:var(--softBg); /* Color of the scrollbar thumb on hover */
 }
 
-/* Keep existing styles for the mainContent and media queries */
-.mainContent {
-  margin: 0 auto; /* Center the entire container */
-  max-width: 1350px;
-  overflow-x: hidden; /* Prevent horizontal overflow */
 
-  padding-left:250px ; 
-  flex: 1; /* Allow mainContent to take up the remaining space */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-y: auto; /* Allow scrolling for long content */
-}
 
 @media screen and (max-width: 1024px) {
   .menu {
@@ -105,22 +147,7 @@
 
 
 
-@media screen and (max-width: 720px) {
-  .menu {
-    display: none;
-  }
 
-  .mainContent {
-    margin-left: 0; /* Ensure no margin is applied */
-    padding-left: 0; /* Ensure no padding is applied */
-  }
-
-  .content1 {
-    padding-left: 0; /* Ensure no padding is applied */
-    margin-left: 0; /* Ensure no margin is applied */
-
-  }
-}
 
 
 .content {
