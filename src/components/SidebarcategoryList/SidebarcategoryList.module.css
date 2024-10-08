@@ -166,7 +166,7 @@
 }
 
 .sectionTitle {
-  margin-left: 1-px;
+  margin-left: 10px;
   color: var(--softTextColor);
   width: 100%;
   font-weight: bold;
