@@ -18,7 +18,7 @@ export const GET = async (req) => {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany({
         take: POST_PER_PAGE,
-        skip: POST_PER_PAGE * (page - 1), // This will always be 0 since page is 1
+        skip: POST_PER_PAGE * (page - 1), // This will alway be 0 since page is 1
         where: {
           ...(cat && { catSlug: cat }),
           createdAt: {
