@@ -223,7 +223,7 @@ const SidebarCategoryList = () => {
         <span className={styles.chevron2}>⌄</span>
       </button>
       <div className={styles.separator}></div>
-      <div className={styles.sectionTitle}>Categories</div>
+      <div className={styles.sectionTitle}>CATEGORIES</div>
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
           <button
@@ -265,7 +265,7 @@ const SidebarCategoryList = () => {
       <AddIcon2 />
       <div className={styles.separator}></div>
 
-      <div className={styles.sectionTitle}>Resources</div>
+      <div className={styles.sectionTitle}>RESOURCES</div>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
         onClick={() => router.push("/about")}
