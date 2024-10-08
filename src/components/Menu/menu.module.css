@@ -29,6 +29,7 @@ height: fit-content;
 .subtitle {
   color: gray;
   font-size: 14px;
+  padding-bottom: 20px;
   font-weight: 400;
 }
 
