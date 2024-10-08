@@ -19,7 +19,7 @@
   align-items: flex-start;
 
   cursor: pointer;
-  font-size: medium;
+  font-size: small;
 }
 
 
@@ -49,7 +49,7 @@
   justify-content: space-between;
 
   cursor: pointer;
-  font-size: medium;
+  font-size: small;
 
 
 }
@@ -129,7 +129,7 @@
   text-decoration: none;
   color: var(--textColor);
   background-color: var(--bg);
-  font-size: medium;
+  font-size: small;
   cursor: pointer;
 }
 
