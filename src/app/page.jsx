@@ -17,35 +17,31 @@ import AddIcon2 from "@/components/Addicon2";
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 
-
-    return (
-      <div className={styles.container}>
-        <div
-          className={styles.trendingWrapper}
-        >
-          <Trending />
-        </div>
-  
-       <Navbar />
-        <AddIcon />
-  
-        <div className={styles.menu}>
-          <SidebarCategoryList />
-        </div>
-        <div className={styles.mainContent}>
-          <CategoryList />
-  
-          <CarouselList page={page} />
-  
-          <div className={styles.content1}>
-            <CardList page={page} />
-  
-            <Menu />
-          </div>
-          <Footer />
-        </div>
+  return (
+    <div className={styles.container}>
+      <div className={styles.trendingWrapper}>
+        <Trending />
       </div>
+
+      <Navbar />
+      <AddIcon />
+
+      <div className={styles.menu}>
+        <SidebarCategoryList />
+      </div>
+
+      <div className={styles.mainContent}>
+        <CategoryList />
+
+        <CarouselList page={page} />
+
+        <div className={styles.content1}>
+          <CardList page={page} />
+
+          <Menu />
+        </div>
+        <Footer />
+      </div>
+    </div>
   );
 }
-    
-
