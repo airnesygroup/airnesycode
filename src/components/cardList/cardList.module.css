@@ -1,27 +1,25 @@
 .container{
-  flex:1
-  
-  
+  flex:5
 
 }
 
 .title {
-  margin-top: 10px; /* Default margin for larger screens */
-  font-size: 1.25rem; /* Default font size for larger screens */
+  margin: 12px 0px; /* Default margin for larger screens */
+  font-size: 1.0rem; /* Default font size for larger screens */
 }
 
 /* For medium screens (tablets) */
 @media (max-width: 1000px) {
   .title {
-    margin-top: 8px; /* Default margin for larger screens */
-    font-size: 1.0rem; /* Smaller font size for medium screens */
+    margin: 10px 0px; /* Reduced margin for medium screens */
+    font-size: 0.75rem; /* Smaller font size for medium screens */
   }
 }
 
 /* For small screens (mobile devices) */
 @media (max-width: 720px) {
   .title {
-    margin-top: 5px; /* Default margin for larger screens */
-    font-size: 0.75rem; /* Even smaller font size for small screens */
+    margin: 5px 0px; /* Further reduced margin for small screens */
+    font-size: 0.25rem; /* Even smaller font size for small screens */
   }
 }

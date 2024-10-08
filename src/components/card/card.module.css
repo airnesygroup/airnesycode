@@ -4,7 +4,9 @@
   flex-direction: column;
   gap: 5px;
   padding: 8px;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  max-width: 100%; /* Ensures the card does not overflow the container */
+  width: 100%; /* Make the card responsive */
+  overflow: hidden;
 
 
 }
@@ -74,6 +76,8 @@
 .userInfo {
   display: flex;
   flex-direction: column;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
 .username {
@@ -81,11 +85,15 @@
   font-weight: bold;
   margin: 0;
   color: var(--softTextColor);
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
 .userRole {
   font-size: 11px;
   margin: 0;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
 .verifiedIcon {
@@ -100,6 +108,8 @@
   color: var(--softTextColor2);
   padding-left: 5px;
   font-size: 10px;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
   padding-top: 1px;
 }
 
@@ -119,6 +129,8 @@
   margin-right: -400px;
   padding-right: -400px;
   padding: 4px 10px;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
 
@@ -134,12 +146,16 @@
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 0.5%;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
 .desc {
   font-size: 15px;
   padding-top: 4px;
   padding-bottom: 0.5%px;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
   color: var(--softTextColor);
 }
 
