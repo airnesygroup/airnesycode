@@ -14,7 +14,7 @@
   color: var(--textColor);
   border: none;
   border-radius: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   display: flex;
   align-items: flex-start;
 
@@ -43,13 +43,13 @@
   background-color: var(--bg);
   color: var(--textColor);
   border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
 
   cursor: pointer;
-  font-size: small;
+  font-size: medium;
 
 
 }
