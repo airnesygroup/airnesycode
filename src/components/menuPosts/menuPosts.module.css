@@ -12,7 +12,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Adjust the gap between the rows */
+  gap: 20px; /* Adjust the gap between the rows */
 }
 
 /* Top row container for the image and category */
