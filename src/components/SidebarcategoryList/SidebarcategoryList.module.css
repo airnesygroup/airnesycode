@@ -14,12 +14,12 @@
   color: var(--textColor);
   border: none;
   border-radius: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 0px;
   display: flex;
   align-items: flex-start;
 
   cursor: pointer;
-  font-size: small;
+  font-size: medium;
 }
 
 
@@ -129,7 +129,7 @@
   text-decoration: none;
   color: var(--textColor);
   background-color: var(--bg);
-  font-size: small;
+  font-size: medium;
   cursor: pointer;
 }
 
