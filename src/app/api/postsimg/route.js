@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const cat = searchParams.get("cat");
-  const limit = parseInt(searchParams.get("limit")) || 70; // Default to 10
+  const limit = parseInt(searchParams.get("limit")) || 80; // Default to 10
   const offset = parseInt(searchParams.get("offset")) || 0; // Default to 0
 
   try {
