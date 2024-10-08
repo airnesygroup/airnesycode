@@ -71,7 +71,7 @@
 }
 
 .cardList, .categoryList, .carouselList {
-  flex: 1 1 45%; /* Take 45% of available space */
+  flex: 1 1 25%; /* Take 45% of available space */
   min-width: 300px; /* Minimum width */
   max-width: 100%; /* Prevent overflow */
 }
