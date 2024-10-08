@@ -67,7 +67,6 @@ const MenuPosts = ({ item, withImage }) => {
           )}
              <div className={styles.userInfo}>
                     <p className={styles.username}>{item.user?.name}</p>
-                    <p className={styles.userRole}>{item.user?.role}</p>
                     <span className={styles.category}>{item.catSlug}</span>
 
                   </div>
