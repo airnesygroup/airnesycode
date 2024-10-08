@@ -14,12 +14,12 @@
   color: var(--textColor);
   border: none;
   border-radius: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 0px;
   display: flex;
   align-items: flex-start;
 
   cursor: pointer;
-  font-size: small;
+  font-size: 16px;
 }
 
 
@@ -44,12 +44,12 @@
   color: var(--textColor);
   border: none;
   border-radius: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 0px;
   display: flex;
   justify-content: space-between;
 
   cursor: pointer;
-  font-size: small;
+  font-size: 16px;
 
 
 }
@@ -68,7 +68,8 @@
 
 .chevron {
   margin-left: 10px;
-  font-size: 4px;
+  font-size: 8px;
+  font-style: bold;
 
 }
 .chevron2 {
@@ -129,7 +130,7 @@
   text-decoration: none;
   color: var(--textColor);
   background-color: var(--bg);
-  font-size: small;
+  font-size: 16px;
   cursor: pointer;
 }
 
