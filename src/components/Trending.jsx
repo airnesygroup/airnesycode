@@ -17,7 +17,7 @@ const Trending = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await fetch("https://hoolicon.vercel.app/api/postsimg?page=1&cat=");
+        const res = await fetch("https://www.airnesy.com/api/postsimg?page=1&cat=");
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
