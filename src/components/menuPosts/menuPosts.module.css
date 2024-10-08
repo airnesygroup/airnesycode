@@ -41,7 +41,7 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Space between title and details */
+  gap: 2px; /* Space between title and details */
 }
 
 /* Styling for post title */
@@ -74,11 +74,21 @@
 
 .username {
   font-size: 12px;
+  margin: 0;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
 
-.userRole {
-  font-size: 12px;
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+
 }
+
+
+
+
 
 .title2 {
   font-size: 14px;
