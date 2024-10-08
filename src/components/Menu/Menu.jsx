@@ -11,7 +11,8 @@ const Menu = () => {
       <div className={styles.container}>
         <h2 className={styles.subtitle}>{"What's hot"}</h2>
         <Menulists page={1} cat={""} />
-  
+        <h2 className={styles.subtitle2}>{"show more"}</h2>
+
        
       </div>
     );

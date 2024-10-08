@@ -12,7 +12,7 @@
   width: 100%;
 height: fit-content; 
  overflow-y: hidden;
-  flex: 2;
+  flex: 1.9;
 }
 
 
@@ -39,9 +39,9 @@ height: fit-content;
 
 .subtitle2 {
   color: gray;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 1024px) {
