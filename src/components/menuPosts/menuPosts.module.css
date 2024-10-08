@@ -12,7 +12,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Adjust the gap between the rows */
+  gap: 8px; /* Adjust the gap between the rows */
 }
 
 /* Top row container for the image and category */
@@ -24,8 +24,8 @@
 
 /* Container for the image */
 .imageContainer {
-  flex: 0 0 33px; /* Fixed width for the image container */
-  height: 33px; /* Fixed height for the image container */
+  flex: 0 0 35px; /* Fixed width for the image container */
+  height: 35px; /* Fixed height for the image container */
   position: relative;
 }
 
@@ -60,7 +60,7 @@
 /* Styling for the category name */
 /* Styling for the category name */
 .category {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--softTextColor);
 
 }
@@ -73,7 +73,7 @@
 }
 
 .username {
-  font-size: 12px;
+  font-size: 13px;
   margin: 0;
   word-wrap: break-word; /* Prevents long words or URLs from overflowing */
 
