@@ -1,88 +1,27 @@
-/* Container to align layout */
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin-right: auto;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Menu section */
-.menu {
-  position: fixed;
-  width: 20%; /* Responsive width */
-  min-width: 200px; /* Minimum width for smaller screens */
-  max-width: 250px; /* Maximum width */
-  border-right: 1px solid var(--softTextColor3);
-  max-height: 89vh; /* Full height */
-  z-index: 0;
-  overflow-y: hidden; /* Hide scrollbar by default */
-  padding-right: 20px;
-  padding-bottom: 30px;
-  margin-top: 65px;
-  transition: overflow 0.3s ease, width 0.3s ease; /* Smooth transition */
-}
-
-.menu:hover {
-  overflow-y: scroll; /* Show scrollbar on hover */
-}
-
-/* Custom scrollbar styles for WebKit browsers */
-.menu::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
-
-.menu::-webkit-scrollbar-track {
-  background: var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar track */
-}
-
-.menu::-webkit-scrollbar-thumb {
-  background-color: var(--softBg); /* Scrollbar thumb color */
-  border-radius: 10px;
-}
-
-.menu::-webkit-scrollbar-thumb:hover {
-  background: var(--softBg); /* Hover color for scrollbar thumb */
-}
-
-/* Main content section */
-.mainContent {
-  margin-left: 20%; /* Aligned with the menu width */
-  flex: 1; /* Take remaining space */
-  max-width: calc(100% - 250px); /* Prevent overflow under the menu */
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Allow vertical scrolling */
-  padding-left: 1.5%; /* Padding for content */
-  transition: margin-left 0.3s ease;
-}
-
-/* Content inside the main content */
-.content1 {
+.content1{
   display: flex;
   gap: 50px;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  justify-content: space-between;
   padding-left: 1.5%;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  width: 100%; /* Take full width */
+}
+/* homepage.module.css */
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: auto;
+  position: relative; /* Keeps the layout flexible */
 }
 
-.cardList {
-  flex-basis: 10%; /* Reduce the width of the CardList */
-  max-width: 100%; /* Prevent overflow */
-}
 
-/* Trending component styling */
+/* src/app/homepage.module.css */
 .trendingWrapper {
   position: fixed; /* Or absolute, depending on the desired behavior */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1001; /* On top of other content */
+  z-index: 1001; /* Ensure it is on top of other content */
   transition: opacity 0.3s ease, transform 0.3s ease;
+
 }
 
 .visible {
@@ -96,34 +35,95 @@
   pointer-events: none;
 }
 
-/* Media queries for smaller screens */
+
+/* Hide scrollbar by default */
+.menu {
+  position: fixed;
+  width: 250px;
+  border-right:  1px solid var(--softTextColor3);
+  max-height: 89vh; /* Full height */
+  z-index: 0;
+  overflow-y: hidden; /* Scrollable content */
+  padding-right: 20px;
+  padding-bottom: 30px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
+}
+
+.menu:hover {
+
+  overflow-y: scroll; /* Show scrollbar on hover */
+
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.menu::-webkit-scrollbar {
+  padding-left: 20px;
+  width: 10px; /* Width of the scrollbar */
+}
+
+
+.menu::-webkit-scrollbar-track {
+  background:  var(--bg); /* Background of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color:  var(--softBg);/* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background:var(--softBg); /* Color of the scrollbar thumb on hover */
+}
+
+/* Keep existing styles for the mainContent and media queries */
+.mainContent {
+  margin: 0 auto; /* Center the entire container */
+  max-width: 1350px;
+
+  padding-left:250px ; 
+  flex: 1; /* Allow mainContent to take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow scrolling for long content */
+}
+
 @media screen and (max-width: 1024px) {
   .menu {
-    width: 20%; /* Adjust width for medium-sized screens */
+    width: 250px; /* Adjust this width as needed */
   }
 
-  .mainContent {
-    margin-left: 20%; /* Keep aligned with the menu */
-  }
+ 
 }
+
+
 
 @media screen and (max-width: 720px) {
   .menu {
-    display: none; /* Hide the menu */
+    display: none;
   }
 
   .mainContent {
-    margin-left: 0; /* Remove margin when menu is hidden */
-    padding-left: 0;
+    margin-left: 0; /* Ensure no margin is applied */
+    padding-left: 0; /* Ensure no padding is applied */
   }
 
   .content1 {
-    padding-left: 0; /* Remove padding for smaller screens */
-    flex-direction: column; /* Stack content vertically */
-  }
+    padding-left: 0; /* Ensure no padding is applied */
+    margin-left: 0; /* Ensure no margin is applied */
 
-  .cardList, .categoryList, .carouselList {
-    flex-basis: 100%; /* Full width for small screens */
-    min-width: 100%; /* Ensure no shrinking */
   }
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  
 }
