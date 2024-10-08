@@ -63,15 +63,7 @@ const Navbar = () => {
         </Link>
        
       
-         <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>     <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>
+         
         <div className={styles.searchContainer}>
           <input 
             type="text" 
