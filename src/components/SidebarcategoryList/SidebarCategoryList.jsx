@@ -79,6 +79,19 @@ const SidebarCategoryList = () => {
         />
         Home
       </button>
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
+        onClick={() => router.push("/")}
+      >
+        <Image
+          src={"/bg.png"}      
+         alt="home"
+          className={styles.icon}
+          height={25}
+          width={25}
+        />
+        Home
+      </button>
       
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
