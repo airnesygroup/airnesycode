@@ -12,6 +12,7 @@ import {
   InfoOutlined, 
   WorkOffOutlined, 
   ShieldOutlined, 
+  PublicOutlined,
   GavelOutlined, 
   BusinessCenterOutlined, // Business Icon
   AttachMoneyOutlined, // Money Icon
@@ -119,7 +120,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <BusinessCenterOutlined className={styles.icon} fontSize="medium" />
+        <PublicOutlined className={styles.icon} fontSize="medium" />
         Hoolicon Business
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
