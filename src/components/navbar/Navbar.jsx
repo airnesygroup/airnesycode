@@ -16,9 +16,10 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const containerStyle = theme === "dark"
-    ? { backgroundColor: "rgba(1, 1, 2, 0.7)" }
-    : { backgroundColor: "rgba(252, 254, 255, 0.7)" };
+  ? { backgroundColor: "rgba(1, 1, 2, 0.85)" }
 
+  : { backgroundColor: "rgba(240, 240, 245, 0.85)" };
+  
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
