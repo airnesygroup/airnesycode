@@ -11,7 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InfoOutlined, WorkOffOutlined, ShieldOutlined, GavelOutlined } from "@mui/icons-material";
 
 import { ThemeContext } from "@/context/ThemeContext";
-import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
+import { faStar as faStarRegular, faCompass as faCompassRegular, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+// Example of using the icons in a component
 
 const getData = async () => {
   try {
@@ -93,7 +95,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
-        <span className={styles.chevron2}>⌄</span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
       </button>
 
       <button
@@ -103,10 +105,8 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Hoolicon Business
-        <span className={styles.chevron2}>⌄</span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
       </button>
-
-
 
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/hooliconnews" ? styles.active : ""}`}
@@ -115,17 +115,10 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Hoolicon Tech
-        <span className={styles.chevron2}> <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
       </button>
 
-      <button
-        className={`${styles.sidebarButton} ${router.pathname === "/explore" ? styles.active : ""}`}
-        onClick={() => router.push("/explore")}
-      >
-        <FontAwesomeIcon icon={faCompassRegular} className={styles.icon} size="lg" />
-        Explore
-        <span className={styles.chevron2}>⌄</span>
-      </button>
+   
       <div className={styles.separator}></div>
       <div className={styles.sectionTitle}>Categories</div>
   
@@ -152,7 +145,7 @@ const SidebarCategoryList = () => {
               width={30}
             />
             <span className={styles.icon2}>{item.title}</span>
-            <span className={styles.chevron2}> <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" /></span>
+            <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="md" /></span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>
