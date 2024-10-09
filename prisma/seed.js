@@ -12,11 +12,11 @@ async function main() {
       data: [
         { slug: "general", title: "General", icon: "fa-solid fa-circle" },
         { slug: "business-finance", title: "Business & Finance", icon: "fa-solid fa-newspaper" },
-        { slug: "technology", title: "Gaming", icon: "fa-solid fa-gamepad" },
-        { slug: "science", title: "Artificial Intelligence", icon: "fa-solid fa-robot" },
-        { slug: "economics", title: "Gaming", icon: "fa-solid fa-gamepad" },
-        { slug: "engineering", title: "Entertainment", icon: "fa-solid fa-film" },
-        { slug: "mathematics", title: "Digital Art & Design", icon: "fa-solid fa-paint-brush" }
+        { slug: "technology", title: "Technology", icon: "fa-solid fa-gamepad" },
+        { slug: "science", title: "Science", icon: "fa-solid fa-robot" },
+        { slug: "economics", title: "Economics", icon: "fa-solid fa-gamepad" },
+        { slug: "engineering", title: "Engineering", icon: "fa-solid fa-film" },
+        { slug: "mathematics", title: "Mathematics", icon: "fa-solid fa-paint-brush" }
       ]
     });
     console.log("Sample categories with icons added to the database.");
