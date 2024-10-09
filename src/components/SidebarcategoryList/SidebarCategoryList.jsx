@@ -100,7 +100,7 @@ const SidebarCategoryList = () => {
             onClick={() => router.push(`/blog?cat=${item.slug}`)}
           >
             <Image
-              src={item.icon} // Use image icon from category data
+              src={item.img} // Use image icon from category data
               alt={item.title}
               className={styles.icon}
               height={25}
