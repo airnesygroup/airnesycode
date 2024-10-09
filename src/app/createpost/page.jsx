@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const createpostPage = () => {
+const createpost = () => {
   const { status } = useSession();
   const router = useRouter();
   const [file, setFile] = useState(null);
@@ -232,4 +232,4 @@ const createpostPage = () => {
   );
 };
 
-export default createpostPage;
+export default createpost;
