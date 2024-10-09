@@ -12,7 +12,7 @@ export const GET = async (req) => {
 
   // Calculate the timestamp for 24 hours ago
   const twentyFourHoursAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
-  console.log("24 hours ago:", twentyFourHoursAgo.toISOString());
+  console.log("48 hours ago:", twentyFourHoursAgo.toISOString());
 
   try {
     const [posts, count] = await prisma.$transaction([
