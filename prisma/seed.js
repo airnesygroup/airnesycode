@@ -16,7 +16,7 @@ async function main() {
         { slug: "science", title: "Science", icon: "fa-solid fa-robot" },
         { slug: "economics", title: "Economics", icon: "fa-solid fa-gamepad" },
         { slug: "engineering", title: "Engineering", icon: "fa-solid fa-film" },
-        { slug: "mathematics", title: "Mathematics", icon: "fa-solid fa-paint-brush" }
+        { slug: "mathematics", title: "Mathematic", icon: "fa-solid fa-paint-brush" }
       ]
     });
     console.log("Sample categories with icons added to the database.");
