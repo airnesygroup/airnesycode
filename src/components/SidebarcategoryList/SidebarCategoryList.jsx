@@ -179,7 +179,7 @@ const SidebarCategoryList = () => {
               width={27}
             />
             <span className={styles.icon2}>{item.title}</span>
-            <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="sm" /></span>
+            <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="xs" /></span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>
