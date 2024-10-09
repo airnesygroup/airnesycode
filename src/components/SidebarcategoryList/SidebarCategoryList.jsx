@@ -112,7 +112,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <StarBorder className={styles.icon} fontSize="20px" />
+        <StarBorder className={styles.icon} fontSize="200px" />
             <span className={styles.buttonText}>Popular </span>
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
@@ -123,7 +123,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <PublicOutlined className={styles.icon} fontSize="30px" />
+        <PublicOutlined className={styles.icon} fontSize="300px" />
         <span className={styles.buttonText}>Hoolicon Business</span>
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
@@ -133,7 +133,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <ComputerOutlined className={styles.icon} fontSize="small" />
+        <ComputerOutlined className={styles.icon} fontSize="md" />
             <span className={styles.buttonText}>Hoolicon Tech</span>
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
