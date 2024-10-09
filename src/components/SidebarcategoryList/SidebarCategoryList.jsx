@@ -8,19 +8,23 @@ import AddIcon2 from "../Addicon2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { InfoOutlined, WorkOffOutlined, ShieldOutlined, GavelOutlined } from "@mui/icons-material";
-
+import { 
+  InfoOutlined, 
+  WorkOffOutlined, 
+  ShieldOutlined, 
+  GavelOutlined, 
+  BusinessCenterOutlined, // Business Icon
+  AttachMoneyOutlined, // Money Icon
+  ComputerOutlined, // Tech Icon
+  CodeOutlined // Coding Icon
+} from "@mui/icons-material";
 import { ThemeContext } from "@/context/ThemeContext";
 
 
 import { 
   faStar as faStarRegular, 
   faCompass as faCompassRegular,
-  faLaptopCode as faLaptopCodeRegular,  // Tech icon
-  faBullhorn as faBullhornRegular,      // Business icon
-  faChartLine as faChartLineRegular,    // Business growth icon
-  faBriefcase as faBriefcaseRegular,     // Business icon
-  faRocket as faRocketRegular            // Tech/startup icon
+ 
 } from "@fortawesome/free-regular-svg-icons";
 
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -107,7 +111,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
       <button
@@ -115,9 +119,9 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faChartLineRegular} className={styles.icon} size="lg" />
+        <ComputerOutlined className={styles.icon} fontSize="lg" />
         Hoolicon Business
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
       <button
@@ -125,9 +129,9 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faLaptopCodeRegular} className={styles.icon} size="lg" />
+        <ComputerOutlined className={styles.icon} fontSize="lg" />
         Hoolicon Tech
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
    
