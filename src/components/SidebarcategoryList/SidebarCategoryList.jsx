@@ -21,6 +21,9 @@ import {
   ComputerOutlined, // Tech Icon
   CodeOutlined // Coding Icon
 } from "@mui/icons-material";
+import { faGlobe as regularGlobe } from '@fortawesome/free-regular-svg-icons';
+import { faLaptop as regularLaptop } from '@fortawesome/free-regular-svg-icons';
+
 import { ThemeContext } from "@/context/ThemeContext";
 
 
@@ -30,7 +33,7 @@ import {
  
 } from "@fortawesome/free-regular-svg-icons";
 
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faGlobe, faLaptop } from "@fortawesome/free-solid-svg-icons";
 
 // Example of using the icons in a component
 
@@ -112,8 +115,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <StarBorder className={styles.icon} Size="md" />
-            <span className={styles.buttonText}>Popular </span>
+        <FontAwesomeIcon icon={faStarRegular}  size="sm" />    
+          Popular 
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
@@ -123,8 +126,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <PublicOutlined className={styles.icon} Size="md" />
-        <span className={styles.buttonText}>Hoolicon Business</span>
+        <FontAwesomeIcon icon={faGlobe}  size="sm" />    
+        Hoolicon 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
 
@@ -133,8 +136,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <ComputerOutlined className={styles.icon} Size="lg" />
-            <span className={styles.buttonText}>Hoolicon Tech</span>
+        <FontAwesomeIcon icon={faLaptop}  size="sm" />    
+        Hoolicon Tech
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
@@ -227,7 +230,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/careers")}
       >
         <WorkOffOutlined className={styles.icon} size="md" />
-        
+        <span className={styles.buttonText}>Careers</span>
+
 
       </button>
 
