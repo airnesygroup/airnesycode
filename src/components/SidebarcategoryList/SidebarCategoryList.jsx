@@ -119,7 +119,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <BusinessCenterOutlined className={styles.icon} fontSize="large" />
+        <BusinessCenterOutlined className={styles.icon} fontSize="medium" />
         Hoolicon Business
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
@@ -129,7 +129,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <ComputerOutlined className={styles.icon} fontSize="large" />
+        <ComputerOutlined className={styles.icon} fontSize="medium" />
         Hoolicon Tech
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
