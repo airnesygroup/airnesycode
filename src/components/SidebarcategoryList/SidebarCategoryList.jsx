@@ -84,7 +84,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/")}
       >
         <Image
-          src={"./bg.png"}      
+          src={"/bg.png"}      
          alt="home"
           className={styles.icon}
           height={25}
