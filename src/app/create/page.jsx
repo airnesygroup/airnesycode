@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./createpostPage.module.css";
+import styles from "./createPage.module.css";
 import { useEffect, useState, useRef } from "react";
 import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const createpost = () => {
+const CreatePage = () => {
   const { status } = useSession();
   const router = useRouter();
   const [file, setFile] = useState(null);
@@ -232,4 +232,4 @@ const createpost = () => {
   );
 };
 
-export default createpost;
+export default CreatePage;
