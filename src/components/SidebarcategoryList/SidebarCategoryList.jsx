@@ -105,7 +105,7 @@ const SidebarCategoryList = () => {
           height={25}
           width={25}
         />
-        Home
+            <span className={styles.buttonText}>Home </span>
       </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
@@ -113,7 +113,8 @@ const SidebarCategoryList = () => {
       >
         
         <StarBorder className={styles.icon} fontSize="medium" />
-        Popular
+            <span className={styles.buttonText}>Popular </span>
+
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
@@ -123,7 +124,7 @@ const SidebarCategoryList = () => {
       >
         
         <PublicOutlined className={styles.icon} fontSize="medium" />
-        Hoolicon Business
+        <span className={styles.buttonText}>Hoolicon Business</span>
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
@@ -133,7 +134,8 @@ const SidebarCategoryList = () => {
       >
         
         <ComputerOutlined className={styles.icon} fontSize="medium" />
-        Hoolicon Tech
+            <span className={styles.buttonText}>Hoolicon Tech</span>
+
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
