@@ -71,7 +71,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/")}
       >
         <Image
-          src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
+          src={theme === "light" ? "/home2.png" : "/bg.png"} // Adjust icon paths based on theme
           alt="home"
           className={styles.icon}
           height={25}
@@ -84,7 +84,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/")}
       >
         <Image
-          src={"/bg.png"}      
+          src={"./bg.png"}      
          alt="home"
           className={styles.icon}
           height={25}
