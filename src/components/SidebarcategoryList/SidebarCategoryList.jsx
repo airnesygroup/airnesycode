@@ -11,7 +11,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InfoOutlined, WorkOffOutlined, ShieldOutlined, GavelOutlined } from "@mui/icons-material";
 
 import { ThemeContext } from "@/context/ThemeContext";
-import { faStar as faStarRegular, faCompass as faCompassRegular, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+
+import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // Example of using the icons in a component
 
@@ -95,7 +98,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
       </button>
 
       <button
@@ -105,7 +108,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Hoolicon Business
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
       </button>
 
       <button
@@ -115,7 +118,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Hoolicon Tech
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="lg" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
       </button>
 
    
@@ -226,3 +229,5 @@ const SidebarCategoryList = () => {
 };
 
 export default SidebarCategoryList;
+
+
