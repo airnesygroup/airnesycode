@@ -3,7 +3,6 @@
   display: flex;
   margin-top: 15px;
   flex-direction: column;
-  color: var(--sofTextColor);
   align-items: flex-start;
   z-index: 0;
   font-weight: 100;
@@ -13,7 +12,6 @@
   width: 100%;
   padding: 10px;
   background-color: var(--bg);
-  color: var(--sofTextColor);
   border: none;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -40,7 +38,6 @@
   width: 100%;
   padding: 10px;
   background-color: var(--softBg);
-  color: var(--sofTextColor);
   border: none;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -73,7 +70,6 @@
   padding-right: 10px;
   padding-bottom: 5px;
   background-color: var(--bg);
-  color: var(--sofTextColor);
   border: none;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -125,7 +121,6 @@ margin-top: 5px;
   width: 20px;
   font-weight: 50;
   padding-top: 5px;
-  color: var(--softTextColor);
 
 
 }
@@ -208,9 +203,7 @@ margin-top: 5px;
 
 .sectionTitle {
   margin-left: 10px;
-  width: 100%;
-  font-weight: 50;
-  font-size: 16px;
+  font-size: 10px;
   padding: 10px 0;
 }
 
