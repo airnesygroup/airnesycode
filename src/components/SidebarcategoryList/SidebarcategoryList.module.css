@@ -6,6 +6,8 @@
   align-items: flex-start;
   z-index: 0;
   font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
 }
 
 .sidebarButton {
