@@ -47,13 +47,10 @@ const CreatePage = () => {
           (snapshot) => {
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log("Upload is " + progress + "% done");
-            switch (snapshot.state) {
-              case "paused":
-                console.log("Upload is paused");
-                break;
-              case "running":
-                console.log("Upload is running");
-                break;
+            if (snapshot.state === "paused") {
+              console.log("Upload is paused");
+            } else if (snapshot.state === "running") {
+              console.log("Upload is running");
             }
           },
           (error) => {
@@ -126,7 +123,7 @@ const CreatePage = () => {
       return;
     }
 
-    if (!catSlug) {  // Check if a category has been selected
+    if (!catSlug) {
       alert("Please choose a category.");
       return;
     }
@@ -152,6 +149,13 @@ const CreatePage = () => {
 
     if (res.status === 200) {
       const data = await res.json();
+      // Clear form fields after submission
+      setTitle("");
+      setValue("");
+      setCatSlug("general");
+      setMedia("");
+      setFile(null);
+      setPreview("");
       router.push(`/posts/${data.slug}`);
     }
   };
@@ -180,7 +184,7 @@ const CreatePage = () => {
           className={styles.select}
           value={catSlug}
           onChange={(e) => setCatSlug(e.target.value)}
-          required // Make the category selection required
+          required
         >
           <option value="" disabled>
             Select Category
