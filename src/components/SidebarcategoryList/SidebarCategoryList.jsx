@@ -112,7 +112,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Hoolicon Tech
-        <span className={styles.chevron2}>⌄</span>
+        <span className={styles.chevron2}> <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" /></span>
       </button>
 
       <button
@@ -149,7 +149,7 @@ const SidebarCategoryList = () => {
               width={30}
             />
             <span className={styles.icon2}>{item.title}</span>
-            <span className={styles.chevron2}>⌄</span>
+            <span className={styles.chevron2}> <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" /></span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>
