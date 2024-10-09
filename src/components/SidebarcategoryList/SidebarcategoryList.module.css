@@ -167,9 +167,8 @@
 
 .sectionTitle {
   margin-left: 10px;
-  color: var(--softTextColor);
   width: 100%;
-  font-weight: bold;
+  font-weight: 50;
 
   padding: 10px 0;
 }

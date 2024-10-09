@@ -223,7 +223,7 @@ const SidebarCategoryList = () => {
         <span className={styles.chevron2}>⌄</span>
       </button>
       <div className={styles.separator}></div>
-      <div className={styles.sectionTitle}>CATEGORIES</div>
+      <div className={styles.sectionTitle}>EXPLORE</div>
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
           <button
@@ -271,7 +271,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/about")}
       >
         <InfoOutlined className={styles.icon} size="lg" />
-        About Us
+        About Hoolicon
       </button>
 
       <button
