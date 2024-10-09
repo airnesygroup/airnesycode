@@ -102,8 +102,8 @@ const SidebarCategoryList = () => {
           src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
           alt="home"
           className={styles.icon}
-          height={20}
-          width={20}
+          height={23}
+          width={23}
         />
             <span className={styles.buttonText}>Home </span>
       </button>
@@ -112,7 +112,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <StarBorder className={styles.icon} fontSize="200px" />
+        <StarBorder className={styles.icon} fontSize="lg" />
             <span className={styles.buttonText}>Popular </span>
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
@@ -123,7 +123,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <PublicOutlined className={styles.icon} fontSize="300px" />
+        <PublicOutlined className={styles.icon} fontSize="lg" />
         <span className={styles.buttonText}>Hoolicon Business</span>
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
@@ -133,7 +133,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <ComputerOutlined className={styles.icon} fontSize="md" />
+        <ComputerOutlined className={styles.icon} fontSize="lg" />
             <span className={styles.buttonText}>Hoolicon Tech</span>
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
@@ -152,7 +152,7 @@ const SidebarCategoryList = () => {
       >
         
         <Add className={styles.icon} fontSize="medium" />
-        <span className={styles.buttonText}> Create a post</span>
+        <span className={styles.buttonText2}> Create a post</span>
       </button>
 
      <div className={styles.separator}></div>
@@ -218,7 +218,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/about")}
       >
         <InfoOutlined className={styles.icon} size="lg" />
-        About Us
+        <span className={styles.buttonText}>About Hoolicon</span>
+
       </button>
 
       <button
@@ -226,7 +227,8 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/careers")}
       >
         <WorkOffOutlined className={styles.icon} size="lg" />
-        Careers
+        
+
       </button>
 
       <button
@@ -234,14 +236,16 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/privacy")}
       >
         <ShieldOutlined className={styles.icon} size="lg" />
-        Privacy Policy
+        <span className={styles.buttonText}>  Privacy Policy</span>
+
       </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/agreement" ? styles.active : ""}`}
         onClick={() => router.push("/agreement")}
       >
         <GavelOutlined className={styles.icon} size="lg" />
-        User Agreement
+        <span className={styles.buttonText}> User Agreement </span>
+
       </button>
       
 
