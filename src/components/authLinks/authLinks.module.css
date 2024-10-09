@@ -3,7 +3,7 @@
   background-color: #FF4500;
   border-radius: 20px;
   font-size: 13px;
-  padding: 8px 17px; /* Combine padding for left and right */
+  padding: 14px 17px; /* Combine padding for left and right */
   color: #fff;
   display: inline-block; /* Ensures the button fits the content */
 }
