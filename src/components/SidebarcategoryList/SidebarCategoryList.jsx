@@ -90,7 +90,7 @@ const SidebarCategoryList = () => {
           height={25}
           width={25}
         />
-        Home
+        Hom
       </button>
       
       {displayedCategories.map((item) => (
