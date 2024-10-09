@@ -10,6 +10,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   Add,
+  StarBorder,
   InfoOutlined, 
   WorkOffOutlined, 
   ShieldOutlined, 
@@ -111,7 +112,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        <StarBorder className={styles.icon} fontSize="medium" />
         Popular
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
