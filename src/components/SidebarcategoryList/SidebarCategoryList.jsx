@@ -21,7 +21,6 @@ import {
   ComputerOutlined, // Tech Icon
   CodeOutlined // Coding Icon
 } from "@mui/icons-material";
-import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe as regularGlobe } from '@fortawesome/free-regular-svg-icons';
 import { faLaptop as regularLaptop } from '@fortawesome/free-regular-svg-icons';
 
