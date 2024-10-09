@@ -28,6 +28,26 @@
   background-color: var(--softBg);
 }
 
+
+.addButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--softBg);
+  color: var(--sofTextColor);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 100;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.addButton:hover {
+  background-color: #f59a79;
+}
+
 .active {
   background-color: var(--softBg); /* Use the soft background for active state */
   color: var(--textColor); /* Adjust text color for contrast */

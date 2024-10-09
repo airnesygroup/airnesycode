@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
+  Add,
   InfoOutlined, 
   WorkOffOutlined, 
   ShieldOutlined, 
@@ -135,10 +136,23 @@ const SidebarCategoryList = () => {
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
       </button>
 
+
+
    
       <div className={styles.separator}></div>
-      <div className={styles.sectionTitle}>Categories</div>
-  
+
+      <div className={styles.sectionTitle}>CREATE POST</div>
+
+      <button
+        className={`${styles.addButton} ${router.pathname === "/createpost" ? styles.active : ""}`}
+        onClick={() => router.push("/createpost")}
+      >
+        
+        <Add className={styles.icon} fontSize="medium" />
+        Create a post
+      </button>
+
+     <div className={styles.separator}></div>
 
 
 
@@ -146,7 +160,7 @@ const SidebarCategoryList = () => {
 
 
 
-
+      <div className={styles.sectionTitle}>CATEGORIES</div>
 
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
@@ -188,24 +202,19 @@ const SidebarCategoryList = () => {
         </button>
       )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
       <div className={styles.separator}></div>
+
+
+
       <AddIcon2 />
+
+
+
+
+
       <div className={styles.separator}></div>
 
-      <div className={styles.sectionTitle}>Resources</div>
+      <div className={styles.sectionTitle}>RESOURCES</div>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
         onClick={() => router.push("/about")}
