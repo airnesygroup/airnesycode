@@ -21,6 +21,7 @@ import {
   ComputerOutlined, // Tech Icon
   CodeOutlined // Coding Icon
 } from "@mui/icons-material";
+import { faGlobeAfrica } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe as regularGlobe } from '@fortawesome/free-regular-svg-icons';
 import { faLaptop as regularLaptop } from '@fortawesome/free-regular-svg-icons';
 
@@ -33,7 +34,7 @@ import {
  
 } from "@fortawesome/free-regular-svg-icons";
 
-import { faChevronDown, faGlobe, faLaptop } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faGlobe, faGlobeAfrica, faLaptop } from "@fortawesome/free-solid-svg-icons";
 
 // Example of using the icons in a component
 
@@ -126,7 +127,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faGlobe} className={styles.icon} size="xl" />    
+        <FontAwesomeIcon icon={faGlobeAfrica} className={styles.icon} size="xl" />    
         Hoolicon 
         <span className={styles.chevron2}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
