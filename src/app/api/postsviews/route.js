@@ -10,19 +10,19 @@ export const GET = async (req) => {
 
   const POST_PER_PAGE = 5;
 
-  // Calculate the timestamp for 24 hours ago
-  const twentyFourHoursAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
-  console.log("48 hours ago:", twentyFourHoursAgo.toISOString());
+  // Calculate the timestamp for 48 hours ago
+  const fortyEightHoursAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
+  console.log("48 hours ago:", fortyEightHoursAgo.toISOString());
 
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany({
         take: POST_PER_PAGE,
-        skip: POST_PER_PAGE * (page - 1), // This will alway be 0 since page is 1
+        skip: POST_PER_PAGE * (page - 1), // This will always be 0 since page is 1
         where: {
           ...(cat && { catSlug: cat }),
           createdAt: {
-            gte: twentyFourHoursAgo, // Filter for posts created within the last 24 hours
+            gte: fortyEightHoursAgo, // Filter for posts created within the last 48 hours
           },
         },
         include: {
@@ -36,7 +36,7 @@ export const GET = async (req) => {
         where: {
           ...(cat && { catSlug: cat }),
           createdAt: {
-            gte: twentyFourHoursAgo, // Ensure count only includes posts from the last 24 hours
+            gte: fortyEightHoursAgo, // Ensure count only includes posts from the last 48 hours
           },
         },
       }),
