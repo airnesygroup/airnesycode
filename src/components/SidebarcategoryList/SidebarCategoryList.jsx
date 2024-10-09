@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useContext, useEffect, useState } from "react";
@@ -7,6 +8,7 @@ import AddIcon2 from "../Addicon2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ThemeContext } from "@/context/ThemeContext";
+import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
 
 const getData = async () => {
   try {
@@ -64,6 +66,8 @@ const SidebarCategoryList = () => {
     return <div>No categories found</div>;
   }
 
+
+
   return (
     <div className={styles.wrapper}>
       <button
@@ -79,8 +83,58 @@ const SidebarCategoryList = () => {
         />
         Home
       </button>
-      
-      
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
+        onClick={() => router.push("/popular")}
+      >
+        
+        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        Popular
+        <span className={styles.chevron2}>⌄</span>
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/hooliconnews" ? styles.active : ""}`}
+        onClick={() => router.push("/hooliconnews")}
+      >
+        
+        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        Hoolicon Business
+        <span className={styles.chevron2}>⌄</span>
+      </button>
+
+
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/hooliconnews" ? styles.active : ""}`}
+        onClick={() => router.push("/hooliconnews")}
+      >
+        
+        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        Hoolicon Tech
+        <span className={styles.chevron2}>⌄</span>
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/explore" ? styles.active : ""}`}
+        onClick={() => router.push("/explore")}
+      >
+        <FontAwesomeIcon icon={faCompassRegular} className={styles.icon} size="lg" />
+        Explore
+        <span className={styles.chevron2}>⌄</span>
+      </button>
+      <div className={styles.separator}></div>
+      <div className={styles.sectionTitle}>Categories</div>
+  
+
+
+
+
+
+
+
+
+
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
           <button
@@ -120,12 +174,57 @@ const SidebarCategoryList = () => {
           {showAllCategories ? "Show Less" : "Show More"}
         </button>
       )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className={styles.separator}></div>
       <AddIcon2 />
       <div className={styles.separator}></div>
 
-      <div className={styles.sectionTitle}>RESOURCES</div>
-      {/* Additional Sidebar Buttons... */}
+      <div className={styles.sectionTitle}>Resources</div>
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
+        onClick={() => router.push("/about")}
+      >
+        <InfoOutlined className={styles.icon} size="lg" />
+        About Us
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/careers" ? styles.active : ""}`}
+        onClick={() => router.push("/careers")}
+      >
+        <WorkOffOutlined className={styles.icon} size="lg" />
+        Careers
+      </button>
+
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/privacy" ? styles.active : ""}`}
+        onClick={() => router.push("/privacy")}
+      >
+        <ShieldOutlined className={styles.icon} size="lg" />
+        Privacy Policy
+      </button>
+      <button
+        className={`${styles.sidebarButton} ${router.pathname === "/agreement" ? styles.active : ""}`}
+        onClick={() => router.push("/agreement")}
+      >
+        <GavelOutlined className={styles.icon} size="lg" />
+        User Agreement
+      </button>
+      
+
     </div>
   );
 };
