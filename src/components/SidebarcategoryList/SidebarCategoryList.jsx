@@ -102,8 +102,8 @@ const SidebarCategoryList = () => {
           src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
           alt="home"
           className={styles.icon}
-          height={25}
-          width={25}
+          height={20}
+          width={20}
         />
             <span className={styles.buttonText}>Home </span>
       </button>
@@ -112,10 +112,10 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <StarBorder className={styles.icon} fontSize="medium" />
+        <StarBorder className={styles.icon} fontSize="small" />
             <span className={styles.buttonText}>Popular </span>
 
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
 
       <button
@@ -123,9 +123,9 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <PublicOutlined className={styles.icon} fontSize="medium" />
+        <PublicOutlined className={styles.icon} fontSize="small" />
         <span className={styles.buttonText}>Hoolicon Business</span>
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
 
       <button
@@ -133,10 +133,10 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <ComputerOutlined className={styles.icon} fontSize="medium" />
+        <ComputerOutlined className={styles.icon} fontSize="small" />
             <span className={styles.buttonText}>Hoolicon Tech</span>
 
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xs" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
 
 
@@ -152,7 +152,7 @@ const SidebarCategoryList = () => {
       >
         
         <Add className={styles.icon} fontSize="medium" />
-        Create a post
+        <span className={styles.buttonText}> Create a post</span>
       </button>
 
      <div className={styles.separator}></div>
@@ -175,8 +175,8 @@ const SidebarCategoryList = () => {
               src={item.icon} // Use image icon from category data
               alt={item.title}
               className={styles.icon}
-              height={30}
-              width={30}
+              height={27}
+              width={27}
             />
             <span className={styles.icon2}>{item.title}</span>
             <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="sm" /></span>
