@@ -13,7 +13,16 @@ import { InfoOutlined, WorkOffOutlined, ShieldOutlined, GavelOutlined } from "@m
 import { ThemeContext } from "@/context/ThemeContext";
 
 
-import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
+import { 
+  faStar as faStarRegular, 
+  faCompass as faCompassRegular,
+  faLaptopCode as faLaptopCodeRegular,  // Tech icon
+  faBullhorn as faBullhornRegular,      // Business icon
+  faChartLine as faChartLineRegular,    // Business growth icon
+  faBriefcase as faBriefcaseRegular,     // Business icon
+  faRocket as faRocketRegular            // Tech/startup icon
+} from "@fortawesome/free-regular-svg-icons";
+
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // Example of using the icons in a component
@@ -98,7 +107,7 @@ const SidebarCategoryList = () => {
         
         <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
         Popular
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
       </button>
 
       <button
@@ -106,9 +115,9 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        <FontAwesomeIcon icon={faChartLineRegular} className={styles.icon} size="lg" />
         Hoolicon Business
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
       </button>
 
       <button
@@ -116,9 +125,9 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faStarRegular} className={styles.icon} size="lg" />
+        <FontAwesomeIcon icon={faLaptopCodeRegular} className={styles.icon} size="lg" />
         Hoolicon Tech
-        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="sm" /></span>
+        <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="xl" /></span>
       </button>
 
    
@@ -148,7 +157,7 @@ const SidebarCategoryList = () => {
               width={30}
             />
             <span className={styles.icon2}>{item.title}</span>
-            <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="md" /></span>
+            <span className={styles.chevron3}> <FontAwesomeIcon icon={faStarRegular}  size="sm" /></span>
           </button>
           {openDropdowns[item.slug] && (
             <div className={styles.subcategories}>
