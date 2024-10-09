@@ -215,7 +215,7 @@ const SidebarCategoryList = () => {
 
       <div className={styles.separator}></div>
 
-      <div className={styles.sectionTitle}>RESOURCE</div>
+      <div className={styles.sectionTitle}>RESOURCES</div>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
         onClick={() => router.push("/about")}
