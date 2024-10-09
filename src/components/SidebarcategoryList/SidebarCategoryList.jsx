@@ -202,12 +202,7 @@ const SidebarCategoryList = () => {
         </button>
       )}
 
-      <div className={styles.separator}></div>
-
-
-
-      <AddIcon2 />
-
+     
 
 
 
