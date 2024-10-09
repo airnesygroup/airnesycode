@@ -115,7 +115,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/popular")}
       >
         
-        <FontAwesomeIcon icon={faStarRegular}  size="sm" />    
+        <FontAwesomeIcon icon={faStarRegular}  size="lg" />    
           Popular 
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
@@ -126,7 +126,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faGlobe}  size="sm" />    
+        <FontAwesomeIcon icon={faGlobe}  size="lg" />    
         Hoolicon 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
       </button>
@@ -136,7 +136,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/hooliconnews")}
       >
         
-        <FontAwesomeIcon icon={faLaptop}  size="sm" />    
+        <FontAwesomeIcon icon={faLaptop}  size="lg" />    
         Hoolicon Tech
 
         <span className={styles.chevron3}> <FontAwesomeIcon icon={faChevronDown}  size="2xs" /></span>
