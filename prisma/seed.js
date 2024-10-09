@@ -9,7 +9,7 @@ async function main() {
         { slug: "general", title: "General", icon: "/general.png" },
         { slug: "business-finance", title: "Business & Finance", icon: "/business-finance.png" },
         { slug: "technology", title: "Technology", icon: "/technology.png" },
-        { slug: "science", title: "Science", icon: "/science.png" },
+        { slug: "science", title: "Science", icon: "/science.jpeg" },
         { slug: "economics", title: "Economics", icon: "/economics.jpeg" },
         { slug: "engineering", title: "Engineering", icon: "/engineering.png" },
         { slug: "mathematics", title: "Mathematics", icon: "/mathematics.png" },

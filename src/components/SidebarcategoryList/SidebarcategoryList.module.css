@@ -9,7 +9,7 @@
 
 .sidebarButton {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   background-color: var(--bg);
   color: var(--textColor);
   border: none;
@@ -39,7 +39,7 @@
 
 .categoryButton {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   background-color: var(--bg);
   color: var(--textColor);
   border: none;

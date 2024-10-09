@@ -91,8 +91,8 @@ const SidebarCategoryList = () => {
               src={item.icon} // Use image icon from category data
               alt={item.title}
               className={styles.icon}
-              height={35}
-              width={35}
+              height={30}
+              width={30}
             />
             <span className={styles.icon2}>{item.title}</span>
             <span className={styles.chevron2}>⌄</span>
