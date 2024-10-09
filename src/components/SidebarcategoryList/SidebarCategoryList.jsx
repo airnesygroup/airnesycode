@@ -71,7 +71,7 @@ const SidebarCategoryList = () => {
         onClick={() => router.push("/")}
       >
         <Image
-          src={theme === "light" ? "/home2.png" : "/bg.png"} // Adjust icon paths based on theme
+          src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
           alt="home"
           className={styles.icon}
           height={25}
@@ -79,19 +79,7 @@ const SidebarCategoryList = () => {
         />
         Home
       </button>
-      <button
-        className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
-        onClick={() => router.push("/")}
-      >
-        <Image
-          src={"/bg.png"}      
-         alt="home"
-          className={styles.icon}
-          height={25}
-          width={25}
-        />
-        Hom
-      </button>
+      
       
       {displayedCategories.map((item) => (
         <div key={item._id} className={styles.categoryWrapper}>
@@ -100,11 +88,11 @@ const SidebarCategoryList = () => {
             onClick={() => router.push(`/blog?cat=${item.slug}`)}
           >
             <Image
-              src={item.img} // Use image icon from category data
+              src={item.icon} // Use image icon from category data
               alt={item.title}
               className={styles.icon}
-              height={25}
-              width={25}
+              height={35}
+              width={35}
             />
             <span className={styles.icon2}>{item.title}</span>
             <span className={styles.chevron2}>⌄</span>

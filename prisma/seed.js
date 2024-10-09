@@ -6,13 +6,13 @@ async function main() {
   try {
     await prisma.category.createMany({
       data: [
-        { slug: "general", title: "General", img: "/bg.png" },
-        { slug: "business-finance", title: "Business & Finance", img: "/bg.png" },
-        { slug: "technology", title: "Technology", img: "/bg.png" },
-        { slug: "science", title: "Science", img: "/bg.png" },
-        { slug: "economics", title: "Economics", img: "/bg.png" },
-        { slug: "engineering", title: "Engineering", img: "/bg.png" },
-        { slug: "mathematics", title: "Mathematics", img: "/bg.png" },
+        { slug: "general", title: "General", icon: "/general.png" },
+        { slug: "business-finance", title: "Business & Finance", icon: "/business-finance.png" },
+        { slug: "technology", title: "Technology", icon: "/technology.png" },
+        { slug: "science", title: "Science", icon: "/science.png" },
+        { slug: "economics", title: "Economics", icon: "/economics.jpeg" },
+        { slug: "engineering", title: "Engineering", icon: "/engineering.png" },
+        { slug: "mathematics", title: "Mathematics", icon: "/mathematics.png" },
       ],
     });
     console.log("Sample categories with icons added to the database.");
