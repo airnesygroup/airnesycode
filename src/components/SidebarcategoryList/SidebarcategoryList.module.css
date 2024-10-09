@@ -5,8 +5,6 @@
   align-items: flex-start;
   z-index: 0;
   font-weight: 100;
-
-
 }
 
 .sidebarButton {
@@ -21,19 +19,18 @@
   align-items: flex-start;
   font-weight: 100;
   cursor: pointer;
-
   font-size: 15px;
 }
-
 
 .sidebarButton:hover {
   background-color: var(--softBg);
 }
 
 .active {
-  background-color: blue;
-  color: white;
+  background-color: var(--softBg); /* Use the soft background for active state */
+  color: var(--textColor); /* Adjust text color for contrast */
 }
+
 
 .categoryWrapper {
   width: 100%;
@@ -151,7 +148,7 @@
 
 .icon {
   margin-right: 10px;
-  font-weight: 50;
+  border-radius: 50%;
 
 }
 
