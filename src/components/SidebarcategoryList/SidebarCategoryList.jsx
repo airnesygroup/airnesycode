@@ -217,7 +217,7 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/about" ? styles.active : ""}`}
         onClick={() => router.push("/about")}
       >
-        <InfoOutlined className={styles.icon} size="lg" />
+        <InfoOutlined className={styles.icon} size="md" />
         <span className={styles.buttonText}>About Hoolicon</span>
 
       </button>
@@ -226,7 +226,7 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/careers" ? styles.active : ""}`}
         onClick={() => router.push("/careers")}
       >
-        <WorkOffOutlined className={styles.icon} size="lg" />
+        <WorkOffOutlined className={styles.icon} size="md" />
         
 
       </button>
@@ -235,7 +235,7 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/privacy" ? styles.active : ""}`}
         onClick={() => router.push("/privacy")}
       >
-        <ShieldOutlined className={styles.icon} size="lg" />
+        <ShieldOutlined className={styles.icon} size="md" />
         <span className={styles.buttonText}>  Privacy Policy</span>
 
       </button>
@@ -243,7 +243,7 @@ const SidebarCategoryList = () => {
         className={`${styles.sidebarButton} ${router.pathname === "/agreement" ? styles.active : ""}`}
         onClick={() => router.push("/agreement")}
       >
-        <GavelOutlined className={styles.icon} size="lg" />
+        <GavelOutlined className={styles.icon} size="md" />
         <span className={styles.buttonText}> User Agreement </span>
 
       </button>
