@@ -7,6 +7,9 @@ import Link from "next/link";
 import AddIcon2 from "../Addicon2";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { InfoOutlined, WorkOffOutlined, ShieldOutlined, GavelOutlined } from "@mui/icons-material";
+
 import { ThemeContext } from "@/context/ThemeContext";
 import { faStar as faStarRegular, faCompass as faCompassRegular } from "@fortawesome/free-regular-svg-icons";
 
