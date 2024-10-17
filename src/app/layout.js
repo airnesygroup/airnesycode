@@ -18,9 +18,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <Head>
-        <meta name="theme-color" content={themeColor} /> {/* Set the theme color */}
-      </Head>
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
