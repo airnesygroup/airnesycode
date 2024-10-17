@@ -1,3 +1,5 @@
+"use client"; // This marks the component as a Client Component
+
 import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
@@ -22,14 +24,14 @@ export const ThemeContextProvider = ({ children }) => {
     // Update the mobile browser's status bar color based on the theme
     if (theme === "dark") {
       document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
-      
+
       // Set the navigation bar color for Android devices
       if (window.navigator.userAgent.includes("Android")) {
         document.documentElement.style.setProperty('--navbar-color', '#000');
       }
     } else {
       document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff");
-      
+
       // Set the navigation bar color for Android devices
       if (window.navigator.userAgent.includes("Android")) {
         document.documentElement.style.setProperty('--navbar-color', '#fff');
