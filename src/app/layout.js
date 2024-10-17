@@ -1,12 +1,13 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/footer/Footer";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
 import Controls from "@/components/Controls";
+import Head from "next/head"; // Import Head from Next.js
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,16 +23,17 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <ThemeContextProvider>
             <ThemeProvider>
+              <Head>
+                {/* Default meta tag, will be updated dynamically */}
+                <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
+              </Head>
               <div className="container">
-                <div className="wrapper">
-                  {children}
-                </div>
+                <div className="wrapper">{children}</div>
               </div>
             </ThemeProvider>
           </ThemeContextProvider>
         </AuthProvider>
         <Analytics />
-
       </body>
     </html>
   );
