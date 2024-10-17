@@ -1,4 +1,4 @@
-"use client"; // This marks the component as a Client Component
+"use client"; // Ensures this file is treated as a Client Component
 
 import { createContext, useEffect, useState } from "react";
 
@@ -18,24 +18,36 @@ export const ThemeContextProvider = ({ children }) => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  // Function to change the Android navigation bar color
+  const setNavigationBarColor = (color) => {
+    if (typeof window !== 'undefined' && window.navigator.userAgent.includes('Android')) {
+      const navMeta = document.querySelector('meta[name="theme-color"]');
+      if (!navMeta) {
+        const newMeta = document.createElement('meta');
+        newMeta.name = "theme-color";
+        newMeta.content = color;
+        document.head.appendChild(newMeta);
+      } else {
+        navMeta.setAttribute("content", color);
+      }
+
+      // Additional way to set the Android navigation bar color
+      if (window.AndroidNavbar) {
+        window.AndroidNavbar.setNavigationBarColor(color);
+      }
+    }
+  };
+
   useEffect(() => {
     localStorage.setItem("theme", theme);
 
-    // Update the mobile browser's status bar color based on the theme
+    // Update the navigation bar color based on the theme
     if (theme === "dark") {
       document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
-
-      // Set the navigation bar color for Android devices
-      if (window.navigator.userAgent.includes("Android")) {
-        document.documentElement.style.setProperty('--navbar-color', '#000');
-      }
+      setNavigationBarColor("#000");  // Set to dark color
     } else {
       document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff");
-
-      // Set the navigation bar color for Android devices
-      if (window.navigator.userAgent.includes("Android")) {
-        document.documentElement.style.setProperty('--navbar-color', '#fff');
-      }
+      setNavigationBarColor("#fff");  // Set to light color
     }
   }, [theme]);
 
