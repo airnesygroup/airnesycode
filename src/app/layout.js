@@ -24,13 +24,15 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <ThemeContextProvider>
-        <ThemeProvider>
+      
           <Head>
             <meta name="theme-color" content={themeColor} /> {/* Set the theme color */}
           </Head>
           <body className={inter.className}>
+          
             <AuthProvider>
+            <ThemeContextProvider>
+        <ThemeProvider>
               <Navbar />
               <div className="container">
                 <div className="wrapper">
@@ -39,11 +41,12 @@ export default function RootLayout({ children }) {
               </div>
               <Controls />
               <Footer />
+              </ThemeProvider>
+      </ThemeContextProvider>
             </AuthProvider>
             <Analytics />
           </body>
-        </ThemeProvider>
-      </ThemeContextProvider>
+      
     </html>
   );
 }
