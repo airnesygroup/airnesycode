@@ -18,6 +18,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+           <head>
+        {/* Set meta tags to adjust the status bar and nav bar color based on the theme */}
+        <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
+      </head>
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
