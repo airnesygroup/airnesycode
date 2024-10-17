@@ -1,15 +1,13 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
-import React from "react";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/footer/Footer";
-import { ThemeContextProvider } from "@/context/ThemeContext";
+import { ThemeContextProvider, useTheme } from "@/context/ThemeContext"; // Import your theme context
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
 import Controls from "@/components/Controls";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,33 +17,33 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const { theme } = useTheme(); // Use your theme context to get the current theme
+
+  // Set theme colors
+  const themeColor = theme === 'dark' ? '#000000' : '#ffffff'; // Adjust colors as needed
+
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-      }}
-    >
-      <html lang="en">
-        <head>
-          <title>{metadata.title}</title>
-          <meta name="description" content={metadata.description} />
-        </head>
-        <body className={inter.className}>
-          <AuthProvider>
-            <ThemeContextProvider>
-              <ThemeProvider>
-                <Navbar />
-                <div className="container">
-                  <div className="wrapper">{children}</div>
+    <html lang="en">
+      <ThemeContextProvider>
+        <ThemeProvider>
+          <Head>
+            <meta name="theme-color" content={themeColor} /> {/* Set the theme color */}
+          </Head>
+          <body className={inter.className}>
+            <AuthProvider>
+              <Navbar />
+              <div className="container">
+                <div className="wrapper">
+                  {children}
                 </div>
-                <Footer />
-                <Controls />
-              </ThemeProvider>
-            </ThemeContextProvider>
-          </AuthProvider>
-          <Analytics />
-        </body>
-      </html>
-    </ClerkProvider>
+              </div>
+              <Controls />
+              <Footer />
+            </AuthProvider>
+            <Analytics />
+          </body>
+        </ThemeProvider>
+      </ThemeContextProvider>
+    </html>
   );
 }
