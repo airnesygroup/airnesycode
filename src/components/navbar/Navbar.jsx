@@ -79,7 +79,6 @@ const Navbar = () => {
                    <FontAwesomeIcon icon={faMoonRegular}  size="sm"  className={styles.themeImage} />
           </div>
 
-          <ThemeToggle />
 
 
      

@@ -1,3 +1,5 @@
+// ThemeProvider.js
+
 "use client";
 
 import { ThemeContext } from "@/context/ThemeContext";
@@ -14,6 +16,8 @@ const ThemeProvider = ({ children }) => {
   if (mounted) {
     return <div className={theme}>{children}</div>;
   }
+
+  return null; // Ensure to return null if not mounted
 };
 
 export default ThemeProvider;
