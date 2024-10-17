@@ -16,10 +16,7 @@ import { ThemeContext } from "@/context/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "hoolicon - What's trending",
-  description: "hoolicon – Discover what’s trending now. From viral sensations to breaking news, join millions of viewers and stay in tune with the moments that matter most. Explore the hottest trends with all the live commentary.",
-};
+
 
 export default function RootLayout({ children }) {
   const { theme } = useContext(ThemeContext);
