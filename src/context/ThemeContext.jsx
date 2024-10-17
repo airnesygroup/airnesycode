@@ -1,22 +1,32 @@
-import { ThemeContext } from "@/context/ThemeContext";
-import React, { useContext, useEffect, useState } from "react";
+"use client";
 
-const ThemeProvider = ({ children }) => {
-  const { theme } = useContext(ThemeContext);
-  const [mounted, setMounted] = useState(false);
+import { createContext, useEffect, useState } from "react";
 
-  useEffect(() => {
-    setMounted(true);
-    
-    // Set the theme color for mobile browsers
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff');
-  }, [theme]);
+export const ThemeContext = createContext();
 
-  if (mounted) {
-    return <div className={theme}>{children}</div>;
+const getFromLocalStorage = () => {
+  if (typeof window !== "undefined") {
+    const value = localStorage.getItem("theme");
+    return value || "light";
   }
-
-  return null; // Or return a loading state
 };
 
-export default ThemeProvider;
+export const ThemeContextProvider = ({ children }) => {
+  const [theme, setTheme] = useState(() => {
+    return getFromLocalStorage();
+  });
+
+  const toggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggle }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
