@@ -15,7 +15,7 @@ export const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => getFromLocalStorage());
 
   const toggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
   };
 
   // Function to change the Android navigation bar color
@@ -31,7 +31,7 @@ export const ThemeContextProvider = ({ children }) => {
         navMeta.setAttribute("content", color);
       }
 
-      // Additional way to set the Android navigation bar color
+      // Additional way to set the Android navigation bar color (if necessary)
       if (window.AndroidNavbar) {
         window.AndroidNavbar.setNavigationBarColor(color);
       }
@@ -42,13 +42,9 @@ export const ThemeContextProvider = ({ children }) => {
     localStorage.setItem("theme", theme);
 
     // Update the navigation bar color based on the theme
-    if (theme === "dark") {
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
-      setNavigationBarColor("#000");  // Set to dark color
-    } else {
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff");
-      setNavigationBarColor("#fff");  // Set to light color
-    }
+    const newColor = theme === "dark" ? "#000" : "#fff";
+    document.querySelector('meta[name="theme-color"]').setAttribute("content", newColor);
+    setNavigationBarColor(newColor);  // Set to the appropriate color
   }, [theme]);
 
   return (
