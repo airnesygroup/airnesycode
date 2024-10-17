@@ -1,11 +1,12 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/react"
 import Footer from "@/components/footer/Footer";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import Controls from "@/components/Controls";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,24 +19,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
-      </head>
+      <link rel="manifest" href="/manifest.json" />
+t
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+ 
+</head>
+      
       <body className={inter.className}>
+
         <AuthProvider>
           <ThemeContextProvider>
             <ThemeProvider>
-              <Navbar />
               <div className="container">
                 <div className="wrapper">
                   {children}
                 </div>
               </div>
-              <Footer />
             </ThemeProvider>
           </ThemeContextProvider>
         </AuthProvider>
         <Analytics />
+
       </body>
     </html>
   );
