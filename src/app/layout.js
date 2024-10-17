@@ -15,22 +15,12 @@ export const metadata = {
   description: "hoolicon – Discover what’s trending now. From viral sensations to breaking news, join millions of viewers and stay in tune with the moments that matter most. Explore the hottest trends with all the live commentary.",
 };
 
-
-
-
 export default function RootLayout({ children }) {
-  const { theme } = useTheme(); // Use your theme context to get the current theme
-
-  // Set theme colors
-  const themeColor = theme === 'dark' ? '#000000' : '#ffffff'; // Adjust colors as needed
-
   return (
     <html lang="en">
-      <Head>
+       <Head>
         <meta name="theme-color" content={themeColor} /> {/* Set the theme color */}
       </Head>
-
-
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
