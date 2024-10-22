@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import styles from "./createPage.module.css";
+import 'react-quill/dist/quill.bubble.css';
 import { useEffect, useState, useRef } from "react";
-import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
