@@ -9,10 +9,13 @@
   flex: 1;
   height: 350px;
   position: relative;
+  border-radius: 17px;
 }
 
 .image {
   object-fit: cover;
+  border-radius: 17px;
+
 }
 
 .textContainer {
