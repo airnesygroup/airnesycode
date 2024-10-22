@@ -11,7 +11,7 @@
     "seed": "node prisma/seed.js"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^1.0.1",
+    "@auth/prisma-adapter": "^2.7.2",
     "@clerk/nextjs": "^5.7.3",
     "@clerk/themes": "^2.1.36",
     "@emotion/react": "^11.11.4",
@@ -35,11 +35,11 @@
     "firebase": "^10.3.0",
     "ionicons": "^7.4.0",
     "next": "^13.5.6",
-    "next-auth": "^4.24.7",
+    "next-auth": "^3.29.10",
     "prisma": "^5.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-quill": "^2.0.0",
+    "react-quill": "^0.0.2",
     "swr": "^2.2.2"
   },
   "devDependencies": {

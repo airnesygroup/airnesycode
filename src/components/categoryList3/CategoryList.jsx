@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
 import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
 const getData = async () => {
-  const res = await fetch("https://www.airnesy.com/api/categories", {
+    const res = await fetch("https://www.airnesy.com/api/categories", {
     cache: "no-store",
   });
 
