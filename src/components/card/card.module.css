@@ -298,9 +298,7 @@ display: none;
 
   .username {
     font-size: 12px;
-    max-width: 10px;
-    overflow: hidden;
-    white-space: nowrap;
+   
   }
 
 
