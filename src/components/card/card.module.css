@@ -310,6 +310,17 @@ display: none;
 
   .userRole {
     font-size: 12px;
+    max-width: 2%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+    max-width: 4%;
+      overflow: hidden;
+      white-space: nowrap;
   }
 
   .title2 {
