@@ -140,7 +140,7 @@
 .category {
   color: #ffffff;
   border-radius: 15px;
-  background-color: #035bbe;
+  background-color: #024ca0;
   font-size: 11px;
   margin-left:auto ;
   margin-bottom: -20px;
@@ -188,11 +188,11 @@
 }
 
 .desc a {
-  color: #031fbe;
+  color: #024ca0;
 }
 
 .link {
-  border-bottom: 1px solid #031fbe;
+  border-bottom: 1px solid #024ca0;
   width: max-content;
   padding: 2px 02;
   font-size: 12px;
@@ -287,12 +287,10 @@ display: none;
     justify-content: space-between;
     align-items: center; /* Ensures elements align vertically */
     white-space: nowrap; /* Prevents wrapping of content */
-    width: 100%;
+    max-width: 100%;
   }
   
-  .header * {
-    flex-shrink: 0; /* Prevents elements from shrinking when space is tight */
-  }
+  
   
 
   .userProfile {
