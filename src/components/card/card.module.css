@@ -131,7 +131,7 @@
 .category {
   color: #ffffff;
   border-radius: 15px;
-  background-color: #ff4400ef;
+  background-color: #035bbe;
   font-size: 11px;
   margin-left:auto ;
   margin-bottom: -20px;
@@ -179,11 +179,11 @@
 }
 
 .desc a {
-  color: #ff4500;
+  color: #035bbe;
 }
 
 .link {
-  border-bottom: 1px solid #ff4500;
+  border-bottom: 1px solid #035bbe;
   width: max-content;
   padding: 2px 02;
   font-size: 12px;
@@ -232,7 +232,7 @@
   .container {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 5px;
     padding-left: 18px;
   }
 
