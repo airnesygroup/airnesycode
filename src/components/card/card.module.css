@@ -123,7 +123,7 @@
 .category {
   color: #ffffff;
   border-radius: 15px;
-  background-color: #0598fa;
+  background-color: #0563fa;
   font-size: 11px;
   margin-left:auto ;
   margin-bottom: -20px;
@@ -171,11 +171,11 @@
 }
 
 .desc a {
-  color: #0598fa;
+  color: #0563fa;
 }
 
 .link {
-  border-bottom: 1px solid #0598fa;
+  border-bottom: 1px solid #0563fa;
   width: max-content;
   padding: 2px 02;
   font-size: 12px;

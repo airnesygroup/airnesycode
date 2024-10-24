@@ -155,7 +155,7 @@
     border-radius: 14px;
     font-size: 16px;
     border: none;
-    background-color: #0598fa;
+    background-color: #0563fa;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -167,7 +167,7 @@
   
   .button {
     padding: 10px 20px;
-    background-color:#0598fa;
+    background-color:#0563fa;
     color: white;
     border: none;
     cursor: pointer;
