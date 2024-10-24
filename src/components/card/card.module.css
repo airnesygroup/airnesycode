@@ -115,10 +115,18 @@
 
 .span {
   color: var(--softTextColor);
-  margin-bottom: 0px;
-
-
+  margin-bottom: -10px;
 }
+
+
+
+@media (max-width: 720px) {
+  .span {
+    margin-bottom: 10px;
+  }
+  
+  
+  }
 
 .category {
   color: #ffffff;
