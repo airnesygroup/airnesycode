@@ -232,8 +232,8 @@
   .container {
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    padding-left: 8px;
+    gap: 15px;
+    padding-left: 18px;
   }
 
   .profileContainer {
@@ -245,7 +245,7 @@
   }
 
   .profileImage {
-    margin-right: 5px;
+    margin-right: 10px;
     margin-top: 3px;
   }
 
