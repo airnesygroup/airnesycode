@@ -163,8 +163,8 @@
 .title {
   font-size: 17px;
   font-weight: bold;
-  padding-top:  0.1%;
-  padding-bottom: 0.1%;
+  padding-top:  1.5%;
+  padding-bottom: 0.7%;
   word-wrap: break-word; /* Prevents long words or URLs from overflowing */
 
 }
@@ -172,7 +172,7 @@
 .desc {
   font-size: 14px;
   padding-top: 4px;
-  padding-bottom: 015%;
+  padding-bottom: 0.5%;
     word-wrap: break-word; /* Prevents long words or URLs from overflowing */
 
   color: var(--softTextColor);
@@ -297,7 +297,8 @@ display: none;
 
   .title2 {
     font-size: 14px;
-    padding-top:  1%;
+    padding-top:  1px;
+    padding-bottom: 0px;
   }
 
   .desc2 {
