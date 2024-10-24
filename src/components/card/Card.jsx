@@ -22,8 +22,8 @@ const Card = ({ key, item }) => {
             src={item.user?.image}
             alt={item.user?.name}
             className={styles.profileImage}
-            width={40}
-            height={40}
+            width={37}
+            height={37}
           />
           <div className={styles.verticalLine}></div>
         </div>
