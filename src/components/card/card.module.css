@@ -131,7 +131,7 @@
 .category {
   color: #ffffff;
   border-radius: 15px;
-  background-color: #281061;
+  background-color: #ff4400ef;
   font-size: 11px;
   margin-left:auto ;
   margin-bottom: -20px;
@@ -179,11 +179,11 @@
 }
 
 .desc a {
-  color: #281061;
+  color: #ff4500;
 }
 
 .link {
-  border-bottom: 1px solid #281061;
+  border-bottom: 1px solid #ff4500;
   width: max-content;
   padding: 2px 02;
   font-size: 12px;

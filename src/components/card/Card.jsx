@@ -10,7 +10,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
-  const truncatedDesc2 = item?.desc.substring(0, 250);
+  const truncatedDesc2 = item?.desc.substring(0, 0);
 
   const showMore = item?.desc.length > 300;
 
@@ -22,8 +22,8 @@ const Card = ({ key, item }) => {
             src={item.user?.image}
             alt={item.user?.name}
             className={styles.profileImage}
-            width={37}
-            height={37}
+            width={26}
+            height={26}
           />
           <div className={styles.verticalLine}></div>
         </div>
@@ -62,7 +62,7 @@ className={styles.verifiedIcon}
             <span className={styles.span}>...</span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0, 80)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
