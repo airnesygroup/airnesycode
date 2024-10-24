@@ -303,6 +303,9 @@ display: none;
 
   .username {
     font-size: 12px;
+    max-width: 2%;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .userRole {
