@@ -1,6 +1,6 @@
 .link {
   cursor: pointer;
-  background-color: #FF4500;
+  background-color: #0563fa;
   border-radius: 40px;
   font-size: 13px;
   padding: 12px 16px; /* Combine padding for left and right */
@@ -10,7 +10,7 @@
 
 
 .addIcon {
-  background-color: #FF4500;
+  background-color: #0563fa;
   border-radius: 50%;
   color:#fff;
   padding: 10px;
@@ -74,7 +74,7 @@
 @media screen and (max-width: 720px) {
   .logout2 {
     cursor: pointer;
-    background-color: #FF4500;
+    background-color: #0563fa;
     border-radius: 20px;
     padding: 5px 10px; /* Increase left and right padding */
     color: #fff;
