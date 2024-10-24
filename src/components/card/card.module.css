@@ -16,12 +16,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center; /* Ensures elements align vertically */
-    white-space: nowrap; /* Prevents wrapping of content */
   }
   
-  .header * {
-    flex-shrink: 0; /* Prevents elements from shrinking when space is tight */
-  }
+
   
 
 .userProfile {
@@ -286,7 +283,6 @@ display: none;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Ensures elements align vertically */
-    max-width: 100%;
   }
   
   
