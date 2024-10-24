@@ -232,7 +232,7 @@
   .container {
     display: flex;
     flex-direction: row;
-    gap: 1px;
+    gap: 10px;
     padding-left: 18px;
   }
 
@@ -277,6 +277,8 @@ display: none;
     display: flex;
     justify-content: space-between; /* Adjusts the header layout for small screens */
     width: 100%;
+    margin-bottom: 0px;
+
   }
 
   .userProfile {
@@ -299,6 +301,8 @@ display: none;
     font-size: 14px;
     padding-top:  1px;
     padding-bottom: 0px;
+    margin-top: 0px;
+
   }
 
   .desc2 {
