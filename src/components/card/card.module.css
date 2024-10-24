@@ -163,7 +163,7 @@
 .title {
   font-size: 17px;
   font-weight: bold;
-  padding-top:  1.5%;
+  padding-top:  1%;
   padding-bottom: 0.7%;
   word-wrap: break-word; /* Prevents long words or URLs from overflowing */
 
@@ -179,11 +179,11 @@
 }
 
 .desc a {
-  color: #035bbe;
+  color: #031fbe;
 }
 
 .link {
-  border-bottom: 1px solid #035bbe;
+  border-bottom: 1px solid #031fbe;
   width: max-content;
   padding: 2px 02;
   font-size: 12px;
