@@ -10,7 +10,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
-  const truncatedDesc2 = item?.desc.substring(0, 0);
+  const truncatedDesc2 = item?.desc.substring(0, 50);
 
   const showMore = item?.desc.length > 300;
 
