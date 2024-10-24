@@ -12,10 +12,17 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures elements align vertically */
+    white-space: nowrap; /* Prevents wrapping of content */
+  }
+  
+  .header * {
+    flex-shrink: 0; /* Prevents elements from shrinking when space is tight */
+  }
+  
 
 .userProfile {
   display: flex;
@@ -148,7 +155,7 @@
   .category {
  
     margin-bottom: 0px;
-      font-size: 10px;
+      font-size: 11px;
       padding: 5px 10px;
     }
   
@@ -277,11 +284,16 @@ display: none;
 
   .header {
     display: flex;
-    justify-content: space-between; /* Adjusts the header layout for small screens */
+    justify-content: space-between;
+    align-items: center; /* Ensures elements align vertically */
+    white-space: nowrap; /* Prevents wrapping of content */
     width: 100%;
-    margin-bottom: 0px;
-
   }
+  
+  .header * {
+    flex-shrink: 0; /* Prevents elements from shrinking when space is tight */
+  }
+  
 
   .userProfile {
     display: flex; /* Ensure the userProfile still aligns items horizontally */
@@ -341,7 +353,7 @@ display: none;
   }
 
   .date {
-    font-size: 9px;
+    font-size: 11px;
     padding-top: 1px;
   }
 
