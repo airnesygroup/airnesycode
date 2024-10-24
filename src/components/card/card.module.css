@@ -286,7 +286,6 @@ display: none;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Ensures elements align vertically */
-    white-space: nowrap; /* Prevents wrapping of content */
     max-width: 100%;
   }
   
@@ -303,25 +302,12 @@ display: none;
 
   .username {
     font-size: 12px;
-    max-width: 2%;
+    max-width: 10px;
     overflow: hidden;
     white-space: nowrap;
   }
 
-  .userRole {
-    font-size: 12px;
-    max-width: 2%;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word; /* Prevents long words or URLs from overflowing */
-    max-width: 4%;
-      overflow: hidden;
-      white-space: nowrap;
-  }
+
 
   .title2 {
     font-size: 14px;
