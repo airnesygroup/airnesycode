@@ -1,6 +1,6 @@
 .content1{
   display: flex;
-  gap: 50px;
+  gap: 20px;
   padding-left: 1.5%;
 }
 /* homepage.module.css */
@@ -8,12 +8,10 @@
 .container {
   display: flex;
   flex-wrap: nowrap;
-  position: relative;
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-top: 0.4%;
-
+  margin-right: auto;
+  position: relative; /* Keeps the layout flexible */
 }
+
 
 /* src/app/homepage.module.css */
 .trendingWrapper {
@@ -42,15 +40,14 @@
 .menu {
   position: fixed;
   width: 250px;
+  border-right:  1px solid var(--softTextColor3);
   max-height: 89vh; /* Full height */
   z-index: 0;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
   padding-bottom: 30px;
-  margin-top: 55px;
+  margin-top: 60px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
-  
-  border-right: 1px solid var(--softTextColor3); /* Borderline on the right */
 }
 
 .menu:hover {
@@ -83,24 +80,31 @@
 
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
-  margin-left: 300px; /* Account for fixed menu */
-  flex: 1;
+  margin: 0 auto; /* Center the entire container */
+  max-width: 1350px;  
+  padding-left: calc(250px + 1.5%);
+
+  flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
-  max-width: 1300px;
   flex-direction: column;
-  min-height: 100vh; /* Ensure full height */
-  overflow-y: auto; /* Scrollable content */
-  padding-left: 11%;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow scrolling for long content */
 }
+
+
+.cardList {
+  flex: 1; /* Allow the CardList to grow and shrink based on available space */
+  min-width: 0; /* Prevent the card from growing beyond its container */
+  max-width: 100%; /* Ensures it doesn’t exceed the container width */
+}
+
 
 @media screen and (max-width: 1024px) {
   .menu {
     width: 250px; /* Adjust this width as needed */
   }
 
-  .mainContent {
-    margin-left: 250px; /* Adjust to match menu width */
-  }
+ 
 }
 
 
@@ -110,17 +114,9 @@
     display: none;
   }
 
-
-  .container {
-    padding-left: 0;
-  padding-right: 0;
-  }
-
   .mainContent {
     margin-left: 0; /* Ensure no margin is applied */
     padding-left: 0; /* Ensure no padding is applied */
-    padding-top: 0;
-
   }
 
   .content1 {
@@ -137,4 +133,5 @@
   gap: 50px;
   flex: 1;
   overflow-x: hidden; /* Prevent horizontal overflow */
+  
 }

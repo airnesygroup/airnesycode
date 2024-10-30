@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@400&display=swap');
 
-
 :root {
   --bg: white;
   --textColor: black;
@@ -18,7 +17,7 @@
 
 body {
   max-width: 100vw;
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 
   overflow-x: hidden;
 }
@@ -43,11 +42,15 @@ a {
   --softBg1: rgb(85, 86, 87);
 
   --softBg: rgb(42, 43, 43);
+  --softBgmenu: rgb(9, 9, 10);
+
   --softerBg: rgb(27, 27, 27);
 
   --softTextColor: #c9caca;
   --softTextColor2: #8899A6;
   --softTextColor3: #202429;
+  --softTextColor4: #3a4147;
+
 
 
 
@@ -61,9 +64,12 @@ a {
   --softBg1: #c1c2c4;
   --transparentBg: rgba(252, 254, 255, 0.7);
   --softBg: #EBECEE;
+  --softBgmenu: #f5f5f5;
+
   --softerBg: #f5f6f8;
   --softTextColor2: #657786;
   --softTextColor3: #d2e0eb;
+  --softTextColor4: #dfe9f1;
 
   --softTextColor: #3e3f3f;
 }
@@ -72,14 +78,17 @@ a {
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--textColor);
+
+
 }
 
 .wrapper {
-  max-width: 14000px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  max-width: 2000px;
+
 }
 
 
@@ -89,7 +98,7 @@ a {
 body {
   background-color: var(--bg);
   color: var(--textColor);
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 
 }
 
