@@ -18,9 +18,17 @@ const AddIcon2 = () => {
 
   return (
     <>
-      <button className={styles.shareButton} onClick={handleComponentClick}>
-        Post now
+
+    
+<button
+        className={`${styles.addButton} ${router.pathname === "/createpost" ? styles.active : ""}`}
+        onClick={handleComponentClick}>
+        
+        <Add className={styles.icon} fontSize="medium" />
+        <span className={styles.buttonText2}> Create a post</span>
       </button>
+      
+ 
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />

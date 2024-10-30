@@ -1,13 +1,225 @@
-.shareButton {
-  background-color: #008C00;
-  color: #fff;
+.wrapper {
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 0;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+}
+
+.sidebarButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg);
   border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 100;
+  cursor: pointer;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+  font-size: 14px;
+}
+
+.sidebarButton:hover {
+  background-color: var(--softBg);
+}
+
+/* styles.module.css or your relevant CSS file */
+.buttonText {
+  margin-top: 2px; /* Adjust this value as needed */
+  display: inline-block; /* Ensure margin works as expected */
+}
+
+.buttonText2 {
+  margin-top: 4px; /* Adjust this value as needed */
+  display: inline-block; /* Ensure margin works as expected */
+}
+
+.addButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--softBg);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 100;
+  cursor: pointer;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+  font-size: 14px;
+}
+
+.addButton:hover {
+  background-color: #f59a79;
+}
+
+.active {
+  background-color: var(--softBg); /* Use the soft background for active state */
+  color: var(--textColor); /* Adjust text color for contrast */
+}
+
+
+.categoryWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.categoryButton {
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  background-color: var(--bg);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+  cursor: pointer;
+  font-size: 14px;
+
+
+}
+
+
+.icon2 {
+
+  justify-content: flex-start; /* Aligns content to the left */
+margin-top: 5px;
+
+}
+
+.categoryButton:hover {
+  background-color: var(--softBg);
+}
+
+.chevron {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 100;
+  width: 25px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+
+}
+.chevron2 {
+  font-size: 18px;
+  margin-left: auto; /* Pushes the chevron to the right */
+  display: flex;
+  width: 25px;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+
+}
+
+
+.chevron3 {
+  font-size: 18px;
+  margin-left: auto; /* Pushes the chevron to the right */
+  display: flex;
+  width: 20px;
+  font-weight: 50;
+  padding-top: 5px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+
+}
+
+
+
+
+
+
+
+.subcategories {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory {
+  padding: 5px 10px;
+  background-color: var(--lighterBg);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: var(--textColor);
+  align-items: flex-end;
+
+}
+
+.subcategory:hover {
+  background-color: var(--hoverBg);
+}
+
+.showMoreButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--bg);
+  color: var(--textColor);
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-.shareButton:hover {
-  background-color: #e65c00;
+.showMoreButton:hover {
+  background-color: var(--softBg);
 }
+
+.sidebarLink {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--textColor);
+  background-color: var(--bg);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.sidebarLink:hover {
+  background-color: var(--softBg);
+}
+
+.icon {
+  margin-right: 10px;
+  border-radius: 50%;
+
+}
+
+
+.separator {
+  width: 100%;
+  height: 1px;
+  padding-left: 20px;
+  background-color:var(--softTextColor3);
+  margin: 10px 0;
+
+}
+
+.sectionTitle {
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+  padding: 10px 0;
+}
+
+
+

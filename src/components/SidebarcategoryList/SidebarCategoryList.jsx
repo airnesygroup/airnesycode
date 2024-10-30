@@ -6,6 +6,7 @@ import styles from "./SidebarcategoryList.module.css";
 import Link from "next/link";
 import AddIcon2 from "../Addicon2";
 import { useRouter } from "next/navigation";
+import AddIcon from "../Addicon";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -146,19 +147,13 @@ const SidebarCategoryList = () => {
 
    
       <div className={styles.separator}></div>
+      <AddIcon2/>
+      
+
 
       <div className={styles.sectionTitle}>CREATE POST</div>
 
-      <AddIcon2/>
 
-      <button
-        className={`${styles.addButton} ${router.pathname === "/createpost" ? styles.active : ""}`}
-        onClick={() => router.push("/createpost")}
-      >
-        
-        <Add className={styles.icon} fontSize="medium" />
-        <span className={styles.buttonText2}> Create a post</span>
-      </button>
 
      <div className={styles.separator}></div>
 
