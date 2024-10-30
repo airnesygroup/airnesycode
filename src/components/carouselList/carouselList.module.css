@@ -1,0 +1,97 @@
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin-top: 35px;
+  padding-left: 4px;
+  margin-bottom: 5px;
+  background-color: var(--bg); /* Use the variable */
+  color: var(--textColor); /* Use the variable */
+  overflow-y: hidden;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.posts {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.posts::-webkit-scrollbar {
+  width: 1px;
+  background-color: var(--bg); /* Use the variable */
+  border-radius: 10px;
+  height: 1px;
+}
+
+.posts::-webkit-scrollbar-thumb {
+  background-color: var(--softBg); /* Use the variable */
+  border-radius: 10px;
+  width: 1px;
+}
+
+.carouselItem {
+  flex: 0 0 auto;
+  width: 285px;
+  margin-right: 16px;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(66, 62, 47, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Smooth transition */
+  cursor: pointer;
+  z-index: 10;
+}
+
+.container:hover .chevron {
+  opacity: 1; /* Show buttons on hover */
+}
+
+.chevron.left {
+  left: 10px;
+}
+
+.chevron.right {
+  right: 15px;
+}
+
+.chevronIcon {
+  color: white;
+  font-size: 24px;
+}
+
+@media (max-width: 640px) {
+  .carouselItem {
+    width: 230px;
+    margin-right: 10px;
+  }
+
+  .container {
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
+
+  .chevron {
+    width: 20px;
+    height: 20px;
+  }
+
+  .chevronIcon {
+    font-size: 12px;
+  }
+}

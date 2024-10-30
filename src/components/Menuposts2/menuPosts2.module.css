@@ -1,0 +1,93 @@
+.items {
+    margin-top: 35px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+ 
+  
+  .textContainer {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .category {
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    width: max-content;
+  }
+  
+  .sleep {
+    background-color: #ff7857;
+  }
+  
+  .well-ness {
+    background-color: #ffb14f;
+  }
+  
+  .hormones {
+    background-color: #7fb881;
+  }
+  
+  .fertility {
+    background-color: #ff7887;
+  }
+    
+  .neurobiology {
+    background-color: #ff7857;
+  }
+  
+  .addiction {
+    background-color: #ffb14f;
+  }
+  
+  .nutrition{
+    background-color: #7fb881;
+  }
+  
+  .memory {
+    background-color: #ff7887;
+  }
+    
+  .mental {
+    background-color: #ff7857;
+  }
+  
+  .fitness {
+    background-color: #ffb14f;
+  }
+  
+  .supplements {
+    background-color: #7fb881;
+  }
+  
+  .productivity {
+    background-color: #ff7887;
+  }
+
+
+  .postTitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--softTextColor);
+  }
+  
+  .detail {
+    font-size: 12px;
+  }
+  
+  .date {
+    color: gray;
+  }
+  

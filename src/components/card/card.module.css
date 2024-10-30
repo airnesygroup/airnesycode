@@ -1,0 +1,302 @@
+.container {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.profileImage2 {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 640px) {
+  .profileImage2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .profileImage {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .title2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .desc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .desc2 {
+    display: none;
+  }
+}
+
+
+
+
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  color: var(--softTextColor2);
+}
+
+.userRole {
+  font-size: 12px;
+  margin: 0;
+}
+
+.verifiedIcon {
+  width: 14px; /* Adjust the size as needed */
+  height: 14px; /* Adjust the size as needed */
+  margin-left: 5px;
+  vertical-align: middle; /* Align icon vertically with the text */
+}
+
+
+.date {
+  color: var(--softTextColor2);
+  padding-left: 5px;
+  font-size: 10px;
+  padding-top: 1px;
+}
+
+.span {
+  color: var(--softTextColor2);
+
+}
+.category {
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: rgb(12, 34, 158);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-left: auto;
+}
+
+
+.horizontalLine {
+  height: 1px;
+  width: 100%; /* Ensure it spans the full width */
+  background-color: var(--softTextColor3); /* Set the border to var(--softTextColor) */
+  margin-top: 10px; /* Optional: Add some spacing above the line */
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 6px;
+}
+
+.desc {
+  font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  color: var(--softTextColor);
+}
+
+.desc a {
+  color: #0563fa;
+}
+
+.link {
+  border-bottom: 1px solid #0563fa;
+  width: max-content;
+  padding: 2px 02;
+  font-size: 12px;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid var(--softTextColor3); /* Set the border to var(--softTextColor) */
+
+  overflow: hidden;
+}
+
+.imageBackground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+   border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.image {
+  position: relative;
+  z-index: 2;
+  max-height: 500px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+
+@media (max-width: 640px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-left: 28px;
+  }
+
+  .profileContainer {
+    width: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .profileImage {
+    margin-right: 15px;
+    margin-top: 3px;
+  }
+
+  .verticalLine {
+    width: 1px;
+    background-color: var(--softTextColor3); /* Set the border to var(--softTextColor) */
+display: none;
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+  }
+
+
+  .verifiedIcon {
+    width: 12px; /* Adjust the size as needed */
+    height: 12px; /* Adjust the size as needed */
+    margin-left: 5px;
+    vertical-align: middle; /* Align icon vertically with the text */
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1; /* Allow the info container to take up remaining space */
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between; /* Adjusts the header layout for small screens */
+    width: 100%;
+  }
+
+  .userProfile {
+    display: flex; /* Ensure the userProfile still aligns items horizontally */
+    flex-direction: row; /* Keep it row direction on small screens */
+    align-items: center; /* Align items to the center vertically */
+    margin-top: 0; /* Adjust margin if necessary */
+    flex: 1;
+  }
+
+  .username {
+    font-size: 13px;
+  }
+
+  .userRole {
+    font-size: 12px;
+  }
+
+  .title2 {
+    font-size: 15px;
+    padding-top: 0;
+  }
+
+  .desc2 {
+    font-size: 14px;
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+
+
+
+
+.imageContainer {
+  min-height: 50px;
+    width: 100%; /* Make sure the image container takes the full width */
+  border-radius: 11px;
+}
+
+.imageBackground {
+ 
+   border-radius: 11px;
+ 
+}
+
+.image {
+
+  border-radius: 11px;
+}
+
+
+
+  .link {
+    font-size: 9px;
+    padding-top: 0;
+  }
+
+  .date {
+    font-size: 9px;
+    padding-top: 1px;
+  }
+
+  .category {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+}

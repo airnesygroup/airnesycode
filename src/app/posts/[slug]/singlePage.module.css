@@ -1,0 +1,235 @@
+/* Container styles */
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Menu styles */
+.menu {
+  position: fixed;
+  width: 250px;
+  max-height: 89vh;
+  z-index: 1000;
+  overflow-y: hidden;
+  padding-right: 20px;
+  padding-bottom: 100px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease;
+}
+
+.menu:hover {
+  overflow-y: scroll;
+}
+
+.menu::-webkit-scrollbar {
+  width: 15px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: var(--softBg);
+  border-radius: 10px;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background: var(--softBg);
+}
+
+/* Main content styles */
+.mainContent {
+  margin-top: 65px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-left: 5%; /* Default padding when sidebar is visible */
+}
+
+/* Text container styles */
+.textContainer {
+  flex: 1;
+  padding-left: 250px; /* Default padding when sidebar is visible */
+}
+
+
+
+.title {
+  font-size: 18px; /* Reduced size */
+  padding-bottom: 20px;
+  padding-top: 0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduced gap */
+  padding-bottom: 10px;
+}
+
+.userImageContainer {
+  width: 30px; /* Reduced size */
+  height: 30px; /* Reduced size */
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Reduced gap */
+  color: var(--softTextColor);
+}
+
+.username {
+  font-size: 16px; /* Reduced size */
+  font-weight: 500;
+}
+
+.date {
+  font-size: 12px; /* Reduced size */
+}
+
+/* Image container styles */
+.imageContainer {
+  flex: 1;
+  height: 350px;
+  position: relative;
+}
+
+.image {
+  padding-top: 0.5%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Content styles */
+.content {
+  display: flex;
+  gap: 50px;
+  padding-left: 250px; /* Default padding when sidebar is visible */
+}
+
+.post {
+  flex: 5;
+  margin-top: 40px;
+}
+
+/* Description */
+.description p {
+  font-size: 16px; /* Reduced size */
+  font-weight: 300;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Description Images */
+.description img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.description a {
+  color: rgb(12, 34, 158);
+}
+
+/* Responsive text sizes */
+@media screen and (max-width: 1536px) {
+  .title {
+    font-size: 22px;
+  }
+  .description p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 20px;
+  }
+  .description p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 18px;
+  }
+  .description p {
+    font-size: 15px;
+  }
+  
+}
+
+
+
+
+@media screen and (max-width: 720px) {
+  .title {
+    font-size: 17px;
+  }
+  .description p {
+    font-size: 14px;
+  }
+
+  .textContainer, .content {
+    padding-left: 0; /* Remove padding */
+  }
+
+  .menu {
+    display: none; /* Hide menu on small screens */
+  }
+
+  .mainContent {
+    padding-left: 0; /* Remove padding when menu is hidden */
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .post {
+    margin-top: 20px;
+  }
+  .title {
+    font-size: 14px; /* Further reduced size */
+  }
+  .description p {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .user {
+    padding-bottom: 5px; /* Reduced padding */
+  }
+
+  .userImageContainer {
+    width: 20px; /* Further reduced size */
+    height: 20px; /* Further reduced size */
+  }
+
+  .username {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .date {
+    font-size: 10px; /* Further reduced size */
+  }
+
+  .textContainer, .content {
+    padding-left: 0; /* Remove padding */
+  }
+
+  /* Remove space between image and title on small screens */
+  .user {
+    gap: 0; /* Remove gap */
+  }
+}

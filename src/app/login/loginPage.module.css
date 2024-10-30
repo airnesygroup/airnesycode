@@ -1,0 +1,140 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.left {
+  background-image: url('../../../public/bg.image'); /* Adjusted relative path */
+  background-size: cover;
+  background-position: center;
+  color: var(--softTextColor);
+  width: 60%;
+  margin-top: 5%;
+  height: 80%;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.right {
+  background-color: var(--softBg);
+  width: 35%;
+  margin-top: 18%;
+  padding-left: 50px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 100px;
+  height: 41%;
+
+}
+
+.leftText {
+  font-size: 2.5rem;
+}
+
+.rightText {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: #008C00;
+}
+
+.socialButton img {
+  margin-right: 10px;
+}
+
+.toggleText {
+  margin-top: 20px;
+  color: var(--softTextColor); /* Default color for the rest of the text */
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.highlight {
+  color: #008C00; /* Orange color for "Sign up" and "Sign in" */
+}
+
+
+.trending {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: var(--softTextColor);
+}
+
+.terms {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--softTextColor);
+}
+
+.link {
+  color: #008C00;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .leftText {
+    font-size: 2rem;
+  }
+
+  .rightText {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leftText {
+    font-size: 1.5rem;
+  }
+
+  .rightText {
+    font-size: 1.2rem;
+  }
+
+  .socialButton {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .toggleText {
+    font-size: 0.8rem;
+  }
+
+  .terms {
+    font-size: 0.8rem;
+  }
+}

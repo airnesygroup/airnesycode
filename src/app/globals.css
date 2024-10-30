@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@400&display=swap');
+
+
+:root {
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  
+  --softTextColor: #626262;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dark {
+  --bg: #020203;
+  --textColor: #dfecf5;
+  --bg2: #050505;
+  --bd: #303030;
+  --transparentBg: rgba(1, 1, 2, 0.7);
+
+  --softBg1: rgb(85, 86, 87);
+
+  --softBg: rgb(42, 43, 43);
+  --softerBg: rgb(27, 27, 27);
+
+  --softTextColor: #c9caca;
+  --softTextColor2: #8899A6;
+  --softTextColor3: #202429;
+
+
+
+}
+
+.light {
+  --bg:#fcfeff ;
+  --textColor: #0F1419;
+  --bg2:#ffffff ;
+  --bd:#fcfeff ;
+  --softBg1: #c1c2c4;
+  --transparentBg: rgba(252, 254, 255, 0.7);
+  --softBg: #EBECEE;
+  --softerBg: #f5f6f8;
+  --softTextColor2: #657786;
+  --softTextColor3: #d2e0eb;
+
+  --softTextColor: #3e3f3f;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--textColor);
+}
+
+.wrapper {
+  max-width: 14000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+
+
+
+
+body {
+  background-color: var(--bg);
+  color: var(--textColor);
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+
+}
+
+@media screen and (max-width: 640px) {
+
+  .wrapper {
+    padding: 0 6px;
+  }
+}
+
+
+.ql-container{
+  font-size: 28px !important;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  color: #b3b3b1;
+}

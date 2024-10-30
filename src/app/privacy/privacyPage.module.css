@@ -1,0 +1,114 @@
+.container {
+  font-family: Arial, sans-serif;
+  color: var(--softBg);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hero Section */
+.hero {
+  background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+  color: var(--textColor);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.heroTitle {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #008C00;
+}
+
+.heroSubtitle {
+  font-size: 24px;
+}
+
+/* Mission Statement Section */
+.mission {
+  padding: 50px 20px;
+  background-color: var(--softBg);
+  text-align: center;
+  border-radius: 15px;
+}
+
+.missionTitle {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--softTextColor);
+  padding-top: 60px;
+}
+
+.missionText {
+  font-size: 18px;
+  max-width: 800px;
+  color: var(--textColor);
+  margin: 0 auto;
+}
+
+.policyList {
+  list-style-type: disc;
+  text-align: left;
+  max-width: 800px;
+  margin: 20px auto;
+  padding-left: 20px;
+  color: var(--textColor);
+}
+
+.mission2 {
+  padding: 50px 20px;
+  background-color: var(--softBg);
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Footer Section */
+.footer {
+  background-color: var(--softBg);
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.footerText {
+  font-size: 14px;
+  color: #fff;
+}
+
+.footerText a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .heroSubtitle {
+    font-size: 18px;
+  }
+
+  .missionTitle {
+    font-size: 28px;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 720px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroSubtitle {
+    font-size: 16px;
+  }
+
+  .missionTitle {
+    font-size: 24px;
+    padding-top: 30px;
+  }
+}

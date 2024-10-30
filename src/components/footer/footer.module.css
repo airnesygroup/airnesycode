@@ -1,0 +1,125 @@
+.container {
+  margin-top: 50px;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--softTextColor);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust this value to add space between logo and text */
+  width: 45px; /* Default width for larger screens */
+  height: 45px; /* Default height for larger screens */
+  position: relative; /* Required for layout="fill" */
+}
+
+.logoImage {
+  object-fit: contain; /* Ensure the image scales correctly */
+  width: 100%;
+  height: 100%;
+}
+
+.logoText {
+  font-size: 24px;
+  color: #008C00;
+  padding-left: 49px;
+
+  line-height: 1; /* Ensure text aligns properly with the logo image */
+}
+.desc {
+  font-weight: 300;
+}
+
+.icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 100px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 300;
+}
+
+.listTitle {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+  .links {
+    gap: 50px;
+  }
+
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  
+  .logoText {
+    font-size: 20px;
+    padding-left: 39px;
+
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+    padding: 6px;
+  }
+
+  .links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logoText {
+    font-size: 18px;
+    padding-left: 34px;
+
+  }
+}
+@media screen and (max-width: 640px) {
+  .links {
+    font-size: 14px;
+  }
+  .logo {
+    width: 28px;
+    height: 28px;
+  }
+  .logoText {
+    font-size: 16px;
+    padding-left: 30px;
+
+  }
+  .container {
+  
+    padding: 6px;
+  }
+}

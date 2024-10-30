@@ -1,0 +1,94 @@
+.trending {
+    background-color: #008C00;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 45px;
+    width: 175px;
+    position: fixed;
+    top: 6px;
+    left: 28%;
+    transform: translateX(-50%);
+    z-index: 1004; /* Ensure this is higher than other elements */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.arrow {
+    font-size: 13px;
+    margin-right: 7px;
+    flex-shrink: 0;
+}
+
+.imagesContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-right: 50px;
+    flex-grow: 1;
+    top: -3px; /* Adjust this to align the images vertically with the text and arrow */
+}
+
+.imageWrapper {
+    border-radius: 50%;
+    border: 1px solid white;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+}
+
+.imageWrapper:nth-child(1) {
+    z-index: 3;
+    left: -20px;
+}
+
+.imageWrapper:nth-child(2) {
+    z-index: 2;
+    left: 0px;
+}
+
+.imageWrapper:nth-child(3) {
+    z-index: 1;
+    left: 14px;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.text {
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 50px;
+    flex-shrink: 0;
+}
+
+
+@media (min-width: 720px) {
+    .trending {
+        display: none;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+/* menu.module.css */
+
+.container {
+  background-color: var(--bg);
+  padding: 12px;
+  padding-top: 25px;
+  border-radius: 15px;
+  width: 100%;
+  height: calc(100vh - 40px); /* Adjust height considering margin-top */
+  overflow-y: hidden;
+  flex: 1.5;
+}
+
+
+.container:hover {
+  overflow-y: scroll; /* Show scrollbar on hover */
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+
+.subtitle {
+  color: gray;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.subtitle2 {
+  color: gray;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: none;
+  }
+}

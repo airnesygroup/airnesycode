@@ -1,0 +1,143 @@
+.container {
+  position: relative;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+    width: 100%;
+  border-radius: 15px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 210px; /* Adjust the height as needed */
+}
+
+.image {
+  object-fit: cover;
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+  color: #fcfcfc;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align text to the bottom */
+  height: 100%; /* Cover the entire image */
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.desc {
+  font-size: 15px;
+  color: #fcfcfc;
+  padding-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+  color: #fcfcfc;
+
+}
+
+.userRole {
+  font-size: 12px;
+  margin: 0;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent circle */
+  border: none;
+  border-radius: 65%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.chevron.right {
+  right: 10px;
+}
+
+/* Media query for screens below 640px */
+@media (max-width: 640px) {
+  .imageContainer {
+    height: 145px; /* Adjust height for small screens */
+  }
+
+  .title {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .desc {
+    font-size: 12px;
+    margin-bottom: 0;
+
+  }
+
+  .username {
+    font-size: 9px;
+    margin-bottom: 0;
+
+  }
+
+  .userRole {
+    font-size: 10px;
+  }
+  .userProfile {
+   
+    margin-top: 2px;
+  }
+
+  .chevron {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+  }
+  .container {
+  
+    border-radius: 11px;
+  }
+}

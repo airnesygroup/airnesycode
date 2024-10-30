@@ -1,0 +1,369 @@
+
+
+/* Container for multiple items */
+.items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* Styling for each item */
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the gap between the rows */
+}
+
+/* Top row container for the image and category */
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between the image and the category */
+}
+
+/* Container for the image */
+.imageContainer {
+  flex: 0 0 22px; /* Fixed width for the image container */
+  height: 22px; /* Fixed height for the image container */
+  position: relative;
+}
+
+/* Styling for the image */
+.image {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 100%; /* Make sure the image fits within the container */
+  height: 100%; /* Make sure the image fits within the container */
+}
+
+/* Container for text content */
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between title and details */
+}
+
+/* Styling for post title */
+.postTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--softTextColor);
+  margin: 0; /* Remove default margin */
+}
+
+/* Container for additional details */
+.detail {
+  font-size: 12px;
+}
+
+/* Styling for the category name */
+/* Styling for the category name */
+.category {
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: white;
+  width: max-content;
+  background-color: #4caf50; /* Green */
+
+}
+/* Specific category styles */
+.general {
+  background-color: #ff9f43; /* Light Orange */
+}
+
+.business-finance {
+  background-color: #4caf50; /* Green */
+}
+
+.artificial-intelligence {
+  background-color: #673ab7; /* Deep Purple */
+}
+
+.gaming {
+  background-color: #e91e63; /* Pink */
+}
+
+.entertainment {
+  background-color: #9c27b0; /* Purple */
+}
+
+.metaverse {
+  background-color: #03a9f4; /* Light Blue */
+}
+
+.blockchain {
+  background-color: #ff5722; /* Deep Orange */
+}
+
+.virtual-reality {
+  background-color: #00bcd4; /* Cyan */
+}
+
+.augmented-reality {
+  background-color: #ffeb3b; /* Yellow */
+}
+
+.threed-printing {
+  background-color: #795548; /* Brown */
+}
+
+.fintech {
+  background-color: #3f51b5; /* Indigo */
+}
+
+.wearable-tech {
+  background-color: #009688; /* Teal */
+}
+
+.media {
+  background-color: #f44336; /* Red */
+}
+
+.e-commerce {
+  background-color: #ff9800; /* Orange */
+}
+
+.machine-learning {
+  background-color: #8bc34a; /* Light Green */
+}
+
+.data-science {
+  background-color: #2196f3; /* Blue */
+}
+
+.software {
+  background-color: #9e9e9e; /* Grey */
+}
+
+.robotics {
+  background-color: #607d8b; /* Blue Grey */
+}
+
+.cloud-computing {
+  background-color: #00bcd4; /* Cyan */
+}
+
+.quantum-computing {
+  background-color: #d32f2f; /* Dark Red */
+}
+
+.cybersecurity {
+  background-color: #ff1744; /* Bright Red */
+}
+
+.internet-of-things {
+  background-color: #4caf50; /* Green */
+}
+
+.networking {
+  background-color: #00796b; /* Dark Teal */
+}
+
+.fashion {
+  background-color: #ff4081; /* Hot Pink */
+}
+
+.foodtech {
+  background-color: #8e24aa; /* Purple */
+}
+
+.electrical {
+  background-color: #fbc02d; /* Amber */
+}
+
+.electronics {
+  background-color: #303f9f; /* Dark Indigo */
+}
+
+.automotive {
+  background-color: #f4511e; /* Dark Orange */
+}
+
+.aerospace {
+  background-color: #0288d1; /* Blue */
+}
+
+.energy {
+  background-color: #ffeb3b; /* Yellow */
+}
+
+.physics {
+  background-color: #673ab7; /* Deep Purple */
+}
+
+.mathematics {
+  background-color: #cddc39; /* Lime */
+}
+
+.biotech {
+  background-color: #009688; /* Teal */
+}
+
+.geospatial {
+  background-color: #6a1b9a; /* Dark Purple */
+}
+
+.mechanics {
+  background-color: #c2185b; /* Dark Pink */
+}
+
+.industrial {
+  background-color: #f57c00; /* Orange */
+}
+
+.construction {
+  background-color: #ff5722; /* Deep Orange */
+}
+
+.medtech {
+  background-color: #4caf50; /* Green */
+}
+
+.agritech {
+  background-color: #8bc34a; /* Light Green */
+}
+
+.envirotech {
+  background-color: #388e3c; /* Dark Green */
+}
+
+.marine-tech {
+  background-color: #00796b; /* Dark Teal */
+}
+
+.military-tech {
+  background-color: #d32f2f; /* Dark Red */
+}
+
+.supply-chain {
+  background-color: #795548; /* Brown */
+}
+
+.smart-city {
+  background-color: #607d8b; /* Blue Grey */
+}
+
+.textile-tech {
+  background-color: #ffeb3b; /* Yellow */
+}
+
+.sports-tech {
+  background-color: #fbc02d; /* Amber */
+}
+
+.digital-art-design {
+  background-color: #9c27b0; /* Purple */
+}
+
+
+/* Specific category styles */
+.general {
+  background-color: rgb(12, 34, 158);
+
+}
+
+.news-and-politics {
+  background-color: #ff9f43; /* Light Orange */
+}
+
+.business-and-finance {
+  background-color: #ff5e57; /* Coral */
+}
+
+.technology {
+  background-color: #5e8b7e; /* Teal */
+}
+
+.science {
+  background-color: #9b59b6; /* Purple */
+}
+
+.q-and-a {
+  background-color: #f39c12; /* Yellow */
+}
+
+.health-and-fitness {
+  background-color: #2ecc71; /* Green */
+}
+
+.sports {
+  background-color: #3498db; /* Blue */
+}
+
+.gaming {
+  background-color: #e74c3c; /* Red */
+}
+
+.funny {
+  background-color: #e67e22; /* Pumpkin */
+}
+
+.music-and-entertainment {
+  background-color: #f1c40f; /* Gold */
+}
+
+.movies-and-tv {
+  background-color: #1abc9c; /* Turquoise */
+}
+
+.anime {
+  background-color: #8e44ad; /* Violet */
+}
+
+.pop-and-culture {
+  background-color: #d35400; /* Orange Red */
+}
+
+.fashion-and-beauty {
+  background-color: #c0392b; /* Brick Red */
+}
+
+.lifestyle {
+  background-color: #27ae60; /* Emerald */
+}
+
+.food-and-drinks {
+  background-color: #2ecc71; /* Green */
+}
+
+.arts-and-crafts {
+  background-color: #16a085; /* Sea Green */
+}
+
+.hobbies-and-collectibles {
+  background-color: #e74c3c; /* Red */
+}
+
+.places-and-travel {
+  background-color: #8e44ad; /* Violet */
+}
+
+.home-and-garden {
+  background-color: #f39c12; /* Yellow */
+}
+
+.education-and-career {
+  background-color: #2980b9; /* Dark Blue */
+}
+
+.humanities-and-law {
+  background-color: #d35400; /* Orange Red */
+}
+
+.books {
+  background-color: #34495e; /* Dark Gray */
+}
+
+.nature-and-outdoors {
+  background-color: #2ecc71; /* Green */
+}
+
+.environment-and-climate {
+  background-color: #1abc9c; /* Turquoise */
+}
+
+.vehicles-and-machinery {
+  background-color: #95a5a6; /* Gray */
+}

@@ -1,0 +1,38 @@
+.addIcon {
+    background-color: #008C00;
+    border-radius: 50%;
+    color: #fff;
+    padding: 20px; /* Increase padding for a bigger icon */
+    font-size: 24px; /* Increase font size for the icon */
+    width: 60px; /* Ensure width and height are equal */
+    height: 60px; /* Ensure width and height are equal */
+    display: flex;
+    align-items: center;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed; /* Fixed positioning */
+    bottom: 60px; /* 100px from the bottom */
+    right: 20px; /* Positioning from the right side */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for hiding and showing */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  @media screen and (max-width: 720px) {
+    .addIcon {
+      display: flex; /* Ensure it's displayed only on smaller screens */
+    }
+  }
+  
+  @media screen and (min-width: 721px) {
+    .addIcon {
+      display: none; /* Hide on larger screens */
+    }
+  }
+  
+  .addIcon.hidden {
+    opacity: 0; /* Make it invisible */
+    transform: translateY(20px); /* Slightly move it down when hidden */
+    pointer-events: none; /* Prevent interaction when hidden */
+  }
+  
