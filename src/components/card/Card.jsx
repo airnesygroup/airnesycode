@@ -10,7 +10,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
-  const truncatedDesc2 = item?.desc.substring(0, 250);
+  const truncatedDesc2 = item?.desc.substring(0, 140);
 
   const showMore = item?.desc.length > 300;
 
@@ -36,11 +36,11 @@ const Card = ({ key, item }) => {
                     src={item.user?.image}
                     alt={item.user?.name}
                     className={styles.profileImage2}
-                    width={25}
-                    height={25}
+                    width={26}
+                    height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>{item.user?.name}</p>
+                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
@@ -54,10 +54,15 @@ className={styles.verifiedIcon}
                 </div>
               </div>
             </div>
+
+
+            <span className={styles.category}>{item.catSlug}</span>
+
+
             <span className={styles.span}>...</span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0, 80)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
 
           <div className={styles.descContainer}>
             <div

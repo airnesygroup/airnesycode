@@ -21,7 +21,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
   color: #fcfcfc;
   padding: 10px;
   box-sizing: border-box;
@@ -32,7 +32,7 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   padding-bottom: 5px;
   overflow: hidden;
@@ -41,7 +41,7 @@
 }
 
 .desc {
-  font-size: 15px;
+  font-size: 14px;
   color: #fcfcfc;
   padding-bottom: 5px;
   overflow: hidden;
@@ -66,7 +66,7 @@
 }
 
 .username {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
   color: #fcfcfc;
@@ -74,7 +74,7 @@
 }
 
 .userRole {
-  font-size: 12px;
+  font-size: 11px;
   margin: 0;
 }
 
