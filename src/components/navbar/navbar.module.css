@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 65px;
+  height: 60px;
   width: 100%;
   position: fixed;
   
@@ -31,8 +31,10 @@
   width: 100%;
   margin: 0 auto; /* Center the container */
   padding: 0 8px; /* Optional: Add some padding */
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  max-width: 2000px;
+
 
 }
 
@@ -85,8 +87,8 @@
 }
 
 .logoText {
-  font-size: 24px;
-  color: #ff4500;
+  font-size: 28px;
+  color: #189df0;
   padding-left: 49px;
 
   line-height: 1; /* Ensure text aligns properly with the logo image */
@@ -117,7 +119,7 @@
   height: 42px; /* Adjust height */
   padding: 0 10px; /* Add padding inside the search bar */
   border: 1px solid; /* Add border */
-  background-color: var(--softTextColor3);
+  background-color: var(--softBg);
   border-color: var(--softBg);
   border-radius: 50px; /* Add border radius */
   font-size: 16px; /* Adjust font size */

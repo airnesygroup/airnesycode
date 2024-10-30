@@ -18,17 +18,9 @@ const AddIcon2 = () => {
 
   return (
     <>
-
-    
-<button
-        className={styles.addButton} onClick={handleComponentClick}>
-
-        
-        <Add className={styles.icon} fontSize="medium" />
-        <span className={styles.buttonText2}> Create a post</span>
+      <button className={styles.shareButton} onClick={handleComponentClick}>
+        Post now
       </button>
-      
-  
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />

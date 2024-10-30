@@ -154,6 +154,14 @@ const SidebarCategoryList = () => {
       <div className={styles.sectionTitle}>CREATE POST</div>
 
 
+      <button
+        className={`${styles.addButton} ${router.pathname === "/createpost" ? styles.active : ""}`}
+        onClick={() => router.push("/createpost")}
+      >
+        
+        <Add className={styles.icon} fontSize="medium" />
+        <span className={styles.buttonText2}> Create a post</span>
+      </button>
 
      <div className={styles.separator}></div>
 

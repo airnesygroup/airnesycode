@@ -16,8 +16,8 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const containerStyle = theme === "dark"
-    ? { backgroundColor: "rgba(1, 1, 2, 0.7)" }
-    : { backgroundColor: "rgba(252, 254, 255, 0.7)" };
+    ? { backgroundColor: "rgba(1, 1, 2, 0.9)" }
+    : { backgroundColor: "rgba(252, 254, 255, 0.9)" };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,23 +61,9 @@ const Navbar = () => {
             <h1 className={styles.logoText}></h1>
           </div>
         </Link>
-        <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>     <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>     <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>     <Link href="/">
-          <div className={styles.logo}>
-            <h1 className={styles.logoText}></h1>
-          </div>
-        </Link>
+       
+      
+         
         <div className={styles.searchContainer}>
           <input 
             type="text" 
