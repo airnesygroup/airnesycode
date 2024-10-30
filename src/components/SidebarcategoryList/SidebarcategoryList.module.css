@@ -1,9 +1,12 @@
 .wrapper {
   width: 100%;
   display: flex;
+  margin-top: 15px;
   flex-direction: column;
   align-items: flex-start;
   z-index: 0;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
 }
 
@@ -11,26 +14,58 @@
   width: 100%;
   padding: 10px;
   background-color: var(--bg);
-  color: var(--textColor);
   border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 0px;
   display: flex;
   align-items: flex-start;
-
+  font-weight: 100;
   cursor: pointer;
-  font-size: medium;
-}
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
+  font-size: 14px;
+}
 
 .sidebarButton:hover {
   background-color: var(--softBg);
 }
 
-.active {
-  background-color: blue;
-  color: white;
+/* styles.module.css or your relevant CSS file */
+.buttonText {
+  margin-top: 2px; /* Adjust this value as needed */
+  display: inline-block; /* Ensure margin works as expected */
 }
+
+.buttonText2 {
+  margin-top: 4px; /* Adjust this value as needed */
+  display: inline-block; /* Ensure margin works as expected */
+}
+
+.addButton {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--softBg);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 100;
+  cursor: pointer;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+  font-size: 14px;
+}
+
+.addButton:hover {
+  background-color: #f59a79;
+}
+
+.active {
+  background-color: var(--softBg); /* Use the soft background for active state */
+  color: var(--textColor); /* Adjust text color for contrast */
+}
+
 
 .categoryWrapper {
   width: 100%;
@@ -39,17 +74,21 @@
 
 .categoryButton {
   width: 100%;
-  padding: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
   background-color: var(--bg);
-  color: var(--textColor);
   border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 0px;
   display: flex;
   justify-content: space-between;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
   cursor: pointer;
-  font-size: medium;
+  font-size: 14px;
 
 
 }
@@ -58,7 +97,7 @@
 .icon2 {
 
   justify-content: flex-start; /* Aligns content to the left */
-
+margin-top: 5px;
 
 }
 
@@ -68,13 +107,35 @@
 
 .chevron {
   margin-left: 10px;
-  font-size: 4px;
+  font-size: 18px;
+  font-weight: 100;
+  width: 25px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
 
 }
 .chevron2 {
-  font-size: 16px;
+  font-size: 18px;
   margin-left: auto; /* Pushes the chevron to the right */
   display: flex;
+  width: 25px;
+  font-weight: 100;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+
+}
+
+
+.chevron3 {
+  font-size: 18px;
+  margin-left: auto; /* Pushes the chevron to the right */
+  display: flex;
+  width: 20px;
+  font-weight: 50;
+  padding-top: 5px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
+
+
 }
 
 
@@ -129,7 +190,7 @@
   text-decoration: none;
   color: var(--textColor);
   background-color: var(--bg);
-  font-size: medium;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -139,6 +200,8 @@
 
 .icon {
   margin-right: 10px;
+  border-radius: 50%;
+
 }
 
 
@@ -152,12 +215,12 @@
 }
 
 .sectionTitle {
-  margin-left: 8px;
-  color: var(--softTextColor);
-  width: 100%;
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--softTextColor); /* Adjust text color for contrast */
   padding: 10px 0;
-  font-weight: bold;
 }
+
 
 
 
