@@ -89,15 +89,15 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const generateUniqueSlug = (title) => {
-    const baseSlug = slugify(title);
-    const uniqueIdentifier = Date.now();
-    return `${baseSlug}-${uniqueIdentifier}`;
-  };
-
+      const generateUniqueSlug = (title, desc) => {
+        const baseSlug = slugify(`${title} ${desc}`);
+        const uniqueIdentifier = Date.now();
+        return `${baseSlug}-${uniqueIdentifier}`;
+      };
+      
   const handleTitleChange = (e) => {
     const value = e.target.value;
-    if (value.length <= 300) {
+    if (value.length <= 150) {
       setTitle(value);
     }
   };
@@ -116,8 +116,8 @@ const WritePage = ({ closeModal }) => {
       return;
     }
     
-    if (title.length > 300) {
-      alert("Title cannot exceed 300 characters.");
+    if (title.length > 150) {
+      alert("Title cannot exceed 150 characters.");
       return;
     }
     if (value.length > 40000) {
@@ -176,8 +176,8 @@ const WritePage = ({ closeModal }) => {
             onChange={handleTitleChange}
           />
           <div className={styles.characterCount}>
-            {300 - title.length} characters remaining
-            {title.length > 300 && <span className={styles.error}>Title limit reached!</span>}
+            {150 - title.length} characters remaining
+            {title.length > 150 && <span className={styles.error}>Title limit reached!</span>}
           </div>
           <select
             className={styles.select}
@@ -185,52 +185,13 @@ const WritePage = ({ closeModal }) => {
             onChange={(e) => setCatSlug(e.target.value)}
           >
 <option value="general">General</option>
-<option value="business-finance">Business & Finance</option>
-<option value="artificial-intelligence">Artificial Intelligence</option>
-<option value="gaming">Gaming</option>
-<option value="entertainment">Entertainment</option>
-<option value="metaverse">Metaverse</option>
-<option value="blockchain">Blockchain</option>
-<option value="virtual-reality">Virtual Reality</option>
-<option value="augmented-reality">Augmented Reality</option>
-<option value="threed-printing">3D Printing</option>
-<option value="fintech">FinTech</option>
-<option value="wearable-tech">Wearable Tech</option>
-<option value="media">Media</option>
-<option value="e-commerce">E-Commerce</option>
-<option value="machine-learning">Machine Learning</option>
-<option value="data-science">Data Science</option>
-<option value="software">Software</option>
-<option value="robotics">Robotics</option>
-<option value="cloud-computing">Cloud Computing</option>
-<option value="quantum-computing">Quantum Computing</option>
-<option value="cybersecurity">Cybersecurity</option>
-<option value="internet-of-things">Internet of Things</option>
-<option value="networking">Networking</option>
-<option value="fashion">Fashion</option>
-<option value="foodtech">FoodTech</option>
-<option value="electrical">Electrical</option>
-<option value="electronics">Electronics</option>
-<option value="automotive">Automotive</option>
-<option value="aerospace">Aerospace</option>
-<option value="energy">Energy</option>
-<option value="physics">Physics</option>
+<option value="business">Business </option>
+<option value="technology">Technology</option>
+<option value="economics">Economics</option>
+<option value="science">Science</option>
+<option value="engineering">Engineering</option>
 <option value="mathematics">Mathematics</option>
-<option value="biotech">Biotech</option>
-<option value="geospatial">Geospatial</option>
-<option value="mechanics">Mechanics</option>
-<option value="industrial">Industrial</option>
-<option value="construction">Construction</option>
-<option value="medtech">MedTech</option>
-<option value="agritech">AgriTech</option>
-<option value="envirotech">EnviroTech</option>
-<option value="marine-tech">Marine Technology</option>
-<option value="military-tech">Military Technology</option>
-<option value="supply-chain">Supply Chain</option>
-<option value="smart-city">Smart City</option>
-<option value="textile-tech">Textile Technology</option>
-<option value="sports-tech">Sports Technology</option>
-<option value="digital-art-design">Digital Art & Design</option>
+
 
 
           </select>

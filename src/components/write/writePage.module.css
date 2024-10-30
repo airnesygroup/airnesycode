@@ -97,7 +97,7 @@
   background-color: var(--bg);
   color: var(--textColor);
   font-size: 18px;
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 }
 
 .input:focus {
@@ -118,7 +118,7 @@
   background-color: var(--bg);
   color: var(--textColor);
   font-size: 18px;
-  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 }
 
 .textArea:focus {
