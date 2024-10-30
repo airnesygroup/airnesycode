@@ -2,10 +2,10 @@
   cursor: pointer;
   background-color: #ff4500;
   border-radius: 55px;
-  padding: 13px 14px; /* Combine padding for left and right */
+  padding: 12px 12px; /* Combine padding for left and right */
   color: #fff;
   display: inline-block; /* Ensures the button fits the content */
-  font-size: 15px;
+  font-size: 14px;
 }
 
 
