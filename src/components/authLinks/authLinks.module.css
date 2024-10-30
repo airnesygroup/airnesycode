@@ -1,11 +1,11 @@
 .link {
   cursor: pointer;
   background-color: #ff4500;
-  border-radius: 17px;
-  padding: 10px 10px; /* Combine padding for left and right */
+  border-radius: 20px;
+  padding: 13px 10px; /* Combine padding for left and right */
   color: #fff;
   display: inline-block; /* Ensures the button fits the content */
-  font-size: 15px;
+  font-size: 16px;
 }
 
 
