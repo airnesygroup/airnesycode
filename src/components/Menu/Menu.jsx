@@ -10,9 +10,9 @@ const Menu = () => {
     return (
       <div className={styles.container}>
         <h2 className={styles.subtitle}>{"What's hot"}</h2>
-        <h1 className={styles.title}>Trending</h1>
-        <Menulists page={3} cat={""} />
-  
+        <Menulists page={1} cat={""} />
+        <h2 className={styles.subtitle2}>{"show more"}</h2>
+
        
       </div>
     );

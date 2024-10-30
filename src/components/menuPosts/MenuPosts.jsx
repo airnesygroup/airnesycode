@@ -7,7 +7,7 @@ import styles from "./menuPosts.module.css";
 const categoryToClassMap = {
   "general": "general",
   "news-politics": "news-and-politics",
-  "business-finance": "business-and-finance",
+  "business": "business",
   "technology": "technology",
   "science": "science",
   "q-a": "q-and-a",
@@ -65,18 +65,15 @@ const MenuPosts = ({ item, withImage }) => {
               )}
             </div>
           )}
-          {categoryClass && (
-            <span className={`${styles.category} ${styles[categoryClass]}`}>
-              {item.catSlug}
-            </span>
-          )}
-        </div>
-        <div className={styles.textContainer}>
-          <h3 className={styles.postTitle}>{item.title.substring(0, 50)}</h3>
-          <div className={styles.detail}>
-            <span>{item.category}</span>
-          </div>
-        </div>
+             <div className={styles.userInfo}>
+                    <p className={styles.username}>{item.user?.name}</p>
+                    <span className={styles.category}>{item.catSlug}</span>
+
+                  </div>
+       
+             </div>
+          
+      
       </Link>
     </div>
   );

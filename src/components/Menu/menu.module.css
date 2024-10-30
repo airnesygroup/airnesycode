@@ -1,14 +1,18 @@
 /* menu.module.css */
 
 .container {
-  background-color: var(--bg);
+  background-color: var(--softBgmenu);
   padding: 12px;
-  padding-top: 25px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
   border-radius: 15px;
   width: 100%;
-  height: calc(100vh - 40px); /* Adjust height considering margin-top */
-  overflow-y: hidden;
-  flex: 1.5;
+height: fit-content; 
+ overflow-y: hidden;
+  flex: 1.9;
 }
 
 
@@ -25,6 +29,7 @@
 .subtitle {
   color: gray;
   font-size: 14px;
+  padding-bottom: 10px;
   font-weight: 400;
 }
 
@@ -34,9 +39,9 @@
 
 .subtitle2 {
   color: gray;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 1024px) {
