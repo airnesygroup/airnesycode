@@ -46,7 +46,7 @@
   max-width: 600px;
   border: 1px solid var(--borderColor);
   padding: 10px;
-  border-radius: 17px;
+  border-radius: 13px;
   background-color: var(--bg);
   color: var(--textColor);
   font-family: Arial, Helvetica, sans-serif;
@@ -57,7 +57,7 @@
   max-width: 600px;
   border: 1px solid var(--borderColor);
   padding: 10px;
-  border-radius: 17px;
+  border-radius: 13px;
   margin: 10px 0;
   background-color: var(--bg);
   color: var(--textColor);
@@ -69,7 +69,8 @@
   max-width: 600px;
   min-height: 200px;
   border: 1px solid var(--borderColor);
-  border-radius: 17px;
+  border-radius: 13px;
+  font-size: 11px;
   background-color: var(--bg);
 }
 
@@ -92,7 +93,7 @@
   background-color: #ff4500;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 17px;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -113,7 +114,7 @@
   background-color: #ff4500;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
@@ -152,7 +153,13 @@
   background-color: #ff4500;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 17px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .uploadImageButton {
+ font-size: 12px;
+  }
 }
