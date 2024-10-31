@@ -1,59 +1,144 @@
-/* Container styles */
+.content1{
+  display: flex;
+  gap: 20px;
+  padding-left: 1.5%;
+}
+/* homepage.module.css */
+
 .container {
   display: flex;
   flex-wrap: nowrap;
+  margin-right: auto;
+  position: relative; /* Keeps the layout flexible */
 }
 
-/* Menu styles */
+
+/* src/app/homepage.module.css */
+.trendingWrapper {
+  position: fixed; /* Or absolute, depending on the desired behavior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; /* Ensure it is on top of other content */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+
+/* Hide scrollbar by default */
 .menu {
   position: fixed;
   width: 250px;
-  max-height: 89vh;
+  border-right:  1px solid var(--softTextColor3);
+  max-height: 89vh; /* Full height */
   z-index: 1009;
-  overflow-y: hidden;
+  overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
-  padding-bottom: 100px;
-  margin-top: 65px;
-  transition: overflow 0.3s ease;
+  padding-bottom: 30px;
+  margin-top: 60px;
+  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
 
 .menu:hover {
-  overflow-y: scroll;
+
+  overflow-y: scroll; /* Show scrollbar on hover */
+
 }
 
+/* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
-  width: 15px;
+  padding-left: 20px;
+  width: 10px; /* Width of the scrollbar */
 }
+
 
 .menu::-webkit-scrollbar-track {
-  background: var(--bg);
-  border-radius: 10px;
+  background:  var(--bg); /* Background of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+
 }
 
 .menu::-webkit-scrollbar-thumb {
-  background-color: var(--softBg);
-  border-radius: 10px;
+  background-color:  var(--softBg);/* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
 }
 
 .menu::-webkit-scrollbar-thumb:hover {
-  background: var(--softBg);
+  background:var(--softBg); /* Color of the scrollbar thumb on hover */
 }
 
-/* Main content styles */
+/* Keep existing styles for the mainContent and media queries */
 .mainContent {
-  margin-top: 65px;
-  flex: 1;
+  margin: 0 auto; /* Center the entire container */
+  max-width: 1350px;  
+  padding-left: calc(250px + 1.5%);
+
+  flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  padding-left: 5%; /* Default padding when sidebar is visible */
+  min-height: 100vh;
+  overflow-y: auto; /* Allow scrolling for long content */
 }
 
-/* Text container styles */
-.textContainer {
-  flex: 1;
-  padding-left: 250px; /* Default padding when sidebar is visible */
+
+.cardList {
+  flex: 1; /* Allow the CardList to grow and shrink based on available space */
+  min-width: 0; /* Prevent the card from growing beyond its container */
+  max-width: 100%; /* Ensures it doesn’t exceed the container width */
 }
+
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    width: 250px; /* Adjust this width as needed */
+  }
+
+ 
+}
+
+
+
+@media screen and (max-width: 720px) {
+  .menu {
+    display: none;
+  }
+
+  .mainContent {
+    margin-left: 0; /* Ensure no margin is applied */
+    padding-left: 0; /* Ensure no padding is applied */
+  }
+
+  .content1 {
+    padding-left: 0; /* Ensure no padding is applied */
+    margin-left: 0; /* Ensure no margin is applied */
+
+  }
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  
+}
+
+
+
+
 
 
 
@@ -111,7 +196,7 @@
 }
 
 /* Content styles */
-.content {
+.contentia {
   display: flex;
   gap: 50px;
   padding-left: 250px; /* Default padding when sidebar is visible */
@@ -182,17 +267,10 @@
     font-size: 14px;
   }
 
-  .textContainer, .content {
-    padding-left: 0; /* Remove padding */
-  }
 
-  .menu {
-    display: none; /* Hide menu on small screens */
-  }
+ 
 
-  .mainContent {
-    padding-left: 0; /* Remove padding when menu is hidden */
-  }
+
 }
 
 
@@ -224,9 +302,6 @@
     font-size: 10px; /* Further reduced size */
   }
 
-  .textContainer, .content {
-    padding-left: 0; /* Remove padding */
-  }
 
   /* Remove space between image and title on small screens */
   .user {

@@ -24,7 +24,7 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
-   
+  
 
 
 
@@ -33,7 +33,25 @@ const SinglePage = async ({ params }) => {
 
 
 
-        <div className={styles.content}>
+
+
+
+<div className={styles.container}>
+<Navbar />
+
+<div className={styles.menu}>
+  <SidebarCategoryList />
+</div>
+<div className={styles.mainContent}>
+
+
+
+
+
+
+  <div className={styles.content1}>
+
+        <div className={styles.contentia}>
           <div className={styles.post}>
             
           {data?.img && (
@@ -64,13 +82,13 @@ const SinglePage = async ({ params }) => {
           </div>
           <Menu />
         </div>
+  </div>
+  <Footer />
+</div>
+</div>
 
 
-
-
-
-
-     
+        
   );
 };
 
