@@ -88,12 +88,13 @@ const WritePage = ({ closeModal }) => {
       .replace(/[^\w\s-]/g, "")
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
-
       const generateUniqueSlug = (title, desc) => {
         const baseSlug = slugify(`${title} ${desc}`);
+        const date = new Date().toISOString().split('T')[0];
         const uniqueIdentifier = Date.now();
-        return `${baseSlug}-${uniqueIdentifier}`;
+        return `${baseSlug}-${date}-${uniqueIdentifier}`;
       };
+      
       
   const handleTitleChange = (e) => {
     const value = e.target.value;
