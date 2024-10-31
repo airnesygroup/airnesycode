@@ -36,7 +36,7 @@
   position: fixed;
   width: 250px;
   max-height: 89vh; /* Full height */
-  z-index: 0;
+  z-index: 1009;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
 padding-bottom: 30px;
