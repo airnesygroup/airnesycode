@@ -110,16 +110,28 @@
   background-color: #e04000; /* Darker orange on hover */
 }
 
+
+/* Textarea placeholder styles */
+.editor .ql-editor::before {
+  font-size: 14px; /* Adjust this value to make the placeholder smaller */
+}
+
+/* File upload label styles */
 .fileLabel {
+  font-size: 12px; /* Adjust this value for smaller size */
   background-color: #ff4500;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 15px;
+  cursor: pointer;
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
   margin-right: 10px; /* Space between label and button */
 }
+
+
+
 
 /* Preview styles */
 .previewContainer {
