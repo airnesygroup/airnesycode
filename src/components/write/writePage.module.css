@@ -111,16 +111,19 @@
 }
 
 
-/* Textarea placeholder styles */
-.editor .ql-editor::before {
-  font-size: 10px; /* Adjust this value to make the placeholder smaller */
-}
 /* If you're using the Quill's placeholder class */
-.ql-toolbar .ql-container.ql-snow .ql-editor:empty::before {
-  content: attr(data-placeholder); /* Make sure the placeholder is set */
-  font-size: 10px; /* Adjust this value to make the placeholder smaller */
-  line-height: 1.4; /* Optional: Adjust line height */
+/* Custom CSS for the ReactQuill placeholder */
+.ql-editor::before {
+  content: "What's trending..."; /* Make sure it matches your placeholder */
+  font-size: 12px; /* Change this value to adjust the size */
 }
+
+/* If you want to change the style when the editor is empty */
+.ql-editor:empty::before {
+  content: "What's trending...";
+  font-size: 12px; /* Change this value to adjust the size */
+}
+
 
 /* File upload label styles */
 .fileLabel {
