@@ -88,15 +88,13 @@ const WritePage = ({ closeModal }) => {
       .replace(/[^\w\s-]/g, "")
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
-      
-      const generateUniqueSlug = (title, desc) => {
+
+      const generateUniqueSlug = (title) => {
         const baseSlug = slugify(title);
-        const descSlug = slugify(desc);
-        const date = new Date().toISOString().split('T')[0]; // Format date as YYYY-MM-DD
-        const uniqueIdentifier = Date.now(); // Timestamp for uniqueness
-        return `${baseSlug}-${descSlug}-${date}-${uniqueIdentifier}`;
+        const seoSlug = slugify(desc);
+        const uniqueIdentifier = Date.now();
+        return `${baseSlug}-${seoSlug}-${uniqueIdentifier}`;
       };
-      
       
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -106,7 +104,7 @@ const WritePage = ({ closeModal }) => {
   };
 
   const handleContentChange = (content) => {
-    if (content.length <= 40000) {
+    if (content.length <= 10000) {
       setValue(content);
     }
   };
@@ -123,7 +121,7 @@ const WritePage = ({ closeModal }) => {
       alert("Title cannot exceed 150 characters.");
       return;
     }
-    if (value.length > 40000) {
+    if (value.length > 10000) {
       alert("Description cannot exceed 40,000 characters.");
       return;
     }
@@ -198,17 +196,18 @@ const WritePage = ({ closeModal }) => {
 
 
           </select>
-          <ReactQuill
-            className={styles.editor}
-            theme="bubble"
+      
+              <textarea
+            type="text"
+            placeholder="what's trending"
+            className={styles.input}
             value={value}
             onChange={handleContentChange}
-            placeholder="What's trending..."
-          />          
+          />       
 
           <div className={styles.characterCount}>
-            {40000 - value.length} characters remaining
-            {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
+            {10000 - value.length} characters remaining
+            {value.length > 10000 && <span className={styles.error}>Content limit reached!</span>}
           </div>
           <input
             style={{ display: "none" }}
