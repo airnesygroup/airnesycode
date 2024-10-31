@@ -6,6 +6,8 @@ import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategor
 import Navbar from "@/components/navbar/Navbar";
 
 
+
+
 const getData = async (slug) => {
   const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
     cache: "no-store",
@@ -24,16 +26,20 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
-    <div className={styles.container}>
-              <Navbar />
 
-      <div className={styles.menu}>
-        <SidebarCategoryList />
-      </div>
+<div className={styles.container}>
 
-      <div className={styles.mainContent}>
-        
-        <div className={styles.content}>
+
+<Navbar />
+
+<div className={styles.menu}>
+  <SidebarCategoryList />
+</div>
+<div className={styles.mainContent}>
+
+
+  <div className={styles.content1}>
+  <div className={styles.content}>
           <div className={styles.post}>
             
         {data?.img && (
@@ -64,11 +70,13 @@ const SinglePage = async ({ params }) => {
               <Comments postSlug={slug} />
             </div>
           </div>
-          <Menu />
+    <Menu />
+  </div>
+</div>
+</div>
 
-        </div>
-      </div>
-    </div>
+</div>
+
   );
 };
 
