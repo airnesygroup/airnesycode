@@ -27,6 +27,12 @@ const SinglePage = async ({ params }) => {
 
   return (
 
+
+
+
+
+
+
 <div className={styles.container}>
 
 
@@ -75,7 +81,9 @@ const SinglePage = async ({ params }) => {
 </div>
 </div>
 
+
 </div>
+9
 
   );
 };
