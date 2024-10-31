@@ -90,7 +90,7 @@ const WritePage = ({ closeModal }) => {
       .replace(/^-+|-+$/g, "");
 
   const generateUniqueSlug = (title) => {
-    const baseSlug = slugify(title);
+    const baseSlug = title ? slugify(title) : slugify(value);
     const uniqueIdentifier = Date.now();
     return `${baseSlug}-${uniqueIdentifier}`;
   };
@@ -162,6 +162,7 @@ const WritePage = ({ closeModal }) => {
             className={styles.input}
             value={title}
             onChange={handleTitleChange}
+            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
           />
           <div className={styles.characterCount}>
             {150 - title.length} characters remaining
@@ -205,7 +206,7 @@ const WritePage = ({ closeModal }) => {
             accept="image/*"
             onChange={(e) => setFile(e.target.files[0])}
           />
-          <label htmlFor="file" className={styles.fileLabel}>
+          <label htmlFor="file" className={`${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
             {uploading ? "Uploading..." : "Upload Image"}
           </label>
           {preview && (
@@ -216,10 +217,13 @@ const WritePage = ({ closeModal }) => {
               </button>
             </div>
           )}
-          <div className={styles.buttons}>
-            <button className={styles.button} type="submit" disabled={uploading || publishing}>
+          <div className={styles.buttonsContainer}>
+            <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
               {publishing ? "Publishing..." : "Publish"}
             </button>
+            <label htmlFor="file" className={styles.uploadImageButton}>
+              Upload Image
+            </label>
           </div>
         </form>
       </div>
