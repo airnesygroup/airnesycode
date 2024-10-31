@@ -4,7 +4,6 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import SidebarCategoryList from "@/components/SidebarcategoryList/SidebarCategoryList";
 import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/Footer"; // Ensure to import Footer
 
 const getData = async (slug) => {
   const res = await fetch(`https://www.airnesy.com/api/posts/${slug}`, {
@@ -63,7 +62,6 @@ const SinglePage = async ({ params }) => {
             <Menu />
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   );
