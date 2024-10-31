@@ -12,17 +12,6 @@
   z-index: 1001;
 }
 
-/* Dark theme */
-.dark-theme .ql-editor {
-  color: #fff; /* Sets text color to white in dark mode */
-}
-
-/* Light theme */
-.light-theme .ql-editor {
-  color: #000; /* Sets text color to black in light mode */
-}
-
-
 .modalContent {
   background: var(--softBg);
   padding: 20px;
@@ -63,200 +52,78 @@
   border-radius: 10px;
   border: 1px solid;
   background-color: var(--bg);
-  border-color: var(--bg);
   color: var(--textColor);
 }
 
 .characterCount {
-  font-size: 14px;
   color: var(--textColor);
-  margin-top: 5px;
-}
-
-.previewImage {
-  max-width: 100%;
-  height: auto;
-}
-
-.editor {
-  width: 100%;
-  height: 300px;
-  max-width: 600px;
-  font-size: 16px;
-  border: 1px solid var(--bg);
-  border-color: var(--bg);
-  color: var(--textColor);
-
-  background-color: var(--bg);
-  border-radius: 10px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.placeholder {
-
-  font-size: 10px; 
-  
+  font-size: 12px;
 }
 
 .input {
   width: 100%;
   max-width: 600px;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 10px;
   border: 1px solid;
-  border-color: var(--bg);
-  background-color: var(--bg);
-  color: var(--textColor);
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;  
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.error {
-  color: red;
-}
-
-.textArea {
-  width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
   border-radius: 10px;
-  border: 1px solid var(--bg);
   background-color: var(--bg);
   color: var(--textColor);
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;  
 }
 
-.textArea:focus {
-  outline: none;
-  border-color: var(--bg);
+.editor {
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: var(--bg);
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.fileLabel {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 14px;
-  font-size: 16px;
-  border: none;
-  background-color: #ff4500;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.fileLabel:hover {
-  background-color: #ff802c;
-}
-
+/* Button styles */
 .button {
-  padding: 10px 20px;
-  background-color:#ff4500;
+  background-color: var(--primaryColor);
   color: white;
   border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  border-radius: 15px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #ff802c;
+  transition: background-color 0.3s;
 }
 
 .button:disabled {
-  background-color: var(--softBg);
+  background-color: gray;
   cursor: not-allowed;
 }
 
-.editor .ql-editor a {
-  color: blue !important;
+.fileLabel {
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
 }
 
-
-
-.quill .ql-editor a {
-  color: var(--primary) !important;
-  text-decoration: underline;
+/* Preview styles */
+.previewContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-
+.preview {
+  max-width: 100%;
+  border-radius: 10px;
+}
 
 .deleteButton {
-
+  position: absolute;
+  top: 5px;
+  right: 5px;
   background: red;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
   cursor: pointer;
-}
-
-@media (max-width: 640px) {
-
-  .container {
- 
-    gap: 5px;
-    padding: 10px;
-  }
-
-
-.modalContent {
-
-  min-width: 90%;
-  min-height: 60%;
-
-}
-
-  .select {
-    width: 100%;
-  }
-
-  .input {
-    font-size: 14px;
-    padding: 10px;
-    margin-bottom: 5px;
-  }
-
-  .textArea {
-    height: 100px;
-    margin-top: 0px;
-
-  }
-
-  .editor {
-    font-size: 14px;
-    margin-top: 0px;
-  }
-
-  .button {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-  .fileLabel {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-  .characterCount {
-    
-    margin-top: 0px;
-    font-size: 12px;
-
-  }
 }

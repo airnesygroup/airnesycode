@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState, useRef } from "react";
-import "react-quill/dist/quill.bubble.css";
+import "react-quill/dist/quill.bubble.css"; // Ensure you're importing Quill styles
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -15,7 +15,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const WritePage = ({ closeModal }) => {
   const { status } = useSession();
   const router = useRouter();
-  const [file, setFile] = useState(n9ull);
+  const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
@@ -24,11 +24,6 @@ const WritePage = ({ closeModal }) => {
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const modalContentRef = useRef(null);
-  const quillModules = {
-    clipboard: {
-      matchVisual: false, // Forces pasted content to match editor styling
-    },
-  };
 
   useEffect(() => {
     if (file) {
@@ -94,12 +89,12 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-      const generateUniqueSlug = (title, desc) => {
-        const baseSlug = slugify(`${title} ${desc}`);
-        const uniqueIdentifier = Date.now();
-        return `${baseSlug}-${uniqueIdentifier}`;
-      };
-      
+  const generateUniqueSlug = (title) => {
+    const baseSlug = slugify(title);
+    const uniqueIdentifier = Date.now();
+    return `${baseSlug}-${uniqueIdentifier}`;
+  };
+
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 150) {
@@ -108,9 +103,7 @@ const WritePage = ({ closeModal }) => {
   };
 
   const handleContentChange = (content) => {
-    if (content.length <= 40000) {
-      setValue(content);
-    }
+    setValue(content); // Set the value directly
   };
 
   const handleSubmit = async (e) => {
@@ -120,18 +113,8 @@ const WritePage = ({ closeModal }) => {
       alert("Please add at least a title, description, or image.");
       return;
     }
-    
-    if (title.length > 150) {
-      alert("Title cannot exceed 150 characters.");
-      return;
-    }
-    if (value.length > 40000) {
-      alert("Description cannot exceed 40,000 characters.");
-      return;
-    }
 
     setPublishing(true);
-
     const uniqueSlug = generateUniqueSlug(title);
 
     const res = await fetch("/api/posts", {
@@ -182,41 +165,38 @@ const WritePage = ({ closeModal }) => {
           />
           <div className={styles.characterCount}>
             {150 - title.length} characters remaining
-            {title.length > 150 && <span className={styles.error}>Title limit reached!</span>}
           </div>
           <select
             className={styles.select}
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
           >
-<option value="general">General</option>
-<option value="business">Business </option>
-<option value="technology">Technology</option>
-<option value="economics">Economics</option>
-<option value="science">Science</option>
-<option value="engineering">Engineering</option>
-<option value="mathematics">Mathematics</option>
-
-
-
+            <option value="general">General</option>
+            <option value="business">Business</option>
+            <option value="technology">Technology</option>
+            <option value="economics">Economics</option>
+            <option value="science">Science</option>
+            <option value="engineering">Engineering</option>
+            <option value="mathematics">Mathematics</option>
           </select>
-
-      
-
-// In your ReactQuill component
-<ReactQuill
-  className={`${theme === 'dark' ? 'dark-theme' : 'light-theme'} editor`}
-  theme="bubble"
-  value={value}
-  onChange={handleContentChange}
-  placeholder="What's trending..."
-  modules={quillModules}
-/>
-
-
+          <ReactQuill
+            className={styles.editor}
+            theme="bubble"
+            value={value}
+            onChange={handleContentChange}
+            placeholder="What's trending..."
+            modules={{
+              toolbar: [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline', 'link'],
+                ['image', 'video'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                ['clean'], // remove formatting button
+              ],
+            }}
+          />
           <div className={styles.characterCount}>
             {40000 - value.length} characters remaining
-            {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
           </div>
           <input
             style={{ display: "none" }}
