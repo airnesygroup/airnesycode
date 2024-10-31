@@ -12,6 +12,17 @@
   z-index: 1001;
 }
 
+/* Dark theme */
+.dark-theme .ql-editor {
+  color: #fff; /* Sets text color to white in dark mode */
+}
+
+/* Light theme */
+.light-theme .ql-editor {
+  color: #000; /* Sets text color to black in light mode */
+}
+
+
 .modalContent {
   background: var(--softBg);
   padding: 20px;
@@ -168,6 +179,12 @@
   background-color: var(--softBg);
   cursor: not-allowed;
 }
+
+.editor .ql-editor a {
+  color: blue !important;
+}
+
+
 
 .quill .ql-editor a {
   color: var(--primary) !important;

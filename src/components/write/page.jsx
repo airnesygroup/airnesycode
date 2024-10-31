@@ -15,7 +15,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const WritePage = ({ closeModal }) => {
   const { status } = useSession();
   const router = useRouter();
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(n9ull);
   const [preview, setPreview] = useState("");
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
@@ -24,6 +24,11 @@ const WritePage = ({ closeModal }) => {
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const modalContentRef = useRef(null);
+  const quillModules = {
+    clipboard: {
+      matchVisual: false, // Forces pasted content to match editor styling
+    },
+  };
 
   useEffect(() => {
     if (file) {
@@ -89,11 +94,10 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-      const generateUniqueSlug = (title) => {
-        const baseSlug = slugify(title);
-        const seoSlug = slugify(desc);
+      const generateUniqueSlug = (title, desc) => {
+        const baseSlug = slugify(`${title} ${desc}`);
         const uniqueIdentifier = Date.now();
-        return `${baseSlug}-${seoSlug}-${uniqueIdentifier}`;
+        return `${baseSlug}-${uniqueIdentifier}`;
       };
       
   const handleTitleChange = (e) => {
@@ -104,7 +108,7 @@ const WritePage = ({ closeModal }) => {
   };
 
   const handleContentChange = (content) => {
-    if (content.length <= 10000) {
+    if (content.length <= 40000) {
       setValue(content);
     }
   };
@@ -121,7 +125,7 @@ const WritePage = ({ closeModal }) => {
       alert("Title cannot exceed 150 characters.");
       return;
     }
-    if (value.length > 10000) {
+    if (value.length > 40000) {
       alert("Description cannot exceed 40,000 characters.");
       return;
     }
@@ -196,18 +200,23 @@ const WritePage = ({ closeModal }) => {
 
 
           </select>
+
       
-              <textarea
-            type="text"
-            placeholder="what's trending"
-            className={styles.input}
-            value={value}
-            onChange={handleContentChange}
-          />       
+
+// In your ReactQuill component
+<ReactQuill
+  className={`${theme === 'dark' ? 'dark-theme' : 'light-theme'} editor`}
+  theme="bubble"
+  value={value}
+  onChange={handleContentChange}
+  placeholder="What's trending..."
+  modules={quillModules}
+/>
+
 
           <div className={styles.characterCount}>
-            {10000 - value.length} characters remaining
-            {value.length > 10000 && <span className={styles.error}>Content limit reached!</span>}
+            {40000 - value.length} characters remaining
+            {value.length > 40000 && <span className={styles.error}>Content limit reached!</span>}
           </div>
           <input
             style={{ display: "none" }}
