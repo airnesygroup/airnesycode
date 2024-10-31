@@ -277,9 +277,7 @@
     display: none; /* Hide menu on small screens */
   }
 
-  .mainContent {
-    padding-left: 0; /* Remove padding when menu is hidden */
-  }
+  
 }
 
 

@@ -83,7 +83,7 @@ const SinglePage = async ({ params }) => {
 
 
 </div>
-9
+
 
   );
 };
