@@ -208,7 +208,7 @@ const WritePage = ({ closeModal }) => {
           />
            <div className={styles.buttonsContainer}>
 
-          <label htmlFor="file" className={`${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
+          <label htmlFor="file" className={` ${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
             {uploading ? "Uploading..." : "Upload Image"}
           </label>
             <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>

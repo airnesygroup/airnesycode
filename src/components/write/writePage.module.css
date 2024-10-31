@@ -15,7 +15,7 @@
 .modalContent {
   background: var(--softBg);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 17px;
   max-width: 90%;
   min-width: 50%;
   max-height: 90%;
@@ -46,7 +46,7 @@
   max-width: 600px;
   border: 1px solid var(--borderColor);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 17px;
   background-color: var(--bg);
   color: var(--textColor);
   font-family: Arial, Helvetica, sans-serif;
@@ -57,7 +57,7 @@
   max-width: 600px;
   border: 1px solid var(--borderColor);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 17px;
   margin: 10px 0;
   background-color: var(--bg);
   color: var(--textColor);
@@ -69,7 +69,7 @@
   max-width: 600px;
   min-height: 200px;
   border: 1px solid var(--borderColor);
-  border-radius: 10px;
+  border-radius: 17px;
   background-color: var(--bg);
 }
 
@@ -130,7 +130,7 @@
 
 .preview {
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 17px;
 }
 
 .deleteButton {
