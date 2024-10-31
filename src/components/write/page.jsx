@@ -197,7 +197,7 @@ const WritePage = ({ closeModal }) => {
             }}
           />
           <div className={styles.characterCount}>
-            {40000 - value.length} characters remaining
+            {10000 - value.length} characters remaining
           </div>
           <input
             style={{ display: "none" }}
@@ -206,9 +206,16 @@ const WritePage = ({ closeModal }) => {
             accept="image/*"
             onChange={(e) => setFile(e.target.files[0])}
           />
+           <div className={styles.buttonsContainer}>
+
           <label htmlFor="file" className={`${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
             {uploading ? "Uploading..." : "Upload Image"}
           </label>
+            <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
+              {publishing ? "Publishing..." : "Publish"}
+            </button>
+           
+          </div>
           {preview && (
             <div className={styles.previewContainer}>
               <Image src={preview} alt="Preview" className={styles.preview} width={200} height={200} />
@@ -217,14 +224,7 @@ const WritePage = ({ closeModal }) => {
               </button>
             </div>
           )}
-          <div className={styles.buttonsContainer}>
-            <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
-              {publishing ? "Publishing..." : "Publish"}
-            </button>
-            <label htmlFor="file" className={styles.uploadImageButton}>
-              Upload Image
-            </label>
-          </div>
+       
         </form>
       </div>
     </div>
