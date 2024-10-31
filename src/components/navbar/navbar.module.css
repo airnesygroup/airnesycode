@@ -8,7 +8,7 @@
   
   top: 0;
   left: 0;
-  z-index: 1005;
+  z-index: 1001;
   transition: transform 0.3s ease-in-out;
   border-bottom: 1px solid var(--softTextColor3); /* Borderline on the right */
 

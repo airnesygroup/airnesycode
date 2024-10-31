@@ -13,7 +13,7 @@
     top: 6px;
     left: 28%;
     transform: translateX(-50%);
-    z-index: 1004; /* Ensure this is higher than other elements */
+    z-index: 1000; /* Ensure this is higher than other elements */
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
