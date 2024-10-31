@@ -5,15 +5,23 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./ParentComponent";
 import WritePage from "./write/page";
 import { useSession } from "next-auth/react"; // Import useSession
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import styles from "./AddIcon.module.css";
 
 const AddIcon = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const { status } = useSession(); // Access session status
+  const router = useRouter(); // Initialize the router
 
   const handleAddIconClick = () => {
-    setModalOpen(true);
+    if (status === "unauthenticated") {
+      // Redirect to login page if not authenticated
+      router.push("/login"); // Change this to your login page route
+    } else {
+      // Open modal if authenticated
+      setModalOpen(true);
+    }
   };
 
   useEffect(() => {
@@ -36,9 +44,6 @@ const AddIcon = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // Render nothing if the user is unauthenticated
-  if (status === "unauthenticated") return null;
 
   return (
     <>
