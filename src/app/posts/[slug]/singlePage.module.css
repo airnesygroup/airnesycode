@@ -1,80 +1,52 @@
-/* homepage.module.css */
-
+/* Container styles */
 .container {
   display: flex;
   flex-wrap: nowrap;
-  margin-right: auto;
-  position: relative; /* Keeps the layout flexible */
 }
 
-.content1 {
-  display: flex;
-  gap: 20px;
-  padding-left: 1.5%;
-}
-
-/* Sidebar menu styles */
+/* Menu styles */
 .menu {
-  position: fixed; /* Keep the menu fixed on the left */
+  position: fixed;
   width: 250px;
-  border-right: 1px solid var(--softTextColor3);
-  max-height: 89vh; /* Full height */
+  max-height: 89vh;
   z-index: 1009;
-  overflow-y: hidden; /* Scrollable content */
+  overflow-y: hidden;
   padding-right: 20px;
-  padding-bottom: 30px;
-  margin-top: 60px;
-  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
+  padding-bottom: 100px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease;
 }
 
 .menu:hover {
-  overflow-y: scroll; /* Show scrollbar on hover */
+  overflow-y: scroll;
 }
 
-/* Custom scrollbar styles for WebKit browsers */
 .menu::-webkit-scrollbar {
-  padding-left: 20px;
-  width: 10px; /* Width of the scrollbar */
+  width: 15px;
 }
 
 .menu::-webkit-scrollbar-track {
-  background: var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
+  background: var(--bg);
+  border-radius: 10px;
 }
 
 .menu::-webkit-scrollbar-thumb {
-  background-color: var(--softBg); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
+  background-color: var(--softBg);
+  border-radius: 10px;
 }
 
 .menu::-webkit-scrollbar-thumb:hover {
-  background: var(--softBg); /* Color of the scrollbar thumb on hover */
+  background: var(--softBg);
 }
 
 /* Main content styles */
 .mainContent {
-  margin: 0 auto; /* Center the entire container */
-  max-width: 1350px;  
-  padding-left: 250px; /* Adjust padding to accommodate the fixed menu */
-  flex: 1; /* Allow mainContent to take up the remaining space */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-y: auto; /* Allow scrolling for long content */
-}
-
-.cardList {
-  flex: 1; /* Allow the CardList to grow and shrink based on available space */
-  min-width: 0; /* Prevent the card from growing beyond its container */
-  max-width: 100%; /* Ensures it doesn’t exceed the container width */
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  margin-top: 65px;
   flex: 1;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-left: 5%; /* Default padding when sidebar is visible */
 }
 
 /* Text container styles */
@@ -82,6 +54,8 @@
   flex: 1;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
+
+
 
 .title {
   font-size: 18px; /* Reduced size */
@@ -126,17 +100,23 @@
 /* Image container styles */
 .imageContainer {
   flex: 1;
-  height: 450px;
+  height: 350px;
   position: relative;
 }
 
 .image {
-  padding-bottom: 0.5%;
+  padding-top: 0.5%;
   border-radius: 15px;
   object-fit: cover;
 }
 
 /* Content styles */
+.content {
+  display: flex;
+  gap: 50px;
+  padding-left: 250px; /* Default padding when sidebar is visible */
+}
+
 .post {
   flex: 5;
   margin-top: 40px;
@@ -188,14 +168,18 @@
   .description p {
     font-size: 15px;
   }
+  
 }
+
+
+
 
 @media screen and (max-width: 720px) {
   .title {
     font-size: 17px;
   }
   .description p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .textContainer, .content {
@@ -210,6 +194,7 @@
     padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
+
 
 @media screen and (max-width: 640px) {
   .post {
@@ -247,25 +232,4 @@
   .user {
     gap: 0; /* Remove gap */
   }
-}
-
-/* Trending styles */
-.trendingWrapper {
-  position: fixed; /* Or absolute, depending on the desired behavior */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1001; /* Ensure it is on top of other content */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hidden {
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
 }
