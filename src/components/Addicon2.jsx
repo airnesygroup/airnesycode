@@ -4,6 +4,9 @@ import Modal from "./ParentComponent";
 import WritePage from "./write/page";
 import { useSession } from "next-auth/react"; // Import useSession
 import styles from "./AddIcon2.module.css";
+import { 
+  Add
+} from "@mui/icons-material";
 
 const AddIcon2 = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -18,9 +21,18 @@ const AddIcon2 = () => {
 
   return (
     <>
-      <button className={styles.shareButton} onClick={handleComponentClick}>
-        Post now
+
+
+<button
+      className={styles.addButton}   onClick={handleComponentClick}>
+        
+        <Add className={styles.icon} fontSize="medium" />
+        <span className={styles.buttonText2}> Create a post</span>
       </button>
+      
+     
+
+
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />
