@@ -113,7 +113,13 @@
 
 /* Textarea placeholder styles */
 .editor .ql-editor::before {
-  font-size: 14px; /* Adjust this value to make the placeholder smaller */
+  font-size: 10px; /* Adjust this value to make the placeholder smaller */
+}
+/* If you're using the Quill's placeholder class */
+.ql-toolbar .ql-container.ql-snow .ql-editor:empty::before {
+  content: attr(data-placeholder); /* Make sure the placeholder is set */
+  font-size: 10px; /* Adjust this value to make the placeholder smaller */
+  line-height: 1.4; /* Optional: Adjust line height */
 }
 
 /* File upload label styles */
