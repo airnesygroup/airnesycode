@@ -50,8 +50,7 @@ const SinglePage = async ({ params }) => {
 
 
 
-      <div className={styles.containeria}>
-   0
+    
 
       <div className={styles.mainContentia}>
         <div className={styles.contentia}>
@@ -90,12 +89,10 @@ const SinglePage = async ({ params }) => {
           <Menu />
         </div>
       </div>
-    </div>
 
 
 
 
-        <Menu />
       </div>
     </div>
   </div>
