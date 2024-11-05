@@ -45,7 +45,7 @@ const SinglePage = async ({ params }) => {
     <div className={styles.mainContent}>
 
 
-      <div className={styles.content1}>
+      <div className={styles.content3}>
 
 
 
