@@ -1,133 +1,127 @@
-.container {
+/* Container styles */
+.containeria {
   display: flex;
   flex-wrap: nowrap;
-  margin-right: auto;
-  position: relative; /* Keeps the layout flexible */
 }
 
-.menu {
+/* Menu styles */
+.menulia {
   position: fixed;
   width: 250px;
-  border-right: 1px solid var(--softTextColor3);
-  max-height: 89vh; /* Full height */
+  max-height: 89vh;
   z-index: 1009;
-  overflow-y: hidden; /* Scrollable content */
+  overflow-y: hidden;
   padding-right: 20px;
-  padding-bottom: 30px;
-  margin-top: 60px;
-  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
+  padding-bottom: 100px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease;
 }
 
-.menu:hover {
-  overflow-y: scroll; /* Show scrollbar on hover */
+.menulia:hover {
+  overflow-y: scroll;
 }
 
-/* Custom scrollbar styles for WebKit browsers */
-.menu::-webkit-scrollbar {
-  padding-left: 20px;
-  width: 10px; /* Width of the scrollbar */
+.menulia::-webkit-scrollbar {
+  width: 15px;
 }
 
-.menu::-webkit-scrollbar-track {
-  background: var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
+.menulia::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 10px;
 }
 
-.menu::-webkit-scrollbar-thumb {
-  background-color: var(--softBg); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
+.menulia::-webkit-scrollbar-thumb {
+  background-color: var(--softBg);
+  border-radius: 10px;
 }
 
-.menu::-webkit-scrollbar-thumb:hover {
-  background: var(--softBg); /* Color of the scrollbar thumb on hover */
+.menulia::-webkit-scrollbar-thumb:hover {
+  background: var(--softBg);
 }
 
-.mainContent {
-  margin: 0 auto; /* Center the entire container */
-  max-width: 1350px;  
-  padding-left: calc(250px + 1.5%);
-  flex: 1; /* Allow mainContent to take up the remaining space */
+/* Main content styles */
+.mainContentia {
+  margin-top: 65px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-y: auto; /* Allow scrolling for long content */
+  overflow-y: auto;
+  padding-left: 5%; /* Default padding when sidebar is visible */
 }
 
-.content1 {
-  display: flex;
-  gap: 20px;
-  padding-left: 1.5%;
-}
-
-.contentia {
-  display: flex;
-  gap: 50px;
+/* Text container styles */
+.textContaineria {
+  flex: 1;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-.post {
-  flex: 5;
-  margin-top: 40px;
-}
-
-.title {
+.titleia {
   font-size: 18px; /* Reduced size */
   padding-bottom: 20px;
+  padding-top: 0;
 }
 
-.user {
+.useria {
   display: flex;
   align-items: center;
   gap: 10px; /* Reduced gap */
   padding-bottom: 10px;
 }
 
-.userImageContainer {
+.userImageContaineria {
   width: 30px; /* Reduced size */
   height: 30px; /* Reduced size */
   position: relative;
 }
 
-.avatar {
+.avataria {
   border-radius: 50%;
   object-fit: cover;
 }
 
-.userTextContainer {
+.userTextContaineria {
   display: flex;
   flex-direction: column;
   gap: 2px; /* Reduced gap */
   color: var(--softTextColor);
 }
 
-.username {
+.usernameia {
   font-size: 16px; /* Reduced size */
   font-weight: 500;
 }
 
-.date {
+.dateia {
   font-size: 12px; /* Reduced size */
 }
 
 /* Image container styles */
-.imageContainer {
+.imageContaineria {
   flex: 1;
   height: 350px;
   position: relative;
 }
 
-.image {
+.imageia {
   padding-top: 0.5%;
   border-radius: 15px;
   object-fit: cover;
 }
 
-/* Description */
-.description {
-  margin-top: 20px;
+/* Content styles */
+.contentia {
+  display: flex;
+  gap: 50px;
+  padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-.description p {
+.postia {
+  flex: 5;
+  margin-top: 40px;
+}
+
+/* Description */
+.descriptionia p {
   font-size: 16px; /* Reduced size */
   font-weight: 300;
   margin-bottom: 15px;
@@ -135,58 +129,100 @@
   overflow-wrap: break-word;
 }
 
-.description img {
+/* Description Images */
+.descriptionia img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.description a {
+.descriptionia a {
   color: rgb(12, 34, 158);
 }
 
 /* Responsive text sizes */
+@media screen and (max-width: 1536px) {
+  .titleia {
+    font-size: 22px;
+  }
+  .descriptionia p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .titleia {
+    font-size: 20px;
+  }
+  .descriptionia p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .titleia {
+    font-size: 18px;
+  }
+  .descriptionia p {
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 720px) {
-  .menu {
-    display: none;
+  .titleia {
+    font-size: 17px;
+  }
+  .descriptionia p {
+    font-size: 14px;
   }
 
-  .mainContent {
-    margin-left: 0; /* Ensure no margin is applied */
-    padding-left: 0; /* Ensure no padding is applied */
+  .textContaineria, .contentia {
+    padding-left: 0; /* Remove padding */
   }
 
-  .content1 {
-    padding-left: 0; /* Ensure no padding is applied */
-    margin-left: 0; /* Ensure no margin is applied */
+  .menulia {
+    display: none; /* Hide menu on small screens */
+  }
+
+  .mainContentia {
+    padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
 
 @media screen and (max-width: 640px) {
-  .post {
+  .postia {
     margin-top: 20px;
   }
-  .title {
+  .titleia {
     font-size: 14px; /* Further reduced size */
   }
-  .description p {
+  .descriptionia p {
     font-size: 12px; /* Further reduced size */
   }
 
-  .user {
+  .useria {
     padding-bottom: 5px; /* Reduced padding */
   }
 
-  .userImageContainer {
+  .userImageContaineria {
     width: 20px; /* Further reduced size */
     height: 20px; /* Further reduced size */
   }
 
-  .username {
+  .usernameia {
     font-size: 12px; /* Further reduced size */
   }
 
-  .date {
+  .dateia {
     font-size: 10px; /* Further reduced size */
+  }
+
+  .textContaineria, .contentia {
+    padding-left: 0; /* Remove padding */
+  }
+
+  /* Remove space between image and title on small screens */
+  .useria {
+    gap: 0; /* Remove gap */
   }
 }
