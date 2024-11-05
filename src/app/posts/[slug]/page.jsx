@@ -52,19 +52,18 @@ const SinglePage = async ({ params }) => {
 
     
 
-      <div className={styles.mainContentia}>
         <div className={styles.contentia}>
           <div className={styles.postia}>
             
        
-          <div className={styles.textContainer}>
+            <div className={styles.textContainer}>
      
-     {data?.img && (
-       <div className={styles.imageContaineria}>
-         <Image src={data.img} alt="" fill className={styles.imageia} />
-       </div>
-     )}
-   </div>
+             {data?.img && (
+              <div className={styles.imageContaineria}>
+             <Image src={data.img} alt="" fill className={styles.imageia} />
+             </div>
+             )}
+             </div>
             <h1 className={styles.titleia}>{data?.title}</h1>
             <div className={styles.useria}>
               {data?.user?.image && (
@@ -88,7 +87,6 @@ const SinglePage = async ({ params }) => {
           </div>
           <Menu />
         </div>
-      </div>
 
 
 
