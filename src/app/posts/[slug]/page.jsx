@@ -22,6 +22,18 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
+
+
+    <div className={styles.container}>
+
+    <div className={styles.menu}>
+      <SidebarCategoryList />
+    </div>
+    <div className={styles.mainContent}>
+
+
+      <div className={styles.content1}>
+       
     <div className={styles.containeria}>
       <Navbar />
       <div className={styles.menulia}>
@@ -56,12 +68,18 @@ const SinglePage = async ({ params }) => {
               <Comments postSlug={slug} />
             </div>
           </div>
-          <Menu />
         </div>
         </div>
 
         </div>
         </div>
+
+
+        <Menu />
+      </div>
+    </div>
+  </div>
+
 
   );
 };
