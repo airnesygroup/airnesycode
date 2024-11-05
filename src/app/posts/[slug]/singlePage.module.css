@@ -1,11 +1,11 @@
 /* Container styles */
-.container {
+.containeria {
   display: flex;
   flex-wrap: nowrap;
 }
 
 /* Menu styles */
-.menu {
+.menulia {
   position: fixed;
   width: 250px;
   max-height: 89vh;
@@ -17,30 +17,30 @@
   transition: overflow 0.3s ease;
 }
 
-.menu:hover {
+.menulia:hover {
   overflow-y: scroll;
 }
 
-.menu::-webkit-scrollbar {
+.menulia::-webkit-scrollbar {
   width: 15px;
 }
 
-.menu::-webkit-scrollbar-track {
+.menulia::-webkit-scrollbar-track {
   background: var(--bg);
   border-radius: 10px;
 }
 
-.menu::-webkit-scrollbar-thumb {
+.menulia::-webkit-scrollbar-thumb {
   background-color: var(--softBg);
   border-radius: 10px;
 }
 
-.menu::-webkit-scrollbar-thumb:hover {
+.menulia::-webkit-scrollbar-thumb:hover {
   background: var(--softBg);
 }
 
 /* Main content styles */
-.mainContent {
+.mainContentia {
   margin-top: 65px;
   flex: 1;
   display: flex;
@@ -50,80 +50,78 @@
 }
 
 /* Text container styles */
-.textContainer {
+.textContaineria {
   flex: 1;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-
-
-.title {
+.titleia {
   font-size: 18px; /* Reduced size */
   padding-bottom: 20px;
   padding-top: 0;
 }
 
-.user {
+.useria {
   display: flex;
   align-items: center;
   gap: 10px; /* Reduced gap */
   padding-bottom: 10px;
 }
 
-.userImageContainer {
+.userImageContaineria {
   width: 30px; /* Reduced size */
   height: 30px; /* Reduced size */
   position: relative;
 }
 
-.avatar {
+.avataria {
   border-radius: 50%;
   object-fit: cover;
 }
 
-.userTextContainer {
+.userTextContaineria {
   display: flex;
   flex-direction: column;
   gap: 2px; /* Reduced gap */
   color: var(--softTextColor);
 }
 
-.username {
+.usernameia {
   font-size: 16px; /* Reduced size */
   font-weight: 500;
 }
 
-.date {
+.dateia {
   font-size: 12px; /* Reduced size */
 }
 
 /* Image container styles */
-.imageContainer {
+.imageContaineria {
   flex: 1;
   height: 350px;
   position: relative;
 }
 
-.image {
+.imageia {
   padding-top: 0.5%;
   border-radius: 15px;
   object-fit: cover;
 }
 
 /* Content styles */
-.content {
+.contentia {
   display: flex;
   gap: 50px;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-.post {
+.postia {
   flex: 5;
   margin-top: 40px;
 }
 
 /* Description */
-.description p {
+.descriptionia p {
   font-size: 16px; /* Reduced size */
   font-weight: 300;
   margin-bottom: 15px;
@@ -132,104 +130,99 @@
 }
 
 /* Description Images */
-.description img {
+.descriptionia img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.description a {
+.descriptionia a {
   color: rgb(12, 34, 158);
 }
 
 /* Responsive text sizes */
 @media screen and (max-width: 1536px) {
-  .title {
+  .titleia {
     font-size: 22px;
   }
-  .description p {
+  .descriptionia p {
     font-size: 17px;
   }
 }
 
 @media screen and (max-width: 1280px) {
-  .title {
+  .titleia {
     font-size: 20px;
   }
-  .description p {
+  .descriptionia p {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .title {
+  .titleia {
     font-size: 18px;
   }
-  .description p {
+  .descriptionia p {
     font-size: 15px;
   }
-  
 }
 
-
-
-
 @media screen and (max-width: 720px) {
-  .title {
+  .titleia {
     font-size: 17px;
   }
-  .description p {
+  .descriptionia p {
     font-size: 14px;
   }
 
-  .textContainer, .content {
+  .textContaineria, .contentia {
     padding-left: 0; /* Remove padding */
   }
 
-  .menu {
+  .menulia {
     display: none; /* Hide menu on small screens */
   }
 
-  .mainContent {
+  .mainContentia {
     padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
 
-
 @media screen and (max-width: 640px) {
-  .post {
+  .postia {
     margin-top: 20px;
   }
-  .title {
+  .titleia {
     font-size: 14px; /* Further reduced size */
   }
-  .description p {
+  .descriptionia p {
     font-size: 12px; /* Further reduced size */
   }
 
-  .user {
+  .useria {
     padding-bottom: 5px; /* Reduced padding */
   }
 
-  .userImageContainer {
+  .userImageContaineria {
     width: 20px; /* Further reduced size */
     height: 20px; /* Further reduced size */
   }
 
-  .username {
+  .usernameia {
     font-size: 12px; /* Further reduced size */
   }
 
-  .date {
+  .dateia {
     font-size: 10px; /* Further reduced size */
   }
 
-  .textContainer, .content {
+  .textContaineria, .contentia {
     padding-left: 0; /* Remove padding */
   }
 
   /* Remove space between image and title on small screens */
-  .user {
+  .useria {
     gap: 0; /* Remove gap */
   }
 }
