@@ -28,14 +28,6 @@
   background: var(--softBg);
 }
 
-/* Main content styles */
-.mainContentia {
-  margin-top: 65px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
 
 /* Text container styles */
 .textContaineria {
@@ -90,7 +82,7 @@
 }
 
 .imageia {
-  padding-bottom: 0.5%;
+  padding-bottom: 0.1%;
   border-radius: 15px;
   object-fit: cover;
 }
@@ -104,7 +96,6 @@
 
 .postia {
   flex: 5;
-  margin-top: 40px;
 }
 
 /* Description */
