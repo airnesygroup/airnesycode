@@ -4,18 +4,7 @@
   flex-wrap: nowrap;
 }
 
-/* Menu styles */
-.menulia {
-  position: fixed;
-  width: 250px;
-  max-height: 89vh;
-  z-index: 1009;
-  overflow-y: hidden;
-  padding-right: 20px;
-  padding-bottom: 100px;
-  margin-top: 65px;
-  transition: overflow 0.3s ease;
-}
+
 
 .menulia:hover {
   overflow-y: scroll;
@@ -110,7 +99,7 @@
 .contentia {
   display: flex;
   gap: 50px;
-  padding-left: 250px; /* Default padding when sidebar is visible */
+  padding-top: 55px;
 }
 
 .postia {
