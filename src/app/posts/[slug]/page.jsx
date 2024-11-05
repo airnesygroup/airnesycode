@@ -73,7 +73,7 @@ const SinglePage = async ({ params }) => {
               )}
               <div className={styles.userTextContaineria}>
                 <span className={styles.usernameia}>{data?.user.name}</span>
-                <span className={styles.dateia}>{data?.date || '01.01.2024'}</span>
+                <span className={styles.dateia}>{data?.date || '01.1.2024'}</span>
               </div>
             </div>
 
