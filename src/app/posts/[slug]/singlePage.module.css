@@ -159,6 +159,11 @@
     padding-left: 0; /* Remove padding */
   }
 
+  .navbar {
+    display: none; /* Hide menu on small screens */
+  }
+
+
   .menulia {
     display: none; /* Hide menu on small screens */
   }
