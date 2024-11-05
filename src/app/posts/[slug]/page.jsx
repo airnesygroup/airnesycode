@@ -32,12 +32,25 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
-    <div className={styles.containeria}>
-      <Navbar />
 
-      <div className={styles.menulia}>
-        <SidebarCategoryList />
-      </div>
+
+
+    <div className={styles.container}>
+
+   <Navbar />
+
+    <div className={styles.menu}>
+      <SidebarCategoryList />
+    </div>
+    <div className={styles.mainContent}>
+
+
+      <div className={styles.content1}>
+
+
+      <div className={styles.containeria}>
+
+     
 
       <div className={styles.mainContentia}>
         <div className={styles.contentia}>
@@ -47,7 +60,7 @@ const SinglePage = async ({ params }) => {
           <div className={styles.textContainer}>
      
      {data?.img && (
-       <div className={styles.imageContainer}>
+       <div className={styles.imageContaineria}>
          <Image src={data.img} alt="" fill className={styles.image} />
        </div>
      )}
@@ -77,6 +90,14 @@ const SinglePage = async ({ params }) => {
         </div>
       </div>
     </div>
+
+        <Menu />
+      </div>
+      <Footer />
+    </div>
+  </div>
+
+
   );
 };
 
