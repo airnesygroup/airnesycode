@@ -4,7 +4,18 @@
   flex-wrap: nowrap;
 }
 
-
+/* Menu styles */
+.menulia {
+  position: fixed;
+  width: 250px;
+  max-height: 89vh;
+  z-index: 1009;
+  overflow-y: hidden;
+  padding-right: 20px;
+  padding-bottom: 100px;
+  margin-top: 65px;
+  transition: overflow 0.3s ease;
+}
 
 .menulia:hover {
   overflow-y: scroll;
@@ -28,6 +39,14 @@
   background: var(--softBg);
 }
 
+/* Main content styles */
+.mainContentia {
+  margin-top: 65px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
 
 /* Text container styles */
 .textContaineria {
@@ -77,12 +96,12 @@
 /* Image container styles */
 .imageContaineria {
   flex: 1;
-  height: 400px;
+  height: 350px;
   position: relative;
 }
 
 .imageia {
-  padding-bottom: 1%;
+  padding-top: 0.5%;
   border-radius: 15px;
   object-fit: cover;
 }
@@ -91,12 +110,12 @@
 .contentia {
   display: flex;
   gap: 50px;
-  padding-top: 55px;
+  padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
 .postia {
   flex: 5;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 /* Description */
@@ -149,7 +168,7 @@
 
 @media screen and (max-width: 720px) {
   .titleia {
-    font-size: 15px;
+    font-size: 17px;
   }
   .descriptionia p {
     font-size: 14px;
@@ -167,6 +186,46 @@
     padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
+
+@media screen and (max-width: 640px) {
+  .postia {
+    margin-top: 20px;
+  }
+  .titleia {
+    font-size: 14px; /* Further reduced size */
+  }
+  .descriptionia p {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .useria {
+    padding-bottom: 5px; /* Reduced padding */
+  }
+
+  .userImageContaineria {
+    width: 20px; /* Further reduced size */
+    height: 20px; /* Further reduced size */
+  }
+
+  .usernameia {
+    font-size: 12px; /* Further reduced size */
+  }
+
+  .dateia {
+    font-size: 10px; /* Further reduced size */
+  }
+
+  .textContaineria, .contentia {
+    padding-left: 0; /* Remove padding */
+  }
+
+  /* Remove space between image and title on small screens */
+  .useria {
+    gap: 0; /* Remove gap */
+  }
+}
+
+
 
 
 
