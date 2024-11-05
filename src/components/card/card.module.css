@@ -240,7 +240,7 @@
 }
 
 
-@media (max-width: 7250px) {
+@media (max-width: 720px) {
   .container {
     display: flex;
     flex-direction: row;
