@@ -58,8 +58,11 @@ const SinglePage = async ({ params }) => {
           </div>
           <Menu />
         </div>
-      </div>
-    </div>
+        </div>
+
+        </div>
+        </div>
+
   );
 };
 
