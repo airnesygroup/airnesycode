@@ -157,7 +157,7 @@
 
 @media screen and (max-width: 720px) {
   .titleia {
-    font-size: 17px;
+    font-size: 15px;
   }
   .descriptionia p {
     font-size: 14px;
@@ -175,46 +175,6 @@
     padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
-
-@media screen and (max-width: 640px) {
-  .postia {
-    margin-top: 20px;
-  }
-  .titleia {
-    font-size: 14px; /* Further reduced size */
-  }
-  .descriptionia p {
-    font-size: 12px; /* Further reduced size */
-  }
-
-  .useria {
-    padding-bottom: 5px; /* Reduced padding */
-  }
-
-  .userImageContaineria {
-    width: 20px; /* Further reduced size */
-    height: 20px; /* Further reduced size */
-  }
-
-  .usernameia {
-    font-size: 12px; /* Further reduced size */
-  }
-
-  .dateia {
-    font-size: 10px; /* Further reduced size */
-  }
-
-  .textContaineria, .contentia {
-    padding-left: 0; /* Remove padding */
-  }
-
-  /* Remove space between image and title on small screens */
-  .useria {
-    gap: 0; /* Remove gap */
-  }
-}
-
-
 
 
 
