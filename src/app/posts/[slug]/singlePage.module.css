@@ -46,13 +46,11 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-left: 5%; /* Default padding when sidebar is visible */
 }
 
 /* Text container styles */
 .textContaineria {
   flex: 1;
-  padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
 .titleia {
