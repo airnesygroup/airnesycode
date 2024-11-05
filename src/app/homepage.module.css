@@ -78,7 +78,7 @@
 .mainContent {
   margin: 0 auto; /* Center the entire container */
   max-width: 1350px;  
-  padding-left: calc(250px + 1.5%);
+  padding-left: calc(250px + 0);
 
   flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
