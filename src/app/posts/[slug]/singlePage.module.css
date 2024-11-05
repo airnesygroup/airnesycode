@@ -1,11 +1,11 @@
 /* Container styles */
-.containeria {
+.container {
   display: flex;
   flex-wrap: nowrap;
 }
 
 /* Menu styles */
-.menulia {
+.menu {
   position: fixed;
   width: 250px;
   max-height: 89vh;
@@ -17,30 +17,30 @@
   transition: overflow 0.3s ease;
 }
 
-.menulia:hover {
+.menu:hover {
   overflow-y: scroll;
 }
 
-.menulia::-webkit-scrollbar {
+.menu::-webkit-scrollbar {
   width: 15px;
 }
 
-.menulia::-webkit-scrollbar-track {
+.menu::-webkit-scrollbar-track {
   background: var(--bg);
   border-radius: 10px;
 }
 
-.menulia::-webkit-scrollbar-thumb {
+.menu::-webkit-scrollbar-thumb {
   background-color: var(--softBg);
   border-radius: 10px;
 }
 
-.menulia::-webkit-scrollbar-thumb:hover {
+.menu::-webkit-scrollbar-thumb:hover {
   background: var(--softBg);
 }
 
 /* Main content styles */
-.mainContentia {
+.mainContent {
   margin-top: 65px;
   flex: 1;
   display: flex;
@@ -50,78 +50,80 @@
 }
 
 /* Text container styles */
-.textContaineria {
+.textContainer {
   flex: 1;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-.titleia {
+
+
+.title {
   font-size: 18px; /* Reduced size */
   padding-bottom: 20px;
   padding-top: 0;
 }
 
-.useria {
+.user {
   display: flex;
   align-items: center;
   gap: 10px; /* Reduced gap */
   padding-bottom: 10px;
 }
 
-.userImageContaineria {
+.userImageContainer {
   width: 30px; /* Reduced size */
   height: 30px; /* Reduced size */
   position: relative;
 }
 
-.avataria {
+.avatar {
   border-radius: 50%;
   object-fit: cover;
 }
 
-.userTextContaineria {
+.userTextContainer {
   display: flex;
   flex-direction: column;
   gap: 2px; /* Reduced gap */
   color: var(--softTextColor);
 }
 
-.usernameia {
+.username {
   font-size: 16px; /* Reduced size */
   font-weight: 500;
 }
 
-.dateia {
+.date {
   font-size: 12px; /* Reduced size */
 }
 
 /* Image container styles */
-.imageContaineria {
+.imageContainer {
   flex: 1;
   height: 350px;
   position: relative;
 }
 
-.imageia {
+.image {
   padding-top: 0.5%;
   border-radius: 15px;
   object-fit: cover;
 }
 
 /* Content styles */
-.contentia {
+.content {
   display: flex;
   gap: 50px;
   padding-left: 250px; /* Default padding when sidebar is visible */
 }
 
-.postia {
+.post {
   flex: 5;
   margin-top: 40px;
 }
 
 /* Description */
-.descriptionia p {
+.description p {
   font-size: 16px; /* Reduced size */
   font-weight: 300;
   margin-bottom: 15px;
@@ -130,256 +132,104 @@
 }
 
 /* Description Images */
-.descriptionia img {
+.description img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-.descriptionia a {
+.description a {
   color: rgb(12, 34, 158);
 }
 
 /* Responsive text sizes */
 @media screen and (max-width: 1536px) {
-  .titleia {
+  .title {
     font-size: 22px;
   }
-  .descriptionia p {
+  .description p {
     font-size: 17px;
   }
 }
 
 @media screen and (max-width: 1280px) {
-  .titleia {
+  .title {
     font-size: 20px;
   }
-  .descriptionia p {
+  .description p {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .titleia {
+  .title {
     font-size: 18px;
   }
-  .descriptionia p {
+  .description p {
     font-size: 15px;
   }
+  
 }
 
+
+
+
 @media screen and (max-width: 720px) {
-  .titleia {
+  .title {
     font-size: 17px;
   }
-  .descriptionia p {
+  .description p {
     font-size: 14px;
   }
 
-  .textContaineria, .contentia {
+  .textContainer, .content {
     padding-left: 0; /* Remove padding */
   }
 
-  .menulia {
+  .menu {
     display: none; /* Hide menu on small screens */
   }
 
-  .mainContentia {
+  .mainContent {
     padding-left: 0; /* Remove padding when menu is hidden */
   }
 }
 
+
 @media screen and (max-width: 640px) {
-  .postia {
+  .post {
     margin-top: 20px;
   }
-  .titleia {
+  .title {
     font-size: 14px; /* Further reduced size */
   }
-  .descriptionia p {
+  .description p {
     font-size: 12px; /* Further reduced size */
   }
 
-  .useria {
+  .user {
     padding-bottom: 5px; /* Reduced padding */
   }
 
-  .userImageContaineria {
+  .userImageContainer {
     width: 20px; /* Further reduced size */
     height: 20px; /* Further reduced size */
   }
 
-  .usernameia {
+  .username {
     font-size: 12px; /* Further reduced size */
   }
 
-  .dateia {
+  .date {
     font-size: 10px; /* Further reduced size */
   }
 
-  .textContaineria, .contentia {
+  .textContainer, .content {
     padding-left: 0; /* Remove padding */
   }
 
   /* Remove space between image and title on small screens */
-  .useria {
+  .user {
     gap: 0; /* Remove gap */
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.content1{
-  display: flex;
-  gap: 20px;
-  padding-left: 1.5%;
-}
-/* homepage.module.css */
-
-.container {
-  display: flex;
-  flex-wrap: nowrap;
-  margin-right: auto;
-  position: relative; /* Keeps the layout flexible */
-}
-
-
-/* src/app/homepage.module.css */
-.trendingWrapper {
-  position: fixed; /* Or absolute, depending on the desired behavior */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1001; /* Ensure it is on top of other content */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hidden {
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
-}
-
-
-/* Hide scrollbar by default */
-.menu {
-  position: fixed;
-  width: 250px;
-  border-right:  1px solid var(--softTextColor3);
-  max-height: 89vh; /* Full height */
-  z-index: 1009;
-  overflow-y: hidden; /* Scrollable content */
-  padding-right: 20px;
-  padding-bottom: 30px;
-  margin-top: 60px;
-  transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
-}
-
-.menu:hover {
-
-  overflow-y: scroll; /* Show scrollbar on hover */
-
-}
-
-/* Custom scrollbar styles for WebKit browsers */
-.menu::-webkit-scrollbar {
-  padding-left: 20px;
-  width: 10px; /* Width of the scrollbar */
-}
-
-
-.menu::-webkit-scrollbar-track {
-  background:  var(--bg); /* Background of the scrollbar track */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-
-}
-
-.menu::-webkit-scrollbar-thumb {
-  background-color:  var(--softBg);/* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-.menu::-webkit-scrollbar-thumb:hover {
-  background:var(--softBg); /* Color of the scrollbar thumb on hover */
-}
-
-/* Keep existing styles for the mainContent and media queries */
-.mainContent {
-  margin: 0 auto; /* Center the entire container */
-  max-width: 1350px;  
-  padding-left: calc(250px + 1.5%);
-
-  flex: 1; /* Allow mainContent to take up the remaining space */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-y: auto; /* Allow scrolling for long content */
-}
-
-
-.cardList {
-  flex: 1; /* Allow the CardList to grow and shrink based on available space */
-  min-width: 0; /* Prevent the card from growing beyond its container */
-  max-width: 100%; /* Ensures it doesn’t exceed the container width */
-}
-
-
-@media screen and (max-width: 1024px) {
-  .menu {
-    width: 250px; /* Adjust this width as needed */
-  }
-
- 
-}
-
-
-
-@media screen and (max-width: 720px) {
-  .menu {
-    display: none;
-  }
-
-  .mainContent {
-    margin-left: 0; /* Ensure no margin is applied */
-    padding-left: 0; /* Ensure no padding is applied */
-  }
-
-  .content1 {
-    padding-left: 0; /* Ensure no padding is applied */
-    margin-left: 0; /* Ensure no margin is applied */
-
-  }
-}
-
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  flex: 1;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  
 }

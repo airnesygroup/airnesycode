@@ -1,4 +1,7 @@
-import Menu from "@/components/Menu/Menu";
+6
+
+
+          import Menu from "@/components/Menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
@@ -19,30 +22,22 @@ const getData = async (slug) => {
 
 const SinglePage = async ({ params }) => {
   const { slug } = params;
+
   const data = await getData(slug);
 
   return (
-
-
-    <div className={styles.container}>
-
-    <div className={styles.menu}>
-      <SidebarCategoryList />
-    </div>
-    <div className={styles.mainContent}>
-
-
-      <div className={styles.content1}>
-       
     <div className={styles.containeria}>
       <Navbar />
+
       <div className={styles.menulia}>
         <SidebarCategoryList />
       </div>
+
       <div className={styles.mainContentia}>
         <div className={styles.contentia}>
           <div className={styles.postia}>
-          <div className={styles.imageContainer}>
+            
+     
           {data?.img && (
             <div className={styles.imageContainer}>
               <Image src={data.img} alt="" fill className={styles.image} />
@@ -60,6 +55,7 @@ const SinglePage = async ({ params }) => {
                 <span className={styles.dateia}>{data?.date || '01.01.2024'}</span>
               </div>
             </div>
+
             <div
               className={styles.descriptionia}
               dangerouslySetInnerHTML={{ __html: data?.desc }}
@@ -68,24 +64,11 @@ const SinglePage = async ({ params }) => {
               <Comments postSlug={slug} />
             </div>
           </div>
+          <Menu />
         </div>
-        </div>
-
-        </div>
-        </div>
-
-
-        <Menu />
       </div>
     </div>
-  </div>
-
-
   );
 };
 
 export default SinglePage;
-
-
-       
-      
