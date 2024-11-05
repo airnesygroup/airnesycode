@@ -37,7 +37,6 @@ const SinglePage = async ({ params }) => {
     <div className={styles.mainContent}>
 
 
-      <div className={styles.content1}>
 
 
 
@@ -76,7 +75,6 @@ const SinglePage = async ({ params }) => {
             <div className={styles.commentia}>
               <Comments postSlug={slug} />
             </div>
-          </div>
           <Menu />
         </div>
 
