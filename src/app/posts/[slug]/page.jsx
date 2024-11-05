@@ -1,3 +1,9 @@
+
+
+
+
+
+
 6
 
 
@@ -37,12 +43,15 @@ const SinglePage = async ({ params }) => {
         <div className={styles.contentia}>
           <div className={styles.postia}>
             
+       
+          <div className={styles.textContainer}>
      
-          {data?.img && (
-            <div className={styles.imageContainer}>
-              <Image src={data.img} alt="" fill className={styles.image} />
-            </div>
-          )}
+     {data?.img && (
+       <div className={styles.imageContainer}>
+         <Image src={data.img} alt="" fill className={styles.image} />
+       </div>
+     )}
+   </div>
             <h1 className={styles.titleia}>{data?.title}</h1>
             <div className={styles.useria}>
               {data?.user?.image && (
