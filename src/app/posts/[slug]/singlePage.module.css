@@ -82,7 +82,7 @@
 }
 
 .imageia {
-  padding-bottom: 0.1%;
+  padding-bottom: 1%;
   border-radius: 15px;
   object-fit: cover;
 }
@@ -96,6 +96,7 @@
 
 .postia {
   flex: 5;
+  margin-top: 20px;
 }
 
 /* Description */
