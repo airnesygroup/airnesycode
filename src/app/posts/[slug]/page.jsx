@@ -34,15 +34,24 @@ const SinglePage = async ({ params }) => {
   return (
 
 
+    <div className={styles.container}>
+ 
+
+   <Navbar />
+
+    <div className={styles.menu}>
+      <SidebarCategoryList />
+    </div>
+    <div className={styles.mainContent}>
 
 
-    
-    <div className={styles.containeria}>
-      <Navbar />
+      <div className={styles.content1}>
 
-      <div className={styles.menulia}>
-        <SidebarCategoryList />
-      </div>
+
+
+
+      <div className={styles.containeria}>
+   0
 
       <div className={styles.mainContentia}>
         <div className={styles.contentia}>
@@ -82,6 +91,15 @@ const SinglePage = async ({ params }) => {
         </div>
       </div>
     </div>
+
+
+
+
+        <Menu />
+      </div>
+    </div>
+  </div>
+
   );
 };
 
