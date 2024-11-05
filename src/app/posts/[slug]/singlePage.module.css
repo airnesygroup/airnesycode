@@ -149,7 +149,7 @@
 
 @media screen and (max-width: 720px) {
   .titleia {
-    font-size: 15px;
+    font-size: 14px;
   }
   .descriptionia p {
     font-size: 14px;
@@ -163,6 +163,8 @@
     display: none; /* Hide menu on small screens */
   }
 
+  .contentia {
+padding-top: 0;  }
 
   .menulia {
     display: none; /* Hide menu on small screens */
