@@ -1,4 +1,8 @@
-
+.content1{
+  display: flex;
+  gap: 20px;
+  padding-right: 1.5%;
+}
 /* homepage.module.css */
 
 .container {
@@ -78,7 +82,7 @@
 .mainContent {
   margin: 0 auto; /* Center the entire container */
   max-width: 1350px;  
-  padding-left: calc(250px + 0);
+  padding-left: calc(250px + 0.1%);
 
   flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
@@ -88,11 +92,6 @@
 }
 
 
-.cardList {
-  flex: 1; /* Allow the CardList to grow and shrink based on available space */
-  min-width: 0; /* Prevent the card from growing beyond its container */
-  max-width: 100%; /* Ensures it doesn’t exceed the container width */
-}
 
 
 @media screen and (max-width: 1024px) {
