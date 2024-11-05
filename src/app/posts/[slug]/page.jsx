@@ -35,22 +35,14 @@ const SinglePage = async ({ params }) => {
 
 
 
-    <div className={styles.container}>
 
-   <Navbar />
+    
+    <div className={styles.containeria}>
+      <Navbar />
 
-    <div className={styles.menu}>
-      <SidebarCategoryList />
-    </div>
-    <div className={styles.mainContent}>
-
-
-      <div className={styles.content1}>
-
-
-      <div className={styles.containeria}>
-
-     
+      <div className={styles.menulia}>
+        <SidebarCategoryList />
+      </div>
 
       <div className={styles.mainContentia}>
         <div className={styles.contentia}>
@@ -61,7 +53,7 @@ const SinglePage = async ({ params }) => {
      
      {data?.img && (
        <div className={styles.imageContaineria}>
-         <Image src={data.img} alt="" fill className={styles.image} />
+         <Image src={data.img} alt="" fill className={styles.imageia} />
        </div>
      )}
    </div>
@@ -74,7 +66,7 @@ const SinglePage = async ({ params }) => {
               )}
               <div className={styles.userTextContaineria}>
                 <span className={styles.usernameia}>{data?.user.name}</span>
-                <span className={styles.dateia}>{data?.date || '01.0.2024'}</span>
+                <span className={styles.dateia}>{data?.date || '01.01.2024'}</span>
               </div>
             </div>
 
@@ -90,14 +82,6 @@ const SinglePage = async ({ params }) => {
         </div>
       </div>
     </div>
-
-        <Menu />
-      </div>
-      <Footer />
-    </div>
-  </div>
-
-
   );
 };
 
