@@ -81,6 +81,9 @@
     flex: 0 0 auto; /* Prevents it from growing or shrinking */
   }
   
+  .burger {
+    display: flex;
+  }
 
   .addIcon {
    display: none;
@@ -98,7 +101,7 @@
 
 
   .burger {
-    display: flex;
+    display: none;
   }
 
   .responsiveMenu {
