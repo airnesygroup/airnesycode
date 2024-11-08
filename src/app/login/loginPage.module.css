@@ -96,10 +96,13 @@
   .right {
     width: 70%;
     padding: 20px;
+    top: -5%; /* Adjust upward push for signup box */
+
   }
   .left {
     width: 100%;
     padding: 20px;
+    top: -5%; /* Adjust upward push for signup box */
     height: 70%; /* Reduce height for smaller screens */
     max-height: 400px; /* Set a max height */
   }
