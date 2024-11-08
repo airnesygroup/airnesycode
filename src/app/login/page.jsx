@@ -21,10 +21,7 @@ const LoginPage = () => {
     <div className={styles.container}>
 
       <div className={styles.left}>
-      </div>
-
-      <div className={styles.right}>
-        <h2 className={styles.rightText}>{isSignUp ? "Sign in" : "Sign up"}</h2>
+      <h2 className={styles.rightText}>{isSignUp ? "Sign in" : "Sign up"}</h2>
         <div
           className={styles.socialButton}
           onClick={() => signIn("google")}
@@ -56,6 +53,9 @@ const LoginPage = () => {
           <a href="/privacy" className={styles.link}>Privacy Policy</a>.
         </div>
       </div>
+      </div>
+
+   
 
     </div>
   );
