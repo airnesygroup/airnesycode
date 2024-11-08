@@ -10,10 +10,10 @@
   background-image: url('../../../public/bg.image'); /* Adjust the path as necessary */
   background-size: cover;
   background-position: center;
-  width: 80%; /* Adjust width as needed */
-  max-width: 600px;
-  height: 80%; /* Adjust height as needed */
-  max-height: 500px;
+  width: 90%; /* Adjust width as needed */
+  max-width: 1000px;
+  height: 90%; /* Adjust height as needed */
+  max-height: 800px;
   position: absolute;
   top: 0;
   bottom: 0;
