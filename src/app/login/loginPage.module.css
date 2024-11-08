@@ -103,8 +103,8 @@
     width: 100%;
     padding: 20px;
     top: -10%; /* Adjust upward push for signup box */
-    height: 55%; /* Reduce height for smaller screens */
-    max-height: 300px; /* Set a max height */
+    height: 65%; /* Reduce height for smaller screens */
+    max-height: 350px; /* Set a max height */
   }
 
   .rightText {
