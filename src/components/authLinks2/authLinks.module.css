@@ -8,6 +8,11 @@
   font-size: 14px;
 }
 
+.div {
+  top: 55px;
+
+}
+
 
 .addIcon {
   background-color: #ff4500;
@@ -24,8 +29,9 @@
 }
 
 .burger {
-  width: 18px;
-  height: 12px;
+  width: 20px;
+  height: 15px;
+  padding-right: 10px;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;

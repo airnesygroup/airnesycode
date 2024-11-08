@@ -29,7 +29,6 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  display: none;
 }
 
 .line {

@@ -36,13 +36,8 @@ const AuthLinks2 = () => {
 
   return (
     <>
-      {status === "unauthenticated" ? (
-        <Link href="/login" className={styles.link}>
-        </Link>
-      ) : (
-        <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
-        </span>
-      )}
+    <div className="div">
+
       <div className={styles.burger} onClick={handleBurgerClick}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>
@@ -73,8 +68,9 @@ const AuthLinks2 = () => {
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />
         </Modal>
-      )}
-    </>
+      )}     </div>
+
+    </> 
   );
 };
 
