@@ -44,6 +44,7 @@
   display: flex;
   justify-content: space-between; /* Space out CardList and Menu */
   flex-direction: column; /* Stack the title and main content */
+  flex: 5;
 
 }
 
