@@ -26,7 +26,6 @@ const BlogPage = ({ searchParams }) => {
       <div className={styles.content1}>
       <div className={styles.container7}>     
   <div>
-    <h1 className={styles.title}>{cat}</h1>
   </div>
 
   <CardList page={page} cat={cat} />
