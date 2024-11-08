@@ -23,13 +23,14 @@ const BlogPage = ({ searchParams }) => {
     <div className={styles.mainContent}>
 
 
-      <div className={styles.content1}>
-    <h1 className={styles.title}>{cat}</h1>
+    <div className={styles.content1}>
+  <h1 className={styles.title}>{cat}</h1>
+  <div className={styles.mainContent5}>
+    <CardList page={page} cat={cat} />
+    <Menu />
+  </div>
+</div>
 
-  <CardList page={page} cat={cat} />
-
-        <Menu />
-      </div>
     </div>
   </div>
 
