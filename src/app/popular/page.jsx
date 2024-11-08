@@ -16,32 +16,34 @@ const PopularPage = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
 
   return (
-    <div className={styles.container}>
-      <div
-        className={styles.trendingWrapper}
-      >
-        <Trending />
-      </div>
 
-     <Navbar />
-      <AddIcon />
-
-      <div className={styles.menu}>
-        <SidebarCategoryList />
-      </div>
-      <div className={styles.mainContent}>
-        <CategoryList />
-
-        <CarouselList page={page} />
-
-        <div className={styles.content1}>
-          <CardList2 page={page} />
-
-          <Menu />
+      
+      <div className={styles.container}>
+        <div
+          className={styles.trendingWrapper}
+        >
+          <Trending />
         </div>
-        <Footer />
+  
+       <Navbar />
+        <AddIcon />
+  
+        <div className={styles.menu}>
+          <SidebarCategoryList />
+        </div>
+        <div className={styles.mainContent}>
+          <CategoryList />
+  
+          <CarouselList page={page} />
+  
+          <div className={styles.content1}>
+            <CardList2 page={page} />
+  
+            <Menu />
+          </div>
+          <Footer />
+        </div>
       </div>
-    </div>
   );
 }
 export default PopularPage;

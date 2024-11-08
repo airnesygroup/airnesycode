@@ -17,7 +17,7 @@ import AddIcon2 from "@/components/Addicon2";
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 
-9
+
     return (
       <div className={styles.container}>
         <div

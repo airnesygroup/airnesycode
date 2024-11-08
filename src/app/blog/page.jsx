@@ -10,24 +10,40 @@ const BlogPage = ({ searchParams }) => {
   const { cat } = searchParams;
 
   return (
-    <div className={styles.container}>
-              <Navbar />
-      <div className={styles.menu}>
-        <SidebarCategoryList />
-      </div>
+  <div className={styles.container}>
+ 
 
-      <div className={styles.content}>
+ <div className={styles.navbar}>
+    <Navbar />
 
-      <h1 className={styles.title}>{cat} </h1>
-      
+ </div>
+    <div className={styles.menu}>
+      <SidebarCategoryList />
+    </div>
+    <div className={styles.mainContent}>
+
+
       <div className={styles.content1}>
 
-        <CardList page={page} cat={cat}/>
-        <Menu />
-        </div>
 
+
+      <h1 className={styles.title}>{cat} </h1>
+        <CardList page={page} cat={cat}/>
+ 
+        <Menu />
       </div>
+      <Footer />
     </div>
+  </div>
+
+
+
+
+
+
+
+
+
   );
 };
 

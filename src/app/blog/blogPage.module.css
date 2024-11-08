@@ -11,38 +11,103 @@
   border-radius: 15px;
 }
 
-.content {
-  display: flex;
-  padding-top: 5px;
-  gap: 10px;
-  margin-left: 300px; /* Account for fixed menu */
-  flex: 1;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure full height */
-  overflow-y: auto; /* Scrollable content */
-  padding-left: 1%;
-  padding-bottom: 50px;
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 720px) {
+
+
+
+.title {
+  font-size: 15px; /* Reduce font size */
+  padding: 3px 8px; /* Adjust padding */
+  margin-top: 55px; /* Reduce top margin */
+}
 
 }
+
+@media screen and (max-width: 640px) {
+
+
+
+.title {
+  font-size: 15px; /* Reduce font size */
+  padding: 3px 8px; /* Adjust padding */
+  margin-top: 40px; /* Reduce top margin */
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .content1{
   display: flex;
+  gap: 20px;
   padding-left: 1.5%;
+}
+/* homepage.module.css */
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: auto;
+  position: relative; /* Keeps the layout flexible */
 }
 
 
+/* src/app/homepage.module.css */
+.trendingWrapper {
+  position: fixed; /* Or absolute, depending on the desired behavior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; /* Ensure it is on top of other content */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+
+/* Hide scrollbar by default */
 .menu {
   position: fixed;
   width: 250px;
+  border-right:  1px solid var(--softTextColor3);
   max-height: 89vh; /* Full height */
   z-index: 1009;
   overflow-y: hidden; /* Scrollable content */
   padding-right: 20px;
-padding-bottom: 30px;
-  margin-top: 65px;
+  padding-bottom: 30px;
+  margin-top: 60px;
   transition: overflow 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
+
 .menu:hover {
 
   overflow-y: scroll; /* Show scrollbar on hover */
@@ -71,14 +136,25 @@ padding-bottom: 30px;
   background:var(--softBg); /* Color of the scrollbar thumb on hover */
 }
 
+/* Keep existing styles for the mainContent and media queries */
+.mainContent {
+  margin: 0 auto; /* Center the entire container */
+  max-width: 1350px;  
+  padding-left: calc(250px + 1.5%);
+
+  flex: 1; /* Allow mainContent to take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow scrolling for long content */
+}
 
 
-
-
-
-
-
-
+.cardList {
+  flex: 1; /* Allow the CardList to grow and shrink based on available space */
+  min-width: 0; /* Prevent the card from growing beyond its container */
+  max-width: 100%; /* Ensures it doesn’t exceed the container width */
+}
 
 
 @media screen and (max-width: 1024px) {
@@ -86,9 +162,7 @@ padding-bottom: 30px;
     width: 250px; /* Adjust this width as needed */
   }
 
-  .content {
-    margin-left: 250px; /* Adjust to match menu width */
-  }
+ 
 }
 
 
@@ -98,32 +172,28 @@ padding-bottom: 30px;
     display: none;
   }
 
-  .content {
-    margin-left: 0;
-    gap: 5px;
-  }
- 
-  .content1{
-    padding-left: 0;
+  .navbar {
+    display: none; /* Hide menu on small screens */
   }
 
+  .mainContent {
+    margin-left: 0; /* Ensure no margin is applied */
+    padding-left: 0; /* Ensure no padding is applied */
+  }
 
-.title {
-  font-size: 15px; /* Reduce font size */
-  padding: 3px 8px; /* Adjust padding */
-  margin-top: 55px; /* Reduce top margin */
+  .content1 {
+    padding-left: 0; /* Ensure no padding is applied */
+    margin-left: 0; /* Ensure no margin is applied */
+
+  }
 }
 
-}
 
-@media screen and (max-width: 640px) {
-
-
-
-.title {
-  font-size: 15px; /* Reduce font size */
-  padding: 3px 8px; /* Adjust padding */
-  margin-top: 40px; /* Reduce top margin */
-}
-
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  
 }
