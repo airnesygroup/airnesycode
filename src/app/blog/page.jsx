@@ -32,16 +32,8 @@ const BlogPage = ({ searchParams }) => {
  
         <Menu />
       </div>
-      <Footer />
     </div>
   </div>
-
-
-
-
-
-
-
 
 
   );
