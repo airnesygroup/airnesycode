@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import styles from "./authLinks.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,20 @@ const AuthLinks = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { status } = useSession();
+
+  useEffect(() => {
+    if (isModalOpen) {
+      // Disable scrolling when the modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scrolling when the modal is closed
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      // Clean up by resetting the overflow when the component is unmounted
+      document.body.style.overflow = 'auto';
+    };
+  }, [isModalOpen]);
 
   const handleMenuClick = () => {
     setMenuOpen(false);
@@ -35,7 +49,6 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <>
-        
           <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
             Log out
           </span>
@@ -51,28 +64,18 @@ const AuthLinks = () => {
           <div className={styles.responsiveMenu}>
             <Link href="/" onClick={handleMenuClick}>Home</Link>
             <Link href="/popular" onClick={handleMenuClick}>Popular</Link>
-
             <Link href="/about" onClick={handleMenuClick}>About</Link>
             <Link href="/careers" onClick={handleMenuClick}>Careers</Link>
             <Link href="/agreement" onClick={handleMenuClick}>User Agreement</Link>
             <Link href="/privacy" onClick={handleMenuClick}>Privacy Policy</Link>
-
             <Link href="/about" onClick={handleMenuClick}>Contact</Link>
-
             {status === "unauthenticated" ? (
-              <Link className={styles.logout2}  href="/login" onClick={handleMenuClick}>Lo gin</Link>
+              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Log in</Link>
             ) : (
-              <>
-                <span className={styles.logout2} onClick={signOut}>
-                  Log out
-                </span>
-              </>
+              <span className={styles.logout2} onClick={signOut}>Log out</span>
             )}
           </div>
-          <div className={styles.overlay} onClick={handleMenuClick}>
-
-
-          </div>
+          <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
       )}
       {isModalOpen && (
