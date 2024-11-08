@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
 
-const AuthLinks = () => {
+const AuthLinks2 = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { status } = useSession();
@@ -38,11 +38,9 @@ const AuthLinks = () => {
     <>
       {status === "unauthenticated" ? (
         <Link href="/login" className={styles.link}>
-          Log in
         </Link>
       ) : (
         <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
-          Log out
         </span>
       )}
       <div className={styles.burger} onClick={handleBurgerClick}>
@@ -80,4 +78,4 @@ const AuthLinks = () => {
   );
 };
 
-export default AuthLinks;
+export default AuthLinks2;

@@ -4,6 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import AuthLinks from "../authLinks/AuthLinks";
+import AuthLinks2 from "../authLinks2/AuthLinks2";
 import ThemeToggle from "../themeToggle/ThemeToggle";
 import { ThemeContext } from "@/context/ThemeContext";
 import Image from "next/image";
@@ -49,6 +50,8 @@ const Navbar = () => {
    
 
       <div className={styles.wrapper}>
+      <AuthLinks2 />
+
         <Link href="/">
           <div className={styles.logo}>
             <Image src="/logo1.png" alt="hoolicon logo" layout="fill" className={styles.logoImage} />
