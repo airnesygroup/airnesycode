@@ -43,7 +43,7 @@
 
 .responsiveMenu {
   position: fixed;
-  top: 25px; /* Adjusted to start 55px from the top */
+  top: 35px; /* Adjusted to start 55px from the top */
   right: 50%;
   background-color: var(--bg);
   height: calc(120vh - 55px); /* Adjusted height to maintain proportions */
@@ -62,7 +62,7 @@
 
 .overlay {
   position: fixed;
-  top: 25px;
+  top: 35px;
   right: 0;
   width: 50%;
   height: 120vh;

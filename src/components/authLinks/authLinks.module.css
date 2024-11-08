@@ -23,7 +23,7 @@
 
 .popupMenu {
   position: fixed;
-  top: 55px; /* Positioning the popup below the dots */
+  top: 575px; /* Positioning the popup below the dots */
   right: 10px; /* Positioning it on the right side */
   background-color: var(--bg);
   border-radius: 8px;
@@ -76,7 +76,7 @@
   
   .popupMenu {
     position: fixed;
-    top: 30px; /* Positioning the popup below the dots */
+    top: 35px; /* Positioning the popup below the dots */
     padding: 20px;
     font-size: 14px;
    
