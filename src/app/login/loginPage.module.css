@@ -53,7 +53,7 @@
   margin-top: 20px;
   background-color: #ff4500;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
+}8
 
 .socialButton:hover {
   background-color: #e63e00; /* Darker shade for hover effect */
@@ -98,7 +98,7 @@
     padding: 20px;
   }
   .left {
-    width: 70%;
+    width: 100%;
     padding: 20px;
   }
 
