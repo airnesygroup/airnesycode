@@ -52,7 +52,15 @@
   cursor: pointer;
   margin-top: 20px;
   background-color: #ff4500;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.socialButton:hover {
+  background-color: #e63e00; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly scale up the button */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
 
 .socialButton img {
   margin-right: 10px;
@@ -86,7 +94,11 @@
 
 @media screen and (max-width: 768px) {
   .right {
-    width: 90%;
+    width: 70%;
+    padding: 20px;
+  }
+  .left {
+    width: 70%;
     padding: 20px;
   }
 
