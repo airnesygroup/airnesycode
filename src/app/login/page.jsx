@@ -19,9 +19,10 @@ const LoginPage = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.left}></div>
 
-      <div className={styles.left}>
-      <h2 className={styles.rightText}>{isSignUp ? "Sign in" : "Sign up"}</h2>
+      <div className={styles.right}>
+        <h2 className={styles.rightText}>{isSignUp ? "Sign in" : "Sign up"}</h2>
         <div
           className={styles.socialButton}
           onClick={() => signIn("google")}
@@ -34,29 +35,23 @@ const LoginPage = () => {
           {isSignUp ? "Sign in with Google" : "Sign up with Google"}
         </div>
         <div className={styles.toggleText} onClick={() => setIsSignUp(!isSignUp)}>
-  {isSignUp ? (
-    <>
-      Don't have an account? <span className={styles.highlight}>Sign up</span> instead.
-    </>
-  ) : (
-    <>
-      Already have an account? <span className={styles.highlight}>Sign in</span> instead.
-    </>
-  )}
-</div>
+          {isSignUp ? (
+            <>
+              Don't have an account? <span className={styles.highlight}>Sign up</span> instead.
+            </>
+          ) : (
+            <>
+              Already have an account? <span className={styles.highlight}>Sign in</span> instead.
+            </>
+          )}
+        </div>
 
-
-     
         <div className={styles.terms}>
           By signing up, you agree to the{" "}
           <a href="/terms" className={styles.link}>Terms of Service</a> and{" "}
           <a href="/privacy" className={styles.link}>Privacy Policy</a>.
         </div>
       </div>
-      </div>
-
-   
-
     </div>
   );
 };
