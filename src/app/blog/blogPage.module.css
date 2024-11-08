@@ -7,7 +7,7 @@
   font-size: 18px; /* Reduce font size */
   text-align: center;
   text-transform: capitalize;
-  margin-top: 10px;
+  margin-top: 20px;
 
   border-radius: 15px;
   flex: 5;
@@ -23,7 +23,6 @@
 .title {
   font-size: 15px; /* Reduce font size */
   padding: 3px 8px; /* Adjust padding */
-  margin-top: 55px; /* Reduce top margin */
 }
 
 }
@@ -35,7 +34,6 @@
 .title {
   font-size: 15px; /* Reduce font size */
   padding: 3px 8px; /* Adjust padding */
-  margin-top: 40px; /* Reduce top margin */
 }
 
 }

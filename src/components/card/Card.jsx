@@ -48,7 +48,7 @@ src="/verified.png"     alt="Verified"
 className={styles.verifiedIcon} 
     />
                   <span className={styles.date}>
-                  {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
+                  {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 14)}
                   </span>
 
                 </div>
