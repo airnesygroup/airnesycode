@@ -3,8 +3,6 @@ import Link from "next/link";
 import styles from "./authLinks.module.css";
 import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
 
@@ -13,19 +11,14 @@ const AuthLinks = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { status } = useSession();
 
+  // Effect to manage body overflow when the menu is open
   useEffect(() => {
-    if (isModalOpen) {
-      // Disable scrolling when the modal is open
-      document.body.style.overflow = 'hidden';
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
     } else {
-      // Re-enable scrolling when the modal is closed
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto'; // Enable scrolling
     }
-    return () => {
-      // Clean up by resetting the overflow when the component is unmounted
-      document.body.style.overflow = 'auto';
-    };
-  }, [isModalOpen]);
+  }, [isMenuOpen]);
 
   const handleMenuClick = () => {
     setMenuOpen(false);
@@ -48,11 +41,9 @@ const AuthLinks = () => {
           Log in
         </Link>
       ) : (
-        <>
-          <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
-            Log out
-          </span>
-        </>
+        <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
+          Log out
+        </span>
       )}
       <div className={styles.burger} onClick={handleBurgerClick}>
         <div className={styles.line}></div>
@@ -70,9 +61,11 @@ const AuthLinks = () => {
             <Link href="/privacy" onClick={handleMenuClick}>Privacy Policy</Link>
             <Link href="/about" onClick={handleMenuClick}>Contact</Link>
             {status === "unauthenticated" ? (
-              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Log in</Link>
+              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
             ) : (
-              <span className={styles.logout2} onClick={signOut}>Log out</span>
+              <span className={styles.logout2} onClick={signOut}>
+                Log out
+              </span>
             )}
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
