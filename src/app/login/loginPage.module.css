@@ -96,7 +96,7 @@
   .right {
     width: 70%;
     padding: 20px;
-    top: -5%; /* Adjust upward push for signup box */
+    top: -10%; /* Adjust upward push for signup box */
 
   }
   .left {
