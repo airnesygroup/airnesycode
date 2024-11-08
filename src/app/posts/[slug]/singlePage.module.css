@@ -157,7 +157,7 @@
   }
   .descriptionia p {
 
-
+    
     font-size: 14px;
   }
 
@@ -167,7 +167,8 @@
 
  
 
-  
+  .contentia {
+padding-top: 0;  }
 
   .menulia {
     display: none; /* Hide menu on small screens */
