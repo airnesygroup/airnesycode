@@ -33,6 +33,7 @@
   font-size: 15px; /* Reduce font size */
   padding: 3px 8px; /* Adjust padding */
   margin-top: 40px; /* Reduce top margin */
+  flex: 5;
 }
 
 }
