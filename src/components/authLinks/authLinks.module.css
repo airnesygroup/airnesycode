@@ -15,24 +15,24 @@
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   background-color: var(--textColor);
   border-radius: 50%;
 }
 
 .popupMenu {
   position: fixed;
-  top: 50px; /* Positioning the popup below the dots */
+  top: 55px; /* Positioning the popup below the dots */
   right: 10px; /* Positioning it on the right side */
   background-color: var(--bg);
   border-radius: 8px;
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   font-size: 18px;
-  z-index: 999;
+  z-index: 1005;
   max-height: calc(100vh - 100px); /* Limit height to wrap content */
   overflow-y: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -45,7 +45,7 @@
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 998;
+  z-index: 1004;
 }
 
 .logout {
@@ -66,11 +66,27 @@
   .addIcon {
     display: none;
   }
+
+
+  .dot {
+    width: 2px;
+    height: 2px;
+ 
+  }
+  
+  .popupMenu {
+    position: fixed;
+    top: 30px; /* Positioning the popup below the dots */
+    padding: 20px;
+    font-size: 14px;
+   
+  }
+  
 }
 
 @media screen and (max-width: 640px) {
   .link {
-    padding: 3px 5px;
+    padding: 6.5px 7px;
     font-size: 12px;
   }
 
