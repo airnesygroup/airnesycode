@@ -38,6 +38,9 @@
   font-size: 18px; /* Reduced size */
   padding-bottom: 20px;
   padding-top: 0;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+  word-break: break-word; /* Ensures long words break to the next line */
+  overflow-wrap: break-word; /* Ensures the text wraps properly within the container */
 }
 
 .useria {
@@ -104,8 +107,9 @@
   font-size: 16px; /* Reduced size */
   font-weight: 300;
   margin-bottom: 15px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  word-wrap: break-word; /* Prevents long words or URLs from overflowing */
+  word-break: break-word; /* Ensures long words break to the next line */
+  overflow-wrap: break-word; /* Ensures the text wraps properly within the container */
 }
 
 /* Description Images */
