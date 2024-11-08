@@ -22,12 +22,12 @@ const BlogPage = ({ searchParams }) => {
     </div>
     <div className={styles.mainContent}>
 
+    <h1 className={styles.title}>{cat} </h1>
 
       <div className={styles.content1}>
 
 
 
-      <h1 className={styles.title}>{cat} </h1>
         <CardList page={page} cat={cat}/>
  
         <Menu />
