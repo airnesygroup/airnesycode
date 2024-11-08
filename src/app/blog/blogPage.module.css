@@ -40,12 +40,22 @@
 }
 
 
+
+
+.menu2 {
+
+  margin-top: 65px;
+
+}
+
+
+
+
+
 .mainContent5 {
   display: flex;
-  justify-content: space-between; /* Space out CardList and Menu */
   flex-direction: column; /* Stack the title and main content */
   flex: 5;
-
 }
 
 

@@ -30,7 +30,7 @@ const BlogPage = ({ searchParams }) => {
  <CardList page={page} cat={cat} />
     </div>
 
-    <Menu />
+    <Menu  className={styles.menu2} />
 </div>
 
     </div>
