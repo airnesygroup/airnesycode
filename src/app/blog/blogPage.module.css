@@ -4,7 +4,6 @@
   background-color: #ff4500;
   color: white;
   padding: 5px 10px;
-  margin-top: 65px;
   font-size: 18px; /* Reduce font size */
   text-align: center;
   text-transform: capitalize;
@@ -42,11 +41,10 @@
 
 
 
-.menu2 {
 
-  margin-top: 65px;
 
-}
+
+
 
 
 
@@ -61,6 +59,8 @@
 
 
 .content1{
+  margin-top: 65px;
+
   display: flex;
   gap: 20px;
   padding-left: 1.5%;
@@ -188,6 +188,8 @@
   .content1 {
     padding-left: 0; /* Ensure no padding is applied */
     margin-left: 0; /* Ensure no margin is applied */
+    margin-top: 55px; /* Reduce top margin */
+
 
   }
 }

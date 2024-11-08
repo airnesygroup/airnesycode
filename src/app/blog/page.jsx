@@ -31,11 +31,9 @@ const BlogPage = ({ searchParams }) => {
     </div>
 
    
-    <div className={styles.menu2} >
 
      <Menu/>
 
-    </div>
 </div>
 
     </div>
