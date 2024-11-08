@@ -8,10 +8,7 @@
   font-size: 14px;
 }
 
-.div {
-  top: 55px;
 
-}
 
 
 .addIcon {
@@ -31,7 +28,6 @@
 .burger {
   width: 20px;
   height: 15px;
-  padding-right: 10px;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
@@ -46,7 +42,7 @@
 
 .responsiveMenu {
   position: fixed;
-  top: 0;
+  top: 55;
   right: 50%;
   background-color: var(--bg);
   height: 120vh;
@@ -64,7 +60,7 @@
 
 .overlay {
   position: fixed;
-  top: 0;
+  top: 55;
   right: 0;
   width: 50%;
   height: 120vh;

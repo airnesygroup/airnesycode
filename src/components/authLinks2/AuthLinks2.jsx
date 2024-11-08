@@ -36,7 +36,6 @@ const AuthLinks2 = () => {
 
   return (
     <>
-    <div className="div">
 
       <div className={styles.burger} onClick={handleBurgerClick}>
         <div className={styles.line}></div>
@@ -68,7 +67,7 @@ const AuthLinks2 = () => {
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />
         </Modal>
-      )}     </div>
+      )}     
 
     </> 
   );

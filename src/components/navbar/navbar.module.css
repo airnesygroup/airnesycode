@@ -200,7 +200,7 @@
 
   } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 720px) {
   .theme {
     width: 24px;
     height: 24px;
@@ -208,6 +208,8 @@
   .logo {
     width: 30px;
     height: 30px;
+    padding-left: 20px;
+
   }
 
   .logoText {
