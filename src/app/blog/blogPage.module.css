@@ -7,6 +7,8 @@
   font-size: 18px; /* Reduce font size */
   text-align: center;
   text-transform: capitalize;
+  margin-top: 10px;
+
   border-radius: 15px;
   flex: 5;
 
@@ -59,7 +61,7 @@
 
 
 .content1{
-  margin-top: 65px;
+  margin-top: 55px;
 
   display: flex;
   gap: 20px;
