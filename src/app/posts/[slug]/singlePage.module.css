@@ -163,9 +163,7 @@
     padding-left: 0; /* Remove padding */
   }
 
-  .navbar {
-    display: none; /* Hide menu on small screens */
-  }
+ 
 
   .contentia {
 padding-top: 0;  }
