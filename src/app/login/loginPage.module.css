@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 768px) {
   .right {
-    width: 50%;
+    width: 70%;
     padding: 20px;
     top: -5%; /* Adjust upward push for signup box */
 
@@ -103,7 +103,7 @@
     width: 100%;
     padding: 20px;
     top: -10%; /* Adjust upward push for signup box */
-    height: 50%; /* Reduce height for smaller screens */
+    height: 55%; /* Reduce height for smaller screens */
     max-height: 300px; /* Set a max height */
   }
 
