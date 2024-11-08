@@ -29,7 +29,7 @@ const AuthLinks = () => {
     setMenuOpen(false); // Close the menu if open
   };
 
-  const handleBurgerClick = () => {
+  const handleDotsClick = () => {
     setMenuOpen(!isMenuOpen);
     setModalOpen(false); // Close the modal if open
   };
@@ -45,14 +45,14 @@ const AuthLinks = () => {
           Log out
         </span>
       )}
-      <div className={styles.burger} onClick={handleBurgerClick}>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
-        <div className={styles.line}></div>
+      <div className={styles.dots} onClick={handleDotsClick}>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
       </div>
       {isMenuOpen && (
         <>
-          <div className={styles.responsiveMenu}>
+          <div className={styles.popupMenu}>
             <Link href="/" onClick={handleMenuClick}>Home</Link>
             <Link href="/popular" onClick={handleMenuClick}>Popular</Link>
             <Link href="/about" onClick={handleMenuClick}>About</Link>
