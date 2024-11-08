@@ -22,12 +22,15 @@
   font-weight: 100;
   cursor: pointer;
   color: var(--softTextColor); /* Adjust text color for contrast */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
   font-size: 14px;
 }
 
 .addButton:hover {
-  background-color: var(--softerzBg);
+  background-color: var(--softerBg);
+  transform: scale(1.05); /* Slightly scale up the button */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
 }
 
 .active {
