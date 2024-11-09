@@ -6,18 +6,18 @@ import { signOut, useSession } from "next-auth/react";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
 import ThemeToggle from "../themeToggle/ThemeToggle";
+import { FaUser, FaCog, FaCrown, FaSignInAlt, FaSignOutAlt, FaPlus, FaEllipsisV } from "react-icons/fa";
 
 const AuthLinks = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { status } = useSession();
 
-  // Effect to manage body overflow when the menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto'; // Enable scrolling
+      document.body.style.overflow = 'auto';
     }
   }, [isMenuOpen]);
 
@@ -27,59 +27,64 @@ const AuthLinks = () => {
 
   const handleAddIconClick = () => {
     setModalOpen(true);
-    setMenuOpen(false); // Close the menu if open
+    setMenuOpen(false);
   };
 
   const handleDotsClick = () => {
     setMenuOpen(!isMenuOpen);
-    setModalOpen(false); // Close the modal if open
+    setModalOpen(false);
   };
 
   return (
     <>
       {status === "unauthenticated" ? (
         <Link href="/login" className={styles.link}>
-          Log in
+          <FaSignInAlt className={styles.icon} /> Log in
         </Link>
       ) : (
         <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
-          Log out
+          <FaSignOutAlt className={styles.icon} /> Log out
         </span>
       )}
-      <button className={styles.button2}>
+
+      <button className={styles.button2} onClick={handleAddIconClick}>
+        <FaPlus className={styles.icon} />
+      </button>
 
       <div className={styles.dots} onClick={handleDotsClick}>
-        <div className={styles.dot}></div>
-        <div className={styles.dot}></div>
-        <div className={styles.dot}></div>
+        <FaEllipsisV className={styles.icon} />
       </div>
-      </button>
 
       {isMenuOpen && (
         <>
           <div className={styles.popupMenu}>
-          <Link href="/" onClick={handleMenuClick}>Profile</Link>
-            <Link href="/" onClick={handleMenuClick}>Settings</Link>
-            <Link href="/" onClick={handleMenuClick}>Premium</Link>
+            <Link href="/" onClick={handleMenuClick}>
+              <FaUser className={styles.icon} /> Profile
+            </Link>
+            <Link href="/" onClick={handleMenuClick}>
+              <FaCog className={styles.icon} /> Settings
+            </Link>
+            <Link href="/" onClick={handleMenuClick}>
+              <FaCrown className={styles.icon} /> Premium
+            </Link>
             {status === "unauthenticated" ? (
-              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
+              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>
+                <FaSignInAlt className={styles.icon} /> Login
+              </Link>
             ) : (
               <span className={styles.logout2} onClick={signOut}>
-                Log out
+                <FaSignOutAlt className={styles.icon} /> Log out
               </span>
             )}
-
-<div style={{ display: 'flex', alignItems: 'center' }}>
-  <span style={{ marginRight: '40px' }}>Theme</span>
-  <ThemeToggle />
-</div>
-
-
-
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ marginRight: '40px' }}>Theme</span>
+              <ThemeToggle />
+            </div>
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
       )}
+
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
           <WritePage closeModal={() => setModalOpen(false)} />

@@ -89,7 +89,7 @@
 .logoText {
   font-size: 25px;
   color: #ff4500;
-  padding-left: 49px;
+  padding-left: 40px;
 
   line-height: 1; /* Ensure text aligns properly with the logo image */
 }
@@ -168,7 +168,7 @@
 
   .logoText {
     font-size: 20px;
-    padding-left: 44px;
+    padding-left: 41px;
 
   }
   
@@ -190,11 +190,7 @@
     display: none;
   }
   
-  .logoText {
-    font-size: 20px;
-    padding-left: 39px;
-
-  } }
+ }
 
 @media screen and (max-width: 720px) {
   .theme {
