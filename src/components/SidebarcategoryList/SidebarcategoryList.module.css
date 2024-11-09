@@ -228,5 +228,21 @@ margin-top: 5px;
 }
 
 
+/* Your original styles */
+
+/* Responsive styles for screens below 720px */
+@media (max-width: 720px) {
+  .wrapper,
+  .sidebarButton,
+  .addButton,
+  .active,
+  .categoryButton,
+  .chevron,
+  .chevron2,
+  .chevron3,
+  .sectionTitle {
+    color: var(--textColor); /* Override softTextColor with textColor */
+  }
+}
 
 
