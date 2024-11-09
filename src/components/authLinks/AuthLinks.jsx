@@ -68,7 +68,7 @@ const AuthLinks = () => {
                 Log out
               </span>
             )}
-                    <ThemeToggle/>
+                    <ThemeToggle/> Theme
 
 
           </div>
