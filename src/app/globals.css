@@ -34,7 +34,7 @@ a {
 
 .dark {
   --bg: #020203;
-  --textColor: #dfecf5;
+  --textColor: #1288dd;
   --bg2: #050505;
   --bd: #303030;
   --transparentBg: rgba(1, 1, 2, 0.7);
@@ -58,7 +58,7 @@ a {
 
 .light {
   --bg:#fcfeff ;
-  --textColor: #0F1419;
+  --textColor: #db1b1b;
   --bg2:#ffffff ;
   --bd:#fcfeff ;
   --softBg1: #c1c2c4;
