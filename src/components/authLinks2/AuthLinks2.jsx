@@ -61,6 +61,7 @@ const AuthLinks2 = () => {
               </span>
             )}
 
+<SidebarCategoryList/>
 
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
