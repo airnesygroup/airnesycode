@@ -49,13 +49,7 @@ const AuthLinks2 = () => {
           <SidebarCategoryList/>
 
           
-            {status === "unauthenticated" ? (
-              <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
-            ) : (
-              <span className={styles.logout2} onClick={signOut}>
-                Log out
-              </span>
-            )}
+       
 
 
           </div>
