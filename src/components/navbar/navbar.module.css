@@ -75,8 +75,8 @@
   margin-left: 2px;
   align-items: center;
   gap: 10px; /* Adjust this value to add space between logo and text */
-  width: 40px; /* Default width for larger screens */
-  height: 40px; /* Default height for larger screens */
+  width: 35px; /* Default width for larger screens */
+  height: 35px; /* Default height for larger screens */
   position: relative; /* Required for layout="fill" */
 }
 
@@ -87,7 +87,7 @@
 }
 
 .logoText {
-  font-size: 28px;
+  font-size: 25px;
   color: #ff4500;
   padding-left: 49px;
 
@@ -162,8 +162,8 @@
   }
 
   .logo {
-    width: 35px;
-    height: 35px;
+    width: 33px;
+    height: 33px;
   }
 
   .logoText {
@@ -185,10 +185,6 @@
     height: 26px;
   }
 
-  .logo {
-    width: 35px;
-    height: 35px;
-  }
 
   .social {
     display: none;
