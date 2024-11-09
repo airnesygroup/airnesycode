@@ -44,3 +44,10 @@
   border-radius: 50%;
 
 }
+@media (max-width: 720px) {
+  .buttonText2{
+    color: var(--textColor); /* Override softTextColor with textColor */
+    font-weight: 300;
+
+  }
+}
