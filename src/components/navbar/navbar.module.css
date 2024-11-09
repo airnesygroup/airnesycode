@@ -75,8 +75,8 @@
   margin-left: 2px;
   align-items: center;
   gap: 10px; /* Adjust this value to add space between logo and text */
-  width: 35px; /* Default width for larger screens */
-  height: 35px; /* Default height for larger screens */
+  width: 36px; /* Default width for larger screens */
+  height: 36px; /* Default height for larger screens */
   position: relative; /* Required for layout="fill" */
 }
 
@@ -168,7 +168,7 @@
 
   .logoText {
     font-size: 20px;
-    padding-left: 41px;
+    padding-left: 39px;
 
   }
   
@@ -198,8 +198,8 @@
     height: 24px;
   }
   .logo {
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
     margin-left: 15px;
 
   }
@@ -214,7 +214,7 @@
 
   .logoText {
     font-size: 18px;
-    padding-left: 34px;
+    padding-left: 35px;
 
   }
 }
@@ -232,7 +232,7 @@
   }
   .logoText {
     font-size: 16px;
-    padding-left: 30px;
+    padding-left: 32px;
 
   }
 
