@@ -46,7 +46,7 @@
   top: 40px; /* Adjusted to start 55px from the top */
   right: 20%;
   background-color: var(--bg);
-  height: calc(120vh - 0px); /* Adjusted height to maintain proportions */
+  height: calc(120vh - 200px); /* Adjusted height to maintain proportions */
   width: 80%;
   display: flex;
   flex-direction: column;
