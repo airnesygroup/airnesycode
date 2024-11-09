@@ -109,8 +109,8 @@ const SidebarCategoryList = () => {
           height={23}
           width={23}
         />
-            <span className={styles.buttonText}>Home </span>
-      </button>
+<span className={`${styles.buttonText} ${styles.home}`}>Home</span>
+</button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
         onClick={() => router.push("/popular")}

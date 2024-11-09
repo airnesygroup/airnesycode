@@ -41,6 +41,12 @@
   display: inline-block; /* Ensure margin works as expected */
 }
 
+.home {
+
+  background-color: var(--softBg);
+
+}
+
 .addButton {
   width: 100%;
   padding: 10px;
