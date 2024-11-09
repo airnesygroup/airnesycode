@@ -98,10 +98,9 @@ const SidebarCategoryList = () => {
 
   return (
     <div className={styles.wrapper}>
-      <button
-        className={`${styles.sidebarButton} ${router.pathname === "/" ? styles.active : ""}`}
-        onClick={() => router.push("/")}
-      >
+    <button
+  className={`${styles.sidebarButton} ${router.pathname === "/" ? `${styles.active} ${styles.home}` : ""}`}
+  onClick={() => router.push("/")}>
         <Image
           src={theme === "light" ? "/home2.png" : "/home.png"} // Adjust icon paths based on theme
           alt="home"
@@ -109,8 +108,8 @@ const SidebarCategoryList = () => {
           height={23}
           width={23}
         />
-<span className={`${styles.buttonText} ${styles.home}`}>Home</span>
-</button>
+            <span className={styles.buttonText}>Home </span>
+      </button>
       <button
         className={`${styles.sidebarButton} ${router.pathname === "/popular" ? styles.active : ""}`}
         onClick={() => router.push("/popular")}
