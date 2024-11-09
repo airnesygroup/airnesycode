@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./authLinks.module.css";
 import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
+import SidebarCategoryList from "../SidebarcategoryList/SidebarCategoryList";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
 
@@ -59,6 +60,9 @@ const AuthLinks2 = () => {
                 Log out
               </span>
             )}
+
+<SidebarCategoryList/>
+
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
