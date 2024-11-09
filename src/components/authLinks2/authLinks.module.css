@@ -50,7 +50,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Scrollable content */
+  overflow-y: hidden; /* Scrollable content */
   padding: 20px;
   align-items: right;
   padding-top: 0px;
