@@ -1,17 +1,22 @@
-.link, .button2, .logout, .logout2 {
+.link {
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
+  background-color: #ff4500;
+  border-radius: 85px;
+  padding: 12.5px 14px;
+  color: #fff;
+  display: inline-block;
   font-size: 14px;
-  color: var(--textColor);
-  background: none; /* Remove background color */
-  border: none;
-  padding: 8px;
-  border: 2px solid var(--textColor); /* Add outlined border */
-  border-radius: 85px; /* Make it rounded */
+}
+
+.icon {
+  margin-right: 20px; /* Spacing for icons */
 }
 
 .button2 {
+  cursor: pointer;
+  border-color: var(--bg);
+  color: var(--textColor);
+  background-color:var(--bg);
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -21,7 +26,6 @@
   display: flex;
   gap: 4px;
   cursor: pointer;
-  font-size: 16px; /* Ensure icon size for dots */
 }
 
 .dot {
@@ -29,10 +33,6 @@
   height: 3px;
   background-color: var(--textColor);
   border-radius: 50%;
-}
-
-.icon {
-  margin-right: 8px; /* Spacing for icons */
 }
 
 .popupMenu {
@@ -58,28 +58,25 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1020;
+
 }
 
 .logout {
   cursor: pointer;
-  color: #fff;
-  background-color: transparent;
-  border: 2px solid #ff4500; /* Outlined border */
-  border-radius: 15px;
+  background-color: var(--bg);
+  border-color: var(--bg);
   padding: 7px 11px;
+  color: var(--textColor);
   align-self: flex-start;
   flex: 0 0 auto;
 }
 
 .logout2 {
   cursor: pointer;
-  color: #fff;
-  background-color: transparent;
-  border: 2px solid #ff4500; /* Outlined border */
+  background-color: #ff4500;
   border-radius: 15px;
   padding: 7px 11px;
+  color: #fff;
   align-self: flex-start;
   flex: 0 0 auto;
 }
@@ -87,11 +84,10 @@
 @media screen and (max-width: 720px) {
   .logout2 {
     cursor: pointer;
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #ff4500;
+    background-color: #ff4500;
     border-radius: 15px;
-    padding: 10px 14px; /* Adjust padding */
+    padding:65px 10px;
+    color: #fff;
     align-self: flex-start;
     flex: 0 0 auto;
   }
@@ -100,20 +96,22 @@
     display: none;
   }
 
+
   .dot {
     width: 2px;
     height: 2px;
+ 
   }
-
+  
   .popupMenu {
     position: fixed;
     top: 40px; /* Positioning the popup below the dots */
-    padding: 30px;
+    padding: 40px;
     background-color: var(--softBg);
     gap: 15px;
     font-size: 14px;
+   
   }
-  
   .overlay {
     position: fixed;
     top: 0;
@@ -123,13 +121,13 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 1020;
   }
+  
 }
 
 @media screen and (max-width: 640px) {
   .link {
     padding: 6.5px 7px;
     font-size: 12px;
-    border-radius: 85px; /* Maintain rounded shape */
   }
 
   .logout {
