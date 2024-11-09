@@ -44,7 +44,7 @@
 .responsiveMenu {
   position: fixed;
   top: 40px; /* Adjusted to start 55px from the top */
-  right: 80%;
+  right: 20%;
   background-color: var(--bg);
   height: calc(120vh - 55px); /* Adjusted height to maintain proportions */
   width: 80%;
