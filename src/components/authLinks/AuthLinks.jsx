@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
+import ThemeToggle from "../themeToggle/ThemeToggle";
 
 const AuthLinks = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -67,6 +68,9 @@ const AuthLinks = () => {
                 Log out
               </span>
             )}
+                    <ThemeToggle/>
+
+
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
         </>
