@@ -68,8 +68,11 @@ const AuthLinks = () => {
                 Log out
               </span>
             )}
-                        <Link >  <ThemeToggle/> Theme
-                        </Link>
+
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  <span style={{ marginRight: '8px' }}>Theme</span>
+  <ThemeToggle />
+</div>
 
 
 
