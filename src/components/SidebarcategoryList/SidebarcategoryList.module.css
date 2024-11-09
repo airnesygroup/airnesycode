@@ -240,6 +240,8 @@ margin-top: 5px;
   .chevron3,
   .sectionTitle {
     color: var(--textColor2); /* Override softTextColor with textColor */
+    font-weight: normal;
+
   }
 }
 
