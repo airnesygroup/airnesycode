@@ -70,17 +70,12 @@ const Navbar = () => {
         <div className={styles.searchContainer}>
           <input 
             type="text" 
-            placeholder="Search..." 
+            placeholder="Search hoolli..." 
             className={styles.searchBar} 
           />
         </div>
         <div className={styles.links}>
-          <div 
-            className={styles.theme}
-            onClick={toggle}
-          >
-                   <FontAwesomeIcon icon={faMoonRegular}  size="sm"  className={styles.themeImage} />
-          </div>
+        
 
 
 
