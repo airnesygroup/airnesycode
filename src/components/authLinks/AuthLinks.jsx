@@ -46,21 +46,21 @@ const AuthLinks = () => {
           Log out
         </span>
       )}
+      <button className={styles.button2}>
+
       <div className={styles.dots} onClick={handleDotsClick}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
       </div>
+      </button>
+
       {isMenuOpen && (
         <>
           <div className={styles.popupMenu}>
-            <Link href="/" onClick={handleMenuClick}>Home</Link>
-            <Link href="/popular" onClick={handleMenuClick}>Popular</Link>
-            <Link href="/about" onClick={handleMenuClick}>About</Link>
-            <Link href="/careers" onClick={handleMenuClick}>Careers</Link>
-            <Link href="/agreement" onClick={handleMenuClick}>User Agreement</Link>
-            <Link href="/privacy" onClick={handleMenuClick}>Privacy Policy</Link>
-            <Link href="/about" onClick={handleMenuClick}>Contact</Link>
+            <Link href="/careers" onClick={handleMenuClick}>Settings</Link>
+            <Link href="/agreement" onClick={handleMenuClick}>Premium</Link>
+\            <Link href="/about" onClick={handleMenuClick}>Contact</Link>
             {status === "unauthenticated" ? (
               <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
             ) : (
