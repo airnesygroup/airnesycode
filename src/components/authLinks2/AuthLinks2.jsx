@@ -46,13 +46,9 @@ const AuthLinks2 = () => {
       {isMenuOpen && (
         <>
           <div className={styles.responsiveMenu}>
-            <Link href="/" onClick={handleMenuClick}>Home</Link>
-            <Link href="/popular" onClick={handleMenuClick}>Popular</Link>
-            <Link href="/about" onClick={handleMenuClick}>About</Link>
-            <Link href="/careers" onClick={handleMenuClick}>Careers</Link>
-            <Link href="/agreement" onClick={handleMenuClick}>User Agreement</Link>
-            <Link href="/privacy" onClick={handleMenuClick}>Privacy Policy</Link>
-            <Link href="/about" onClick={handleMenuClick}>Contact</Link>
+          <SidebarCategoryList/>
+
+          
             {status === "unauthenticated" ? (
               <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
             ) : (
@@ -61,7 +57,6 @@ const AuthLinks2 = () => {
               </span>
             )}
 
-<SidebarCategoryList/>
 
           </div>
           <div className={styles.overlay} onClick={handleMenuClick}></div>
