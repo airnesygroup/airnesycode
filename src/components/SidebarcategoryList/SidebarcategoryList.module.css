@@ -6,8 +6,7 @@
   align-items: flex-start;
   z-index: 1008;
   font-weight: 100;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
 }
 
@@ -22,8 +21,7 @@
   align-items: flex-start;
   font-weight: 100;
   cursor: pointer;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
   font-size: 14px;
 }
@@ -60,8 +58,7 @@
   align-items: flex-start;
   font-weight: 100;
   cursor: pointer;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
   font-size: 14px;
 }
@@ -72,7 +69,7 @@
 
 .active {
   background-color: var(--softBg); /* Use the soft background for active state */
-  color: var(--textColor2); /* Adjust text color for contrast */
+  color: var(--textColor); /* Adjust text color for contrast */
 }
 
 
@@ -94,8 +91,7 @@
   display: flex;
   justify-content: space-between;
   font-weight: 100;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
   cursor: pointer;
   font-size: 14px;
@@ -120,8 +116,7 @@ margin-top: 5px;
   font-size: 18px;
   font-weight: 100;
   width: 25px;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
 
 }
@@ -131,8 +126,7 @@ margin-top: 5px;
   display: flex;
   width: 25px;
   font-weight: 100;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
 
 }
@@ -145,8 +139,7 @@ margin-top: 5px;
   width: 20px;
   font-weight: 50;
   padding-top: 5px;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
 
 
 }
@@ -170,7 +163,7 @@ margin-top: 5px;
   border-radius: 5px;
   margin-bottom: 5px;
   text-decoration: none;
-  color: var(--textColor2);
+  color: var(--textColor);
   align-items: flex-end;
 
 }
@@ -183,7 +176,7 @@ margin-top: 5px;
   width: 100%;
   padding: 10px;
   background-color: var(--bg);
-  color: var(--textColor2);
+  color: var(--textColor);
   border: none;
   border-radius: 5px;
   text-align: left;
@@ -201,7 +194,7 @@ margin-top: 5px;
   display: flex;
   border-radius: 5px;
   text-decoration: none;
-  color: var(--textColor2);
+  color: var(--textColor);
   background-color: var(--bg);
   font-size: 15px;
   cursor: pointer;
@@ -222,7 +215,7 @@ margin-top: 5px;
   width: 100%;
   height: 1px;
   padding-left: 20px;
-  background-color:var(--softtextColor23);
+  background-color:var(--softTextColor3);
   margin: 10px 0;
 
 }
@@ -230,15 +223,12 @@ margin-top: 5px;
 .sectionTitle {
   margin-left: 10px;
   font-size: 12px;
-  color: var(--textColor2);
- /* Adjust text color for contrast */
+  color: var(--softTextColor); /* Adjust text color for contrast */
   padding: 10px 0;
 }
 
 
-/* Your original styles */
 
-/* Responsive styles for screens below 720px */
 @media (max-width: 720px) {
   .wrapper,
   .sidebarButton,
@@ -249,7 +239,7 @@ margin-top: 5px;
   .chevron2,
   .chevron3,
   .sectionTitle {
-    color: var(--textColor2);
+    color: var(--textColor2); /* Override softTextColor with textColor */
   }
 }
 
