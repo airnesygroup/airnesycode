@@ -65,20 +65,26 @@ const AuthLinks = () => {
               <FaUser className={styles.icon} /> Profile
             </Link>
             <Link href="/" onClick={handleMenuClick}>
-              <FaCog className={styles.icon} /> Settings
+              <FaCog className={styles.icon} /> Contributor Program
             </Link>
             <Link href="/" onClick={handleMenuClick}>
-              <FaCrown className={styles.icon} /> Premium
+              <FaCrown className={styles.icon} /> Settings
             </Link>
 
+            <Link href="/" onClick={handleMenuClick}>
+              <FaCog className={styles.icon} /> Advertise on Hoolicon
+            </Link>
+            <Link href="/" onClick={handleMenuClick}>
+              <FaCrown className={styles.icon} /> Go premium
+            </Link>
 
 
             {status === "unauthenticated" ? (
-              <Link className={styles.logout} href="/login" onClick={handleMenuClick}>
+              <Link  href="/login" onClick={handleMenuClick}>
                 <FaSignInAlt className={styles.icon} /> Login
               </Link>
             ) : (
-              <span className={styles.logout} onClick={signOut}>
+              <span  onClick={signOut}>
                 <FaSignOutAlt className={styles.icon} /> Log out
               </span>
             )}

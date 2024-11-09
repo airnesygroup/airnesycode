@@ -75,8 +75,8 @@
   margin-left: 2px;
   align-items: center;
   gap: 10px; /* Adjust this value to add space between logo and text */
-  width: 36px; /* Default width for larger screens */
-  height: 36px; /* Default height for larger screens */
+  width: 34px; /* Default width for larger screens */
+  height: 34px; /* Default height for larger screens */
   position: relative; /* Required for layout="fill" */
 }
 
@@ -89,7 +89,7 @@
 .logoText {
   font-size: 25px;
   color: #ff4500;
-  padding-left: 40px;
+  padding-left: 38px;
 
   line-height: 1; /* Ensure text aligns properly with the logo image */
 }

@@ -52,7 +52,7 @@ a {
   --softTextColor2: #8899A6;
   --softTextColor3: #202429;
   --softTextColor4: #3a4147;
-
+  --shadow-color: rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
 
 
 
@@ -62,6 +62,7 @@ a {
   --bg:#fcfeff ;
   --textColor: #0F1419;
   --textColor2: #000000;
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Default for light mode */
 
   --bg2:#ffffff ;
   --bd:#fcfeff ;
