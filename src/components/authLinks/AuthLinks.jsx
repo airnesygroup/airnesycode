@@ -58,9 +58,9 @@ const AuthLinks = () => {
       {isMenuOpen && (
         <>
           <div className={styles.popupMenu}>
-            <Link href="/careers" onClick={handleMenuClick}>Settings</Link>
-            <Link href="/agreement" onClick={handleMenuClick}>Premium</Link>
-\            <Link href="/about" onClick={handleMenuClick}>Contact</Link>
+          <Link href="/" onClick={handleMenuClick}>Profile</Link>
+            <Link href="/" onClick={handleMenuClick}>Settings</Link>
+            <Link href="/" onClick={handleMenuClick}>Premium</Link>
             {status === "unauthenticated" ? (
               <Link className={styles.logout2} href="/login" onClick={handleMenuClick}>Login</Link>
             ) : (
@@ -70,7 +70,7 @@ const AuthLinks = () => {
             )}
 
 <div style={{ display: 'flex', alignItems: 'center' }}>
-  <span style={{ marginRight: '8px' }}>Theme</span>
+  <span style={{ marginRight: '40px' }}>Theme</span>
   <ThemeToggle />
 </div>
 
