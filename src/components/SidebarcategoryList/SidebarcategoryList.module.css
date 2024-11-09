@@ -239,7 +239,7 @@ margin-top: 5px;
   .chevron2,
   .chevron3,
   .sectionTitle {
-    color: var(--textColor2); /* Override softTextColor with textColor */
+    color: var(--textColor); /* Override softTextColor with textColor */
     font-weight: normal;
 
   }
