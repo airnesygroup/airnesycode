@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import Modal from "../ParentComponent";
 import WritePage from "../write/page";
 import ThemeToggle from "../themeToggle/ThemeToggle";
-import { FaUser, FaCog, FaCrown, FaSignInAlt, FaSignOutAlt, FaPlus, FaEllipsisV } from "react-icons/fa";
+import { FaUser, FaCog, FaCrown, FaSignInAlt, FaSignOutAlt, FaPlus, FaEllipsisV, FaHandsHelping, FaBullhorn } from "react-icons/fa";
 
 
 const AuthLinks = () => {
@@ -65,14 +65,14 @@ const AuthLinks = () => {
               <FaUser className={styles.icon} /> Profile
             </Link>
             <Link href="/" onClick={handleMenuClick}>
-              <FaCog className={styles.icon} /> Contributor Program
+              <FaHandsHelping className={styles.icon} /> Contributor Program
             </Link>
             <Link href="/" onClick={handleMenuClick}>
-              <FaCrown className={styles.icon} /> Settings
+              <FaCog className={styles.icon} /> Settings
             </Link>
 
             <Link href="/" onClick={handleMenuClick}>
-              <FaCog className={styles.icon} /> Advertise on Hoolicon
+              <FaBullhorn className={styles.icon} /> Advertise on Hoolicon
             </Link>
             <Link href="/" onClick={handleMenuClick}>
               <FaCrown className={styles.icon} /> Go premium

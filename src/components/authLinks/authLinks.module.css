@@ -11,15 +11,13 @@
 .icon {
   margin-right: 20px; /* Spacing for icons */
   color: var(--softTextColor);
+  margin-bottom: -2px;
 
 }
 
 .button2 {
   cursor: pointer;
-  border-color: var(--bg);
-  color: var(--softTextColor);
   background-color:var(--bg);
-  border-radius: 50%;
   height: 30px;
   width: 30px;
 }
