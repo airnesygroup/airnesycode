@@ -1,6 +1,6 @@
 .link {
   cursor: pointer;
-  background-color: #ee4204;
+  background-color: #f54302;
   border-radius: 85px;
   padding: 12.5px 14px;
   color: #fff;
@@ -15,17 +15,15 @@
 
 }
 
-.button2 {
-  cursor: pointer;
-  background-color:var(--bg);
-  height: 30px;
-  width: 30px;
-}
+
 
 .dots {
   display: flex;
   gap: 4px;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 
 }
 
@@ -78,7 +76,7 @@
 
 .logout2 {
   cursor: pointer;
-  background-color: #ee4204;
+  background-color: #f54302;
   border-radius: 15px;
   padding: 7px 11px;
   color: #fff;
@@ -89,7 +87,7 @@
 @media screen and (max-width: 720px) {
   .logout2 {
     cursor: pointer;
-    background-color: #ee4204;
+    background-color: #f54302;
     border-radius: 15px;
     padding:65px 10px;
     color: #fff;

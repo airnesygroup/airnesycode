@@ -48,14 +48,12 @@ const AuthLinks = () => {
           Log out
         </span>
       )}
-      <button className={styles.button2}>
 
       <div className={styles.dots} onClick={handleDotsClick}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
       </div>
-      </button>
 
       {isMenuOpen && (
         <>

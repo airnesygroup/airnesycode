@@ -51,7 +51,7 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #ee4204;
+  background-color: #f54302;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .highlight {
-  color: #ee4204; /* Orange color for "Sign up" and "Sign in" */
+  color: #f54302; /* Orange color for "Sign up" and "Sign in" */
 }
 
 .terms {
@@ -84,7 +84,7 @@
 }
 
 .link {
-  color: #ee4204;
+  color: #f54302;
   text-decoration: none;
 }
 

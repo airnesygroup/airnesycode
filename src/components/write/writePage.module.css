@@ -90,7 +90,7 @@
 }
 
 .button {
-  background-color: #ee4204;
+  background-color: #f54302;
   color: white;
   border: none;
   border-radius: 15px;
@@ -128,7 +128,7 @@
 /* File upload label styles */
 .fileLabel {
   font-size: 12px; /* Adjust this value for smaller size */
-  background-color: #ee4204;
+  background-color: #f54302;
   color: #ffffff;
   border: none;
   border-radius: 15px;
@@ -171,7 +171,7 @@
 }
 
 .uploadImageButton {
-  background-color: #ee4204;
+  background-color: #f54302;
   color: white;
   border: none;
   border-radius: 15px;
