@@ -50,7 +50,7 @@ const SinglePage = async ({ params }) => {
           <div className={styles.postia}>
             
        
-            <div className={styles.textContainer}>
+            <div className={styles.textContaineria}>
      
              {data?.img && (
               <div className={styles.imageContaineria}>

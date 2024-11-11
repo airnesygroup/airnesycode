@@ -162,8 +162,12 @@
     font-size: 14px;
   }
 
-  .textContaineria, .contentia {
+ .contentia {
     padding-left: 0; /* Remove padding */
+  }
+
+  .textContaineria {
+    padding: 10px; /* Remove padding */
   }
 
  .imageContaineria {

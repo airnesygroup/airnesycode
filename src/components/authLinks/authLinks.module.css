@@ -28,8 +28,8 @@
 }
 
 .dot {
-  width: 5px; /* Increase size if needed */
-  height: 5px;
+  width: 3px; /* Increase size if needed */
+  height: 3px;
   background-color: var(--softTextColor); /* Make sure this variable is defined */
   border-radius: 50%;
 }
