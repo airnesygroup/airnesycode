@@ -169,11 +169,12 @@
 
  .imageContaineria {
   height: 300px;
-  padding-top: 2px;
 }
 
 .imageia {
   border-radius: 10px;
+  padding-top: 4px;
+
 }
 
   .contentia {
