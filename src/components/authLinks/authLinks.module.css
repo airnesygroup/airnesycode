@@ -112,7 +112,6 @@
     position: fixed;
     top: 50px; /* Positioning the popup below the dots */
     padding: 20px;
-    background-color: var(--softBg);
     gap: 25px;
     font-size: 14px;
    

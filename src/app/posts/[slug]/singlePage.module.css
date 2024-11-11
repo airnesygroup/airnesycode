@@ -163,12 +163,9 @@
   }
 
  .contentia {
-    padding-left: 0; /* Remove padding */
-  }
-
-  .textContaineria {
     padding: 10px; /* Remove padding */
   }
+ 
 
  .imageContaineria {
   height: 300px;
