@@ -21,6 +21,8 @@
   display: flex;
   gap: 4px;
   cursor: pointer;
+  color: var(--softTextColor);
+
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -30,7 +32,7 @@
 .dot {
   width: 3px;
   height: 3px;
-  color: var(--textColor);
+  color: var(--softTextColor);
   border-radius: 50%;
 }
 
@@ -109,7 +111,7 @@
   
   .popupMenu {
     position: fixed;
-    top: 40px; /* Positioning the popup below the dots */
+    top: 50px; /* Positioning the popup below the dots */
     padding: 20px;
     background-color: var(--softBg);
     gap: 25px;

@@ -43,12 +43,12 @@
 
 .responsiveMenu {
   position: fixed;
-  top: 40px; /* Starts 40px from the top */
+  top: 50px; /* Starts 50px from the top */
   right: 25%;
   background-color: var(--bg);
-  height: calc(100vh - 40px); /* Full viewport height minus 40px */
+  height: calc(100vh - 50px); /* Full viewport height minus 50px */
   width: 75%;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   margin-top: 0px;
   padding-left: 10px;
   padding-right: 10px;
@@ -68,7 +68,7 @@
 
 .overlay {
   position: fixed;
-  top: 40px;
+  top: 50px;
   right: 0;
   width: 25%;
   height: 120vh;
@@ -98,7 +98,7 @@
   }}
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 650px) {
   .link {
     padding: 3px;
     padding-left: 5px;

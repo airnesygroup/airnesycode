@@ -82,7 +82,7 @@
 @media (max-width: 720px) {
   .container {
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 48px;
   }
 
   .category {
