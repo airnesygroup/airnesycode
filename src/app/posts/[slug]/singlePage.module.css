@@ -165,10 +165,16 @@
     padding-left: 0; /* Remove padding */
   }
 
- 
+ .imageContaineria {
+  height: 300px;
+}
+
+.imageia {
+  border-radius: 10px;
+}
 
   .contentia {
-padding-top: 25px;  }
+padding-top: 30px;  }
 
   .menulia {
     display: none; /* Hide menu on small screens */
