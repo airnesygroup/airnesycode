@@ -38,7 +38,7 @@ const SinglePage = async ({ params }) => {
 
           <div className={styles.contentia}>
 
-          <div className={styles.postia}>
+            <div className={styles.postia}>
             
        
             <div className={styles.textContaineria}>
@@ -70,9 +70,10 @@ const SinglePage = async ({ params }) => {
               <Comments postSlug={slug} />
             </div>
           </div>
+          <Menu />
+
           </div>
 
-            <Menu />
           </div>
         </div>
       </div>
