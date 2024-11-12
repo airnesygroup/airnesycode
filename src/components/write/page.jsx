@@ -127,8 +127,14 @@ const WritePage = ({ closeModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    if (!title || !value || !catSlug) {
-      alert("Please fill in all required fields, including category.");
+    // Ensure either title or description is provided
+    if (!title && !value) {
+      alert("Please provide either a title or description.");
+      return;
+    }
+  
+    if (!catSlug) {
+      alert("Please select a category.");
       return;
     }
   
