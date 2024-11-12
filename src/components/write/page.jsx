@@ -3,12 +3,14 @@
 import Image from "next/image";
 import styles from "./writePage.module.css";
 import { useEffect, useState, useRef } from "react";
-import "react-quill/dist/quill.bubble.css"; // Ensure you're importing Quill styles
+import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -20,7 +22,7 @@ const WritePage = ({ closeModal }) => {
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  const [catSlug, setCatSlug] = useState("general");
+  const [catSlug, setCatSlug] = useState(""); // Set empty string as default to force selection
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const modalContentRef = useRef(null);
@@ -103,7 +105,7 @@ const WritePage = ({ closeModal }) => {
   };
 
   const handleContentChange = (content) => {
-    setValue(content); // Set the value directly
+    setValue(content);
   };
 
   const handleSubmit = async (e) => {
@@ -111,6 +113,11 @@ const WritePage = ({ closeModal }) => {
 
     if (!title && !value && !media) {
       alert("Please add at least a title, description, or image.");
+      return;
+    }
+
+    if (!catSlug) {
+      alert("Please choose a category.");
       return;
     }
 
@@ -124,7 +131,7 @@ const WritePage = ({ closeModal }) => {
         desc: value,
         img: media,
         slug: uniqueSlug,
-        catSlug: catSlug || "general",
+        catSlug,
       }),
     });
 
@@ -133,7 +140,7 @@ const WritePage = ({ closeModal }) => {
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
-      closeModal(); // Close the modal after successful publish
+      closeModal();
     }
   };
 
@@ -171,8 +178,9 @@ const WritePage = ({ closeModal }) => {
             className={styles.select}
             value={catSlug}
             onChange={(e) => setCatSlug(e.target.value)}
+            required
           >
-            <option value="general">General</option>
+            <option value="" disabled>Select a category</option> 
             <option value="business">Business</option>
             <option value="technology">Technology</option>
             <option value="economics">Economics</option>
@@ -192,7 +200,7 @@ const WritePage = ({ closeModal }) => {
                 ['bold', 'italic', 'underline', 'link'],
                 ['image', 'video'],
                 [{ list: 'ordered' }, { list: 'bullet' }],
-                ['clean'], // remove formatting button
+                ['clean'],
               ],
             }}
           />
@@ -206,15 +214,13 @@ const WritePage = ({ closeModal }) => {
             accept="image/*"
             onChange={(e) => setFile(e.target.files[0])}
           />
-           <div className={styles.buttonsContainer}>
-
-          <label htmlFor="file" className={` ${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
-            {uploading ? "Uploading..." : "Upload Image"}
-          </label>
+          <div className={styles.buttonsContainer}>
+            <label htmlFor="file" className={`${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
+              <FontAwesomeIcon icon={faUpload} /> {uploading ? "Uploading..." : "Upload Image"}
+            </label>
             <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
               {publishing ? "Publishing..." : "Publish"}
             </button>
-           
           </div>
           {preview && (
             <div className={styles.previewContainer}>
@@ -224,7 +230,6 @@ const WritePage = ({ closeModal }) => {
               </button>
             </div>
           )}
-       
         </form>
       </div>
     </div>
