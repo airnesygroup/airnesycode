@@ -118,11 +118,11 @@ const WritePage = ({ closeModal }) => {
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
   
-    // Get sanitized content without styles and images
+    // Get the inner HTML with removed elements
     let sanitizedContent = div.innerHTML;
   
-    // Replace more than two <br> tags in a row with exactly two
-    sanitizedContent = sanitizedContent.replace(/(<br\s*\/?>\s*){3,}/g, '<br><br>');
+    // Replace more than two consecutive <p><br></p> tags with just two
+    sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, '<p><br></p><p><br></p>');
   
     return sanitizedContent;
   };
