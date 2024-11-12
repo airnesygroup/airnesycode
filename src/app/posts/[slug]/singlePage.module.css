@@ -93,6 +93,7 @@
 
 /* Content styles */
 .contentia {
+  display: flex;
   gap: 50px;
   padding-top: 55px;
 }
