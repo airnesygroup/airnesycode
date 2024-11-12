@@ -25,8 +25,6 @@ const WritePage = ({ closeModal }) => {
   const [catSlug, setCatSlug] = useState(""); // Set empty string as default to force selection
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
-  const [location, setLocation] = useState(null); // State to store location
-
   const modalContentRef = useRef(null);
 
   useEffect(() => {
@@ -36,25 +34,7 @@ const WritePage = ({ closeModal }) => {
       return () => URL.revokeObjectURL(objectUrl);
     }
   }, [file]);
-
-  useEffect(() => {
-    // Request user's location on page load
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error("Error getting location:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  }, []);
+  
 
   useEffect(() => {
     if (file) {
@@ -112,11 +92,13 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+
   const generateUniqueSlug = () => {
     const baseSlug = title ? slugify(title) : slugify(value);
     const uniqueIdentifier = Date.now();
     return baseSlug ? `${baseSlug}-${uniqueIdentifier}` : `${uniqueIdentifier}`;
   };
+  
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -132,41 +114,41 @@ const WritePage = ({ closeModal }) => {
   const stripHtml = (html) => {
     const div = document.createElement('div');
     div.innerHTML = html;
-
+  
     // Remove styles and images from the HTML
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
-
+  
     // Get the inner HTML with removed elements
     let sanitizedContent = div.innerHTML;
-
+  
     // Replace more than two consecutive <p><br></p> tags with just two
     sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, '<p><br></p><p><br></p>');
-
+  
     return sanitizedContent;
   };
-
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Ensure either title or description is provided
     if (!title && !value) {
       alert("Please provide either a title or description.");
       return;
     }
-
+  
     if (!catSlug) {
       alert("Please select a category.");
       return;
     }
-
+  
     setPublishing(true);
     const uniqueSlug = generateUniqueSlug(title);
-
+  
     // Sanitize the content before submitting
     const plainTextContent = stripHtml(value);
-    const locationData = location ? { latitude: location.latitude, longitude: location.longitude } : {};
-
+  
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -175,18 +157,24 @@ const WritePage = ({ closeModal }) => {
         img: media,
         slug: uniqueSlug,
         catSlug,
-        location: locationData,  // Include location in the request
       }),
     });
-
+  
     setPublishing(false);
+  
+    if (res.status === 200) {
+      const data = await res.json();
+      router.push(`/posts/${data.slug}`);
+      closeModal();
+    }
+    
+  
+  
 
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
       closeModal();
-    } else {
-      console.error("Failed to create post:", res.status);
     }
   };
 
@@ -236,21 +224,27 @@ const WritePage = ({ closeModal }) => {
             <option value="mathematics">Mathematics</option>
           </select>
           <ReactQuill
-            className={styles.editor}
-            theme="bubble"
-            value={value}
-            onChange={handleContentChange}
-            placeholder="What's trending..."
-            modules={{
-              toolbar: [
-                [{ header: [1, 2, false] }],
-                ['italic', 'underline', 'link'],
-                [{ list: 'ordered' }, { list: 'bullet' }],
-                ['clean'],
-              ],
-            }}
-            formats={['italic', 'underline', 'link', 'list', 'bullet']}
-          />
+  className={styles.editor}
+  theme="bubble"
+  value={value}
+  onChange={handleContentChange}
+  placeholder="What's trending..."
+  modules={{
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      [ 'italic', 'underline', 'link'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['clean'],
+    ],
+  }}
+  formats={[
+    'italic',
+    'underline',
+    'link',
+    'list', 
+    'bullet'
+  ]}
+/>
 
           <div className={styles.characterCount}>
             {10000 - value.length} characters remaining
@@ -267,15 +261,15 @@ const WritePage = ({ closeModal }) => {
                 <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
             </label>
             <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
-              <FontAwesomeIcon icon={faUpload} /> {publishing ? "Publishing..." : "Publish"}
+            <FontAwesomeIcon icon={faUpload} />   {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
           {preview && (
             <div className={styles.previewContainer}>
+              <Image src={preview} alt="Preview" className={styles.preview} width={200} height={200} />
               <button className={styles.deleteButton} onClick={handleDeleteImage}>
-                X
+                &times;
               </button>
-              <Image className={styles.previewImage} src={preview} alt="Preview" width={150} height={150} />
             </div>
           )}
         </form>
