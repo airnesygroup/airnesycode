@@ -76,7 +76,7 @@ const WritePage = ({ closeModal }) => {
   }, [file]);
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}>Loadng...</div>;
   }
 
   if (status === "unauthenticated") {
