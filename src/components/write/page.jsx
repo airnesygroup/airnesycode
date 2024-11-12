@@ -118,13 +118,16 @@ const WritePage = ({ closeModal }) => {
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
   
-    // Replace more than 2 consecutive newlines with exactly 2
-    const sanitizedContent = div.innerHTML
-      .trim()
-      .replace(/\n{3,}/g, '\n\n')  // Replace more than 2 consecutive newlines with exactly 2
-      .replace(/\n\s*\n/g, '\n\n'); // Also ensure no empty lines between non-empty content
+    // Remove excess <br/> elements (allowing only two in a row)
+    const breakTags = div.querySelectorAll('br');
+    for (let i = 2; i < breakTags.length; i++) {
+      if (breakTags[i - 1].previousSibling === breakTags[i - 2]) {
+        breakTags[i].remove();
+      }
+    }
   
-    return sanitizedContent;
+    // Return sanitized HTML content as a string
+    return div.innerHTML;
   };
   
   
