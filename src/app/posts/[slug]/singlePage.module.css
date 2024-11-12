@@ -94,7 +94,7 @@
 /* Content styles */
 .contentia {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 50px;
   padding-top: 55px;
 }
