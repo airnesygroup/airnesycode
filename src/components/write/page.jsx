@@ -25,7 +25,16 @@ const WritePage = ({ closeModal }) => {
   const [catSlug, setCatSlug] = useState(""); // Set empty string as default to force selection
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const [locationData, setLocationData] = useState(null); // New state for location data
   const modalContentRef = useRef(null);
+
+  useEffect(() => {
+    // Get location data from Vercel headers
+    const location = JSON.parse(window.localStorage.getItem('location')) || null;
+    if (location) {
+      setLocationData(location);
+    }
+  }, []);
 
   useEffect(() => {
     if (file) {
@@ -79,7 +88,7 @@ const WritePage = ({ closeModal }) => {
   }
 
   if (status === "unauthenticated") {
-    router.push("/");
+    router.push("/"); 
     return null;
   }
 
@@ -91,13 +100,11 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-
   const generateUniqueSlug = () => {
     const baseSlug = title ? slugify(title) : slugify(value);
     const uniqueIdentifier = Date.now();
     return baseSlug ? `${baseSlug}-${uniqueIdentifier}` : `${uniqueIdentifier}`;
   };
-  
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -113,37 +120,40 @@ const WritePage = ({ closeModal }) => {
   const stripHtml = (html) => {
     const div = document.createElement('div');
     div.innerHTML = html;
-  
+
     // Remove styles and images from the HTML
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
-  
-    // Check for the number of lines of space and ensure no more than 2 empty lines
-    const sanitizedContent = div.innerHTML.trim().replace(/\n{3,}/g, '\n\n');
-  
+
+    // Get the inner HTML with removed elements
+    let sanitizedContent = div.innerHTML;
+
+    // Replace more than two consecutive <p><br></p> tags with just two
+    sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, '<p><br></p><p><br></p>');
+
     return sanitizedContent;
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Ensure either title or description is provided
     if (!title && !value) {
       alert("Please provide either a title or description.");
       return;
     }
-  
+
     if (!catSlug) {
       alert("Please select a category.");
       return;
     }
-  
+
     setPublishing(true);
     const uniqueSlug = generateUniqueSlug(title);
-  
+
     // Sanitize the content before submitting
     const plainTextContent = stripHtml(value);
-  
+
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -152,19 +162,11 @@ const WritePage = ({ closeModal }) => {
         img: media,
         slug: uniqueSlug,
         catSlug,
+        location: locationData, // Send the location data with the post
       }),
     });
-  
+
     setPublishing(false);
-  
-    if (res.status === 200) {
-      const data = await res.json();
-      router.push(`/posts/${data.slug}`);
-      closeModal();
-    }
-    
-  
-  
 
     if (res.status === 200) {
       const data = await res.json();
@@ -184,7 +186,7 @@ const WritePage = ({ closeModal }) => {
       closeModal();
     }
   };
-
+  
   return (
     <div className={styles.modalOverlay} onClick={handleClickOutside}>
       <div className={styles.modalContent} ref={modalContentRef}>

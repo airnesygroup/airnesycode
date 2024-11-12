@@ -69,7 +69,6 @@ model Category {
 model Post {
   id        String    @id @default(cuid()) @map("_id")
   createdAt DateTime  @default(now())
-  uploadTime  DateTime?  // Add the '?' to make this field nullable
   slug      String    @unique
   title     String
   desc      String
@@ -81,6 +80,7 @@ model Post {
   user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]
 }
+
 
 model Comment {
   id        String   @id @default(cuid()) @map("_id")
