@@ -1,3 +1,6 @@
+"use client";  // This marks the component as a client component
+
+
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
@@ -120,3 +123,4 @@ const Card = ({ key, item, onDelete }) => {
 };
 
 export default Card;
+             

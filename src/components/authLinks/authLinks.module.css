@@ -18,7 +18,7 @@
 }
 
 .icon:hover {
-  color: var(--softTextColor); /* Softer text color on hover */
+  color: var(--textColor); /* Softer text color on hover */
   transform: scale(1.1); /* Zoom effect */
 }
 

@@ -82,9 +82,10 @@ const AuthLinks = () => {
                 <FaSignInAlt className={styles.icon} /> Login
               </Link>
             ) : (
-              <span className={styles.icon}  onClick={signOut}>
-                <FaSignOutAlt  /> Log out
-              </span>
+              
+               <Link  href="/login" onClick={signOut}>
+               <FaSignOutAlt className={styles.icon} /> Logout
+             </Link>
             )}
 
 <div style={{ display: 'flex', alignItems: 'center' }}>
