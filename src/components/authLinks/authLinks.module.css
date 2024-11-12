@@ -127,12 +127,20 @@
     z-index: 1020;
   }
   
+  .link {
+    padding: 6.5px 7px;
+    font-size: 12px;
+    margin-right: -13%;
+
+  }
 }
 
 @media screen and (max-width: 640px) {
   .link {
     padding: 6.5px 7px;
     font-size: 12px;
+    margin-right: -13%;
+
   }
 
  

@@ -45,7 +45,7 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <span className={`${styles.link} ${styles.link}`} >
-          Go Premium
+          Premium
         </span>
       )}
 
