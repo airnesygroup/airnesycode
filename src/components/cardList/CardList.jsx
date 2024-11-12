@@ -1,11 +1,9 @@
-
-"use client";  // This marks the component as a client component
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cardList.module.css";
 import Pagination from "../pagination/Pagination";
+import Image from "next/image";
 import Card from "../card/Card";
-import { useRouter } from "next/router";
+import AddIcon2 from "../Addicon2";
 
 const getData = async (page, cat) => {
   const res = await fetch(
@@ -16,7 +14,7 @@ const getData = async (page, cat) => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch posts");
+    throw new Error("Failed");
   }
 
   return res.json();
@@ -24,34 +22,20 @@ const getData = async (page, cat) => {
 
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
-  const router = useRouter();
+
   const POST_PER_PAGE = 10;
+
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
-  const handleDelete = async (postId) => {
-    const res = await fetch(`/api/posts/${postId}`, {
-      method: 'DELETE',
-    });
-
-    if (res.ok) {
-      // Refresh or remove post from the list
-      alert("Post deleted successfully!");
-      router.reload();
-    } else {
-      alert("Failed to delete the post.");
-    }
-  };
-
   return (
     <div className={styles.container}>
+
       <div className={styles.posts}>
         {posts?.map((item) => (
-          <Card item={item} key={item._id} onDelete={handleDelete} />
+          <Card item={item} key={item._id} />
         ))}
       </div>
-
-      <Pagination hasPrev={hasPrev} hasNext={hasNext} page={page} />
     </div>
   );
 };
