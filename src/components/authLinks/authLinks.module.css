@@ -13,8 +13,16 @@
   margin-right: 20px; /* Spacing for icons */
   color: var(--softTextColor);
   margin-bottom: -2px;
-
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transition */
 }
+
+.icon:hover {
+  color: var(--softTextColor); /* Softer text color on hover */
+  transform: scale(1.1); /* Zoom effect */
+}
+
+
 
 
 
