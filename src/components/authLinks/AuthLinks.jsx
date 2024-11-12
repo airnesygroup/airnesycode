@@ -44,8 +44,8 @@ const AuthLinks = () => {
           Log in
         </Link>
       ) : (
-        <span className={`${styles.link} ${styles.logout}`} onClick={signOut}>
-          Log out
+        <span className={`${styles.link} ${styles.link}`} >
+          Go Premium
         </span>
       )}
 
