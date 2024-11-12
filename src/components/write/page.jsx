@@ -118,15 +118,11 @@ const WritePage = ({ closeModal }) => {
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
   
-    // Get the inner HTML with removed elements
-    let sanitizedContent = div.innerHTML;
-  
-    // Replace more than two consecutive <p><br></p> tags with just two
-    sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, '<p><br></p><p><br></p>');
+    // Check for the number of lines of space and ensure no more than 2 empty lines
+    const sanitizedContent = div.innerHTML.trim().replace(/\n{3,}/g, '\n\n');
   
     return sanitizedContent;
   };
-  
   
   const handleSubmit = async (e) => {
     e.preventDefault();
