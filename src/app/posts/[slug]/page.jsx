@@ -71,11 +71,12 @@ const SinglePage = async ({ params }) => {
 
           </div>
         </div>
-        <Menu />
 
 
 
           </div>
+          <Menu />
+
         </div>
       </div>
 
