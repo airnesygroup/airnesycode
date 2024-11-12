@@ -32,13 +32,12 @@ const SinglePage = async ({ params }) => {
           <SidebarCategoryList />
         </div>
         <div className={styles.mainContent}>
-  
-  
-          <div className={styles.content1}>
+   <div className={styles.content1}>
 
-          <div className={styles.contentia}>
 
-            <div className={styles.postia}>
+
+   <div className={styles.contentia}>
+          <div className={styles.postia}>
             
        
             <div className={styles.textContaineria}>
@@ -71,8 +70,9 @@ const SinglePage = async ({ params }) => {
             </div>
           </div>
           <Menu />
+        </div>
 
-          </div>
+
 
           </div>
         </div>
@@ -84,3 +84,12 @@ const SinglePage = async ({ params }) => {
 };
 
 export default SinglePage;
+
+    
+
+
+
+
+
+
+
