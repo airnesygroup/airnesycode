@@ -34,7 +34,6 @@ const WritePage = ({ closeModal }) => {
       return () => URL.revokeObjectURL(objectUrl);
     }
   }, [file]);
-  
 
   useEffect(() => {
     if (file) {
@@ -76,7 +75,7 @@ const WritePage = ({ closeModal }) => {
   }, [file]);
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loadng...</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
 
   if (status === "unauthenticated") {
