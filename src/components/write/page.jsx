@@ -10,8 +10,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload } from "@fortawesome/free-solid-svg-icons";
-import { faImage } from "@fortawesome/free-regular-svg-icons";
+import { faImage, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -112,9 +111,17 @@ const WritePage = ({ closeModal }) => {
   };
 
   const stripHtml = (html) => {
-    const div = document.createElement("div");
+    const div = document.createElement('div');
     div.innerHTML = html;
-    return div.textContent || div.innerText || "";
+  
+    // Remove styles and images from the HTML
+    const stylesAndImages = div.querySelectorAll('*[style], img');
+    stylesAndImages.forEach((el) => el.remove());
+  
+    // Check for the number of lines of space and ensure no more than 2 empty lines
+    const sanitizedContent = div.innerHTML.trim().replace(/\n{3,}/g, '\n\n');
+  
+    return sanitizedContent;
   };
   
   const handleSubmit = async (e) => {
@@ -128,13 +135,14 @@ const WritePage = ({ closeModal }) => {
     setPublishing(true);
     const uniqueSlug = generateUniqueSlug(title);
   
+    // Sanitize the content before submitting
     const plainTextContent = stripHtml(value);
   
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
-        desc: plainTextContent,
+        desc: plainTextContent,  // Submit the sanitized content
         img: media,
         slug: uniqueSlug,
         catSlug,
@@ -148,6 +156,7 @@ const WritePage = ({ closeModal }) => {
       router.push(`/posts/${data.slug}`);
       closeModal();
     }
+    
   
   
 
@@ -212,14 +221,12 @@ const WritePage = ({ closeModal }) => {
   modules={{
     toolbar: [
       [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline', 'link'],
+      [ 'italic', 'underline', 'link'],
       [{ list: 'ordered' }, { list: 'bullet' }],
       ['clean'],
     ],
   }}
   formats={[
-    'header',
-    'bold',
     'italic',
     'underline',
     'link',
