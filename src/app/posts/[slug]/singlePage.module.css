@@ -95,6 +95,8 @@
 .contentia {
   display: flex;
   flex-direction: row;
+  flex-grow: 1;  /* This will make the left component expand to fill available space */
+
   gap: 50px;
   padding-top: 55px;
 }
