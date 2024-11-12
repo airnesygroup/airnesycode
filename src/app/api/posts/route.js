@@ -48,18 +48,19 @@ export const POST = async (req) => {
   try {
     const body = await req.json();
 
-    // Retrieve location and timezone info from Vercel headers
+ 
+
     const country = req.headers.get("x-vercel-ip-country");
     const region = req.headers.get("x-vercel-ip-country-region");
     const timezone = req.headers.get("x-vercel-ip-timezone");
 
-    // Add location and timestamp data to the post
+    // Add location and timezone data to the post
     const post = await prisma.post.create({
       data: {
         ...body,
         userEmail: session.user.email,
-        location: `${country}, ${region}`,
-        timezone,
+        location: country ? `${country}, ${region}` : null, // Use the country/region or null if unavailable
+        timezone: timezone || null, // Use timezone or null if unavailable
         createdAt: new Date().toISOString(),
       },
     });

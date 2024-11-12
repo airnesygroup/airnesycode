@@ -67,22 +67,23 @@ model Category {
 }
 
 model Post {
-  id         String    @id @default(cuid()) @map("_id")
-  createdAt  DateTime  @default(now())
-  slug       String    @unique
-  title      String
-  desc       String
-  img        String?
-  views      Int       @default(0)
-  catSlug    String
-  cat        Category  @relation(fields: [catSlug], references: [slug])
-  userEmail  String
-  user       User      @relation(fields: [userEmail], references: [email])
-  comments   Comment[]
-  city       String?   // New field for the city of upload
-  country    String?   // New field for the country of upload
-  continent  String?   // New field for the continent of upload
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  title     String
+  desc      String
+  img       String
+  slug      String   @unique
+  catSlug   String?
+  userEmail String
+  views     Int      @default(0)
+  location  String?  // Nullable location field
+  timezone  String?  // Nullable timezone field
+  city      String?  // Nullable city field (optional)
+  country   String?  // Nullable country field (optional)
+  continent String?  // Nullable continent field (optional)
+  comments  Comment[] // Assuming you have a comment model
 }
+
 
 
 
