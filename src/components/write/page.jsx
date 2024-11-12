@@ -118,18 +118,14 @@ const WritePage = ({ closeModal }) => {
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
   
-    // Remove excess <br/> elements (allowing only two in a row)
-    const breakTags = div.querySelectorAll('br');
-    for (let i = 2; i < breakTags.length; i++) {
-      if (breakTags[i - 1].previousSibling === breakTags[i - 2]) {
-        breakTags[i].remove();
-      }
-    }
+    // Get sanitized content without styles and images
+    let sanitizedContent = div.innerHTML;
   
-    // Return sanitized HTML content as a string
-    return div.innerHTML;
+    // Replace more than two <br> tags in a row with exactly two
+    sanitizedContent = sanitizedContent.replace(/(<br\s*\/?>\s*){3,}/g, '<br><br>');
+  
+    return sanitizedContent;
   };
-  
   
   
   const handleSubmit = async (e) => {
