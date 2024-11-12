@@ -12,7 +12,6 @@ import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
-import { FaUpload } from "react-icons/fa";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -241,10 +240,10 @@ const WritePage = ({ closeModal }) => {
           />
           <div className={styles.buttonsContainer}>
             <label htmlFor="file" className={`${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
-              <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
+                <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
             </label>
             <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
-            <FontAwesomeIcon icon={FaUpload} />  {publishing ? "Publishing..." : "Publish"}
+            <FontAwesomeIcon icon={faUpload} />   {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
           {preview && (
