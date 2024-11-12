@@ -1,3 +1,6 @@
+
+"use client";  // This marks the component as a client component
+
 import React, { useState } from "react";
 import styles from "./cardList.module.css";
 import Pagination from "../pagination/Pagination";
