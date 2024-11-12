@@ -20,7 +20,7 @@ export const GET = async (req) => {
       createdAt: 'desc', // Order by the creation date in descending order
     },
   };
- 
+
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
@@ -47,8 +47,21 @@ export const POST = async (req) => {
 
   try {
     const body = await req.json();
+
+    // Retrieve location and timezone info from Vercel headers
+    const country = req.headers.get("x-vercel-ip-country");
+    const region = req.headers.get("x-vercel-ip-country-region");
+    const timezone = req.headers.get("x-vercel-ip-timezone");
+
+    // Add location and timestamp data to the post
     const post = await prisma.post.create({
-      data: { ...body, userEmail: session.user.email },
+      data: {
+        ...body,
+        userEmail: session.user.email,
+        location: `${country}, ${region}`,
+        timezone,
+        createdAt: new Date().toISOString(),
+      },
     });
 
     return new NextResponse(JSON.stringify(post, { status: 200 }));
@@ -59,3 +72,4 @@ export const POST = async (req) => {
     );
   }
 };
+
