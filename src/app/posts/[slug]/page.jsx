@@ -78,10 +78,11 @@ const SinglePage = async ({ params }) => {
             <div className={styles.commentia}>
               <Comments postSlug={slug} />
             </div>
+            <Menu />
+
           </div>
         </div>
 
-        <Menu />
 
 
 

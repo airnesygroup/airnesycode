@@ -11,6 +11,8 @@ import { app } from "@/utils/firebase";
 import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
+import { faImage } from "@fortawesome/free-regular-svg-icons";
+import { FaUpload } from "react-icons/fa";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -91,11 +93,13 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const generateUniqueSlug = (title) => {
+
+  const generateUniqueSlug = () => {
     const baseSlug = title ? slugify(title) : slugify(value);
     const uniqueIdentifier = Date.now();
-    return `${baseSlug}-${uniqueIdentifier}`;
+    return baseSlug ? `${baseSlug}-${uniqueIdentifier}` : `${uniqueIdentifier}`;
   };
+  
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -237,10 +241,10 @@ const WritePage = ({ closeModal }) => {
           />
           <div className={styles.buttonsContainer}>
             <label htmlFor="file" className={`${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
-              <FontAwesomeIcon icon={faUpload} /> {uploading ? "Uploading..." : "Upload Image"}
+              <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
             </label>
             <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
-              {publishing ? "Publishing..." : "Publish"}
+            <FontAwesomeIcon icon={FaUpload} />  {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
           {preview && (
