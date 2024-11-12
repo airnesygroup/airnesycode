@@ -120,9 +120,11 @@ const WritePage = ({ closeModal }) => {
   
     // Check for the number of lines of space and ensure no more than 2 empty lines
     const sanitizedText = div.textContent || div.innerText || "";
-    return sanitizedText.replace(/(\n\s*){3,}/g, '\n\n'); // Replace 3+ consecutive newlines with just 2
   
+    // Replace more than 2 consecutive newlines with just 2
+    return sanitizedText.replace(/(\n\s*){3,}/g, '\n\n');
   };
+  
 
 
   
