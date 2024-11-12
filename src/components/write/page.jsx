@@ -119,10 +119,13 @@ const WritePage = ({ closeModal }) => {
     stylesAndImages.forEach((el) => el.remove());
   
     // Check for the number of lines of space and ensure no more than 2 empty lines
-    const sanitizedContent = div.innerHTML.trim().replace(/\n{3,}/g, '\n\n');
+    const sanitizedText = div.textContent || div.innerText || "";
+    return sanitizedText.replace(/(\n\s*){3,}/g, '\n\n'); // Replace 3+ consecutive newlines with just 2
   
-    return sanitizedContent;
   };
+
+
+  
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -142,13 +145,17 @@ const WritePage = ({ closeModal }) => {
     const uniqueSlug = generateUniqueSlug(title);
   
     // Sanitize the content before submitting
-    const plainTextContent = stripHtml(value);
+    const sanitizedContent = stripHtml(value);
+
+    // Ensure no excessive line breaks
+    const sanitizedContentWithLimit = sanitizedContent.replace(/(\n\s*){3,}/g, '\n\n'); // Enforce 2 line breaks max
+  
   
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
-        desc: plainTextContent,  // Submit the sanitized content
+        desc: sanitizedContentWithLimit,
         img: media,
         slug: uniqueSlug,
         catSlug,
