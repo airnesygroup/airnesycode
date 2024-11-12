@@ -108,34 +108,45 @@ const WritePage = ({ closeModal }) => {
     setValue(content);
   };
 
+  const stripHtml = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!title && !value && !media) {
-      alert("Please add at least a title, description, or image.");
+  
+    if (!title || !value || !catSlug) {
+      alert("Please fill in all required fields, including category.");
       return;
     }
-
-    if (!catSlug) {
-      alert("Please choose a category.");
-      return;
-    }
-
+  
     setPublishing(true);
     const uniqueSlug = generateUniqueSlug(title);
-
+  
+    const plainTextContent = stripHtml(value);
+  
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
-        desc: value,
+        desc: plainTextContent,
         img: media,
         slug: uniqueSlug,
         catSlug,
       }),
     });
-
+  
     setPublishing(false);
+  
+    if (res.status === 200) {
+      const data = await res.json();
+      router.push(`/posts/${data.slug}`);
+      closeModal();
+    }
+  
+  
 
     if (res.status === 200) {
       const data = await res.json();
@@ -182,6 +193,7 @@ const WritePage = ({ closeModal }) => {
           >
             <option value="" disabled>Select a category</option> 
             <option value="business">Business</option>
+            <option value="idea">Ideas</option>
             <option value="technology">Technology</option>
             <option value="economics">Economics</option>
             <option value="science">Science</option>
@@ -189,21 +201,30 @@ const WritePage = ({ closeModal }) => {
             <option value="mathematics">Mathematics</option>
           </select>
           <ReactQuill
-            className={styles.editor}
-            theme="bubble"
-            value={value}
-            onChange={handleContentChange}
-            placeholder="What's trending..."
-            modules={{
-              toolbar: [
-                [{ header: [1, 2, false] }],
-                ['bold', 'italic', 'underline', 'link'],
-                ['image', 'video'],
-                [{ list: 'ordered' }, { list: 'bullet' }],
-                ['clean'],
-              ],
-            }}
-          />
+  className={styles.editor}
+  theme="bubble"
+  value={value}
+  onChange={handleContentChange}
+  placeholder="What's trending..."
+  modules={{
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline', 'link'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['clean'],
+    ],
+  }}
+  formats={[
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'link',
+    'list', 
+    'bullet'
+  ]}
+/>
+
           <div className={styles.characterCount}>
             {10000 - value.length} characters remaining
           </div>
