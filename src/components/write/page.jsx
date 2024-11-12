@@ -118,14 +118,15 @@ const WritePage = ({ closeModal }) => {
     const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
   
-    // Check for the number of lines of space and ensure no more than 2 empty lines
+    // Replace more than 2 consecutive newlines with exactly 2
     const sanitizedContent = div.innerHTML
       .trim()
       .replace(/\n{3,}/g, '\n\n')  // Replace more than 2 consecutive newlines with exactly 2
       .replace(/\n\s*\n/g, '\n\n'); // Also ensure no empty lines between non-empty content
-    
+  
     return sanitizedContent;
   };
+  
   
   
   const handleSubmit = async (e) => {
