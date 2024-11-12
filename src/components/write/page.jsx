@@ -22,7 +22,7 @@ const WritePage = ({ closeModal }) => {
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  const [catSlug, setCatSlug] = useState("");
+  const [catSlug, setCatSlug] = useState(""); // Set empty string as default to force selection
   const [uploading, setUploading] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const modalContentRef = useRef(null);
@@ -49,6 +49,14 @@ const WritePage = ({ closeModal }) => {
           (snapshot) => {
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+            }
           },
           (error) => {
             console.error("Error uploading file:", error);
@@ -83,64 +91,86 @@ const WritePage = ({ closeModal }) => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+
   const generateUniqueSlug = () => {
     const baseSlug = title ? slugify(title) : slugify(value);
     const uniqueIdentifier = Date.now();
     return baseSlug ? `${baseSlug}-${uniqueIdentifier}` : `${uniqueIdentifier}`;
   };
+  
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 150) {
       setTitle(value);
-    }
+    }    
   };
 
   const handleContentChange = (content) => {
     setValue(content);
   };
 
+
   const stripHtml = (html) => {
-    const div = document.createElement("div");
+    const div = document.createElement('div');
     div.innerHTML = html;
-    const stylesAndImages = div.querySelectorAll("*[style], img");
+  
+    // Remove styles and images from the HTML
+    const stylesAndImages = div.querySelectorAll('*[style], img');
     stylesAndImages.forEach((el) => el.remove());
+  
+    // Get the inner HTML with removed elements
     let sanitizedContent = div.innerHTML;
-    sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, "<p><br></p><p><br></p>");
+  
+    // Replace more than two consecutive <p><br></p> tags with just two
+    sanitizedContent = sanitizedContent.replace(/(<p><br><\/p>){3,}/g, '<p><br></p><p><br></p>');
+  
     return sanitizedContent;
   };
-
+  
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    // Ensure either title or description is provided
     if (!title && !value) {
       alert("Please provide either a title or description.");
       return;
     }
+  
     if (!catSlug) {
       alert("Please select a category.");
       return;
     }
-
+  
     setPublishing(true);
-    const uniqueSlug = generateUniqueSlug();
+    const uniqueSlug = generateUniqueSlug(title);
+  
+    // Sanitize the content before submitting
     const plainTextContent = stripHtml(value);
-
+  
     const res = await fetch("/api/posts", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({
         title,
-        desc: plainTextContent,
+        desc: plainTextContent,  // Submit the sanitized content
         img: media,
         slug: uniqueSlug,
         catSlug,
-        createdAt: new Date().toISOString(),
       }),
     });
-
+  
     setPublishing(false);
+  
+    if (res.status === 200) {
+      const data = await res.json();
+      router.push(`/posts/${data.slug}`);
+      closeModal();
+    }
+    
+  
+  
 
     if (res.status === 200) {
       const data = await res.json();
@@ -185,9 +215,7 @@ const WritePage = ({ closeModal }) => {
             onChange={(e) => setCatSlug(e.target.value)}
             required
           >
-            <option value="" disabled>
-              Select a category
-            </option>
+            <option value="" disabled>Select a category</option> 
             <option value="business">Business</option>
             <option value="idea">Ideas</option>
             <option value="technology">Technology</option>
@@ -197,21 +225,27 @@ const WritePage = ({ closeModal }) => {
             <option value="mathematics">Mathematics</option>
           </select>
           <ReactQuill
-            className={styles.editor}
-            theme="bubble"
-            value={value}
-            onChange={handleContentChange}
-            placeholder="What's trending..."
-            modules={{
-              toolbar: [
-                [{ header: [1, 2, false] }],
-                ["italic", "underline", "link"],
-                [{ list: "ordered" }, { list: "bullet" }],
-                ["clean"],
-              ],
-            }}
-            formats={["italic", "underline", "link", "list", "bullet"]}
-          />
+  className={styles.editor}
+  theme="bubble"
+  value={value}
+  onChange={handleContentChange}
+  placeholder="What's trending..."
+  modules={{
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      [ 'italic', 'underline', 'link'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['clean'],
+    ],
+  }}
+  formats={[
+    'italic',
+    'underline',
+    'link',
+    'list', 
+    'bullet'
+  ]}
+/>
 
           <div className={styles.characterCount}>
             {10000 - value.length} characters remaining
@@ -224,18 +258,11 @@ const WritePage = ({ closeModal }) => {
             onChange={(e) => setFile(e.target.files[0])}
           />
           <div className={styles.buttonsContainer}>
-            <label
-              htmlFor="file"
-              className={`${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ""}`}
-            >
-              <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
+            <label htmlFor="file" className={`${styles.button} ${styles.fileLabel} ${uploading ? styles.uploading : ''}`}>
+                <FontAwesomeIcon icon={faImage} /> {uploading ? "Uploading..." : "Upload Image"}
             </label>
-            <button
-              className={`${styles.button} ${styles.uploadButton}`}
-              type="submit"
-              disabled={uploading || publishing}
-            >
-              <FontAwesomeIcon icon={faUpload} /> {publishing ? "Publishing..." : "Publish"}
+            <button className={`${styles.button} ${styles.uploadButton}`} type="submit" disabled={uploading || publishing}>
+            <FontAwesomeIcon icon={faUpload} />   {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
           {preview && (
