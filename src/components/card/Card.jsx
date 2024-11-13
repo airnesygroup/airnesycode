@@ -1,28 +1,50 @@
-'use client';
 
+'use client';
 
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { formatDistanceToNow } from 'date-fns';
-import PostOptions from "../PostOptions"; // Import the PostOptions component
+import { formatDistanceToNow } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"; // Import the verified icon
 
 const Card = ({ key, item }) => {
+  const [showPopup, setShowPopup] = useState(false);  // Popup visibility state
+  const [isDeleting, setIsDeleting] = useState(false); // To track if a delete request is in progress
+
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
   const showMore = item?.desc.length > 300;
 
-  const [showOptions, setShowOptions] = useState(false); // State to toggle options visibility
+  // Handle delete post
+  const handleDelete = async () => {
+    setIsDeleting(true);
+    try {
+      const response = await fetch(`/api/posts/${item._id}`, {
+        method: "DELETE",
+      });
 
-  const handleToggleOptions = () => {
-    setShowOptions((prev) => !prev);
+      if (response.ok) {
+        alert("Post deleted successfully!");
+        // Refresh or update your UI to remove the deleted post (this may depend on your structure)
+        // You could trigger a page refresh or update the state in parent component to remove the post
+      } else {
+        alert("Failed to delete post!");
+      }
+    } catch (error) {
+      alert("An error occurred while deleting the post!");
+    } finally {
+      setIsDeleting(false);
+      setShowPopup(false); // Close the popup after action
+    }
   };
 
   return (
+    <Link href={`/posts/${item.slug}`} passHref>
       <div className={styles.container} key={key}>
-
+        {/* Profile Section */}
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -33,6 +55,7 @@ const Card = ({ key, item }) => {
           />
           <div className={styles.verticalLine}></div>
         </div>
+        {/* Post Information Section */}
         <div className={styles.infoContainer}>
           <div className={styles.header}>
             <div className={styles.userProfile}>
@@ -46,43 +69,49 @@ const Card = ({ key, item }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
+                    <p className={styles.username}>
+                      {item.user?.name.substring(0, 10)}
+                    </p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img 
-                    src="/verified.png" 
-                    alt="Verified" 
-                    className={styles.verifiedIcon} 
+                  <img
+                    src="/verified.png"
+                    alt="Verified"
+                    className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
-                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), {
+                      addSuffix: true,
+                    }).substring(0, 13)}
                   </span>
                 </div>
               </div>
             </div>
 
             <span className={styles.category}>{item.catSlug}</span>
-
-            <span className={styles.span} onClick={handleToggleOptions}>...</span> {/* Toggle options on click */}
+            {/* The "..." span for showing the delete popup */}
+            <span
+              className={styles.span}
+              onClick={() => setShowPopup(true)} // Trigger popup
+            >
+              ...
+            </span>
           </div>
 
-             <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-             <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
+          <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
 
-             <div className={styles.descContainer}>
-              <div
+          <div className={styles.descContainer}>
+            <div
               className={styles.desc}
               dangerouslySetInnerHTML={{ __html: truncatedDesc }}
-              />
-              <div
+            />
+            <div
               className={styles.desc2}
               dangerouslySetInnerHTML={{ __html: truncatedDesc2 }}
-            /> 
-            </div>
+            />
+          </div>
 
-
-
-            {item.img && (
+          {item.img && (
             <div className={styles.imageContainer}>
               <div
                 className={styles.imageBackground}
@@ -90,28 +119,38 @@ const Card = ({ key, item }) => {
                   backgroundImage: `url(${item.img})`,
                 }}
               />
-               <Image
+              <Image
                 src={item.img}
                 alt={item.title}
                 layout="intrinsic"
                 className={styles.image}
               />
-            </div> 
+            </div>
           )}
-                  
-
-
-
-        {/* Show the PostOptions component if showOptions is true */}
-        {showOptions && (
-          <PostOptions post={item} onDelete={() => setShowOptions(false)} />
+        </div>
+        {/* Delete Popup */}
+        {showPopup && (
+          <div className={styles.deletePopup}>
+            <div className={styles.popupContent}>
+              <h2>Are you sure you want to delete this post?</h2>
+              <button
+                className={styles.deleteButton}
+                onClick={handleDelete}
+                disabled={isDeleting} // Disable the button while deleting
+              >
+                {isDeleting ? "Deleting..." : "Delete Post"}
+              </button>
+              <button
+                className={styles.cancelButton}
+                onClick={() => setShowPopup(false)} // Close the popup
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         )}
       </div>
-
-
-      <div className={styles.horizontalLine}></div>         </div>
-
-
+    </Link>
   );
 };
 
