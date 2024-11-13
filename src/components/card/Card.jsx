@@ -1,46 +1,25 @@
-"use client"; // Add this at the top
-
 import Image from "next/image";
 import styles from "./card.module.css";
+import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
-import { useRouter } from 'next/navigation'; // Use next/navigation for Client Component
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
 
-const Card = ({ item }) => {
-  const router = useRouter();
-
-  const deletePost = async (postId) => {
-    console.log('Post ID:', postId); // Check the postId passed here
-    
-    if (!postId) {
-      console.error('No post ID provided');
-      return;
-    }
-  
-    try {
-      const res = await fetch(`/api/posts/${postId}`, {
-        method: 'DELETE',
-      });
-  
-      if (!res.ok) {
-        throw new Error('Failed to delete post');
-      }
-      console.log('Post deleted successfully');
-      // Optionally, redirect or update state after successful delete
-    } catch (error) {
-      console.error('Error deleting post:', error);
-      console.log('Item object:', item); // Add this log to check item structure
-    }
-  };
-  
-
+const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
   const showMore = item?.desc.length > 300;
 
+  // Handler function to handle the span click
+  const handleSpanClick = () => {
+    // Log or alert the post ID
+    alert(`Post ID: ${item.id}`);
+  };
+
   return (
-    <>
-      <div className={styles.container} key={item._id}> {/* Use item._id as key */}
+    <Link href={`/posts/${item.slug}`} passHref>
+      <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -68,7 +47,7 @@ const Card = ({ item }) => {
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
-                    src="/verified.png"
+                    src="/verified.png"     
                     alt="Verified" 
                     className={styles.verifiedIcon} 
                   />
@@ -79,15 +58,10 @@ const Card = ({ item }) => {
               </div>
             </div>
             <span className={styles.category}>{item.catSlug}</span>
-
-            {/* Span for delete action */}
-            <span className={styles.span} onClick={() => deletePost(item._id)}>
-  Delete
-</span>
-
+            <span className={styles.span} onClick={handleSpanClick}>..</span> {/* Click handler here */}
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -116,10 +90,11 @@ const Card = ({ item }) => {
               />
             </div>
           )}
+
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </>
+    </Link>
   );
 };
 
