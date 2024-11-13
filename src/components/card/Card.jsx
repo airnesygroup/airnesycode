@@ -1,3 +1,6 @@
+'use client'; // This marks the component as a Client Component
+
+
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
