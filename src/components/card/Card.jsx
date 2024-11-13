@@ -81,9 +81,10 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             {/* Span for delete action */}
-            <span className={styles.span} onClick={deletePost}>
-              Delete
+            <span className={styles.span} onClick={() => deletePost(post.id)}>Delete
             </span>
+
+
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
