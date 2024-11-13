@@ -1,47 +1,40 @@
-'use client';
+import React from "react";
+import { useRouter } from "next/router"; // For redirecting after deletion
+import styles from "./card.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
 
+const Card = ({ key, item }) => {
+  const router = useRouter(); // To handle redirection after deletion
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import styles from './card.module.css';
-import Link from 'next/link';
-import { formatDistanceToNow } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
-
-const Card = ({ key, item, onDelete }) => {
-  const [loading, setLoading] = useState(false);
-  const truncatedDesc = item?.desc.substring(0, 500);
-  const truncatedDesc2 = item?.desc.substring(0, 140);
-  const showMore = item?.desc.length > 300;
-
-  const handleDelete = async () => {
-    setLoading(true);
+  const deletePost = async (postId) => {
     try {
-      const response = await fetch('/api/posts', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id: item.id }),
+      const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        alert('Post deleted successfully!');
-        onDelete(item.id); // Update parent state to remove the post from the list
+        alert(data.message); // Show success message
+        router.reload(); // Reload the page to reflect the deletion
       } else {
-        alert('Failed to delete the post');
+        alert(data.message); // Show error message if any
       }
-    } catch (err) {
-      console.log(err);
-      alert('Error deleting the post');
-    } finally {
-      setLoading(false);
+    } catch (error) {
+      console.error("Failed to delete post:", error);
+      alert("Something went wrong!");
     }
   };
 
+  const truncatedDesc = item?.desc.substring(0, 500);
+  const truncatedDesc2 = item?.desc.substring(0, 140);
+
+  const showMore = item?.desc.length > 300;
+
   return (
-    <>
+    <Link href={`/posts/${item.slug}`} passHref>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -66,30 +59,39 @@ const Card = ({ key, item, onDelete }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
+                    <p className={styles.username}>
+                      {item.user?.name.substring(0, 10)}
+                    </p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img 
-                    src="/verified.png" alt="Verified" 
-                    className={styles.verifiedIcon} 
+                  <img
+                    src="/verified.png"
+                    alt="Verified"
+                    className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
-                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), {
+                      addSuffix: true,
+                    }).substring(0, 13)}
                   </span>
                 </div>
               </div>
             </div>
+
             <span className={styles.category}>{item.catSlug}</span>
-            <span className={styles.span}>..</span>
-            <span 
-              className={styles.deleteBtn} 
-              onClick={(e) => { e.preventDefault(); handleDelete(); }}
-              style={{ cursor: 'pointer', color: 'red' }}
+
+            <span
+              className={styles.deleteSpan}
+              onClick={(e) => {
+                e.preventDefault(); // Prevent the link action
+                deletePost(item.id); // Trigger post deletion
+              }}
             >
-              Delete
+              ...
             </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -121,7 +123,7 @@ const Card = ({ key, item, onDelete }) => {
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </>
+    </Link>
   );
 };
 

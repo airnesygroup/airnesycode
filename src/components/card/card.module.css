@@ -422,6 +422,13 @@ display: none;
   cursor: not-allowed;
 }
 
+.deleteSpan {
+  cursor: pointer;
+  font-size: 20px;
+  color: red; /* You can change this to any color you'd like */
+  margin-left: auto;
+}
+
 
 .errorMessage {
   color: red;
