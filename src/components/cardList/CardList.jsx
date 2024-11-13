@@ -1,48 +1,39 @@
-
-'use client';
-
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cardList.module.css";
-import Card from "../card/Card";
 import Pagination from "../pagination/Pagination";
+import Image from "next/image";
+import Card from "../card/Card";
+import AddIcon2 from "../Addicon2";
 
-const CardList = ({ page, cat }) => {
-  const [posts, setPosts] = useState([]);
-  
-  const getData = async (page, cat) => {
-    const res = await fetch(
-      `https://www.airnesy.com/api/postsimg?page=${page}&cat=${cat || ""}`,
-      {
-        cache: "no-store",
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed");
+const getData = async (page, cat) => {
+  const res = await fetch(
+    `https://www.airnesy.com/api/postsimg?page=${page}&cat=${cat || ""}`,
+    {
+      cache: "no-store",
     }
+  );
 
-    const data = await res.json();
-    setPosts(data.posts);
-  };
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
 
-  const handlePostDeleted = (postId) => {
-    setPosts(posts.filter((post) => post.id !== postId));
-  };
+  return res.json();
+};
 
-  React.useEffect(() => {
-    getData(page, cat);
-  }, [page, cat]);
+const CardList = async ({ page, cat }) => {
+  const { posts, count } = await getData(page, cat);
+
+  const POST_PER_PAGE = 10;
+
+  const hasPrev = POST_PER_PAGE * (page - 1) > 0;
+  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
     <div className={styles.container}>
+
       <div className={styles.posts}>
         {posts?.map((item) => (
-          <Card
-            key={item.id}
-            item={item}
-            onPostDeleted={handlePostDeleted} // Pass delete handler
-          />
+          <Card item={item} key={item._id} />
         ))}
       </div>
     </div>
