@@ -13,28 +13,28 @@ const Card = ({ key, item }) => {
   const router = useRouter();
 
   // Delete post handler
-  const deletePost = async (postId) => {
-    try {
-      const res = await fetch(`https://www.airnesy.com/api/posts/${postId}`, {
-        method: "DELETE",  // Use DELETE method
-        headers: {
-          "Content-Type": "application/json",
-          // Add any authentication headers if needed
-        },
-      });
-  
-      if (!res.ok) {
-        throw new Error("Failed to delete the post");
+    const deletePost = async (postId) => {
+      try {
+        const res = await fetch(`https://www.airnesy.com/api/posts/${postId}`, {
+          method: "DELETE",  // Use DELETE method
+          headers: {
+            "Content-Type": "application/json",
+            // Add any authentication headers if needed
+          },
+        });
+    
+        if (!res.ok) {
+          throw new Error("Failed to delete the post");
+        }
+    
+        const data = await res.json();
+        return data; // Optionally return a success message or post data
+      } catch (err) {
+        console.error("Error deleting post:", err);
+        throw new Error("Something went wrong while deleting the post");
       }
-  
-      const data = await res.json();
-      return data; // Optionally return a success message or post data
-    } catch (err) {
-      console.error("Error deleting post:", err);
-      throw new Error("Something went wrong while deleting the post");
-    }
-  };
-  
+    };
+    
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
@@ -84,7 +84,7 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             {/* Span for delete action */}
-            <span className={styles.span} onClick={handleDelete}>
+            <span className={styles.span} onClick={deletePost}>
               Delete
             </span>
           </div>
