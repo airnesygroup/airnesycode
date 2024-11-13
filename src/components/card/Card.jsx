@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
 import PostOptions from "../PostOptions";
 
-
+import PostOptions from "../PostOptions";
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
@@ -44,27 +44,25 @@ const Card = ({ key, item }) => {
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
-src="/verified.png"     alt="Verified" 
-className={styles.verifiedIcon} 
-    />
+                    src="/verified.png"     
+                    alt="Verified" 
+                    className={styles.verifiedIcon} 
+                  />
                   <span className={styles.date}>
-                  {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
                   </span>
-
                 </div>
               </div>
             </div>
 
-
             <span className={styles.category}>{item.catSlug}</span>
 
-
             <span className={styles.span}>
-               <PostOptions postId={post.id} userEmail={post.userEmail} />
+              <PostOptions postId={item.id} userEmail={item.userEmail} />
             </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -75,7 +73,6 @@ className={styles.verifiedIcon}
               className={styles.desc2}
               dangerouslySetInnerHTML={{ __html: truncatedDesc2 }}
             />
-        
           </div>
 
           {item.img && (
@@ -86,7 +83,7 @@ className={styles.verifiedIcon}
                   backgroundImage: `url(${item.img})`,
                 }}
               />
-               <Image
+              <Image
                 src={item.img}
                 alt={item.title}
                 layout="intrinsic"
@@ -95,12 +92,9 @@ className={styles.verifiedIcon}
               {/* Move the horizontal line here */}
             </div>
           )}
-
         </div>
-
       </div>
       <div className={styles.horizontalLine}></div>
-
     </Link>
   );
 };
