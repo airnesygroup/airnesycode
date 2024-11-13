@@ -13,25 +13,28 @@ const Card = ({ key, item }) => {
   const router = useRouter();
 
   // Delete post handler
-// Card.jsx
-const handleDelete = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await fetch(`/api/posts/${item.id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      alert("Post deleted successfully");
-      router.refresh();
-    } else {
-      alert("Failed to delete post");
+  const deletePost = async (postId) => {
+    try {
+      const res = await fetch(`https://www.airnesy.com/api/posts/${postId}`, {
+        method: "DELETE",  // Use DELETE method
+        headers: {
+          "Content-Type": "application/json",
+          // Add any authentication headers if needed
+        },
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to delete the post");
+      }
+  
+      const data = await res.json();
+      return data; // Optionally return a success message or post data
+    } catch (err) {
+      console.error("Error deleting post:", err);
+      throw new Error("Something went wrong while deleting the post");
     }
-  } catch (err) {
-    console.error(err);
-    alert("Something went wrong!");
-  }
-};
-
+  };
+  
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
