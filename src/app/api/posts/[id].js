@@ -1,29 +1,29 @@
-// /src/app/api/posts/[id]/route.js
+// pages/api/posts/[id].js
+import { connectToDatabase } from '../../lib/mongodb'; // You should define this helper to connect to MongoDB
 
-import prisma from "@/utils/connect";
-import { NextResponse } from "next/server";
+export default async function handler(req, res) {
+  const { method } = req;
+  const { id } = req.query; // Get the post ID from the URL
 
-export const DELETE = async (req, { params }) => {
-  try {
-    const postId = params.id;
+  const { db } = await connectToDatabase();
 
-    // Verify the post exists
-    const existingPost = await prisma.post.findUnique({
-      where: { id: postId },
-    });
+  switch (method) {
+    case 'DELETE':
+      try {
+        // Perform the deletion operation based on the ID
+        const result = await db.collection('posts').deleteOne({ _id: new ObjectId(id) });
 
-    if (!existingPost) {
-      return NextResponse.json({ message: "Post not found!" }, { status: 404 });
-    }
+        if (result.deletedCount === 1) {
+          return res.status(200).json({ message: 'Post deleted successfully' });
+        } else {
+          return res.status(404).json({ message: 'Post not found' });
+        }
+      } catch (error) {
+        console.error('Error deleting post:', error);
+        return res.status(500).json({ message: 'Failed to delete post' });
+      }
 
-    // Delete the post
-    await prisma.post.delete({
-      where: { id: postId },
-    });
-
-    return NextResponse.json({ message: "Post deleted successfully!" }, { status: 200 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ message: "Something went wrong!" }, { status: 500 });
+    default:
+      res.status(405).json({ message: `Method ${method} Not Allowed` });
   }
-};
+}
