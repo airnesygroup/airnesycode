@@ -21,6 +21,7 @@ const Card = ({ key, item }) => {
   };
 
   return (
+    <>
       <div className={styles.container} key={key}>
 
         <div className={styles.profileContainer}>
@@ -100,6 +101,7 @@ const Card = ({ key, item }) => {
           )}
                   
 
+        </div>
 
 
         {/* Show the PostOptions component if showOptions is true */}
@@ -109,9 +111,9 @@ const Card = ({ key, item }) => {
       </div>
 
 
-      <div className={styles.horizontalLine}></div>         </div>
+      <div className={styles.horizontalLine}></div>
 
-
+    </>
   );
 };
 
