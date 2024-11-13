@@ -1,3 +1,4 @@
+"use client";  // Add this line
 // PostOptions.js
 
 import { useState } from "react";
