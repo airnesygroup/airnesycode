@@ -69,7 +69,7 @@ const Card = ({ key, item, userEmail }) => {
                   </div>
                   <img
                     src="/verified.png"
-                    alt="Verifed"
+                    alt="Verified"
                     className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
