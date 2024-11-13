@@ -9,8 +9,8 @@ const Card = ({ item }) => {
   const router = useRouter();
 
   const deletePost = async (postId) => {
-    console.log('Post ID:', postId);  // Debugging: check if the postId is correct
-  
+    console.log('Post ID:', postId); // Check the postId passed here
+    
     if (!postId) {
       console.error('No post ID provided');
       return;
@@ -28,8 +28,10 @@ const Card = ({ item }) => {
       // Optionally, redirect or update state after successful delete
     } catch (error) {
       console.error('Error deleting post:', error);
+      console.log('Item object:', item); // Add this log to check item structure
     }
   };
+  
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
@@ -79,9 +81,10 @@ const Card = ({ item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             {/* Span for delete action */}
-            <span className={styles.span} onClick={() => deletePost(item._id)}> {/* Use item._id here */}
-              Delete
-            </span>
+            <span className={styles.span} onClick={() => deletePost(item._id)}>
+  Delete
+</span>
+
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
