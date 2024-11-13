@@ -12,8 +12,9 @@
 
 .options {
   position: absolute;
-  top: -50px;  /* Adjust this to move it upwards */
+  top: 100%;  /* Positions it just below the button */
   right: 0;
+  transform: translateY(5px);  /* Adds some space if needed */
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -36,3 +37,5 @@
 .option span {
   margin-left: 5px;
 }
+
+
