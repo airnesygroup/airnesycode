@@ -1,56 +1,65 @@
 
-"use client"; // This ensures this component is client-side
-
+"use client"; // This ensures this component is client-
 import React, { useState } from "react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { getAuthSession } from "@/utils/auth"; // Assumes you have an authentication helper
-import styles from "./postOptions.module.css";
+import { NextResponse } from "next/server";
+import { faShareAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./PostOptions.module.css";
 
-const PostOptions = ({ postId, userEmail }) => {
-  const [showOptions, setShowOptions] = useState(false);
+const PostOptions = ({ postId, userEmail, slug }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
   const router = useRouter();
 
-  // Fetch the current user's session to check if they own the post
-  const session = await getAuthSession();
-  const isOwner = session && session.user.email === userEmail;
-
-  const toggleOptions = () => {
-    setShowOptions(!showOptions);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   const handleShare = () => {
-    // Logic to handle sharing (e.g., copy link to clipboard)
-    const postUrl = `${window.location.origin}/posts/${postId}`;
-    navigator.clipboard.writeText(postUrl).then(() => {
-      alert("Post URL copied to clipboard!");
-    });
+    // Handle sharing logic (e.g., open a share modal or redirect to social media)
+    alert("Share functionality goes here");
   };
 
   const handleDelete = async () => {
-    if (confirm("Are you sure you want to delete this post?")) {
-      try {
-        const response = await fetch(`/api/posts/${postId}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          alert("Post deleted successfully!");
-          router.reload();
-        } else {
-          alert("Failed to delete the post!");
-        }
-      } catch (error) {
-        console.error("Error deleting post:", error);
+    if (!session || session.user.email !== userEmail) {
+      alert("You can only delete your own posts!");
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        alert("Post deleted successfully");
+        router.push("/"); // Navigate to home after deletion
+      } else {
+        alert("Failed to delete post");
       }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("Something went wrong!");
     }
   };
 
   return (
-    <div className={styles.container}>
-      <span className={styles.menuIcon} onClick={toggleOptions}>...</span>
-      {showOptions && (
-        <div className={styles.optionsPopup}>
-          <button onClick={handleShare}>Share</button>
-          {isOwner && <button onClick={handleDelete}>Delete</button>}
+    <div className={styles.optionsWrapper}>
+      <button onClick={toggleMenu} className={styles.optionsButton}>
+        ...
+      </button>
+      {isOpen && (
+        <div className={styles.menu}>
+          <button onClick={handleShare} className={styles.menuItem}>
+            <FontAwesomeIcon icon={faShareAlt} /> Share
+          </button>
+          {session && session.user.email === userEmail && (
+            <button onClick={handleDelete} className={styles.menuItem}>
+              <FontAwesomeIcon icon={faTrashAlt} /> Delete
+            </button>
+          )}
         </div>
       )}
     </div>
