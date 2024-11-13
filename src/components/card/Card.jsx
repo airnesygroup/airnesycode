@@ -12,8 +12,14 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const Card = ({ key, item }) => {
   const router = useRouter();
 
-  // Delete post handler
   const deletePost = async (postId) => {
+    console.log('Post ID:', postId);  // Debugging: check if the postId is correct
+  
+    if (!postId) {
+      console.error('No post ID provided');
+      return;
+    }
+  
     try {
       const res = await fetch(`/api/posts/${postId}`, {
         method: 'DELETE',
@@ -27,6 +33,7 @@ const Card = ({ key, item }) => {
       console.error('Error deleting post:', error);
     }
   };
+  
   
 
   const truncatedDesc = item?.desc.substring(0, 500);
