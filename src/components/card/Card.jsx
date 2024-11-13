@@ -27,7 +27,6 @@ const Card = ({ key, item }) => {
       console.error('Error deleting post:', error);
     }
   };
-  
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
@@ -77,7 +76,8 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             {/* Span for delete action */}
-            <span className={styles.span} onClick={() => deletePost(post.id)}>Delete
+            <span className={styles.span} onClick={deletePost}>
+              Delete
             </span>
 
 
