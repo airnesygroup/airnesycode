@@ -5,7 +5,8 @@ import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import PostOptionsPopup from "./PostOptionsPopup"; // Import the PostOptionsPopup component
+import PostOptions from "../PostOptions";
+
 
 const Card = ({ key, item, userEmail }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -117,7 +118,7 @@ const Card = ({ key, item, userEmail }) => {
         </div>
 
         {isPopupVisible && (
-          <PostOptionsPopup
+          <PostOptions
             isPostOwner={isPostOwner}
             handleDelete={handleDelete}
             togglePopup={togglePopup}
