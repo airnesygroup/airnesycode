@@ -1,29 +1,32 @@
-// pages/api/posts/[id].js
-import { connectToDatabase } from '../../lib/mongodb'; // You should define this helper to connect to MongoDB
+import { MongoClient } from 'mongodb';
+
+const client = new MongoClient(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
-  const { method } = req;
-  const { id } = req.query; // Get the post ID from the URL
+  if (req.method === 'DELETE') {
+    const { id } = req.query;  // Get the post ID from the URL
 
-  const { db } = await connectToDatabase();
+    try {
+      await client.connect();
+      const db = client.db();
+      const postsCollection = db.collection('posts');
+      
+      // Delete the post from the database
+      const result = await postsCollection.deleteOne({ _id: new ObjectId(id) });
 
-  switch (method) {
-    case 'DELETE':
-      try {
-        // Perform the deletion operation based on the ID
-        const result = await db.collection('posts').deleteOne({ _id: new ObjectId(id) });
-
-        if (result.deletedCount === 1) {
-          return res.status(200).json({ message: 'Post deleted successfully' });
-        } else {
-          return res.status(404).json({ message: 'Post not found' });
-        }
-      } catch (error) {
-        console.error('Error deleting post:', error);
-        return res.status(500).json({ message: 'Failed to delete post' });
+      if (result.deletedCount === 1) {
+        res.status(200).json({ message: 'Post deleted successfully' });
+      } else {
+        res.status(404).json({ error: 'Post not found' });
       }
-
-    default:
-      res.status(405).json({ message: `Method ${method} Not Allowed` });
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      res.status(500).json({ error: 'Failed to delete the post' });
+    } finally {
+      await client.close();
+    }
+  } else {
+    // Method Not Allowed for non-DELETE requests
+    res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
