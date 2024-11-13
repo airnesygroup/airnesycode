@@ -7,31 +7,26 @@ import styles from './PostOptions.module.css';
 
 const PostOptions = ({ post, onDelete }) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);  // Added loading state
-  const [errorMessage, setErrorMessage] = useState(null);  // State to hold error message
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");  // State for storing response message
 
   const handleDelete = async () => {
     setIsDeleting(true);  // Start loading
-    setErrorMessage(null);  // Reset any previous error message
-    try {
-      const response = await fetch(`/api/posts/${post.id}`, {
-        method: 'DELETE',
-      });
+    setResponseMessage(""); // Reset the response message before making the request
 
-      // Log full response for debugging purposes
-      console.log("Delete response:", response);
+    const response = await fetch(`/api/posts/${post.id}`, {
+      method: 'DELETE',
+    });
 
-      if (response.ok) {
-        onDelete(post.id);  // Notify parent to remove the post from the UI
-      } else {
-        // Parse the error message from the response
-        const errorData = await response.json();
-        setErrorMessage(errorData.message || "An unknown error occurred.");
-      }
-    } catch (error) {
-      console.error("Error during post deletion:", error);
-      setErrorMessage("An unexpected error occurred while deleting the post.");
+    const data = await response.json();  // Get JSON response
+
+    if (response.ok) {
+      setResponseMessage(data.message);  // Set success message
+      onDelete(post.id);  // Call the onDelete prop to remove the post from the UI
+    } else {
+      setResponseMessage(data.message);  // Set error message
     }
+
     setIsDeleting(false);  // Stop loading
   };
 
@@ -66,9 +61,9 @@ const PostOptions = ({ post, onDelete }) => {
         </div>
       )}
 
-      {errorMessage && (
-        <div className={styles.errorMessage}>
-          <span>{errorMessage}</span>
+      {responseMessage && (
+        <div className={styles.responseMessage}>
+          {responseMessage}
         </div>
       )}
     </div>
