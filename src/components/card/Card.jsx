@@ -23,21 +23,37 @@ const Card = ({ key, item }) => {
   const handleDelete = async () => {
     setIsDeleting(true);
     setErrorMessage(""); // Clear previous errors before new request
-
+  
     try {
       const response = await fetch(`/api/posts/${item._id}`, {
         method: "DELETE",
       });
-
+  
       const result = await response.json();
-
+  
       if (!response.ok) {
         // Handle and show the exact error message from the backend
-        setErrorMessage(result.message || "Failed to delete post");
+        switch (result.message) {
+          case "You need to be logged in to delete a post":
+            setErrorMessage("You need to be logged in to delete this post.");
+            break;
+          case "Post not found":
+            setErrorMessage("The post does not exist or was already deleted.");
+            break;
+          case "You are not authorized to delete this post":
+            setErrorMessage("You are not authorized to delete this post.");
+            break;
+          case "Failed to delete post":
+            setErrorMessage("An error occurred while trying to delete the post. Please try again.");
+            break;
+          default:
+            setErrorMessage(result.message || "Failed to delete post");
+            break;
+        }
       } else {
         alert("Post deleted successfully!");
-        // Refresh or update your UI to remove the deleted post (this may depend on your structure)
-        // You could trigger a page refresh or update the state in the parent component to remove the post
+        // Optionally refresh or update the UI
+        // For example, trigger a refresh or remove the post from the UI list
       }
     } catch (error) {
       console.error("Delete failed:", error);
@@ -47,6 +63,7 @@ const Card = ({ key, item }) => {
       setShowPopup(false); // Close the popup after action
     }
   };
+  
 
   return (
     <>

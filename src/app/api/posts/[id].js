@@ -1,5 +1,6 @@
 import { connectToDatabase } from "../../../lib/mongodb"; // Your MongoDB connection utility
 import { getSession } from "next-auth/react";
+import { ObjectId } from "mongodb"; // Assuming you're using MongoDB's ObjectId
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -18,9 +19,10 @@ export default async function handler(req, res) {
         return res.status(401).json({ message: "You need to be logged in to delete a post" });
       }
 
-      // Fetch the post from the database
+      // Fetch the post from the database by id
       const post = await db.collection("posts").findOne({ _id: new ObjectId(id) });
 
+      // Check if the post exists
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
       }
@@ -46,3 +48,4 @@ export default async function handler(req, res) {
     res.status(405).json({ message: `Method ${method} Not Allowed` });
   }
 }
+
