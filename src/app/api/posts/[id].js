@@ -1,9 +1,4 @@
-import { getAuthSession } from "@/utils/auth";
-import prisma from "@/utils/connect";
-import { NextResponse } from "next/server";
-
-// Assuming you have a route to update a post
-export const PUT = async (req) => {
+export const DELETE = async (req) => {
   const session = await getAuthSession();
 
   if (!session) {
@@ -13,8 +8,7 @@ export const PUT = async (req) => {
   }
 
   try {
-    const body = await req.json();
-    const postId = body.id;
+    const postId = req.url.split("/").pop(); // Get post ID from the URL
 
     // Check if the post exists
     const existingPost = await prisma.post.findUnique({
@@ -27,13 +21,19 @@ export const PUT = async (req) => {
       );
     }
 
-    // Update the post if it exists
-    const updatedPost = await prisma.post.update({
+    // Only allow the post owner to delete
+    if (existingPost.userEmail !== session.user.email) {
+      return new NextResponse(
+        JSON.stringify({ message: "Unauthorized!" }, { status: 403 })
+      );
+    }
+
+    // Delete the post
+    await prisma.post.delete({
       where: { id: postId },
-      data: { ...body, userEmail: session.user.email },
     });
 
-    return new NextResponse(JSON.stringify(updatedPost, { status: 200 }));
+    return new NextResponse(JSON.stringify({ message: "Post deleted successfully" }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
