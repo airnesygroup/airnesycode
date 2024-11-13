@@ -16,7 +16,7 @@ const Card = ({ key, item }) => {
   const handleDelete = async (e) => {
     e.preventDefault(); // Prevents link navigation
     try {
-      const response = await fetch(`/api/posts/${item.id}`, {
+      const response = await fetch(`https://www.airnesy.com/api/posts/${item.id}`, {
         method: "DELETE",
       });
       if (response.ok) {
