@@ -1,13 +1,9 @@
 "use client"; // Add this at the top
 
-
 import Image from "next/image";
 import styles from "./card.module.css";
-import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
 import { useRouter } from 'next/navigation'; // Use next/navigation for Client Component
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Card = ({ key, item }) => {
   const router = useRouter();
@@ -29,12 +25,11 @@ const Card = ({ key, item }) => {
         throw new Error('Failed to delete post');
       }
       console.log('Post deleted successfully');
+      // Optionally, redirect or update state after successful delete
     } catch (error) {
       console.error('Error deleting post:', error);
     }
   };
-  
-  
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
@@ -85,14 +80,11 @@ const Card = ({ key, item }) => {
 
             {/* Span for delete action */}
             <span className={styles.span} onClick={() => deletePost(item._id)}>
-  Delete
-</span>
-
-
-
+              Delete
+            </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -119,7 +111,6 @@ const Card = ({ key, item }) => {
                 layout="intrinsic"
                 className={styles.image}
               />
-              {/* Move the horizontal line here */}
             </div>
           )}
         </div>
