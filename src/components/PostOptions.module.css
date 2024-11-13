@@ -11,7 +11,7 @@
 
 .options {
   position: absolute;
-  top: -10px;  /* Adjust this to move it upwards */
+  top: -50px;  /* Adjust this to move it upwards */
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
