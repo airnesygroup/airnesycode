@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb'; // Import ObjectId
 
 const client = new MongoClient(process.env.DATABASE_URL);
 
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       const db = client.db();
       const postsCollection = db.collection('posts');
       
-      // Delete the post from the database
+      // Delete the post from the database using ObjectId
       const result = await postsCollection.deleteOne({ _id: new ObjectId(id) });
 
       if (result.deletedCount === 1) {
@@ -30,3 +30,4 @@ export default async function handler(req, res) {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
+
