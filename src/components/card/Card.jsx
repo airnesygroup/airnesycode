@@ -3,23 +3,13 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
-import PostOptions from "../PostOptions";
+import PostOptions from "../PostOptions/PostOptions"; // Import the PostOptions component
 
 const Card = ({ item, userEmail, onPostDeleted }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
   
   const showMore = item?.desc.length > 300;
-
-  // Handler for the delete options click
-  const handleOptionsClick = (e) => {
-    // Prevent the Link navigation
-    e.stopPropagation();
-    e.preventDefault();
-    // Optionally trigger delete or other actions
-    console.log('Delete clicked');
-    onPostDeleted(item.id); // Call the delete function with the post ID
-  };
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
@@ -63,8 +53,7 @@ const Card = ({ item, userEmail, onPostDeleted }) => {
             </div>
 
             <span className={styles.category}>{item.catSlug}</span>
-            {/* Add the delete button here */}
-            <button onClick={handleOptionsClick} className={styles.optionsButton}>...</button>
+            <span className={styles.span}>...</span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
 
