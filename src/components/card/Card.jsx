@@ -102,7 +102,6 @@ const Card = ({ key, item }) => {
                   
 
         </div>
-            <Link />
 
 
         {/* Show the PostOptions component if showOptions is true */}
