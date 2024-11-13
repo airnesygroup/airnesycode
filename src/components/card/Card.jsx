@@ -42,7 +42,7 @@ const Card = ({ key, item }) => {
   const showMore = item?.desc.length > 300;
 
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -122,7 +122,7 @@ const Card = ({ key, item }) => {
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </Link>
+    </>
   );
 };
 
