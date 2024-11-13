@@ -10,11 +10,25 @@ const Card = ({ key, item }) => {
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
   // Handler function to handle the span click
-  const handleSpanClick = () => {
-    // Log or alert the post ID
-    alert(`Post ID: ${item.id}`);
-  };
 
+
+  const deletePost = async (postId) => {
+    const response = await fetch('/api/posts/delete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: postId }),
+    });
+  
+    const data = await response.json();
+    if (response.ok) {
+      console.log(data.message); // Post deleted successfully
+    } else {
+      console.error(data.message); // Error message
+    }
+  };
+  
   return (
     <>
       <div className={styles.container} key={key}>
@@ -56,7 +70,7 @@ const Card = ({ key, item }) => {
               </div>
             </div>
             <span className={styles.category}>{item.catSlug}</span>
-            <span className={styles.span} onClick={handleSpanClick}>..</span> {/* Click handler here */}
+            <span className={styles.span} onClick={() => deletePost(post.id)}>...</span> {/* Click handler here */}
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
