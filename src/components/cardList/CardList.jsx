@@ -45,7 +45,6 @@ const CardList = ({ page, cat }) => {
           />
         ))}
       </div>
-      <Pagination page={page} />
     </div>
   );
 };
