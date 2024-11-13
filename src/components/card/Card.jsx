@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
 import PostOptions from "../PostOptions";
 
-import PostOptions from "../PostOptions";
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
