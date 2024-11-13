@@ -1,61 +1,41 @@
-
-'use client';
-
-import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { formatDistanceToNow } from "date-fns";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"; // Import the verified icon
+import { formatDistanceToNow } from 'date-fns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
+import { useState } from 'react';
 
-const Card = ({ key, item }) => {
-  const [showPopup, setShowPopup] = useState(false);  // Popup visibility state
-  const [isDeleting, setIsDeleting] = useState(false); // To track if a delete request is in progress
-  const [errorMessage, setErrorMessage] = useState(""); // To store the error message
-
+const Card = ({ key, item, onDelete }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const showMore = item?.desc.length > 300;
 
-  // Handle delete post
-  const handleDelete = async (postId) => {
+  const handleDelete = async () => {
     try {
-      const response = await fetch(`/api/posts/${postId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          // Include the authentication token if needed
-          "Authorization": `Bearer ${yourAuthToken}`
-        },
+      const response = await fetch(`/api/posts/${item.id}`, {
+        method: 'DELETE',
       });
-  
+
       const result = await response.json();
-      
-      if (!response.ok) {
-        // Handle specific error responses
-        if (response.status === 401) {
-          setErrorMessage("You must be logged in to delete this post");
-        } else {
-          setErrorMessage(result.message || "Failed to delete post");
-        }
+      if (response.ok) {
+        setIsDeleted(true);
+        onDelete(item.id); // Notify parent to remove post from list
       } else {
-        alert("Post deleted successfully!");
-        // Optionally refresh the UI to remove the deleted post
+        alert(result.message);
       }
-    }
-     finally {
-      setIsDeleting(false);
-      setShowPopup(false); // Close the popup after the operation
+    } catch (error) {
+      console.error("Failed to delete post", error);
     }
   };
-  
+
+  if (isDeleted) return null; // Don't render the post if it's deleted
 
   return (
-    <>
+    <Link href={`/posts/${item.slug}`} passHref>
       <div className={styles.container} key={key}>
-        {/* Profile Section */}
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -66,7 +46,6 @@ const Card = ({ key, item }) => {
           />
           <div className={styles.verticalLine}></div>
         </div>
-        {/* Post Information Section */}
         <div className={styles.infoContainer}>
           <div className={styles.header}>
             <div className={styles.userProfile}>
@@ -80,35 +59,31 @@ const Card = ({ key, item }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>
-                      {item.user?.name.substring(0, 10)}
-                    </p>
+                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img
-                    src="/verified.png"
-                    alt="Verified"
-                    className={styles.verifiedIcon}
+                  <img 
+                    src="/verified.png"     
+                    alt="Verified" 
+                    className={styles.verifiedIcon} 
                   />
                   <span className={styles.date}>
-                    {formatDistanceToNow(new Date(item.createdAt), {
-                      addSuffix: true,
-                    }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
                   </span>
                 </div>
               </div>
             </div>
 
             <span className={styles.category}>{item.catSlug}</span>
-            {/* The "..." span for showing the delete popup */}
-            <span
-              className={styles.span}
-              onClick={() => setShowPopup(true)} // Trigger popup
+
+            <span 
+              className={styles.span} 
+              onClick={handleDelete}
+              style={{ cursor: 'pointer', color: 'red' }}
             >
               ...
             </span>
           </div>
-
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
@@ -139,31 +114,9 @@ const Card = ({ key, item }) => {
             </div>
           )}
         </div>
-
-        {/* Delete Popup */}
-        {showPopup && (
-          <div className={styles.deletePopup}>
-            <div className={styles.popupContent}>
-              <h2>Are you sure you want to delete this post?</h2>
-              <button
-                className={styles.deleteButton}
-                onClick={handleDelete}
-                disabled={isDeleting} // Disable the button while deleting
-              >
-                {isDeleting ? "Deleting..." : "Delete Post"}
-              </button>
-              <button
-                className={styles.cancelButton}
-                onClick={() => setShowPopup(false)} // Close the popup
-              >
-                Cancel
-              </button>
-              {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-            </div>
-          </div>
-        )}
       </div>
-    </>
+      <div className={styles.horizontalLine}></div>
+    </Link>
   );
 };
 
