@@ -59,7 +59,7 @@ className={styles.verifiedIcon}
             <span className={styles.category}>{item.catSlug}</span>
 
 
-            <span className={styles.span}>...</span>
+            <span className={styles.span}>..</span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
