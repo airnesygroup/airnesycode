@@ -1,37 +1,23 @@
-import prisma from "@/utils/connect";
-import { NextResponse } from "next/server";
+import prisma from "@/utils/connect"; // Update with your actual Prisma client import
 
-// DELETE API route to delete a post
-export const DELETE = async (req, { params }) => {
+export async function DELETE(req, { params }) {
   const { id } = params;
 
   try {
-    // Find the post to ensure it exists
-    const post = await prisma.post.findUnique({
-      where: { id: id },
+    // Delete the post from the database using Prisma
+    const deletedPost = await prisma.post.delete({
+      where: { id },
     });
 
-    if (!post) {
-      return new NextResponse(
-        JSON.stringify({ message: "Post not found!" }),
-        { status: 404 }
-      );
-    }
-
-    // Delete the post
-    await prisma.post.delete({
-      where: { id: id },
-    });
-
-    return new NextResponse(
-      JSON.stringify({ message: "Post deleted successfully!" }),
+    return new Response(
+      JSON.stringify({ message: "Post deleted successfully!", deletedPost }),
       { status: 200 }
     );
-  } catch (err) {
-    console.error(err);
-    return new NextResponse(
-      JSON.stringify({ message: "Failed to delete post!" }),
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    return new Response(
+      JSON.stringify({ message: "Failed to delete post" }),
       { status: 500 }
     );
   }
-};
+}

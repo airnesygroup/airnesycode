@@ -1,30 +1,34 @@
-import React from "react";
-import { useRouter } from "next/router"; // For redirecting after deletion
+"use client"; // Mark this as a client component
+
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import from next/navigation
 import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow } from 'date-fns';
 
-const Card = ({ key, item }) => {
-  const router = useRouter(); // To handle redirection after deletion
+const Card = ({ item }) => {
+  const [deleting, setDeleting] = useState(false);
+  const router = useRouter();
 
-  const deletePost = async (postId) => {
+  const handleDelete = async (postId) => {
+    setDeleting(true);
+
     try {
       const response = await fetch(`/api/posts/${postId}`, {
-        method: "DELETE",
+        method: 'DELETE',
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        alert(data.message); // Show success message
-        router.reload(); // Reload the page to reflect the deletion
+        // Optionally, redirect to a different page after deletion (e.g., homepage)
+        router.push("/"); // Redirect to home page or another desired page
       } else {
-        alert(data.message); // Show error message if any
+        console.error("Failed to delete post");
       }
-    } catch (error) {
-      console.error("Failed to delete post:", error);
-      alert("Something went wrong!");
+    } catch (err) {
+      console.error("An error occurred while deleting the post:", err);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -35,7 +39,7 @@ const Card = ({ key, item }) => {
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
-      <div className={styles.container} key={key}>
+      <div className={styles.container}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -59,39 +63,33 @@ const Card = ({ key, item }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>
-                      {item.user?.name.substring(0, 10)}
-                    </p>
+                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img
-                    src="/verified.png"
-                    alt="Verified"
-                    className={styles.verifiedIcon}
+                  <img 
+                    src="/verified.png"     
+                    alt="Verified" 
+                    className={styles.verifiedIcon} 
                   />
                   <span className={styles.date}>
-                    {formatDistanceToNow(new Date(item.createdAt), {
-                      addSuffix: true,
-                    }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
                   </span>
                 </div>
               </div>
             </div>
-
             <span className={styles.category}>{item.catSlug}</span>
-
-            <span
-              className={styles.deleteSpan}
-              onClick={(e) => {
-                e.preventDefault(); // Prevent the link action
-                deletePost(item.id); // Trigger post deletion
+            <span 
+              className={styles.span} 
+              onClick={(e) => { 
+                e.preventDefault(); 
+                handleDelete(item.id); // Call the delete function
               }}
             >
               ...
             </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
 
           <div className={styles.descContainer}>
             <div
