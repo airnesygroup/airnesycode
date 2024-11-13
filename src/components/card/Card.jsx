@@ -4,15 +4,23 @@ import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
 import PostOptions from "../PostOptions";
+
 const Card = ({ item, userEmail, onPostDeleted }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
   
   const showMore = item?.desc.length > 300;
 
+  const handlePostClick = (event) => {
+    // Only prevent the default action for the delete button click, not for the link click.
+    if (event.target && event.target.dataset.type === "delete") {
+      event.preventDefault();
+    }
+  };
+
   return (
     <Link href={`/posts/${item.slug}`} passHref>
-      <div className={styles.container}>
+      <div className={styles.container} onClick={handlePostClick}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
