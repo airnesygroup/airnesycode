@@ -1,88 +1,60 @@
-"use client";  // Add this line
-// PostOptions.js
 
-import { useState } from "react";
+"use client"; // This ensures this component is client-side
+
+import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { getAuthSession } from "@/utils/auth";
+import { getAuthSession } from "@/utils/auth"; // Assumes you have an authentication helper
+import styles from "./postOptions.module.css";
 
-export default function PostOptions({ postId, userEmail }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [session, setSession] = useState(null);
+const PostOptions = ({ postId, userEmail }) => {
+  const [showOptions, setShowOptions] = useState(false);
   const router = useRouter();
 
-  // Get the current session (user)
-  useEffect(() => {
-    async function fetchSession() {
-      const sessionData = await getAuthSession();
-      setSession(sessionData);
-    }
-    fetchSession();
-  }, []);
+  // Fetch the current user's session to check if they own the post
+  const session = await getAuthSession();
+  const isOwner = session && session.user.email === userEmail;
 
-  // Toggle pop-up visibility
-  const togglePopup = () => setIsOpen(!isOpen);
+  const toggleOptions = () => {
+    setShowOptions(!showOptions);
+  };
 
-  // Share functionality
   const handleShare = () => {
-    const shareUrl = `${window.location.origin}/posts/${postId}`;
-    if (navigator.share) {
-      navigator.share({
-        title: "Check out this post!",
-        url: shareUrl,
-      }).catch(console.error);
-    } else {
-      alert(`Copy this link to share: ${shareUrl}`);
-    }
+    // Logic to handle sharing (e.g., copy link to clipboard)
+    const postUrl = `${window.location.origin}/posts/${postId}`;
+    navigator.clipboard.writeText(postUrl).then(() => {
+      alert("Post URL copied to clipboard!");
+    });
   };
 
-  // Delete functionality
   const handleDelete = async () => {
-    try {
-      const response = await fetch(`/api/posts/${postId}`, {
-        method: "DELETE",
-      });
-
-      if (response.ok) {
-        alert("Post deleted successfully!");
-        router.push("/"); // Redirect to homepage or another page
-      } else {
-        alert("Failed to delete post.");
+    if (confirm("Are you sure you want to delete this post?")) {
+      try {
+        const response = await fetch(`/api/posts/${postId}`, {
+          method: "DELETE",
+        });
+        if (response.ok) {
+          alert("Post deleted successfully!");
+          router.reload();
+        } else {
+          alert("Failed to delete the post!");
+        }
+      } catch (error) {
+        console.error("Error deleting post:", error);
       }
-    } catch (err) {
-      console.error(err);
-      alert("An error occurred.");
     }
   };
-
-  // Check if the current user owns the post
-  const isOwner = session?.user.email === userEmail;
 
   return (
-    <div>
-      <button onClick={togglePopup}>•••</button>
-      
-      {isOpen && (
-        <div className="popup">
+    <div className={styles.container}>
+      <span className={styles.menuIcon} onClick={toggleOptions}>...</span>
+      {showOptions && (
+        <div className={styles.optionsPopup}>
           <button onClick={handleShare}>Share</button>
           {isOwner && <button onClick={handleDelete}>Delete</button>}
         </div>
       )}
-
-      <style jsx>{`
-        .popup {
-          position: absolute;
-          background: white;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          padding: 8px;
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        button {
-          background: none;
-          border: none;
-          cursor: pointer;
-        }
-      `}</style>
     </div>
   );
-}
+};
+
+export default PostOptions;
