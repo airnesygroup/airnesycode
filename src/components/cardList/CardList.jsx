@@ -1,8 +1,7 @@
-'use client'; // Enable client-side rendering
-
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cardList.module.css";
+import Pagination from "../pagination/Pagination";
+import Image from "next/image";
 import Card from "../card/Card";
 import AddIcon2 from "../Addicon2";
 
@@ -29,17 +28,12 @@ const CardList = async ({ page, cat }) => {
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
-  const handlePostDeleted = (postId) => {
-    // Remove the post from the list after it's deleted
-    // Ideally, you would filter it out or refetch data after deletion
-    console.log(`Post with id ${postId} deleted`);
-  };
-
   return (
     <div className={styles.container}>
+
       <div className={styles.posts}>
         {posts?.map((item) => (
-          <Card item={item} key={item._id} onPostDeleted={handlePostDeleted} />
+          <Card item={item} key={item._id} />
         ))}
       </div>
     </div>
