@@ -1,24 +1,24 @@
-
+'use client';
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import styles from './PostOptions.module.css';
 
 const PostOptions = ({ post, onDelete }) => {
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false); // Added loading state
 
   const handleDelete = async () => {
-    setIsDeleting(true);
+    setIsDeleting(true);  // Start loading
     const response = await fetch(`/api/posts/${post.id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      onDelete(post.id);  // Notify parent component to update the UI
+      onDelete(post.id); // Close the options after deleting
     } else {
       alert("Failed to delete the post!");
     }
-    setIsDeleting(false);
+    setIsDeleting(false);  // Stop loading
   };
 
   const handleShare = () => {
@@ -28,7 +28,7 @@ const PostOptions = ({ post, onDelete }) => {
   return (
     <div className={styles.container}>
       <button
-        onClick={() => setShowOptions(!showOptions)}
+        onClick={onDelete} // Close the options
         className={styles.optionsButton}
         aria-label="Toggle post options"
       >
