@@ -1,10 +1,9 @@
-'use client';
-
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cardList.module.css";
 import Pagination from "../pagination/Pagination";
+import Image from "next/image";
 import Card from "../card/Card";
+import AddIcon2 from "../Addicon2";
 
 const getData = async (page, cat) => {
   const res = await fetch(
@@ -29,16 +28,12 @@ const CardList = async ({ page, cat }) => {
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
-  const handleDelete = (deletedPostId) => {
-    // Filter out the deleted post
-    setPosts((prevPosts) => prevPosts.filter(post => post.id !== deletedPostId));
-  };
-
   return (
     <div className={styles.container}>
+
       <div className={styles.posts}>
         {posts?.map((item) => (
-          <Card item={item} key={item.id} onDelete={handleDelete} />
+          <Card item={item} key={item._id} />
         ))}
       </div>
     </div>

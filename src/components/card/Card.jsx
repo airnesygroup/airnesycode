@@ -1,43 +1,47 @@
 'use client';
 
 
-import Image from "next/image";
-import styles from "./card.module.css";
-import Link from "next/link";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import styles from './card.module.css';
+import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
-import { useState } from 'react';
 
 const Card = ({ key, item, onDelete }) => {
+  const [loading, setLoading] = useState(false);
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-  const [isDeleted, setIsDeleted] = useState(false);
-
   const showMore = item?.desc.length > 300;
 
   const handleDelete = async () => {
+    setLoading(true);
     try {
-      const response = await fetch(`/api/posts/${item.id}`, {
+      const response = await fetch('/api/posts', {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: item.id }),
       });
 
-      const result = await response.json();
       if (response.ok) {
-        setIsDeleted(true);
-        onDelete(item.id); // Notify parent to remove post from list
+        alert('Post deleted successfully!');
+        onDelete(item.id); // Update parent state to remove the post from the list
       } else {
-        alert(result.message);
+        alert('Failed to delete the post');
       }
-    } catch (error) {
-      console.error("Failed to delete post", error);
+    } catch (err) {
+      console.log(err);
+      alert('Error deleting the post');
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (isDeleted) return null; // Don't render the post if it's deleted
-
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -66,8 +70,7 @@ const Card = ({ key, item, onDelete }) => {
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
-                    src="/verified.png"     
-                    alt="Verified" 
+                    src="/verified.png" alt="Verified" 
                     className={styles.verifiedIcon} 
                   />
                   <span className={styles.date}>
@@ -76,15 +79,14 @@ const Card = ({ key, item, onDelete }) => {
                 </div>
               </div>
             </div>
-
             <span className={styles.category}>{item.catSlug}</span>
-
+            <span className={styles.span}>..</span>
             <span 
-              className={styles.span} 
-              onClick={handleDelete}
+              className={styles.deleteBtn} 
+              onClick={(e) => { e.preventDefault(); handleDelete(); }}
               style={{ cursor: 'pointer', color: 'red' }}
             >
-              ...
+              Delete
             </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
@@ -119,7 +121,7 @@ const Card = ({ key, item, onDelete }) => {
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </Link>
+    </>
   );
 };
 
