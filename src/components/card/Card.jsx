@@ -49,7 +49,7 @@ const Card = ({ key, item }) => {
   };
 
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <>
       <div className={styles.container} key={key}>
         {/* Profile Section */}
         <div className={styles.profileContainer}>
@@ -159,7 +159,7 @@ const Card = ({ key, item }) => {
           </div>
         )}
       </div>
-    </Link>
+    </>
   );
 };
 
