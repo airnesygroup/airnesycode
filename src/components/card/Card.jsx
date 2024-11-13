@@ -1,25 +1,20 @@
-'use client';
-
-
-import { useState } from 'react';
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
-import PostOptions from '../PostOptions';  // Import the PostOptions component
+import PostOptions from "../PostOptions"; // Import the PostOptions component
 
 const Card = ({ key, item }) => {
-  const [showOptions, setShowOptions] = useState(false);
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
   const showMore = item?.desc.length > 300;
 
-  const handleDelete = async (postId) => {
-    // Function to handle delete action in Card component if needed
-    console.log(`Post ${postId} deleted`);
+  const [showOptions, setShowOptions] = useState(false); // State to toggle options visibility
+
+  const handleToggleOptions = () => {
+    setShowOptions((prev) => !prev);
   };
 
   return (
@@ -52,7 +47,7 @@ const Card = ({ key, item }) => {
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
-                    src="/verified.png"     
+                    src="/verified.png" 
                     alt="Verified" 
                     className={styles.verifiedIcon} 
                   />
@@ -62,11 +57,13 @@ const Card = ({ key, item }) => {
                 </div>
               </div>
             </div>
+
             <span className={styles.category}>{item.catSlug}</span>
-            <span className={styles.span}>..</span>
+
+            <span className={styles.span} onClick={handleToggleOptions}>..</span> {/* Toggle options on click */}
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -87,7 +84,7 @@ const Card = ({ key, item }) => {
                   backgroundImage: `url(${item.img})`,
                 }}
               />
-              <Image
+               <Image
                 src={item.img}
                 alt={item.title}
                 layout="intrinsic"
@@ -97,13 +94,12 @@ const Card = ({ key, item }) => {
           )}
         </div>
 
-        {/* Show the PostOptions component when "..." is clicked */}
-        <div onClick={() => setShowOptions(!showOptions)}>
-          {showOptions && (
-            <PostOptions post={item} onDelete={handleDelete} />
-          )}
-        </div>
+        {/* Show the PostOptions component if showOptions is true */}
+        {showOptions && (
+          <PostOptions post={item} onDelete={() => setShowOptions(false)} />
+        )}
       </div>
+
       <div className={styles.horizontalLine}></div>
     </Link>
   );
