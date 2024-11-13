@@ -1,18 +1,13 @@
 'use client'; // This marks the component as a Client Component
 
-
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
 
 const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-
-  const showMore = item?.desc.length > 300;
 
   // Handler function to handle the span click
   const handleSpanClick = () => {
