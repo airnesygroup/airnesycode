@@ -21,7 +21,7 @@ const Card = ({ key, item }) => {
   };
 
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <Link >
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -63,7 +63,7 @@ const Card = ({ key, item }) => {
 
             <span className={styles.category}>{item.catSlug}</span>
 
-            <span className={styles.span} onClick={handleToggleOptions}>..</span> {/* Toggle options on click */}
+            <span className={styles.span} onClick={handleToggleOptions}>...</span> {/* Toggle options on click */}
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
