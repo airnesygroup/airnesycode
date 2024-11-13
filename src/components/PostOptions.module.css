@@ -12,7 +12,7 @@
 
 .options {
   position: absolute;
-  margin-top: 0;  /* Positions it just below the button */
+  margin-top: -100px;  /* Positions it just below the button */
   right: 0;
   transform: translateY(5px);  /* Adds some space if needed */
   background-color: white;
