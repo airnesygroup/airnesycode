@@ -11,11 +11,11 @@ const Card = ({ key, item }) => {
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-
+  
   const handleSpanClick = async () => {
     // Immediately show the post ID before making the DELETE request
     setMessage(`You are about to delete Post ID: ${item.id}`);
-
+  
     try {
       // Sending DELETE request to the API to delete the post
       const response = await fetch(`/api/posts/${item.id}`, {
@@ -25,11 +25,13 @@ const Card = ({ key, item }) => {
         },
         body: JSON.stringify({ id: item.id }),
       });
-
+  
       const result = await response.json();
+  
       if (response.ok) {
-        // Optionally, update the message on successful deletion
+        // Update the message on successful deletion
         setMessage(`Post ID ${item.id} has been deleted.`);
+        // Optionally, you can remove the post from the UI here (if applicable)
       } else {
         setMessage(result.message || 'Failed to delete the post.');
       }
@@ -38,6 +40,7 @@ const Card = ({ key, item }) => {
       console.error(error);
     }
   };
+  
 
   return (
     <>
