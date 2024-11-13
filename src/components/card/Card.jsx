@@ -1,8 +1,11 @@
+"use client"; // Add this at the top
+
+
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'; // Use next/navigation for Client Component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
