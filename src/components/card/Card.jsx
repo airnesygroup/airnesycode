@@ -20,47 +20,36 @@ const Card = ({ key, item }) => {
   const showMore = item?.desc.length > 300;
 
   // Handle delete post
-  const handleDelete = async () => {
-    setIsDeleting(true);
-    setErrorMessage(""); // Clear previous errors before new request
-  
+  const handleDelete = async (postId) => {
     try {
-      const response = await fetch(`/api/posts/${item._id}`, {
+      const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          // Include the authentication token if needed
+          "Authorization": `Bearer ${yourAuthToken}`
+        },
       });
   
       const result = await response.json();
-  
+      
       if (!response.ok) {
-        // Handle and show the exact error message from the backend
-        switch (result.message) {
-          case "You need to be logged in to delete a post":
-            setErrorMessage("You need to be logged in to delete this post.");
-            break;
-          case "Post not found":
-            setErrorMessage("The post does not exist or was already deleted.");
-            break;
-          case "You are not authorized to delete this post":
-            setErrorMessage("You are not authorized to delete this post.");
-            break;
-          case "Failed to delete post":
-            setErrorMessage("An error occurred while trying to delete the post. Please try again.");
-            break;
-          default:
-            setErrorMessage(result.message || "Failed to delete post");
-            break;
+        // Handle specific error responses
+        if (response.status === 401) {
+          setErrorMessage("You must be logged in to delete this post");
+        } else {
+          setErrorMessage(result.message || "Failed to delete post");
         }
       } else {
         alert("Post deleted successfully!");
-        // Optionally refresh or update the UI
-        // For example, trigger a refresh or remove the post from the UI list
+        // Optionally refresh the UI to remove the deleted post
       }
     } catch (error) {
       console.error("Delete failed:", error);
       setErrorMessage("An unexpected error occurred while deleting the post");
     } finally {
       setIsDeleting(false);
-      setShowPopup(false); // Close the popup after action
+      setShowPopup(false); // Close the popup after the operation
     }
   };
   

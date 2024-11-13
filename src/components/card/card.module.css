@@ -422,7 +422,11 @@ display: none;
   cursor: not-allowed;
 }
 
+
 .errorMessage {
   color: red;
+  font-size: 14px;
   margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
 }
