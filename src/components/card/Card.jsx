@@ -12,7 +12,7 @@ const Card = ({ key, item }) => {
   const deletePost = async (postId) => {
     try {
       setIsDeleting(true); // Set deleting state to true when deleting starts
-      const response = await fetch('/api/posts/delete', {
+      const response = await fetch('/api/posts/', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
