@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the verified icon
-
+import PostOptions from "../PostOptions";
 
 
 
@@ -59,7 +59,9 @@ className={styles.verifiedIcon}
             <span className={styles.category}>{item.catSlug}</span>
 
 
-            <span className={styles.span}>...</span>
+            <span className={styles.span}>
+               <PostOptions postId={post.id} userEmail={post.userEmail} />
+            </span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
           <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
