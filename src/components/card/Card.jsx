@@ -3,8 +3,7 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
-import PostOptions from "../PostOptions/PostOptions"; // Import the PostOptions component
-
+import PostOptions from "../PostOptions";
 const Card = ({ item, userEmail, onPostDeleted }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
