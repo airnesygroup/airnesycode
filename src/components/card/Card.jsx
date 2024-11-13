@@ -44,10 +44,8 @@ const Card = ({ key, item }) => {
         alert("Post deleted successfully!");
         // Optionally refresh the UI to remove the deleted post
       }
-    } catch (error) {
-      console.error("Delete failed:", error);
-      setErrorMessage("An unexpected error occurred while deleting the post");
-    } finally {
+    }
+     finally {
       setIsDeleting(false);
       setShowPopup(false); // Close the popup after the operation
     }
