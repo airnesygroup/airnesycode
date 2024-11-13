@@ -1,50 +1,48 @@
-import { getAuthSession } from "@/utils/auth";
-import prisma from "@/utils/connect";
-import { NextResponse } from "next/server";
+import { connectToDatabase } from "../../../lib/mongodb"; // Your MongoDB connection utility
+import { getSession } from "next-auth/react";
 
-export const DELETE = async (req) => {
-  const session = await getAuthSession();
+export default async function handler(req, res) {
+  const { method } = req;
+  const { id } = req.query;
 
-  if (!session) {
-    return new NextResponse(
-      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
-    );
-  }
+  if (method === "DELETE") {
+    try {
+      // Connect to the database
+      const { db } = await connectToDatabase();
 
-  try {
-    // Get post ID from the URL params (via req)
-    const { id } = req.params;
+      // Get the session to verify the user
+      const session = await getSession({ req });
 
-    // Check if the post exists
-    const existingPost = await prisma.post.findUnique({
-      where: { id: id },
-    });
+      // Check if the user is logged in
+      if (!session) {
+        return res.status(401).json({ message: "You need to be logged in to delete a post" });
+      }
 
-    if (!existingPost) {
-      return new NextResponse(
-        JSON.stringify({ message: "Post not found!" }, { status: 404 })
-      );
+      // Fetch the post from the database
+      const post = await db.collection("posts").findOne({ _id: new ObjectId(id) });
+
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+
+      // Check if the logged-in user is the owner of the post
+      if (post.userEmail !== session.user.email) {
+        return res.status(403).json({ message: "You are not authorized to delete this post" });
+      }
+
+      // Delete the post
+      const result = await db.collection("posts").deleteOne({ _id: new ObjectId(id) });
+
+      if (result.deletedCount === 0) {
+        return res.status(500).json({ message: "Failed to delete post" });
+      }
+
+      return res.status(200).json({ message: "Post deleted successfully" });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: "An unexpected error occurred" });
     }
-
-    // Check if the current user is the owner of the post
-    if (existingPost.userEmail !== session.user.email) {
-      return new NextResponse(
-        JSON.stringify({ message: "Unauthorized!" }, { status: 403 })
-      );
-    }
-
-    // Delete the post
-    await prisma.post.delete({
-      where: { id: id },
-    });
-
-    return new NextResponse(
-      JSON.stringify({ message: "Post deleted successfully!" }, { status: 200 })
-    );
-  } catch (err) {
-    console.log(err);
-    return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
-    );
+  } else {
+    res.status(405).json({ message: `Method ${method} Not Allowed` });
   }
-};
+}

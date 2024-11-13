@@ -12,6 +12,7 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"; // Import the
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);  // Popup visibility state
   const [isDeleting, setIsDeleting] = useState(false); // To track if a delete request is in progress
+  const [errorMessage, setErrorMessage] = useState(""); // To store the error message
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
@@ -21,20 +22,26 @@ const Card = ({ key, item }) => {
   // Handle delete post
   const handleDelete = async () => {
     setIsDeleting(true);
+    setErrorMessage(""); // Clear previous errors before new request
+
     try {
       const response = await fetch(`/api/posts/${item._id}`, {
         method: "DELETE",
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (!response.ok) {
+        // Handle and show the exact error message from the backend
+        setErrorMessage(result.message || "Failed to delete post");
+      } else {
         alert("Post deleted successfully!");
         // Refresh or update your UI to remove the deleted post (this may depend on your structure)
-        // You could trigger a page refresh or update the state in parent component to remove the post
-      } else {
-        alert("Failed to delete post!");
+        // You could trigger a page refresh or update the state in the parent component to remove the post
       }
     } catch (error) {
-      alert("An error occurred while deleting the post!");
+      console.error("Delete failed:", error);
+      setErrorMessage("An unexpected error occurred while deleting the post");
     } finally {
       setIsDeleting(false);
       setShowPopup(false); // Close the popup after action
@@ -128,6 +135,7 @@ const Card = ({ key, item }) => {
             </div>
           )}
         </div>
+
         {/* Delete Popup */}
         {showPopup && (
           <div className={styles.deletePopup}>
@@ -146,6 +154,7 @@ const Card = ({ key, item }) => {
               >
                 Cancel
               </button>
+              {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
             </div>
           </div>
         )}

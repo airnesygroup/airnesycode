@@ -421,3 +421,8 @@ display: none;
   background-color: lightgray;
   cursor: not-allowed;
 }
+
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+}
