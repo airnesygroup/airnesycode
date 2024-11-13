@@ -1,3 +1,6 @@
+'use client'; // Enable client-side rendering
+
+
 import React, { useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
