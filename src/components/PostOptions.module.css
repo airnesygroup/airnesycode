@@ -11,13 +11,14 @@
 
 .options {
   position: absolute;
-  top: 30px;
+  top: -10px;  /* Adjust this to move it upwards */
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 4px;
+  z-index: 1020;  /* Ensures it's above other content */
 }
 
 .option {

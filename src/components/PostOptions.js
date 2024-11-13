@@ -27,13 +27,7 @@ const PostOptions = ({ post, onDelete }) => {
 
   return (
     <div className={styles.container}>
-      <button
-        onClick={onDelete} // Close the options
-        className={styles.optionsButton}
-        aria-label="Toggle post options"
-      >
-        ...
-      </button>
+    
 
       <div className={styles.options}>
         <div onClick={handleShare} className={styles.option}>
