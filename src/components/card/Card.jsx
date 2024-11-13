@@ -1,36 +1,41 @@
 'use client'; // This marks the component as a Client Component
 
-import Image from "next/image";
-import styles from "./card.module.css";
-import Link from "next/link";
-import { formatDistanceToNow } from 'date-fns';
+import { useState } from "react"; // Import useState for managing state
 
 const Card = ({ key, item }) => {
+  const [isDeleting, setIsDeleting] = useState(false); // Manage deleting state
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
-  // Handler function to handle the span click
-
+  const showMore = item?.desc.length > 300;
 
   const deletePost = async (postId) => {
-    const response = await fetch('/api/posts/delete', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: postId }),
-    });
-  
-    const data = await response.json();
-    if (response.ok) {
-      console.log(data.message); // Post deleted successfully
-    } else {
-      console.error(data.message); // Error message
+    try {
+      setIsDeleting(true); // Set deleting state to true when deleting starts
+      const response = await fetch('/api/posts/delete', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: postId }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data.message); // Post deleted successfully
+        // Optionally: You can also handle state updates or UI changes after deletion
+      } else {
+        console.error(data.message); // Error message
+      }
+    } catch (err) {
+      console.error("Error deleting post:", err);
+    } finally {
+      setIsDeleting(false); // Reset deleting state
     }
   };
-  
+
   return (
-    <>
+    <Link href={`/posts/${item.slug}`} passHref>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -58,10 +63,10 @@ const Card = ({ key, item }) => {
                     <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img 
-                    src="/verified.png"     
-                    alt="Verified" 
-                    className={styles.verifiedIcon} 
+                  <img
+                    src="/verified.png"
+                    alt="Verified"
+                    className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
                     {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
@@ -69,11 +74,11 @@ const Card = ({ key, item }) => {
                 </div>
               </div>
             </div>
+
             <span className={styles.category}>{item.catSlug}</span>
-            <span className={styles.span} onClick={() => deletePost(post.id)}>...</span> {/* Click handler here */}
+            <span className={styles.span}>..</span>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -102,12 +107,15 @@ const Card = ({ key, item }) => {
               />
             </div>
           )}
-
         </div>
+        <button onClick={() => deletePost(item.id)} disabled={isDeleting}>
+          {isDeleting ? "Deleting..." : "Delete Post"}
+        </button>
       </div>
       <div className={styles.horizontalLine}></div>
-    </>
+    </Link>
   );
 };
 
 export default Card;
+
