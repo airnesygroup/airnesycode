@@ -7,12 +7,15 @@ import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
 
 const Card = ({ key, item }) => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(''); // State to hold the message
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
   const handleSpanClick = async () => {
+    // Immediately show the post ID before making the DELETE request
+    setMessage(`You are about to delete Post ID: ${item.id}`);
+
     try {
       // Sending DELETE request to the API to delete the post
       const response = await fetch(`/api/posts/${item.id}`, {
@@ -25,6 +28,7 @@ const Card = ({ key, item }) => {
 
       const result = await response.json();
       if (response.ok) {
+        // Optionally, update the message on successful deletion
         setMessage(`Post ID ${item.id} has been deleted.`);
       } else {
         setMessage(result.message || 'Failed to delete the post.');
@@ -36,7 +40,7 @@ const Card = ({ key, item }) => {
   };
 
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -112,7 +116,10 @@ const Card = ({ key, item }) => {
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </Link>
+      
+      {/* Display the message with the post ID */}
+      {message && <div className={styles.message}>{message}</div>}
+    </>
   );
 };
 
