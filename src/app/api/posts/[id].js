@@ -2,13 +2,14 @@ import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
-export const DELETE = async (req, { params }) => {
-  const { id } = params;
+export const DELETE = async (req, context) => {
+  const { id } = context.params; // Access params from the context object
   const session = await getAuthSession();
 
   if (!session) {
     return new NextResponse(
-      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+      JSON.stringify({ message: "Not Authenticated!" }),
+      { status: 401 }
     );
   }
 
@@ -20,13 +21,15 @@ export const DELETE = async (req, { params }) => {
 
     if (!existingPost) {
       return new NextResponse(
-        JSON.stringify({ message: "Post not found!" }, { status: 404 })
+        JSON.stringify({ message: "Post not found!" }),
+        { status: 404 }
       );
     }
 
     if (existingPost.userEmail !== session.user.email) {
       return new NextResponse(
-        JSON.stringify({ message: "You are not authorized to delete this post!" }, { status: 403 })
+        JSON.stringify({ message: "You are not authorized to delete this post!" }),
+        { status: 403 }
       );
     }
 
@@ -41,7 +44,8 @@ export const DELETE = async (req, { params }) => {
   } catch (err) {
     console.error(err);
     return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      JSON.stringify({ message: "Something went wrong!" }),
+      { status: 500 }
     );
   }
 };
