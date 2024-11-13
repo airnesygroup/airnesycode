@@ -13,10 +13,13 @@ const PostOptions = ({ post, onDelete }) => {
       method: 'DELETE',
     });
 
+    const result = await response.json();  // Get the detailed response from the server
+
     if (response.ok) {
-      onDelete(post.id); // Close the options after deleting
+      onDelete(post.id);  // Close the options after deleting
     } else {
-      alert("Failed to delete the post!");
+      // Display error details in an alert
+      alert(`Error: ${result.message}\nDetails: ${result.error || "Unknown error"}`);
     }
     setIsDeleting(false);  // Stop loading
   };
@@ -27,14 +30,16 @@ const PostOptions = ({ post, onDelete }) => {
 
   return (
     <div className={styles.container}>
-    
-
       <div className={styles.options}>
         <div onClick={handleShare} className={styles.option}>
           <FontAwesomeIcon icon={faShareAlt} />
-          <span>Shae</span>
+          <span>Share</span>
         </div>
-        <div onClick={handleDelete} className={styles.option} disabled={isDeleting}>
+        <div
+          onClick={handleDelete}
+          className={styles.option}
+          disabled={isDeleting}
+        >
           <FontAwesomeIcon icon={faTrash} />
           <span>{isDeleting ? 'Deleting...' : 'Delete'}</span>
         </div>
@@ -44,3 +49,4 @@ const PostOptions = ({ post, onDelete }) => {
 };
 
 export default PostOptions;
+8

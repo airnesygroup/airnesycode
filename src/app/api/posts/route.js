@@ -1,76 +1,67 @@
+// backend code (e.g., in your API route file)
+
 import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
-export const GET = async (req) => {
-  const { searchParams } = new URL(req.url);
-
-  const page = searchParams.get("page");
-  const cat = searchParams.get("cat");
-
-  const POST_PER_PAGE = 10;
-
-  const query = {
-    take: POST_PER_PAGE,
-    skip: POST_PER_PAGE * (page - 1),
-    where: {
-      ...(cat && { catSlug: cat }),
-    },
-    orderBy: {
-      createdAt: 'desc', // Order by the creation date in descending order
-    },
-  };
-
-  try {
-    const [posts, count] = await prisma.$transaction([
-      prisma.post.findMany(query),
-      prisma.post.count({ where: query.where }),
-    ]);
-    return new NextResponse(JSON.stringify({ posts, count }, { status: 200 }));
-  } catch (err) {
-    console.log(err);
-    return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
-    );
-  }
-};
-
-// CREATE A POST
-export const POST = async (req) => {
+export const DELETE = async (req, { params }) => {
   const session = await getAuthSession();
 
   if (!session) {
     return new NextResponse(
-      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+      JSON.stringify({
+        message: "Not Authenticated!",
+        error: "User is not authenticated",
+      }),
+      { status: 401 }
     );
   }
 
+  const { id } = params;
+
   try {
-    const body = await req.json();
-
- 
-
-    const country = req.headers.get("x-vercel-ip-country");
-    const region = req.headers.get("x-vercel-ip-country-region");
-    const timezone = req.headers.get("x-vercel-ip-timezone");
-
-    // Add location and timezone data to the post
-    const post = await prisma.post.create({
-      data: {
-        ...body,
-        userEmail: session.user.email,
-        location: country ? `${country}, ${region}` : null, // Use the country/region or null if unavailable
-        timezone: timezone || null, // Use timezone or null if unavailable
-        createdAt: new Date().toISOString(),
-      },
+    // Fetch the post to ensure it exists
+    const post = await prisma.post.findUnique({
+      where: { id },
     });
 
-    return new NextResponse(JSON.stringify(post, { status: 200 }));
-  } catch (err) {
-    console.log(err);
+    if (!post) {
+      return new NextResponse(
+        JSON.stringify({
+          message: "Post not found!",
+          error: "Post does not exist in the database",
+        }),
+        { status: 404 }
+      );
+    }
+
+    // Check if the logged-in user is the owner of the post
+    if (post.userEmail !== session.user.email) {
+      return new NextResponse(
+        JSON.stringify({
+          message: "You are not authorized to delete this post!",
+          error: "User does not own the post",
+        }),
+        { status: 403 }
+      );
+    }
+
+    // Delete the post
+    await prisma.post.delete({
+      where: { id },
+    });
+
     return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      JSON.stringify({ message: "Post deleted successfully" }, { status: 200 })
+    );
+  } catch (err) {
+    console.log(err);  // Log the full error for debugging
+    return new NextResponse(
+      JSON.stringify({
+        message: "Something went wrong!",
+        error: err.message || "An unexpected error occurred",
+      }),
+      { status: 500 }
     );
   }
 };
-
