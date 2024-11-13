@@ -32,7 +32,7 @@ const PostOptions = ({ post, onDelete }) => {
       <div className={styles.options}>
         <div onClick={handleShare} className={styles.option}>
           <FontAwesomeIcon icon={faShareAlt} />
-          <span>Share</span>
+          <span>Shae</span>
         </div>
         <div onClick={handleDelete} className={styles.option} disabled={isDeleting}>
           <FontAwesomeIcon icon={faTrash} />
