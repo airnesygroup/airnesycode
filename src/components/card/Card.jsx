@@ -11,35 +11,36 @@ const Card = ({ key, item }) => {
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-  
-  const handleSpanClick = async () => {
-    // Immediately show the post ID before making the DELETE request
-    setMessage(`You are about to delete Post ID: ${item.id}`);
-  
-    try {
-      // Sending DELETE request to the API to delete the post
-      const response = await fetch(`/api/posts/${item.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id: item.id }),
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        // Update the message on successful deletion
-        setMessage(`Post ID ${item.id} has been deleted.`);
-        // Optionally, you can remove the post from the UI here (if applicable)
-      } else {
-        setMessage(result.message || 'Failed to delete the post.');
-      }
-    } catch (error) {
-      setMessage('Error deleting post.');
-      console.error(error);
+
+const handleSpanClick = async () => {
+  setMessage(`You are about to delete Post ID: ${item.id}`);
+
+  try {
+    const response = await fetch(`/api/posts/${item.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: item.id }),
+    });
+
+    const result = await response.text(); // Use .text() to log raw response for debugging
+
+    if (!response.ok) {
+      setMessage(result || 'Failed to delete the post.');
+      console.error('Error response:', result); // Log the response to debug
+      return;
     }
-  };
+
+    // Parse the result only if response is okay
+    const parsedResult = JSON.parse(result);
+    setMessage(parsedResult.message || 'Post successfully deleted.');
+  } catch (error) {
+    setMessage('Error deleting post.');
+    console.error(error);
+  }
+};
+
   
 
   return (
