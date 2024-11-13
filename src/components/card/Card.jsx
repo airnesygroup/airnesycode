@@ -12,31 +12,32 @@ const Card = ({ key, item }) => {
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
 
-  const handleSpanClick = async () => {
-    setMessage(`You are about to delete Post ID: ${item.id}`);
-  
-    try {
-      const response = await fetch(`/api/posts/${item.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        // Successfully deleted the post
-        setMessage(`Post ID ${item.id} has been deleted.`);
-      } else {
-        setMessage(result.message || 'Failed to delete the post.');
-      }
-    } catch (error) {
-      setMessage('Error deleting post.');
-      console.error(error);
+// Example client-side code for triggering DELETE request on post click
+const handleSpanClick = async (postId) => {
+  try {
+    // Send DELETE request to the API
+    const response = await fetch(`/api/posts/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      // If the response is not OK, log the error and return
+      const errorData = await response.json();
+      console.error('Error:', errorData.message);
+      return;
     }
-  };
-  
+
+    // Successfully deleted the post
+    const data = await response.json();
+    console.log(data.message); // Optional: Show success message
+  } catch (error) {
+    console.error('Unexpected Error:', error);
+  }
+};
+
 
   
 

@@ -1,46 +1,49 @@
-import { getAuthSession } from "@/utils/auth";
-import prisma from "@/utils/connect";
-import { NextResponse } from "next/server";
+// src/app/api/posts/[id].js
 
-export const DELETE = async (req, { params }) => {
-  const session = await getAuthSession();
+import { NextResponse } from 'next/server';
+import prisma from '@/utils/connect'; // Assuming you're using Prisma for DB operations
+import { getAuthSession } from '@/utils/auth'; // Assuming you have authentication utilities
+
+export async function DELETE(req, { params }) {
+  const session = await getAuthSession();  // Check user session (if needed)
 
   if (!session) {
-    return new NextResponse(
-      JSON.stringify({ message: "Not Authenticated!" }),
+    return NextResponse.json(
+      { message: 'Not authenticated' },
       { status: 401 }
     );
   }
 
-  const { id } = params; // Get the post ID from the URL parameters
+  const { id } = params;  // Get the post ID from URL parameter
 
   try {
-    // Check if the post exists
-    const existingPost = await prisma.post.findUnique({
-      where: { id },
+    // Check if the post exists before attempting to delete
+    const post = await prisma.post.findUnique({
+      where: { id: id },
     });
 
-    if (!existingPost) {
-      return new NextResponse(
-        JSON.stringify({ message: "Post not found!" }),
+    if (!post) {
+      return NextResponse.json(
+        { message: 'Post not found' },
         { status: 404 }
       );
     }
 
-    // Delete the post
+    // Proceed to delete the post
     await prisma.post.delete({
-      where: { id },
+      where: { id: id },
     });
 
-    return new NextResponse(
-      JSON.stringify({ message: `Post ID ${id} has been deleted.` }),
+    return NextResponse.json(
+      { message: `Post with ID ${id} has been deleted` },
       { status: 200 }
     );
-  } catch (err) {
-    console.log(err);
-    return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }),
+
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: 'Error deleting the post' },
       { status: 500 }
     );
   }
-};
+}
