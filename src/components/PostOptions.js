@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from "react";
@@ -8,8 +7,10 @@ import styles from './PostOptions.module.css';
 
 const PostOptions = ({ post, onDelete }) => {
   const [showOptions, setShowOptions] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);  // Added loading state
 
   const handleDelete = async () => {
+    setIsDeleting(true);  // Start loading
     const response = await fetch(`/api/posts/${post.id}`, {
       method: 'DELETE',
     });
@@ -19,11 +20,11 @@ const PostOptions = ({ post, onDelete }) => {
     } else {
       alert("Failed to delete the post!");
     }
+    setIsDeleting(false);  // Stop loading
   };
 
   const handleShare = () => {
-    // You can extend this to trigger share functionality (e.g., social media)
-    alert(`Share this post: ${window.location.href}/posts/${post.slug}`);
+    alert(`Share this post: ${window.location.origin}/posts/${post.slug}`);
   };
 
   return (
@@ -31,6 +32,7 @@ const PostOptions = ({ post, onDelete }) => {
       <button
         onClick={() => setShowOptions(!showOptions)}
         className={styles.optionsButton}
+        aria-label="Toggle post options"
       >
         ...
       </button>
@@ -41,9 +43,9 @@ const PostOptions = ({ post, onDelete }) => {
             <FontAwesomeIcon icon={faShareAlt} />
             <span>Share</span>
           </div>
-          <div onClick={handleDelete} className={styles.option}>
+          <div onClick={handleDelete} className={styles.option} disabled={isDeleting}>
             <FontAwesomeIcon icon={faTrash} />
-            <span>Delete</span>
+            <span>{isDeleting ? 'Deleting...' : 'Delete'}</span>
           </div>
         </div>
       )}
