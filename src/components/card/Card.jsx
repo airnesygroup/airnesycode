@@ -5,7 +5,7 @@ import styles from "./card.module.css";
 import { formatDistanceToNow } from 'date-fns';
 import { useRouter } from 'next/navigation'; // Use next/navigation for Client Component
 
-const Card = ({ key, item }) => {
+const Card = ({ item }) => {
   const router = useRouter();
 
   const deletePost = async (postId) => {
@@ -38,7 +38,7 @@ const Card = ({ key, item }) => {
 
   return (
     <>
-      <div className={styles.container} key={key}>
+      <div className={styles.container} key={item._id}> {/* Use item._id as key */}
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -79,7 +79,7 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             {/* Span for delete action */}
-            <span className={styles.span} onClick={() => deletePost(item._id)}>
+            <span className={styles.span} onClick={() => deletePost(item._id)}> {/* Use item._id here */}
               Delete
             </span>
           </div>
