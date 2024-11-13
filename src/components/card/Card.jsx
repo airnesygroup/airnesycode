@@ -1,19 +1,40 @@
-import React from "react";
+import { useState } from "react";
+import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import Image from "next/image";
-import PostOptions from "../PostOptions/PostOptions"; // Import the PostOptions component
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import PostOptionsPopup from "./PostOptionsPopup"; // Import the PostOptionsPopup component
 
-const Card = ({ item, userEmail, onPostDeleted }) => {
+const Card = ({ key, item, userEmail }) => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [isPostOwner, setIsPostOwner] = useState(item.userEmail === userEmail);
+
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-  
+
   const showMore = item?.desc.length > 300;
+
+  const togglePopup = () => {
+    setPopupVisible(!isPopupVisible);
+  };
+
+  const handleDelete = async () => {
+    const response = await fetch(`/api/posts/${item.id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      alert("Post deleted successfully!");
+      // Optionally, trigger a state update to remove the post from the list
+    } else {
+      alert("Failed to delete post");
+    }
+  };
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
-      <div className={styles.container}>
+      <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -37,7 +58,9 @@ const Card = ({ item, userEmail, onPostDeleted }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
+                    <p className={styles.username}>
+                      {item.user?.name.substring(0, 10)}
+                    </p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img
@@ -46,16 +69,23 @@ const Card = ({ item, userEmail, onPostDeleted }) => {
                     className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
-                    {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
+                    {formatDistanceToNow(new Date(item.createdAt), {
+                      addSuffix: true,
+                    }).substring(0, 13)}
                   </span>
                 </div>
               </div>
             </div>
 
             <span className={styles.category}>{item.catSlug}</span>
+
             <span className={styles.span}>...</span>
+            <button className={styles.ellipsisButton} onClick={togglePopup}>
+              &#8230;
+            </button>
           </div>
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -84,11 +114,17 @@ const Card = ({ item, userEmail, onPostDeleted }) => {
               />
             </div>
           )}
-          
-          {/* Post Options */}
-          <PostOptions post={item} onDelete={onPostDeleted} />
         </div>
+
+        {isPopupVisible && (
+          <PostOptionsPopup
+            isPostOwner={isPostOwner}
+            handleDelete={handleDelete}
+            togglePopup={togglePopup}
+          />
+        )}
       </div>
+      <div className={styles.horizontalLine}></div>
     </Link>
   );
 };
