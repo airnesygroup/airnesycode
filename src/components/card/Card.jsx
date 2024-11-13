@@ -13,25 +13,21 @@ const Card = ({ key, item }) => {
   const router = useRouter();
 
   // Delete post handler
-  const deletePost = async () => {
+  const deletePost = async (postId) => {
     try {
       const res = await fetch(`/api/posts/${postId}`, {
-        method: 'DELETE', // Ensure that the DELETE method is used
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        method: 'DELETE',
       });
-
+  
       if (!res.ok) {
-        throw new Error('Failed to delete the post');
+        throw new Error('Failed to delete post');
       }
-
-      const data = await res.json();
-      console.log('Post deleted successfully:', data);
+      console.log('Post deleted successfully');
     } catch (error) {
       console.error('Error deleting post:', error);
     }
   };
+  
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
