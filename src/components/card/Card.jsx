@@ -3,13 +3,20 @@
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow } from 'date-fns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useState, useRef, useEffect } from "react";
+import { useSession } from "next-auth/react"; // Import useSession to get the current user
 
-const Card = ({ key, item, currentUser }) => {
+const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showEmails, setShowEmails] = useState(false); // To control displaying emails
   const popupRef = useRef(null);
-
+  
+  // Get the current user's session (email) using NextAuth
+  const { data: session } = useSession();
+  
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
   const showMore = item?.desc.length > 300;
@@ -24,21 +31,9 @@ const Card = ({ key, item, currentUser }) => {
 
   const closePopup = () => setShowPopup(false);
 
-  const handleDelete = async () => {
-    try {
-      const res = await fetch(`/api/posts/delete?postId=${item.id}`, {
-        method: "DELETE",
-      });
-      if (res.ok) {
-        alert("Post deleted successfully!");
-        setShowPopup(false);
-        // Optionally, refresh the page or update the state to remove the post from the UI
-      } else {
-        alert("Failed to delete the post");
-      }
-    } catch (err) {
-      console.error("Error deleting post:", err);
-    }
+  const handleCheckEmails = () => {
+    // Toggle the display of emails
+    setShowEmails((prev) => !prev);
   };
 
   useEffect(() => {
@@ -51,17 +46,9 @@ const Card = ({ key, item, currentUser }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isAuthor = currentUser?.email === item.userEmail;
-
-  const handlePostClick = () => {
-    if (currentUser) {
-      alert(`Current user email: ${currentUser.email}\nPost created by: ${item.userEmail}`);
-    }
-  };
-
   return (
     <Link href={`/posts/${item.slug}`} passHref>
-      <div className={styles.container} key={key} onClick={handlePostClick}>
+      <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -88,10 +75,10 @@ const Card = ({ key, item, currentUser }) => {
                     <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img
+                  <img 
                     src="/verified.png"
-                    alt="Verified"
-                    className={styles.verifiedIcon}
+                    alt="Verified" 
+                    className={styles.verifiedIcon} 
                   />
                   <span className={styles.date}>
                     {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
@@ -111,21 +98,15 @@ const Card = ({ key, item, currentUser }) => {
 
                   <button onClick={closePopup} href={`/posts/${item.slug}`} passHref>
                     Go to Post
-                  </button>
+                  </button>    
+
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Report submitted!")}>Report</button>
+                  <button onClick={() => alert("Report submitted!")}>Report</button>    
                   <div className={styles.horizontalLine2}></div>
 
                   <button onClick={() => alert("Post saved")}>Save</button>
                   <div className={styles.horizontalLine2}></div>
-
-                  {isAuthor && (
-                    <>
-                      <button onClick={handleDelete}>Delete</button>
-                      <div className={styles.horizontalLine2}></div>
-                    </>
-                  )}
 
                   <button onClick={closePopup}>Cancel</button>
                 </div>
@@ -137,8 +118,14 @@ const Card = ({ key, item, currentUser }) => {
           <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
-            <div className={styles.desc} dangerouslySetInnerHTML={{ __html: truncatedDesc }} />
-            <div className={styles.desc2} dangerouslySetInnerHTML={{ __html: truncatedDesc2 }} />
+            <div
+              className={styles.desc}
+              dangerouslySetInnerHTML={{ __html: truncatedDesc }}
+            />
+            <div
+              className={styles.desc2}
+              dangerouslySetInnerHTML={{ __html: truncatedDesc2 }}
+            />
           </div>
 
           {item.img && (
@@ -157,6 +144,20 @@ const Card = ({ key, item, currentUser }) => {
               />
             </div>
           )}
+          
+          {/* Check Emails Button */}
+          <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
+            Check Emails
+          </button>
+          
+          {/* Display emails if showEmails is true */}
+          {showEmails && (
+            <div className={styles.emailsDisplay}>
+              <p><strong>Current User Email:</strong> {session?.user?.email}</p>
+              <p><strong>Post Creator's Email:</strong> {item.user?.email}</p>
+            </div>
+          )}
+
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
