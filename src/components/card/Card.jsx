@@ -1,16 +1,14 @@
-
-
 "use client";
 
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { formatDistanceToNow } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { formatDistanceToNow } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useRef, useEffect } from "react";
 
-const Card = ({ key, item }) => {
+const Card = ({ key, item, currentUser }) => {
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
 
@@ -28,6 +26,24 @@ const Card = ({ key, item }) => {
 
   const closePopup = () => setShowPopup(false);
 
+  const handleDelete = async () => {
+    try {
+        const res = await fetch(`/api/posts/delete?postId=${item.id}`, {
+
+        method: "DELETE",
+      });
+      if (res.ok) {
+        alert("Post deleted successfully!");
+        setShowPopup(false);
+        // Optionally, refresh the page or update the state to remove the post from the UI
+      } else {
+        alert("Failed to delete the post");
+      }
+    } catch (err) {
+      console.error("Error deleting post:", err);
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -37,6 +53,8 @@ const Card = ({ key, item }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const isAuthor = currentUser?.email === item.userEmail;
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
@@ -88,25 +106,25 @@ const Card = ({ key, item }) => {
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={closePopup}  
-
-                   href={`/posts/${item.slug}`} passHref>
-                  Go to Post
-
-                  </button>    
-
+                  <button onClick={closePopup} href={`/posts/${item.slug}`} passHref>
+                    Go to Post
+                  </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Report submitted!")}>Report</button>    
+                  <button onClick={() => alert("Report submitted!")}>Report</button>
                   <div className={styles.horizontalLine2}></div>
-              
+
                   <button onClick={() => alert("Post saved")}>Save</button>
                   <div className={styles.horizontalLine2}></div>
 
+                  {isAuthor && (
+                    <>
+                      <button onClick={handleDelete}>Delete</button>
+                      <div className={styles.horizontalLine2}></div>
+                    </>
+                  )}
+
                   <button onClick={closePopup}>Cancel</button>
-
-                
-
                 </div>
               )}
             </div>
@@ -116,14 +134,8 @@ const Card = ({ key, item }) => {
           <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
-            <div
-              className={styles.desc}
-              dangerouslySetInnerHTML={{ __html: truncatedDesc }}
-            />
-            <div
-              className={styles.desc2}
-              dangerouslySetInnerHTML={{ __html: truncatedDesc2 }}
-            />
+            <div className={styles.desc} dangerouslySetInnerHTML={{ __html: truncatedDesc }} />
+            <div className={styles.desc2} dangerouslySetInnerHTML={{ __html: truncatedDesc2 }} />
           </div>
 
           {item.img && (
@@ -134,7 +146,7 @@ const Card = ({ key, item }) => {
                   backgroundImage: `url(${item.img})`,
                 }}
               />
-               <Image
+              <Image
                 src={item.img}
                 alt={item.title}
                 layout="intrinsic"
