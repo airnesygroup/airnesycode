@@ -389,8 +389,8 @@ display: none;
   z-index: 9999; /* Ensures it appears above all other content */
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 200px;
+  gap: 4px;
+  width: 350px;
 }
 
 .popup button {
@@ -411,7 +411,7 @@ display: none;
 /* Small Screen Adjustments */
 @media (max-width: 720px) {
   .popup {
-    width: 90vw; /* Adjusts width to fit smaller screens */
+    width: 70vw; /* Adjusts width to fit smaller screens */
     padding: 0.5rem; /* Reduce padding for smaller screens */
   }
 

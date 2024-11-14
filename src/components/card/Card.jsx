@@ -86,11 +86,24 @@ const Card = ({ key, item }) => {
               {showPopup && (
                 <div ref={popupRef} className={styles.popup}>
                   <button onClick={copyLink}>Copy Link</button>
+                  <div className={styles.horizontalLine}></div>
+
+                  <button >  
+
                   <Link href={`/posts/${item.slug}`} passHref>
                     <button onClick={closePopup}>Go to Post</button>
                   </Link>
-                  <button onClick={() => alert("Report submitted!")}>Report</button>                  
+
+                  </button>    
+
+                  <div className={styles.horizontalLine}></div>
+
+                  <button onClick={() => alert("Report submitted!")}>Report</button>    
+                  <div className={styles.horizontalLine}></div>
+              
                   <button onClick={() => alert("Post saved")}>Save</button>
+                  <div className={styles.horizontalLine}></div>
+
                   <button onClick={closePopup}>Cancel</button>
 
                 
