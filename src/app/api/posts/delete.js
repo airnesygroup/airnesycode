@@ -3,6 +3,7 @@ import prisma from "@/utils/connect"; // Assuming prisma is set up for DB access
 import { getSession } from "next-auth/react"; // To get the session of the currently logged-in user
 import { NextResponse } from "next/server";
 
+// Explicitly allow DELETE method
 export const DELETE = async (req) => {
   const session = await getSession({ req });
   const { postId } = req.query;
@@ -15,14 +16,10 @@ export const DELETE = async (req) => {
   }
 
   try {
-    // Find the post to be deleted
     const post = await prisma.post.findUnique({
-      where: {
-        id: postId,
-      },
+      where: { id: postId },
     });
 
-    // If no post is found
     if (!post) {
       return new NextResponse(
         JSON.stringify({ message: "Post not found." }),
@@ -30,7 +27,6 @@ export const DELETE = async (req) => {
       );
     }
 
-    // Check if the logged-in user is the one who created the post
     if (post.userEmail !== session.user.email) {
       return new NextResponse(
         JSON.stringify({ message: "You cannot delete someone else's post." }),
@@ -38,12 +34,7 @@ export const DELETE = async (req) => {
       );
     }
 
-    // Delete the post
-    await prisma.post.delete({
-      where: {
-        id: postId,
-      },
-    });
+    await prisma.post.delete({ where: { id: postId } });
 
     return new NextResponse(
       JSON.stringify({ message: "Post deleted successfully." }),
@@ -57,4 +48,4 @@ export const DELETE = async (req) => {
     );
   }
 };
-               
+      

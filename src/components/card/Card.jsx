@@ -35,13 +35,11 @@ const Card = ({ key, item }) => {
     // Toggle the display of emails
     setShowEmails((prev) => !prev);
   };
-
   const handleDeletePost = async () => {
     try {
-      // Call the API to delete the post
+      // Ensure you are passing the correct URL with query parameters
       const response = await axios.delete(`/api/posts/delete?postId=${item.id}`);
-      
-      // Check if the deletion was successful
+  
       if (response.status === 200) {
         setIsDeleted(true); // Set the deleted state to true
         alert("Post deleted successfully!");
@@ -51,6 +49,7 @@ const Card = ({ key, item }) => {
       alert("Failed to delete the post.");
     }
   };
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
