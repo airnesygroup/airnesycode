@@ -1,48 +1,42 @@
-'use client'; // Marking this as a client-side component
-
-import { useState } from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from 'date-fns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useState, useRef, useEffect } from "react";
 
 const Card = ({ key, item }) => {
-  const [message, setMessage] = useState(''); // State to hold the message
+  const [showPopup, setShowPopup] = useState(false);
+  const popupRef = useRef(null);
 
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
+  const showMore = item?.desc.length > 300;
 
-// Example client-side code for triggering DELETE request on post click
-const handleSpanClick = async (postId) => {
-  try {
-    // Send DELETE request to the API
-    const response = await fetch(`/api/posts/${postId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  // Function to toggle popup visibility
+  const togglePopup = () => setShowPopup((prev) => !prev);
 
-    if (!response.ok) {
-      // If the response is not OK, log the error and return
-      const errorData = await response.json();
-      console.error('Error:', errorData.message);
-      return;
-    }
+  // Function to copy the post URL
+  const copyLink = () => {
+    navigator.clipboard.writeText(`${window.location.origin}/posts/${item.slug}`);
+    setShowPopup(false); // Close popup after copying
+    alert("Link copied to clipboard!");
+  };
 
-    // Successfully deleted the post
-    const data = await response.json();
-    console.log(data.message); // Optional: Show success message
-  } catch (error) {
-    console.error('Unexpected Error:', error);
-  }
-};
-
-
-  
+  // Close popup if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowPopup(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <>
+    <Link href={`/posts/${item.slug}`} passHref>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -71,7 +65,7 @@ const handleSpanClick = async (postId) => {
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
                   <img 
-                    src="/verified.png"     
+                    src="/verified.png"
                     alt="Verified" 
                     className={styles.verifiedIcon} 
                   />
@@ -81,11 +75,22 @@ const handleSpanClick = async (postId) => {
                 </div>
               </div>
             </div>
+
             <span className={styles.category}>{item.catSlug}</span>
-            <span className={styles.span} onClick={handleSpanClick}>..</span> {/* Click handler here */}
+
+            <span className={styles.span} onClick={(e) => {e.preventDefault(); togglePopup()}}>..</span>
+
+            {/* Popup container */}
+            {showPopup && (
+              <div ref={popupRef} className={styles.popup}>
+                <button onClick={copyLink}>Share Link</button>
+                <button onClick={() => alert("Report submitted!")}>Report</button>
+              </div>
+            )}
           </div>
+
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
-          <h1 className={styles.title2}>{item.title.substring(0,150)}</h1>
+          <h1 className={styles.title2}>{item.title.substring(0, 150)}</h1>
 
           <div className={styles.descContainer}>
             <div
@@ -106,7 +111,7 @@ const handleSpanClick = async (postId) => {
                   backgroundImage: `url(${item.img})`,
                 }}
               />
-              <Image
+               <Image
                 src={item.img}
                 alt={item.title}
                 layout="intrinsic"
@@ -114,14 +119,10 @@ const handleSpanClick = async (postId) => {
               />
             </div>
           )}
-
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-      
-      {/* Display the message with the post ID */}
-      {message && <div className={styles.message}>{message}</div>}
-    </>
+    </Link>
   );
 };
 

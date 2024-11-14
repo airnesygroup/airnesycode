@@ -1,49 +1,43 @@
-// src/app/api/posts/[id].js
+import { getAuthSession } from "@/utils/auth";
+import prisma from "@/utils/connect";
+import { NextResponse } from "next/server";
 
-import { NextResponse } from 'next/server';
-import prisma from '@/utils/connect'; // Assuming you're using Prisma for DB operations
-import { getAuthSession } from '@/utils/auth'; // Assuming you have authentication utilities
-
-export async function DELETE(req, { params }) {
-  const session = await getAuthSession();  // Check user session (if needed)
+// Assuming you have a route to update a post
+export const PUT = async (req) => {
+  const session = await getAuthSession();
 
   if (!session) {
-    return NextResponse.json(
-      { message: 'Not authenticated' },
-      { status: 401 }
+    return new NextResponse(
+      JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
     );
   }
 
-  const { id } = params;  // Get the post ID from URL parameter
-
   try {
-    // Check if the post exists before attempting to delete
-    const post = await prisma.post.findUnique({
-      where: { id: id },
+    const body = await req.json();
+    const postId = body.id;
+
+    // Check if the post exists
+    const existingPost = await prisma.post.findUnique({
+      where: { id: postId },
     });
 
-    if (!post) {
-      return NextResponse.json(
-        { message: 'Post not found' },
-        { status: 404 }
+    if (!existingPost) {
+      return new NextResponse(
+        JSON.stringify({ message: "Post not found!" }, { status: 404 })
       );
     }
 
-    // Proceed to delete the post
-    await prisma.post.delete({
-      where: { id: id },
+    // Update the post if it exists
+    const updatedPost = await prisma.post.update({
+      where: { id: postId },
+      data: { ...body, userEmail: session.user.email },
     });
 
-    return NextResponse.json(
-      { message: `Post with ID ${id} has been deleted` },
-      { status: 200 }
-    );
-
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { message: 'Error deleting the post' },
-      { status: 500 }
+    return new NextResponse(JSON.stringify(updatedPost, { status: 200 }));
+  } catch (err) {
+    console.log(err);
+    return new NextResponse(
+      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
     );
   }
-}
+};
