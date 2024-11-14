@@ -3,15 +3,15 @@
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
-import { formatDistanceToNow } from 'date-fns';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { formatDistanceToNow } from "date-fns";
 import { useState, useRef, useEffect } from "react";
 import { useSession } from "next-auth/react"; // Import useSession to get the current user
+import axios from "axios"; // To make the API request to delete the post
 
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showEmails, setShowEmails] = useState(false); // To control displaying emails
+  const [isDeleted, setIsDeleted] = useState(false); // To control if the post is deleted
   const popupRef = useRef(null);
   
   // Get the current user's session (email) using NextAuth
@@ -36,6 +36,22 @@ const Card = ({ key, item }) => {
     setShowEmails((prev) => !prev);
   };
 
+  const handleDeletePost = async () => {
+    try {
+      // Call the API to delete the post
+      const response = await axios.delete(`/api/posts/delete?postId=${item.id}`);
+      
+      // Check if the deletion was successful
+      if (response.status === 200) {
+        setIsDeleted(true); // Set the deleted state to true
+        alert("Post deleted successfully!");
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("Failed to delete the post.");
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -46,8 +62,10 @@ const Card = ({ key, item }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  if (isDeleted) return null; // Don't render the post if it has been deleted
+
   return (
-    <Link href={`/posts/${item.slug}`} passHref>
+    <>
       <div className={styles.container} key={key}>
         <div className={styles.profileContainer}>
           <Image
@@ -108,6 +126,15 @@ const Card = ({ key, item }) => {
                   <button onClick={() => alert("Post saved")}>Save</button>
                   <div className={styles.horizontalLine2}></div>
 
+                  {/* Show the Delete button only if emails match */}
+                  {session?.user?.email === item.user?.email && (
+                    <button onClick={handleDeletePost} className={styles.deleteButton}>
+                      Delete Post
+                    </button>
+                  )}
+
+                  <div className={styles.horizontalLine2}></div>
+
                   <button onClick={closePopup}>Cancel</button>
                 </div>
               )}
@@ -161,7 +188,7 @@ const Card = ({ key, item }) => {
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
-    </Link>
+    </>
   );
 };
 

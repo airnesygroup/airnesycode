@@ -375,6 +375,23 @@ display: none;
 
 
 
+
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}
+
+
 .popup {
   position: fixed; /* Ensures popup is fixed to the viewport */
   top: 50%;
