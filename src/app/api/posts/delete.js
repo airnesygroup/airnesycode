@@ -1,18 +1,17 @@
 // pages/api/posts/delete.js
-import prisma from "@/utils/connect"; // Assuming prisma is set up for DB access
-import { getSession } from "next-auth/react"; // To get the session of the currently logged-in user
-import { NextResponse } from "next/server";
+import prisma from "@/utils/connect";
+import { getSession } from "next-auth/react";
 
-// Explicitly allow DELETE method
-export const DELETE = async (req) => {
+export default async (req, res) => {
   const session = await getSession({ req });
   const { postId } = req.query;
 
+  if (req.method !== "DELETE") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
+
   if (!session) {
-    return new NextResponse(
-      JSON.stringify({ message: "You must be logged in to delete a post." }),
-      { status: 401 }
-    );
+    return res.status(401).json({ message: "You must be logged in to delete a post." });
   }
 
   try {
@@ -21,31 +20,18 @@ export const DELETE = async (req) => {
     });
 
     if (!post) {
-      return new NextResponse(
-        JSON.stringify({ message: "Post not found." }),
-        { status: 404 }
-      );
+      return res.status(404).json({ message: "Post not found." });
     }
 
     if (post.userEmail !== session.user.email) {
-      return new NextResponse(
-        JSON.stringify({ message: "You cannot delete someone else's post." }),
-        { status: 403 }
-      );
+      return res.status(403).json({ message: "You cannot delete someone else's post." });
     }
 
     await prisma.post.delete({ where: { id: postId } });
 
-    return new NextResponse(
-      JSON.stringify({ message: "Post deleted successfully." }),
-      { status: 200 }
-    );
+    return res.status(200).json({ message: "Post deleted successfully." });
   } catch (error) {
     console.error("Error deleting post:", error);
-    return new NextResponse(
-      JSON.stringify({ message: "Something went wrong!" }),
-      { status: 500 }
-    );
+    return res.status(500).json({ message: "Something went wrong!" });
   }
 };
-      
