@@ -385,7 +385,7 @@ display: none;
   border-radius: 15px;
   padding: 500%;
   color: var(--softTextColor);
-  z-index: 10;
+  z-index: 1020;
   align-items: center;
   display: flex;
   flex-direction: column;
