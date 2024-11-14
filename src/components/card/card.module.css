@@ -389,8 +389,15 @@ display: none;
   z-index: 9999; /* Ensures it appears above all other content */
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   width: 350px;
+}
+
+
+.horizontalLine2 {
+  height: 1px;
+  width: 100%; /* Ensure it spans the full width */
+  background-color: var(--softTextColor3); /* Set the border to var(--softTextColor) */
 }
 
 .popup button {
