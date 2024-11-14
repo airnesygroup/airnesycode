@@ -1,3 +1,5 @@
+"use client"; // Add this line
+
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
@@ -6,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useState, useRef, useEffect } from "react";
 
+// The rest of your component code remains the same
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
@@ -14,17 +17,14 @@ const Card = ({ key, item }) => {
   const truncatedDesc2 = item?.desc.substring(0, 140);
   const showMore = item?.desc.length > 300;
 
-  // Function to toggle popup visibility
   const togglePopup = () => setShowPopup((prev) => !prev);
 
-  // Function to copy the post URL
   const copyLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/posts/${item.slug}`);
-    setShowPopup(false); // Close popup after copying
+    setShowPopup(false);
     alert("Link copied to clipboard!");
   };
 
-  // Close popup if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -80,7 +80,6 @@ const Card = ({ key, item }) => {
 
             <span className={styles.span} onClick={(e) => {e.preventDefault(); togglePopup()}}>..</span>
 
-            {/* Popup container */}
             {showPopup && (
               <div ref={popupRef} className={styles.popup}>
                 <button onClick={copyLink}>Share Link</button>
