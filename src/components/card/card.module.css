@@ -390,7 +390,7 @@ display: none;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 700%;
+  width: 1500%;
 }
 
 .popup button {
@@ -399,7 +399,7 @@ display: none;
   border-radius: 10px;
   color: var(--softTextColor);
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 8px 15px;
   font-size: 14px;
 }
 
