@@ -389,6 +389,7 @@ display: none;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 70%;
 }
 
 .popup button {
