@@ -4,8 +4,6 @@ import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useRef, useEffect } from "react";
 
 const Card = ({ key, item, currentUser }) => {
@@ -28,8 +26,7 @@ const Card = ({ key, item, currentUser }) => {
 
   const handleDelete = async () => {
     try {
-        const res = await fetch(`/api/posts/delete?postId=${item.id}`, {
-
+      const res = await fetch(`/api/posts/delete?postId=${item.id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -54,12 +51,17 @@ const Card = ({ key, item, currentUser }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isAuthor = currentUser?.email?.trim().toLowerCase() === item.userEmail?.trim().toLowerCase();
+  const isAuthor = currentUser?.email === item.userEmail;
 
+  const handlePostClick = () => {
+    if (currentUser) {
+      alert(`Current user email: ${currentUser.email}\nPost created by: ${item.userEmail}`);
+    }
+  };
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
-      <div className={styles.container} key={key}>
+      <div className={styles.container} key={key} onClick={handlePostClick}>
         <div className={styles.profileContainer}>
           <Image
             src={item.user?.image}
@@ -86,10 +88,10 @@ const Card = ({ key, item, currentUser }) => {
                     <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img 
+                  <img
                     src="/verified.png"
-                    alt="Verified" 
-                    className={styles.verifiedIcon} 
+                    alt="Verified"
+                    className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
                     {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
