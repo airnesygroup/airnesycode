@@ -1,4 +1,6 @@
-"use client";
+
+
+                  "use client";
 
 import Image from "next/image";
 import styles from "./card.module.css";
@@ -23,6 +25,8 @@ const Card = ({ key, item }) => {
     setShowPopup(false);
     alert("Link copied to clipboard!");
   };
+
+  const closePopup = () => setShowPopup(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -81,8 +85,16 @@ const Card = ({ key, item }) => {
               <span className={styles.span} onClick={(e) => { e.preventDefault(); togglePopup(); }}>..</span>
               {showPopup && (
                 <div ref={popupRef} className={styles.popup}>
-                  <button onClick={copyLink}>Share Link</button>
-                  <button onClick={() => alert("Report submitted!")}>Report</button>
+                  <button onClick={copyLink}>Copy Link</button>
+                  <Link href={`/posts/${item.slug}`} passHref>
+                    <button onClick={closePopup}>Go to Post</button>
+                  </Link>
+                  <button onClick={() => alert("Report submitted!")}>Report</button>                  
+                  <button onClick={() => alert("Post saved")}>Save</button>
+                  <button onClick={closePopup}>Cancel</button>
+
+                
+
                 </div>
               )}
             </div>

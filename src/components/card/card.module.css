@@ -374,17 +374,17 @@ display: none;
 }
 
 
-
 .popup {
-  position: absolute; /* Ensure popup is positioned relative to the span */
-  top: 100%; /* Position it right below the span */
-  left: 100px;
-  margin-top: 1px; /* Adds 1px gap below the span */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 1px;
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 8px;
+  padding: 10%;
   z-index: 10;
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 4px;
