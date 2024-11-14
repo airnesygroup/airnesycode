@@ -54,7 +54,8 @@ const Card = ({ key, item, currentUser }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isAuthor = currentUser?.email === item.userEmail;
+  const isAuthor = currentUser?.email?.trim().toLowerCase() === item.userEmail?.trim().toLowerCase();
+
 
   return (
     <Link href={`/posts/${item.slug}`} passHref>
