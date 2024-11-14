@@ -378,7 +378,8 @@ display: none;
 .popup {
   position: absolute; /* Ensure popup is positioned relative to the span */
   top: 100%; /* Position it right below the span */
-  margin-left: 10%;
+  left: 100%;
+  margin-left:100px ;
   margin-top: 1px; /* Adds 1px gap below the span */
   background-color: #fff;
   border: 1px solid #ccc;
