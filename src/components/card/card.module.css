@@ -382,21 +382,22 @@ display: none;
   background-color: var(--bg);
   border: 1px solid var(--shadow-color);
   box-shadow: var(--shadow-color);
-  padding: 50%;
+  border-radius: 15px;
+  padding: 500%;
   color: var(--softTextColor);
   z-index: 10;
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 70%;
+  width: 700%;
 }
 
 .popup button {
   background: none;
   border: none;
   border-radius: 10px;
-  color: var(--softBg);
+  color: var(--softTextColor);
   cursor: pointer;
   padding: 4px 8px;
   font-size: 14px;
