@@ -82,17 +82,16 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             <div style={{ position: "relative" }}>
-              <span className={styles.span} onClick={(e) => { e.preventDefault(); togglePopup(); }}>..</span>
+              <span className={styles.span} onClick={(e) => { e.preventDefault(); togglePopup(); }}>...</span>
               {showPopup && (
                 <div ref={popupRef} className={styles.popup}>
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button >  
+                  <button onClick={closePopup}  
 
-                  <Link href={`/posts/${item.slug}`} passHref>
-                    <button onClick={closePopup}>Go to Post</button>
-                  </Link>
+                   href={`/posts/${item.slug}`} passHref>
+                  Go to Post
 
                   </button>    
 
