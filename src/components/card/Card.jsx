@@ -1,4 +1,4 @@
-"use client"; // Add this line
+"use client";
 
 import Image from "next/image";
 import styles from "./card.module.css";
@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useState, useRef, useEffect } from "react";
 
-// The rest of your component code remains the same
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
@@ -78,14 +77,15 @@ const Card = ({ key, item }) => {
 
             <span className={styles.category}>{item.catSlug}</span>
 
-            <span className={styles.span} onClick={(e) => {e.preventDefault(); togglePopup()}}>..</span>
-
-            {showPopup && (
-              <div ref={popupRef} className={styles.popup}>
-                <button onClick={copyLink}>Share Link</button>
-                <button onClick={() => alert("Report submitted!")}>Report</button>
-              </div>
-            )}
+            <div style={{ position: "relative" }}>
+              <span className={styles.span} onClick={(e) => { e.preventDefault(); togglePopup(); }}>..</span>
+              {showPopup && (
+                <div ref={popupRef} className={styles.popup}>
+                  <button onClick={copyLink}>Share Link</button>
+                  <button onClick={() => alert("Report submitted!")}>Report</button>
+                </div>
+              )}
+            </div>
           </div>
 
           <h1 className={styles.title}>{item.title.substring(0, 150)}</h1>
