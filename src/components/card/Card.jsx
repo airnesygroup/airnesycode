@@ -134,12 +134,12 @@ const Card = ({ key, item }) => {
                   </button>  
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => setShowPopup(false)  &&  alert("Report submitted!")}>
+                  <button onClick={() =>  alert("Report submitted!") && setShowPopup(false)  }>
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() =>   setShowPopup(false) && alert("Post saved")} >
+                  <button onClick={() =>  alert("Post saved") && setShowPopup(false)  } >
                     Save
                   </button>
                   <div className={styles.horizontalLine2}></div>
