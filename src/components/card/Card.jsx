@@ -5,43 +5,35 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { useState, useRef, useEffect } from "react";
-import { useSession } from "next-auth/react"; // Import useSession to get the current user
-import axios from "axios"; // To make the API request to delete the post
+import { useSession } from "next-auth/react";
+import axios from "axios";
 
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showEmails, setShowEmails] = useState(false); // To control displaying emails
-  const [isDeleted, setIsDeleted] = useState(false); // To control if the post is deleted
+  const [showEmails, setShowEmails] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   const popupRef = useRef(null);
-  
-  // Get the current user's session (email) using NextAuth
+
   const { data: session } = useSession();
-  
+
   const truncatedDesc = item?.desc.substring(0, 500);
   const truncatedDesc2 = item?.desc.substring(0, 140);
-  const showMore = item?.desc.length > 300;
 
   const togglePopup = () => setShowPopup((prev) => !prev);
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/posts/${item.slug}`);
-    setShowPopup(false);
     alert("Link copied to clipboard!");
+    setShowPopup(false);
   };
 
-  const closePopup = () => setShowPopup(false);
+  const handleCheckEmails = () => setShowEmails((prev) => !prev);
 
-  const handleCheckEmails = () => {
-    // Toggle the display of emails
-    setShowEmails((prev) => !prev);
-  };
   const handleDeletePost = async () => {
     try {
-      // Ensure you are passing the correct URL with query parameters
       const response = await axios.delete(`/api/posts/delete?postId=${item.id}`);
-  
       if (response.status === 200) {
-        setIsDeleted(true); // Set the deleted state to true
+        setIsDeleted(true);
         alert("Post deleted successfully!");
       }
     } catch (error) {
@@ -49,7 +41,6 @@ const Card = ({ key, item }) => {
       alert("Failed to delete the post.");
     }
   };
-  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -57,11 +48,23 @@ const Card = ({ key, item }) => {
         setShowPopup(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
-  if (isDeleted) return null; // Don't render the post if it has been deleted
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Disable scrolling when popup is open
+    if (showPopup) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto"; // Reset overflow on cleanup
+    };
+  }, [showPopup]);
+
+  if (isDeleted) return null;
 
   return (
     <>
@@ -89,13 +92,15 @@ const Card = ({ key, item }) => {
                     height={26}
                   />
                   <div className={styles.userInfo}>
-                    <p className={styles.username}>{item.user?.name.substring(0, 10)}</p>
+                    <p className={styles.username}>
+                      {item.user?.name.substring(0, 10)}
+                    </p>
                     <p className={styles.userRole}>{item.user?.role}</p>
                   </div>
-                  <img 
+                  <img
                     src="/verified.png"
-                    alt="Verified" 
-                    className={styles.verifiedIcon} 
+                    alt="Verified"
+                    className={styles.verifiedIcon}
                   />
                   <span className={styles.date}>
                     {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }).substring(0, 13)}
@@ -107,34 +112,48 @@ const Card = ({ key, item }) => {
             <span className={styles.category}>{item.catSlug}</span>
 
             <div style={{ position: "relative" }}>
-              <span className={styles.span} onClick={(e) => { e.preventDefault(); togglePopup(); }}>...</span>
+              <span
+                className={styles.span}
+                onClick={(e) => {
+                  e.preventDefault();
+                  togglePopup();
+                }}
+              >
+                ...
+              </span>
               {showPopup && (
                 <div ref={popupRef} className={styles.popup}>
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={closePopup} href={`/posts/${item.slug}`} passHref>
-                    Go to Post
-                  </button>    
-
+                  <button onClick={() => setShowPopup(false)}>Go to Post</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Report submitted!")}>Report</button>    
+                  <button onClick={() => alert("Report submitted!") && setShowPopup(false)}>
+                    Report
+                  </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Post saved")}>Save</button>
+                  <button onClick={() => alert("Post saved") && setShowPopup(false)}>
+                    Save
+                  </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  {/* Show the Delete button only if emails match */}
                   {session?.user?.email === item.user?.email && (
-                    <button onClick={handleDeletePost} className={styles.deleteButton}>
+                    <button
+                      onClick={() => {
+                        handleDeletePost();
+                        setShowPopup(false);
+                      }}
+                      className={styles.deleteButton}
+                    >
                       Delete Post
                     </button>
                   )}
 
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={closePopup}>Cancel</button>
+                  <button onClick={() => setShowPopup(false)}>Cancel</button>
                 </div>
               )}
             </div>
@@ -170,20 +189,21 @@ const Card = ({ key, item }) => {
               />
             </div>
           )}
-          
-          {/* Check Emails Button */}
+
           <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
             Check Emails
           </button>
-          
-          {/* Display emails if showEmails is true */}
+
           {showEmails && (
             <div className={styles.emailsDisplay}>
-              <p><strong>Current User Email:</strong> {session?.user?.email}</p>
-              <p><strong>Post Creator's Email:</strong> {item.user?.email}</p>
+              <p>
+                <strong>Current User Email:</strong> {session?.user?.email}
+              </p>
+              <p>
+                <strong>Post Creator's Email:</strong> {item.user?.email}
+              </p>
             </div>
           )}
-
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
