@@ -129,12 +129,12 @@ const Card = ({ key, item }) => {
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => setShowPopup(false)} href={`/posts/${item.slug}`} passHref>
+                  <button  href={`/posts/${item.slug}`} passHref>
                     Go to Post
                   </button>  
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => setShowPopup(false)  &&  alert("Report submitted!")}>
+                  <button onClick={() =>   alert("Report submitted!") && setShowPopup(false)  }>
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
