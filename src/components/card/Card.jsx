@@ -1,3 +1,6 @@
+
+
+                   
 "use client";
 
 import Image from "next/image";
@@ -126,15 +129,17 @@ const Card = ({ key, item }) => {
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => setShowPopup(false)}>Go to Post</button>
+                  <button onClick={closePopup} href={`/posts/${item.slug}`} passHref>
+                    Go to Post
+                  </button>  
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Report submitted!") && setShowPopup(false)}>
+                  <button onClick={() => setShowPopup(false)  &&  alert("Report submitted!")}>
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => alert("Post saved") && setShowPopup(false)}>
+                  <button onClick={() =>   setShowPopup(false) && alert("Post saved")} >
                     Save
                   </button>
                   <div className={styles.horizontalLine2}></div>
