@@ -1,7 +1,5 @@
-
-
-                   
 "use client";
+
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
@@ -118,7 +116,7 @@ const Card = ({ key, item }) => {
                 className={styles.span}
                 onClick={(e) => {
                   e.preventDefault();
-                  togglePopup(); // Toggle popup visibility
+                  togglePopup();  // Toggle the popup state
                 }}
               >
                 ...
@@ -128,27 +126,17 @@ const Card = ({ key, item }) => {
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <Link href={`/posts/${item.slug}`} passHref>
+                  <Link href={`/posts/${item.slug}`}>
                     <button>Go to Post</button>
-                  </Link>  
+                  </Link>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button 
-                    onClick={() => {
-                      alert("Report submitted!");
-                      setShowPopup(false); // Close popup on report submission
-                    }}
-                  >
+                  <button onClick={() => alert("Report submitted!") && setShowPopup(false)}>
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button 
-                    onClick={() => {
-                      setShowPopup(false);
-                      alert("Post saved");
-                    }}
-                  >
+                  <button onClick={() => setShowPopup(false) && alert("Post saved")}>
                     Save
                   </button>
                   <div className={styles.horizontalLine2}></div>
@@ -204,7 +192,7 @@ const Card = ({ key, item }) => {
             </div>
           )}
 
-         {/* <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
+          <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
             Check Emails
           </button>
 
@@ -217,7 +205,7 @@ const Card = ({ key, item }) => {
                 <strong>Post Creator's Email:</strong> {item.user?.email}
               </p>
             </div>
-          )} */}
+          )}
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
