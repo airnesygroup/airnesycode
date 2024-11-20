@@ -1,6 +1,3 @@
-
-
-                   
 "use client";
 
 import Image from "next/image";
@@ -13,7 +10,6 @@ import axios from "axios";
 
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showEmails, setShowEmails] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const popupRef = useRef(null);
 
@@ -29,8 +25,6 @@ const Card = ({ key, item }) => {
     alert("Link copied to clipboard!");
     setShowPopup(false);
   };
-
-  const handleCheckEmails = () => setShowEmails((prev) => !prev);
 
   const handleDeletePost = async () => {
     try {
@@ -129,17 +123,23 @@ const Card = ({ key, item }) => {
                   <button onClick={copyLink}>Copy Link</button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button  href={`/posts/${item.slug}`} passHref>
-                    Go to Post
-                  </button>  
+                  <Link href={`/posts/${item.slug}`} passHref>
+                    <button>Go to Post</button>
+                  </Link>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() =>   alert("Report submitted!") && setShowPopup(false)  }>
+                  <button onClick={() => { 
+                    alert("Report submitted!");
+                    setShowPopup(false);
+                  }}>
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() =>   setShowPopup(false) && alert("Post saved")} >
+                  <button onClick={() => { 
+                    setShowPopup(false);
+                    alert("Post saved");
+                  }}>
                     Save
                   </button>
                   <div className={styles.horizontalLine2}></div>
@@ -194,16 +194,6 @@ const Card = ({ key, item }) => {
               />
             </div>
           )}
-{/* 
-  <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
-    Check Emails
-  </button>
-*/}
-
-
-
-
-
 
           {showEmails && (
             <div className={styles.emailsDisplay}>
