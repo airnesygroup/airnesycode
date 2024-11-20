@@ -195,9 +195,13 @@ const Card = ({ key, item }) => {
             </div>
           )}
 
-          <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
-            Check Emails
-          </button>
+
+/*
+<button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
+  Check Emails
+</button>
+*/
+
 
           {showEmails && (
             <div className={styles.emailsDisplay}>
