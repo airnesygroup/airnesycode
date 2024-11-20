@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
@@ -10,6 +8,7 @@ import axios from "axios";
 
 const Card = ({ key, item }) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showEmails, setShowEmails] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const popupRef = useRef(null);
 
@@ -25,6 +24,8 @@ const Card = ({ key, item }) => {
     alert("Link copied to clipboard!");
     setShowPopup(false);
   };
+
+  const handleCheckEmails = () => setShowEmails((prev) => !prev);
 
   const handleDeletePost = async () => {
     try {
@@ -113,7 +114,7 @@ const Card = ({ key, item }) => {
                 className={styles.span}
                 onClick={(e) => {
                   e.preventDefault();
-                  togglePopup();
+                  togglePopup(); // Toggle popup visibility
                 }}
               >
                 ...
@@ -125,21 +126,25 @@ const Card = ({ key, item }) => {
 
                   <Link href={`/posts/${item.slug}`} passHref>
                     <button>Go to Post</button>
-                  </Link>
+                  </Link>  
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => { 
-                    alert("Report submitted!");
-                    setShowPopup(false);
-                  }}>
+                  <button 
+                    onClick={() => {
+                      alert("Report submitted!");
+                      setShowPopup(false); // Close popup on report submission
+                    }}
+                  >
                     Report
                   </button>
                   <div className={styles.horizontalLine2}></div>
 
-                  <button onClick={() => { 
-                    setShowPopup(false);
-                    alert("Post saved");
-                  }}>
+                  <button 
+                    onClick={() => {
+                      setShowPopup(false);
+                      alert("Post saved");
+                    }}
+                  >
                     Save
                   </button>
                   <div className={styles.horizontalLine2}></div>
@@ -195,6 +200,10 @@ const Card = ({ key, item }) => {
             </div>
           )}
 
+         {/* <button onClick={handleCheckEmails} className={styles.checkEmailsButton}>
+            Check Emails
+          </button>
+
           {showEmails && (
             <div className={styles.emailsDisplay}>
               <p>
@@ -204,7 +213,7 @@ const Card = ({ key, item }) => {
                 <strong>Post Creator's Email:</strong> {item.user?.email}
               </p>
             </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className={styles.horizontalLine}></div>
