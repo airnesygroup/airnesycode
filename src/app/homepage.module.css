@@ -2,7 +2,6 @@
   display: flex;
   gap: 20px;
   padding-left: 1.5%;
-  max-width: 350px;  
 
 
 }
@@ -11,7 +10,7 @@
 
 .Content4 {
 
-  max-width: 350px;  
+  max-width: 1000px;  
    
   display: flex;
   flex-direction: column;
