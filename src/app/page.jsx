@@ -35,13 +35,20 @@ export default function Home({ searchParams }) {
         <div className={styles.mainContent}>
           <CategoryList />
   
+          
+
+          <div className={styles.content4}>
           <CarouselList page={page} />
-  
+
           <div className={styles.content1}>
             <CardList page={page} />
   
             <Menu />
           </div>
+          </div>
+
+
+
           <Footer />
         </div>
       </div>
