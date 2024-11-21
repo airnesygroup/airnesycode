@@ -40,11 +40,13 @@ export default function Home({ searchParams }) {
          
 
           <div className={styles.content1}>
-          <div>
+          <div className={styles.g}>
             <CardList page={page} />
             </div>
-
+            <div className={styles.f}>
             <Menu />
+
+           </div>
           </div>
 
 
