@@ -12,6 +12,18 @@
   position: relative; /* Keeps the layout flexible */
 }
 
+.g{
+  display: flex;
+  flex: 5;
+
+}
+
+
+.f{
+  display: flex;
+flex: 1;
+}
+
 
 /* src/app/homepage.module.css */
 .trendingWrapper {
