@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
@@ -27,42 +26,26 @@ export default function Home({ searchParams }) {
           <Trending />
         </div>
   
+       <Navbar />
         <AddIcon />
   
-        
+        <div className={styles.menu}>
+          <SidebarCategoryList />
+        </div>
         <div className={styles.mainContent}>
-        <Navbar />
-
           <CategoryList />
   
-          
-
-         
-
-          <div className={styles.content1}>
-          <div className={styles.h}>
-
-          <div className={styles.menu}>
-          <SidebarCategoryList />
-        </div>    
-            </div>
-
-
-          <div className={styles.g}>
           <CarouselList page={page} />
+  
+          <div className={styles.content1}>
             <CardList page={page} />
-            
-            </div>
-            <div className={styles.f}>
+  
             <Menu />
-
-           </div>
           </div>
-
-
-
           <Footer />
         </div>
       </div>
   );
 }
+    
+

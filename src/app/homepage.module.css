@@ -3,35 +3,13 @@
   gap: 20px;
   padding-left: 1.5%;
 }
-/* homepage.module.css */z
+/* homepage.module.css */
 
 .container {
   display: flex;
   flex-wrap: nowrap;
   margin-right: auto;
   position: relative; /* Keeps the layout flexible */
-}
-
-
-.h{
-  display: flex;
-flex: 3;
-}
-
-
-.g{
-  display: flex;
-  flex: 5;
-  flex-direction: column;
-  max-width: 710px;  
-
-
-}
-
-
-.f{
-  display: flex;
-flex: 3;
 }
 
 
@@ -103,7 +81,8 @@ flex: 3;
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
   margin: 0 auto; /* Center the entire container */
-  max-width: 1250px;  
+  max-width: 1350px;  
+  padding-left: calc(250px + 1.5%);
 
   flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
