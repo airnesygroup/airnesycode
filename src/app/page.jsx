@@ -30,10 +30,9 @@ export default function Home({ searchParams }) {
        <Navbar />
         <AddIcon />
   
-        <div className={styles.menu}>
-          <SidebarCategoryList />
-        </div>
+        
         <div className={styles.mainContent}>
+
           <CategoryList />
   
           
@@ -41,6 +40,10 @@ export default function Home({ searchParams }) {
          
 
           <div className={styles.content1}>
+          <div className={styles.menu}>
+          <SidebarCategoryList />
+        </div>
+        
           <div className={styles.g}>
           <CarouselList page={page} />
             <CardList page={page} />
