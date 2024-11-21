@@ -9,7 +9,8 @@
 
 .Content4 {
 
-
+  max-width: 350px;  
+   
   display: flex;
   flex-direction: column;
 }
