@@ -27,11 +27,11 @@ export default function Home({ searchParams }) {
           <Trending />
         </div>
   
-       <Navbar />
         <AddIcon />
   
         
         <div className={styles.mainContent}>
+        <Navbar />
 
           <CategoryList />
   
@@ -40,10 +40,14 @@ export default function Home({ searchParams }) {
          
 
           <div className={styles.content1}>
+          <div className={styles.h}>
+
           <div className={styles.menu}>
           <SidebarCategoryList />
-        </div>
-        
+        </div>    
+            </div>
+
+
           <div className={styles.g}>
           <CarouselList page={page} />
             <CardList page={page} />

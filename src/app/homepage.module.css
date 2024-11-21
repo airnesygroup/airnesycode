@@ -12,6 +12,13 @@
   position: relative; /* Keeps the layout flexible */
 }
 
+
+.h{
+  display: flex;
+flex: 3;
+}
+
+
 .g{
   display: flex;
   flex: 5;
