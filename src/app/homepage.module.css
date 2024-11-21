@@ -23,7 +23,7 @@ flex: 3;
   display: flex;
   flex: 5;
   flex-direction: column;
-  max-width: 750px;  
+  max-width: 710px;  
 
 
 }
@@ -103,7 +103,7 @@ flex: 3;
 /* Keep existing styles for the mainContent and media queries */
 .mainContent {
   margin: 0 auto; /* Center the entire container */
-  max-width: 1350px;  
+  max-width: 1250px;  
 
   flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;

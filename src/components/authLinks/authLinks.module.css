@@ -1,6 +1,7 @@
 .link {
   cursor: pointer;
-  background-color: #f54302;
+  background-color: #1DA1F2
+;
   border-radius: 85px;
   padding: 12.5px 14px;
   margin-right: -10%;
@@ -87,7 +88,8 @@
 
 .logout2 {
   cursor: pointer;
-  background-color: #f54302;
+  background-color: #1DA1F2
+;
   border-radius: 15px;
   padding: 7px 11px;
   color: #fff;
@@ -98,7 +100,8 @@
 @media screen and (max-width: 720px) {
   .logout2 {
     cursor: pointer;
-    background-color: #f54302;
+    background-color: #1DA1F2
+;
     border-radius: 15px;
     padding:65px 10px;
     color: #fff;
