@@ -1,15 +1,17 @@
 .content1{
   display: flex;
   gap: 20px;
+  padding-left: 1.5%;
 }
 /* homepage.module.css */
 
 
 .Content4 {
-  padding-left: 1.5%;
 
+
+  flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
-  gap: 20px;
+  flex-direction: column;
 }
 
 .container {
