@@ -2,7 +2,6 @@
   display: flex;
   gap: 20px;
   padding-left: 1.5%;
-  max-width: 1350px;  
 
 }
 /* homepage.module.css */
@@ -11,7 +10,6 @@
 .Content4 {
 
 
-  flex: 1; /* Allow mainContent to take up the remaining space */
   display: flex;
   flex-direction: column;
 }
