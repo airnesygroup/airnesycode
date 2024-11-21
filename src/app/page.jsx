@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import styles from "./homepage.module.css";
 import Featured from "@/components/featured/Featured";
@@ -41,7 +42,9 @@ export default function Home({ searchParams }) {
 
           <div className={styles.content1}>
           <div className={styles.g}>
+          <CarouselList page={page} />
             <CardList page={page} />
+            
             </div>
             <div className={styles.f}>
             <Menu />
@@ -56,5 +59,3 @@ export default function Home({ searchParams }) {
       </div>
   );
 }
-    
-
