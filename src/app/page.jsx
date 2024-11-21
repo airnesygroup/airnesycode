@@ -40,8 +40,7 @@ export default function Home({ searchParams }) {
          
 
           <div className={styles.content1}>
-          <div className={styles.content4}>
-          <CarouselList page={page} />
+          <div>
             <CardList page={page} />
             </div>
 
