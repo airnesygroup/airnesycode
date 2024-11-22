@@ -51,7 +51,7 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #1DA1F2
+  background-color: #FF4500
 ;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -75,7 +75,7 @@
 }
 
 .highlight {
-  color: #1DA1F2
+  color: #FF4500
 ; /* Orange color for "Sign up" and "Sign in" */
 }
 
@@ -86,7 +86,7 @@
 }
 
 .link {
-  color: #1DA1F2
+  color: #FF4500
 ;
   text-decoration: none;
 }
